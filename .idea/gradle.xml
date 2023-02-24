@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="testRunner" value="GRADLE" />
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/buildSrc" />
+            <option value="$PROJECT_DIR$/contacts/app" />
+            <option value="$PROJECT_DIR$/contacts/lib" />
+            <option value="$PROJECT_DIR$/core-util" />
+            <option value="$PROJECT_DIR$/device-transfer/app" />
+            <option value="$PROJECT_DIR$/device-transfer/lib" />
+            <option value="$PROJECT_DIR$/donations/app" />
+            <option value="$PROJECT_DIR$/donations/lib" />
+            <option value="$PROJECT_DIR$/glide-config" />
+            <option value="$PROJECT_DIR$/image-editor/app" />
+            <option value="$PROJECT_DIR$/image-editor/lib" />
+            <option value="$PROJECT_DIR$/libsignal/service" />
+            <option value="$PROJECT_DIR$/lintchecks" />
+            <option value="$PROJECT_DIR$/paging/app" />
+            <option value="$PROJECT_DIR$/paging/lib" />
+            <option value="$PROJECT_DIR$/qr/app" />
+            <option value="$PROJECT_DIR$/qr/lib" />
+            <option value="$PROJECT_DIR$/sms-exporter/app" />
+            <option value="$PROJECT_DIR$/sms-exporter/lib" />
+            <option value="$PROJECT_DIR$/spinner/app" />
+            <option value="$PROJECT_DIR$/spinner/lib" />
+            <option value="$PROJECT_DIR$/video" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

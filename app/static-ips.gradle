@@ -1,0 +1,8 @@
+ext.service_ips='new String[]{"13.214.176.26"}'
+ext.storage_ips='new String[]{"23.106.59.23"}'
+ext.cdn_ips='new String[]{"127.0.0.1"}'
+ext.cdn2_ips='new String[]{"34.110.223.94"}'
+ext.cds_ips='new String[]{"23.106.59.23"}'
+ext.kbs_ips='new String[]{"23.106.59.23"}'
+ext.sfu_ips='new String[]{"23.106.59.23"}'
+ext.content_proxy_ips='new String[]{"107.178.250.75"}'
