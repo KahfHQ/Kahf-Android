@@ -1,0 +1,47 @@
+apply plugin: 'com.android.library'
+
+repositories {
+    mavenCentral()
+}
+
+android {
+    buildToolsVersion BUILD_TOOL_VERSION
+    compileSdkVersion COMPILE_SDK
+
+    defaultConfig {
+        minSdkVersion MINIMUM_SDK
+        targetSdkVersion TARGET_SDK
+    }
+
+    compileOptions {
+        sourceCompatibility JAVA_VERSION
+        targetCompatibility JAVA_VERSION
+    }
+}
+
+dependencies {
+    implementation libs.androidx.appcompat
+    implementation project(':core-util')
+    implementation libs.libsignal.android
+    api libs.greenrobot.eventbus
+
+    implementation files('libs/libkahf-service-2.15.3-1.jar')
+    implementation libs.google.protobuf.javalite
+    api libs.google.libphonenumber
+    api libs.jackson.core
+
+    implementation libs.libsignal.client
+    api libs.square.okhttp3
+    api libs.square.okio
+    implementation libs.google.jsr305
+
+    api libs.rxjava3.rxjava
+
+    testImplementation testLibs.junit.junit
+    testImplementation testLibs.androidx.test.core
+    testImplementation (testLibs.robolectric.robolectric) {
+        exclude group: 'com.google.protobuf', module: 'protobuf-java'
+    }
+    testImplementation testLibs.robolectric.shadows.multidex
+    testImplementation testLibs.hamcrest.hamcrest
+}
