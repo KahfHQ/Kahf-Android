@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- smartling.instruction_comments_enabled = on -->
 <resources>
-    <string name="app_name" translatable="false">Signal</string>
+    <string name="app_name" translatable="false">Kahf Messenger</string>
 
     <string name="install_url" translatable="false">https://signal.org/install</string>
     <string name="donate_url" translatable="false">https://signal.org/donate</string>
@@ -46,7 +46,7 @@
     <string name="ApplicationPreferencesActivity_sms_enabled">SMS lubatud</string>
     <string name="ApplicationPreferencesActivity_touch_to_change_your_default_sms_app">Klõpsa, et vahetada SMSi vaikerakendust</string>
     <string name="ApplicationPreferencesActivity_sms_disabled">SMS keelatud</string>
-    <string name="ApplicationPreferencesActivity_touch_to_make_signal_your_default_sms_app">Puuduta, et teha Signal SMSi vaikerakenduseks.</string>
+    <string name="ApplicationPreferencesActivity_touch_to_make_signal_your_default_sms_app">Puuduta, et teha Kahf Messenger SMSi vaikerakenduseks.</string>
     <string name="ApplicationPreferencesActivity_on">sees</string>
     <string name="ApplicationPreferencesActivity_On">Sees</string>
     <string name="ApplicationPreferencesActivity_off">väljas</string>
@@ -96,15 +96,15 @@
     <string name="AttachmentKeyboard_file">Fail</string>
     <string name="AttachmentKeyboard_contact">Kontakt</string>
     <string name="AttachmentKeyboard_location">Asukoht</string>
-    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Signal vajab fotode ja videote näitamise õigust.</string>
+    <string name="AttachmentKeyboard_Signal_needs_permission_to_show_your_photos_and_videos">Kahf Messenger vajab fotode ja videote näitamise õigust.</string>
     <string name="AttachmentKeyboard_give_access">Anna juurdepääs</string>
     <string name="AttachmentKeyboard_payment">Makse</string>
 
     <!-- AttachmentManager -->
     <string name="AttachmentManager_cant_open_media_selection">Ei leia rakendust meediafaili valimiseks.</string>
-    <string name="AttachmentManager_signal_requires_the_external_storage_permission_in_order_to_attach_photos_videos_or_audio">Signal vajab fotode, videote või audiofailide manustamiseks ligipääsu salvestusmeediale, kuid see on püsivalt keelatud. Palun ava rakenduse seadete menüü, vali \"Õigused\" ja luba \"Salvestusmeedia\".</string>
-    <string name="AttachmentManager_signal_requires_contacts_permission_in_order_to_attach_contact_information">Signal vajab kontaktide manustamiseks ligipääsu kontaktidele, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kontaktid\".</string>
-    <string name="AttachmentManager_signal_requires_location_information_in_order_to_attach_a_location">Signal vajab asukoha manustamiseks ligipääsu seadme asukohale, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Asukoht\".</string>
+    <string name="AttachmentManager_signal_requires_the_external_storage_permission_in_order_to_attach_photos_videos_or_audio">Kahf Messenger vajab fotode, videote või audiofailide manustamiseks ligipääsu salvestusmeediale, kuid see on püsivalt keelatud. Palun ava rakenduse seadete menüü, vali \"Õigused\" ja luba \"Salvestusmeedia\".</string>
+    <string name="AttachmentManager_signal_requires_contacts_permission_in_order_to_attach_contact_information">Kahf Messenger vajab kontaktide manustamiseks ligipääsu kontaktidele, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kontaktid\".</string>
+    <string name="AttachmentManager_signal_requires_location_information_in_order_to_attach_a_location">Kahf Messenger vajab asukoha manustamiseks ligipääsu seadme asukohale, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Asukoht\".</string>
 
     <!-- AttachmentUploadJob -->
     <string name="AttachmentUploadJob_uploading_media">Meedia üleslaadimine…</string>
@@ -132,15 +132,15 @@
     <string name="BlockUnblockDialog_you_will_no_longer_receive_messages_or_updates">Sa ei saa enam sellelt grupilt sõnumeid ega värskendusi ja liikmed ei saa sind uuesti sellesse gruppi lisada.</string>
     <string name="BlockUnblockDialog_group_members_wont_be_able_to_add_you">Grupi liikmetel pole võimalik sind sellesse gruppi uuesti lisada.</string>
     <string name="BlockUnblockDialog_group_members_will_be_able_to_add_you">Grupi liikmetel on võimalik sind sellesse gruppi uuesti lisada.</string>
-    <!-- Text that is shown when unblocking a Signal contact -->
+    <!-- Text that is shown when unblocking a Kahf Messenger contact -->
     <string name="BlockUnblockDialog_you_will_be_able_to_call_and_message_each_other">Teil on võimalik üksteisele sõnumeid saata ja helistada ning sinu nimi ja foto jagatakse teistega.</string>
     <!-- Text that is shown when unblocking an SMS contact -->
     <string name="BlockUnblockDialog_you_will_be_able_to_message_each_other">Teil on võimalik teineteisele sõnumeid saata.</string>
     <string name="BlockUnblockDialog_blocked_people_wont_be_able_to_call_you_or_send_you_messages">Blokeeritud isikutel pole võimalik sulle helistada ega sõnumeid saata.</string>
     <string name="BlockUnblockDialog_blocked_people_wont_be_able_to_send_you_messages">Blokeeritud isikud ei saa sulle sõnumeid saata.</string>
-    <!-- Message shown on block dialog when blocking the Signal release notes recipient -->
+    <!-- Message shown on block dialog when blocking the Kahf Messenger release notes recipient -->
     <string name="BlockUnblockDialog_block_getting_signal_updates_and_news">Keeldu infost Signali uuenduste ja uudiste kohta.</string>
-    <!-- Message shown on unblock dialog when unblocking the Signal release notes recipient -->
+    <!-- Message shown on unblock dialog when unblocking the Kahf Messenger release notes recipient -->
     <string name="BlockUnblockDialog_resume_getting_signal_updates_and_news">Telli taas info Signali uuenduste ja uudiste kohta.</string>
     <string name="BlockUnblockDialog_unblock_s">Kas eemaldada %1$sblokeering?</string>
     <string name="BlockUnblockDialog_block">Blokeeri</string>
@@ -308,17 +308,17 @@
     <string name="ConversationActivity_cancel_request">Tühista taotlus</string>
 
     <string name="ConversationActivity_to_send_audio_messages_allow_signal_access_to_your_microphone">Audiosõnumite saatmiseks luba Signalile juurdepääs seadme mikrofonile.</string>
-    <string name="ConversationActivity_signal_requires_the_microphone_permission_in_order_to_send_audio_messages">Signal vajab audiosõnumite saatmiseks ligipääsu seadme mikrofonile, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Mikrofon\".</string>
-    <string name="ConversationActivity_signal_needs_the_microphone_and_camera_permissions_in_order_to_call_s">Signal vajab kasutajale %1$s helistamiseks ligipääsu kaamerale ja mikrofonile, kuid need on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Mikrofon\" ning \"Kaamera\".</string>
+    <string name="ConversationActivity_signal_requires_the_microphone_permission_in_order_to_send_audio_messages">Kahf Messenger vajab audiosõnumite saatmiseks ligipääsu seadme mikrofonile, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Mikrofon\".</string>
+    <string name="ConversationActivity_signal_needs_the_microphone_and_camera_permissions_in_order_to_call_s">Kahf Messenger vajab kasutajale %1$s helistamiseks ligipääsu kaamerale ja mikrofonile, kuid need on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Mikrofon\" ning \"Kaamera\".</string>
     <string name="ConversationActivity_to_capture_photos_and_video_allow_signal_access_to_the_camera">Luba Signalile ligipääs kaamerale fotode ja videote salvestamiseks.</string>
-    <string name="ConversationActivity_signal_needs_the_camera_permission_to_take_photos_or_video">Signal vajab ligipääsu kaamerale, et salvestada fotosid ja videosid, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kaamera\".</string>
-    <string name="ConversationActivity_signal_needs_camera_permissions_to_take_photos_or_video">Signal vajab fotode ja videote salvestamiseks ligipääsu kaamerale</string>
+    <string name="ConversationActivity_signal_needs_the_camera_permission_to_take_photos_or_video">Kahf Messenger vajab ligipääsu kaamerale, et salvestada fotosid ja videosid, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kaamera\".</string>
+    <string name="ConversationActivity_signal_needs_camera_permissions_to_take_photos_or_video">Kahf Messenger vajab fotode ja videote salvestamiseks ligipääsu kaamerale</string>
     <string name="ConversationActivity_enable_the_microphone_permission_to_capture_videos_with_sound">Luba mikrofoni kasutus, et teha heliga videoid.</string>
-    <string name="ConversationActivity_signal_needs_the_recording_permissions_to_capture_video">Signal vajab videote salvestamiseks mikrofoni luba, kuid see on keelatud. Palun järka rakenduse seadetes, vali \"Load\" ning luba \"Mikrofon\" ja \"Kaamera\".</string>
-    <string name="ConversationActivity_signal_needs_recording_permissions_to_capture_video">Signal vajab videote salvestamiseks mikrofoniluba.</string>
+    <string name="ConversationActivity_signal_needs_the_recording_permissions_to_capture_video">Kahf Messenger vajab videote salvestamiseks mikrofoni luba, kuid see on keelatud. Palun järka rakenduse seadetes, vali \"Load\" ning luba \"Mikrofon\" ja \"Kaamera\".</string>
+    <string name="ConversationActivity_signal_needs_recording_permissions_to_capture_video">Kahf Messenger vajab videote salvestamiseks mikrofoniluba.</string>
 
     <string name="ConversationActivity_quoted_contact_message">%1$s %2$s</string>
-    <string name="ConversationActivity_signal_cannot_sent_sms_mms_messages_because_it_is_not_your_default_sms_app">Signal ei saa SMS/MMS sõnumeid saata, kuna see pole sinu vaikimisi SMS-i rakendus. Kas soovid seda muuta oma Androidi seadetes?</string>
+    <string name="ConversationActivity_signal_cannot_sent_sms_mms_messages_because_it_is_not_your_default_sms_app">Kahf Messenger ei saa SMS/MMS sõnumeid saata, kuna see pole sinu vaikimisi SMS-i rakendus. Kas soovid seda muuta oma Androidi seadetes?</string>
     <string name="ConversationActivity_yes">Jah</string>
     <string name="ConversationActivity_no">Ei</string>
     <string name="ConversationActivity_search_position">%1$d / %2$d</string>
@@ -334,7 +334,7 @@
     <string name="ConversationActivity_you_will_leave_this_group_and_it_will_be_deleted_from_all_of_your_devices">Sa lahkud sellest grupist ja see kustutatakse kõigist sinu seadmetest.</string>
     <string name="ConversationActivity_delete">Kustuta</string>
     <string name="ConversationActivity_delete_and_leave">Kustuta ja lahku</string>
-    <string name="ConversationActivity__to_call_s_signal_needs_access_to_your_microphone">Signal vajab kasutajale %1$s helistamiseks juurdepääsu seadme mikrofonile</string>
+    <string name="ConversationActivity__to_call_s_signal_needs_access_to_your_microphone">Kahf Messenger vajab kasutajale %1$s helistamiseks juurdepääsu seadme mikrofonile</string>
 
     <string name="ConversationActivity__more_options_now_in_group_settings">\"Grupi seadetes\" on nüüd rohkem valikuid</string>
 
@@ -348,13 +348,13 @@
     <!-- Message shown when opening an SMS conversation with SMS disabled and they have unexported sms messages -->
     <string name="ConversationActivity__sms_messaging_is_currently_disabled_you_can_export_your_messages_to_another_app_on_your_phone">SMS-sõnumite toetamine on praegu välja lülitatud. Saad eksportida oma sõnumid mõnda teise rakendusse oma telefonis.</string>
     <!-- Message shown when opening an SMS conversation with SMS disabled and they have unexported sms messages -->
-    <string name="ConversationActivity__sms_messaging_is_no_longer_supported_in_signal_you_can_export_your_messages_to_another_app_on_your_phone">Signal ei toeta enam SMS-sõnumeid. Saad eksportida sõnumid mõnda teise oma telefoni rakendusse.</string>
+    <string name="ConversationActivity__sms_messaging_is_no_longer_supported_in_signal_you_can_export_your_messages_to_another_app_on_your_phone">Kahf Messenger ei toeta enam SMS-sõnumeid. Saad eksportida sõnumid mõnda teise oma telefoni rakendusse.</string>
     <!-- Action button shown when in sms conversation, sms is disabled, and unexported sms messages are present -->
     <string name="ConversationActivity__export_sms_messages">Ekspordi SMS-sõnumid</string>
     <!-- Message shown when opening an SMS conversation with SMS disabled and there are no exported messages -->
     <string name="ConversationActivity__sms_messaging_is_currently_disabled_invite_s_to_to_signal_to_keep_the_conversation_here">SMS-sõnumite toetamine on praegu välja lülitatud. Kutsu %1$s Signalisse ja jätkake vestlust siin.</string>
     <!-- Message shown when opening an SMS conversation with SMS disabled and there are no exported messages -->
-    <string name="ConversationActivity__sms_messaging_is_no_longer_supported_in_signal_invite_s_to_to_signal_to_keep_the_conversation_here">Signal ei toeta enam SMS-sõnumeid. Kutsu %1$s Signalisse ja jätkake vestlust siin.</string>
+    <string name="ConversationActivity__sms_messaging_is_no_longer_supported_in_signal_invite_s_to_to_signal_to_keep_the_conversation_here">Kahf Messenger ei toeta enam SMS-sõnumeid. Kutsu %1$s Signalisse ja jätkake vestlust siin.</string>
     <!-- Action button shown when opening an SMS conversation with SMS disabled and there are no exported messages -->
     <string name="ConversationActivity__invite_to_signal">Kutsu Signalisse</string>
     <!-- Snackbar message shown after dismissing the full screen sms export megaphone indicating we'll do it again soon -->
@@ -392,7 +392,7 @@
         <item quantity="other">%1$d manuse salvestamine sisemällu…</item>
     </plurals>
     <string name="ConversationFragment_pending">Ootel…</string>
-    <string name="ConversationFragment_push">Andmeside (Signal)</string>
+    <string name="ConversationFragment_push">Andmeside (Kahf Messenger)</string>
     <string name="ConversationFragment_mms">MMS</string>
     <string name="ConversationFragment_sms">SMS</string>
     <string name="ConversationFragment_deleting">Kustutan</string>
@@ -411,7 +411,7 @@
     <string name="ConversationFragment__d_group_members_have_the_same_name">%1$d grupiliikmel on sama nimi.</string>
     <string name="ConversationFragment__tap_to_review">Üle vaatamiseks koputa</string>
     <string name="ConversationFragment__review_requests_carefully">Vaata taotlused tähelepanelikult üle</string>
-    <string name="ConversationFragment__signal_found_another_contact_with_the_same_name">Signal leidis teise samanimelise kontakti</string>
+    <string name="ConversationFragment__signal_found_another_contact_with_the_same_name">Kahf Messenger leidis teise samanimelise kontakti</string>
     <string name="ConversationFragment_contact_us">Võta meiega ühendust</string>
     <string name="ConversationFragment_verify">Kinnita</string>
     <string name="ConversationFragment_not_now">Mitte praegu</string>
@@ -575,7 +575,7 @@
     <string name="BackupsPreferenceFragment__d_so_far">Siiani %1$d…</string>
     <!-- Show percentage of completion of backup -->
     <string name="BackupsPreferenceFragment__s_so_far">%1$s/ %% …</string>
-    <string name="BackupsPreferenceFragment_signal_requires_external_storage_permission_in_order_to_create_backups">Signal vajab varukoopiate loomiseks välismälu õigust, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ning luba \"Mäluruum\".</string>
+    <string name="BackupsPreferenceFragment_signal_requires_external_storage_permission_in_order_to_create_backups">Kahf Messenger vajab varukoopiate loomiseks välismälu õigust, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ning luba \"Mäluruum\".</string>
 
 
     <!-- CustomDefaultPreference -->
@@ -599,7 +599,7 @@
 
     <!-- DecryptionFailedDialog -->
     <string name="DecryptionFailedDialog_chat_session_refreshed">Vestluse seanss on värskendatud</string>
-    <string name="DecryptionFailedDialog_signal_uses_end_to_end_encryption">Signal kasutab otspunkt krüptimist ja see võib mõnikord vajada vestluse seansi värskendamist. See ei mõjuta vestluse turvalisust, aga sa võisid mõnest selle kontakti sõnumist ilma jääda, seepärast palu neil vajadusel need uuesti saata.</string>
+    <string name="DecryptionFailedDialog_signal_uses_end_to_end_encryption">Kahf Messenger kasutab otspunkt krüptimist ja see võib mõnikord vajada vestluse seansi värskendamist. See ei mõjuta vestluse turvalisust, aga sa võisid mõnest selle kontakti sõnumist ilma jääda, seepärast palu neil vajadusel need uuesti saata.</string>
 
     <!-- DeviceListActivity -->
     <string name="DeviceListActivity_unlink_s">Eemaldada \"%1$s\" linkimine?</string>
@@ -636,7 +636,7 @@
 
     <!-- GcmRefreshJob -->
     <string name="GcmRefreshJob_Permanent_Signal_communication_failure">Püsiv Signali ühendusviga!</string>
-    <string name="GcmRefreshJob_Signal_was_unable_to_register_with_Google_Play_Services">Signal ei saanud registreerida teenusega Google Play Services. Signali sõnumid ja kõned on keelatud, palun proovi taas-registreerida menüüs Seaded &gt; Täpsem.</string>
+    <string name="GcmRefreshJob_Signal_was_unable_to_register_with_Google_Play_Services">Kahf Messenger ei saanud registreerida teenusega Google Play Services. Signali sõnumid ja kõned on keelatud, palun proovi taas-registreerida menüüs Seaded &gt; Täpsem.</string>
 
 
     <!-- GiphyActivity -->
@@ -978,7 +978,7 @@
     <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_signal_to_use_group_links">Uuenda Signalit grupilinkide kasutamiseks</string>
     <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_message">Signali versioon, mida kasutad, ei toeta jagatavaid grupilinke. Lingi kaudu grupiga liitumiseks uuenda viimasele versioonile.</string>
     <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_signal">Uuenda Signalit</string>
-    <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_linked_device_message">Üks või mitu lingitud seadet kasutavad Signali versiooni, mis ei toeta grupilinke. Selle grupiga liitumiseks uuenda Signal kõigis lingitud seadme(te)s.</string>
+    <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_linked_device_message">Üks või mitu lingitud seadet kasutavad Signali versiooni, mis ei toeta grupilinke. Selle grupiga liitumiseks uuenda Kahf Messenger kõigis lingitud seadme(te)s.</string>
     <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_group_link_is_not_valid">Grupilink ei ole kehtiv</string>
 
     <!-- GroupInviteLinkEnableAndShareBottomSheetDialogFragment -->
@@ -1009,8 +1009,8 @@
 
     <!-- InputPanel -->
     <string name="InputPanel_tap_and_hold_to_record_a_voice_message_release_to_send">Koputa ja hoia all, et salvestada helisõnum, vabasta saatmiseks</string>
-    <!-- Message shown if the user tries to switch a conversation from Signal to SMS -->
-    <string name="InputPanel__sms_messaging_is_no_longer_supported_in_signal">Signal ei toeta enam SMS-sõnumeid.</string>
+    <!-- Message shown if the user tries to switch a conversation from Kahf Messenger to SMS -->
+    <string name="InputPanel__sms_messaging_is_no_longer_supported_in_signal">Kahf Messenger ei toeta enam SMS-sõnumeid.</string>
 
     <!-- InviteActivity -->
     <string name="InviteActivity_share">Jaga</string>
@@ -1040,7 +1040,7 @@
     <string name="LongMessageActivity_your_message">Sinu sõnum</string>
 
     <!-- MessageRetrievalService -->
-    <string name="MessageRetrievalService_signal">Signal</string>
+    <string name="MessageRetrievalService_signal">Kahf Messenger</string>
     <string name="MessageRetrievalService_background_connection_enabled">Taustaühendus lubatud</string>
 
     <!-- MmsDownloader -->
@@ -1151,8 +1151,8 @@
     <string name="MediaSendActivity_message_to_s">Sõnum kasutajale %1$s</string>
     <string name="MediaSendActivity_message">Sõnum</string>
     <string name="MediaSendActivity_select_recipients">Vali saajad</string>
-    <string name="MediaSendActivity_signal_needs_access_to_your_contacts">Signal vajab kontaktide kuvamiseks nendele ligipääsu.</string>
-    <string name="MediaSendActivity_signal_needs_contacts_permission_in_order_to_show_your_contacts_but_it_has_been_permanently_denied">Signal vajab kontaktide luba, et kuvada su kontakte, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kontaktid\".</string>
+    <string name="MediaSendActivity_signal_needs_access_to_your_contacts">Kahf Messenger vajab kontaktide kuvamiseks nendele ligipääsu.</string>
+    <string name="MediaSendActivity_signal_needs_contacts_permission_in_order_to_show_your_contacts_but_it_has_been_permanently_denied">Kahf Messenger vajab kontaktide luba, et kuvada su kontakte, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kontaktid\".</string>
     <plurals name="MediaSendActivity_cant_share_more_than_n_items">
         <item quantity="one">Sa ei saa jagada rohkem kui %1$d üksust.</item>
         <item quantity="other">Sa ei saa jagada rohkem kui %1$d üksust.</item>
@@ -1408,7 +1408,7 @@
     <string name="MessageRequestBottomView_block">Blokeeri</string>
     <string name="MessageRequestBottomView_unblock">Eemalda blokeering</string>
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_they_wont_know_youve_seen_their_messages_until_you_accept">Kas lubad kasutajal %1$s sulle sõnumeid saata ja jagad temaga enda nime ja fotot? Ta ei tea, et oled seda sõnumit näinud enne kui oled sellega nõustunud.</string>
-    <!-- Shown in message request flow. Describes what will happen if you unblock a Signal user -->
+    <!-- Shown in message request flow. Describes what will happen if you unblock a Kahf Messenger user -->
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_wont_receive_any_messages_until_you_unblock_them">Kas lubad kasutajal %1$s sulle sõnumeid saata ja jagad temaga enda nime ja fotot? Ta ei tea, et oled seda sõnumit näinud enne kui oled sellega nõustunud.</string>
     <!-- Shown in message request flow. Describes what will happen if you unblock an SMS user -->
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_wont_receive_any_messages_until_you_unblock_them_SMS">Kas lubad kasutajal %1$s sulle sõnumeid saata? Sa ei saa sõnumeid enne kui oled blokeeringu eemaldanud.</string>
@@ -1469,7 +1469,7 @@
     <string name="DeviceProvisioningActivity_link_a_signal_device">Lingid Signali seadme?</string>
     <string name="DeviceProvisioningActivity_it_looks_like_youre_trying_to_link_a_signal_device_using_a_3rd_party_scanner">Tundub, et proovid linkida Signali seadet, kasutades 3. osapoole skannerit. Sinu kaitseks, palun skanneeri kood uuesti Signali siseselt.</string>
 
-    <string name="DeviceActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code">Signal vajab kaamera luba, et skanneerida QR-koodi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kaamera\".</string>
+    <string name="DeviceActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code">Kahf Messenger vajab kaamera luba, et skanneerida QR-koodi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kaamera\".</string>
     <string name="DeviceActivity_unable_to_scan_a_qr_code_without_the_camera_permission">QR-koodi ei saa skanneerida ilma kaamera loata</string>
 
     <!-- OutdatedBuildReminder -->
@@ -1485,8 +1485,8 @@
     <string name="PassphrasePromptActivity_watermark_content_description">Signali ikoon</string>
     <string name="PassphrasePromptActivity_ok_button_content_description">Saada salasõna</string>
     <string name="PassphrasePromptActivity_invalid_passphrase_exclamation">Sobimatu salasõna!</string>
-    <string name="PassphrasePromptActivity_unlock_signal">Lukusta Signal lahti</string>
-    <string name="PassphrasePromptActivity_signal_android_lock_screen">Signal Android: ekraanilukk</string>
+    <string name="PassphrasePromptActivity_unlock_signal">Lukusta Kahf Messenger lahti</string>
+    <string name="PassphrasePromptActivity_signal_android_lock_screen">Kahf Messenger Android: ekraanilukk</string>
 
     <!-- PlacePickerActivity -->
     <string name="PlacePickerActivity_title">Kaart</string>
@@ -1523,7 +1523,7 @@
 
     <!-- PinOptOutDialog -->
     <string name="PinOptOutDialog_warning">Hoiatus</string>
-    <string name="PinOptOutDialog_if_you_disable_the_pin_you_will_lose_all_data">Kui keelad PIN-koodi, siis kaotad kõik andmed, kui eemaldad Signal rakenduse ja pole seda käsitsi varundanud ja taastanud. Registreerimislukku pole võimalik sisse lülitada, kui PIN-kood on keelatud.</string>
+    <string name="PinOptOutDialog_if_you_disable_the_pin_you_will_lose_all_data">Kui keelad PIN-koodi, siis kaotad kõik andmed, kui eemaldad Kahf Messenger rakenduse ja pole seda käsitsi varundanud ja taastanud. Registreerimislukku pole võimalik sisse lülitada, kui PIN-kood on keelatud.</string>
     <string name="PinOptOutDialog_disable_pin">Keela PIN</string>
 
     <!-- RatingManager -->
@@ -1578,8 +1578,8 @@
 
     <!-- WebRtcCallActivity -->
     <string name="WebRtcCallActivity__tap_here_to_turn_on_your_video">Klõpsa siia enda video käivitamiseks</string>
-    <string name="WebRtcCallActivity__to_call_s_signal_needs_access_to_your_camera">Signal vajab kasutajale %1$s helistamiseks juurdepääsu seadme kaamerale</string>
-    <string name="WebRtcCallActivity__signal_s">Signal %1$s</string>
+    <string name="WebRtcCallActivity__to_call_s_signal_needs_access_to_your_camera">Kahf Messenger vajab kasutajale %1$s helistamiseks juurdepääsu seadme kaamerale</string>
+    <string name="WebRtcCallActivity__signal_s">Kahf Messenger %1$s</string>
     <string name="WebRtcCallActivity__calling">Helistamine…</string>
     <string name="WebRtcCallActivity__group_is_too_large_to_ring_the_participants">Grupp on liikmetele helistamiseks liiga suur.</string>
     <!-- Call status shown when an active call was disconnected (e.g., network hiccup) and is trying to reconnect -->
@@ -1606,11 +1606,11 @@
     <string name="WebRtcCallView__joining">Liitumine…</string>
     <string name="WebRtcCallView__disconnected">Ühendus katkestatud</string>
 
-    <string name="WebRtcCallView__signal_will_ring_s">Signal helistab isikule %1$s</string>
-    <string name="WebRtcCallView__signal_will_ring_s_and_s">Signal helistab isikutele %1$s ja %2$s</string>
+    <string name="WebRtcCallView__signal_will_ring_s">Kahf Messenger helistab isikule %1$s</string>
+    <string name="WebRtcCallView__signal_will_ring_s_and_s">Kahf Messenger helistab isikutele %1$s ja %2$s</string>
     <plurals name="WebRtcCallView__signal_will_ring_s_s_and_d_others">
-        <item quantity="one">Signal helistab isikutele %1$s, %2$s ja %3$d muule</item>
-        <item quantity="other">Signal helistab isikutele %1$s, %2$s ja %3$d muule</item>
+        <item quantity="one">Kahf Messenger helistab isikutele %1$s, %2$s ja %3$d muule</item>
+        <item quantity="other">Kahf Messenger helistab isikutele %1$s, %2$s ja %3$d muule</item>
     </plurals>
 
     <string name="WebRtcCallView__s_will_be_notified">%1$ssaab teavituse</string>
@@ -1701,13 +1701,13 @@
     <string name="RegistrationActivity_play_services_error">Play teenuste viga</string>
     <string name="RegistrationActivity_google_play_services_is_updating_or_unavailable">Google Play teenused uuenevad või pole hetkel saadaval. Palun proovi uuesti.</string>
     <string name="RegistrationActivity_terms_and_privacy">Tingimused ja privaatsuspoliitika</string>
-    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_and_media_in_order_to_connect_with_friends">Signal vajab sinu kontaktidele ja meediale ligipääsu, et võimaldada sul ühenduda sõpradega ja vahetada sõnumeid. Sinu kontaktid laetakse üles Signali privaatse kontaktituvastuse abil, mis tähendab, et need on lõpp-punkti krüpteeringuga ega ole Signali teenusele kunagi nähtavad.</string>
-    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_in_order_to_connect_with_friends">Signal vajab kontaktidega seotud luba, et võimaldada sul sõpradega ühenduda. Sinu kontaktid laetakse üles Signali privaatse kontaktituvastuse abil, mis tähendab, et need on lõpp-punkti krüpteeringuga ega ole Signali teenusele kunagi nähtavad.</string>
+    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_and_media_in_order_to_connect_with_friends">Kahf Messenger vajab sinu kontaktidele ja meediale ligipääsu, et võimaldada sul ühenduda sõpradega ja vahetada sõnumeid. Sinu kontaktid laetakse üles Signali privaatse kontaktituvastuse abil, mis tähendab, et need on lõpp-punkti krüpteeringuga ega ole Signali teenusele kunagi nähtavad.</string>
+    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_in_order_to_connect_with_friends">Kahf Messenger vajab kontaktidega seotud luba, et võimaldada sul sõpradega ühenduda. Sinu kontaktid laetakse üles Signali privaatse kontaktituvastuse abil, mis tähendab, et need on lõpp-punkti krüpteeringuga ega ole Signali teenusele kunagi nähtavad.</string>
     <string name="RegistrationActivity_rate_limited_to_service">Oled sooritanud liiga palju selle numbri registreerimise katseid. Palun proovi hiljem uuesti.</string>
     <string name="RegistrationActivity_unable_to_connect_to_service">Teenusega ei saadud ühendust. Palun kontrolli võrguühendust ja proovi uuesti.</string>
     <string name="RegistrationActivity_non_standard_number_format">Ebastandardne numbriformaat</string>
     <string name="RegistrationActivity_the_number_you_entered_appears_to_be_a_non_standard">Sisestatud number (%1$s) tundub olevat mittestandardses formaadis.\n\nKas mõtlesid hoopis %2$s?</string>
-    <string name="RegistrationActivity_signal_android_phone_number_format">Signal Android - telefoninumbri formaat</string>
+    <string name="RegistrationActivity_signal_android_phone_number_format">Kahf Messenger Android - telefoninumbri formaat</string>
     <string name="RegistrationActivity_call_requested">Kõnepäring esitatud</string>
     <plurals name="RegistrationActivity_debug_log_hint">
         <item quantity="one">Sa oled silumislogi saatmisest %1$d sammu kaugusel.</item>
@@ -1730,7 +1730,7 @@
     <!-- RegistrationLockV2Dialog -->
     <string name="RegistrationLockV2Dialog_turn_on_registration_lock">Kas lülitada registreerimislukk sisse?</string>
     <string name="RegistrationLockV2Dialog_turn_off_registration_lock">Kas lülitada registreerimislukk välja?</string>
-    <string name="RegistrationLockV2Dialog_if_you_forget_your_signal_pin_when_registering_again">Kui unustad Signaliga uuesti registreerumisel oma Signal PIN-koodi, lukustatakse sind 7 päevaks oma kontolt.</string>
+    <string name="RegistrationLockV2Dialog_if_you_forget_your_signal_pin_when_registering_again">Kui unustad Signaliga uuesti registreerumisel oma Kahf Messenger PIN-koodi, lukustatakse sind 7 päevaks oma kontolt.</string>
     <string name="RegistrationLockV2Dialog_turn_on">Lülita sisse</string>
     <string name="RegistrationLockV2Dialog_turn_off">Lülita välja</string>
 
@@ -1940,7 +1940,7 @@
     <string name="VerifyIdentityActivity_our_signal_safety_number">Meie Signali turvanumber:</string>
     <string name="VerifyIdentityActivity_no_app_to_share_to">Tundub, et sul pole ühtegi rakendust, kuhu jagada.</string>
     <string name="VerifyIdentityActivity_no_safety_number_to_compare_was_found_in_the_clipboard">Lõikelaualt ei leitud turvanumbrit, millega võrrelda</string>
-    <string name="VerifyIdentityActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code_but_it_has_been_permanently_denied">Signal vajab kaamera luba, et skanneerida QR-koodi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kaamera\".</string>
+    <string name="VerifyIdentityActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code_but_it_has_been_permanently_denied">Kahf Messenger vajab kaamera luba, et skanneerida QR-koodi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Kaamera\".</string>
     <string name="VerifyIdentityActivity_unable_to_scan_qr_code_without_camera_permission">QR-koodi ei saa skanneerida ilma kaamera loata</string>
     <string name="VerifyIdentityActivity_you_must_first_exchange_messages_in_order_to_view">Kasutaja %1$s turvanumbri nägemiseks pead kõigepealt temaga sõnumeid vahetama.</string>
 
@@ -1968,14 +1968,14 @@
 
     <!-- KeyCachingService -->
     <string name="KeyCachingService_signal_passphrase_cached">Koputa avamiseks.</string>
-    <string name="KeyCachingService_passphrase_cached">Signal on avatud</string>
-    <string name="KeyCachingService_lock">Lukusta Signal</string>
+    <string name="KeyCachingService_passphrase_cached">Kahf Messenger on avatud</string>
+    <string name="KeyCachingService_lock">Lukusta Kahf Messenger</string>
 
     <!-- MediaPreviewActivity -->
     <string name="MediaPreviewActivity_you">Sina</string>
     <string name="MediaPreviewActivity_unssuported_media_type">Mittetoetatud meediatüüp</string>
     <string name="MediaPreviewActivity_draft">Mustand</string>
-    <string name="MediaPreviewActivity_signal_needs_the_storage_permission_in_order_to_write_to_external_storage_but_it_has_been_permanently_denied">Signal vajab mäluruumi luba, et salvestada välismällu, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Mäluruum\".</string>
+    <string name="MediaPreviewActivity_signal_needs_the_storage_permission_in_order_to_write_to_external_storage_but_it_has_been_permanently_denied">Kahf Messenger vajab mäluruumi luba, et salvestada välismällu, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Mäluruum\".</string>
     <string name="MediaPreviewActivity_unable_to_write_to_external_storage_without_permission">Õiguste puudumise tõttu pole võimalik välisele andmekandjale salvestada.</string>
     <string name="MediaPreviewActivity_media_delete_confirmation_title">Kustutad sõnumi?</string>
     <string name="MediaPreviewActivity_media_delete_confirmation_message">See kustutab püsivalt valitud sõnumi.</string>
@@ -2006,7 +2006,7 @@
     <string name="MessageNotifier_signal_message">Signali sõnum</string>
     <string name="MessageNotifier_unsecured_sms">Turvamata SMS</string>
     <string name="MessageNotifier_you_may_have_new_messages">Sul võib olla uusi sõnumeid</string>
-    <string name="MessageNotifier_open_signal_to_check_for_recent_notifications">Ava Signal, et kontrollida viimaseid teavitusi.</string>
+    <string name="MessageNotifier_open_signal_to_check_for_recent_notifications">Ava Kahf Messenger, et kontrollida viimaseid teavitusi.</string>
     <string name="MessageNotifier_contact_message">%1$s %2$s</string>
     <string name="MessageNotifier_unknown_contact_message">Kontakt</string>
     <string name="MessageNotifier_reacted_s_to_s">Reageeris %1$s sõnumile: \"%2$s\".</string>
@@ -2019,7 +2019,7 @@
     <string name="MessageNotifier_reacted_s_to_your_sticker">Reageeris %1$s sinu kleepsule.</string>
     <string name="MessageNotifier_this_message_was_deleted">See sõnum kustutati.</string>
 
-    <string name="TurnOffContactJoinedNotificationsActivity__turn_off_contact_joined_signal">Kas lülitada Signaliga liitumise teavitused välja? Neid saab uuesti lubada, valides Signal &gt; Seaded &gt; Teavitused.</string>
+    <string name="TurnOffContactJoinedNotificationsActivity__turn_off_contact_joined_signal">Kas lülitada Signaliga liitumise teavitused välja? Neid saab uuesti lubada, valides Kahf Messenger &gt; Seaded &gt; Teavitused.</string>
 
     <!-- Notification Channels -->
     <string name="NotificationChannel_channel_messages">Sõnumid</string>
@@ -2044,7 +2044,7 @@
     <!-- ProfileEditNameFragment -->
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Kiirvastus pole saadaval, kui Signal on lukustatud!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Kiirvastus pole saadaval, kui Kahf Messenger on lukustatud!</string>
     <string name="QuickResponseService_problem_sending_message">Sõnumi saatmisel esines probleem!</string>
 
     <!-- SaveAttachmentTask -->
@@ -2063,7 +2063,7 @@
     <string name="ShortcutLauncherActivity_invalid_shortcut">Sobimatu otsetee</string>
 
     <!-- SingleRecipientNotificationBuilder -->
-    <string name="SingleRecipientNotificationBuilder_signal">Signal</string>
+    <string name="SingleRecipientNotificationBuilder_signal">Kahf Messenger</string>
     <string name="SingleRecipientNotificationBuilder_new_message">Uus sõnum</string>
     <string name="SingleRecipientNotificationBuilder_message_request">Sõnumitaotlus</string>
     <string name="SingleRecipientNotificationBuilder_you">Sina</string>
@@ -2087,7 +2087,7 @@
     <!-- WebRtcCallActivity -->
     <string name="WebRtcCallActivity_to_answer_the_call_give_signal_access_to_your_microphone">Kõnele vastamiseks anna Signalile juurdepääs mikrofonile.</string>
     <string name="WebRtcCallActivity_to_answer_the_call_from_s_give_signal_access_to_your_microphone">Et vastata %1$s kõnele, anna Signalile juurdepääs oma mikrofonile.</string>
-    <string name="WebRtcCallActivity_signal_requires_microphone_and_camera_permissions_in_order_to_make_or_receive_calls">Signal vajab mikrofoni ja kaamera lubasid, et teha ja vastu võtta kõnesid, ent need on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Mikrofon\" ning \"Kaamera\".</string>
+    <string name="WebRtcCallActivity_signal_requires_microphone_and_camera_permissions_in_order_to_make_or_receive_calls">Kahf Messenger vajab mikrofoni ja kaamera lubasid, et teha ja vastu võtta kõnesid, ent need on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"Mikrofon\" ning \"Kaamera\".</string>
     <string name="WebRtcCallActivity__answered_on_a_linked_device">Vastatud ühendatud seadmes.</string>
     <string name="WebRtcCallActivity__declined_on_a_linked_device">Keeldutud ühendatud seadmes.</string>
     <string name="WebRtcCallActivity__busy_on_a_linked_device">Hõivatud ühendatud seadmes.</string>
@@ -2134,7 +2134,7 @@
     <string name="SingleContactSelectionActivity_contact_photo">Kontakti pilt</string>
 
     <!-- ContactSelectionListFragment-->
-    <string name="ContactSelectionListFragment_signal_requires_the_contacts_permission_in_order_to_display_your_contacts">Signal vajab kontaktide kuvamiseks neile ligipääsu, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kontaktid\".</string>
+    <string name="ContactSelectionListFragment_signal_requires_the_contacts_permission_in_order_to_display_your_contacts">Kahf Messenger vajab kontaktide kuvamiseks neile ligipääsu, kuid see on püsivalt keelatud. Palun ava rakenduse sätete menüü, vali \"Õigused\" ja luba \"Kontaktid\".</string>
     <string name="ContactSelectionListFragment_error_retrieving_contacts_check_your_network_connection">Kontaktide laadimisel tekkis tõrge. Kontrolli võrguühendust.</string>
     <string name="ContactSelectionListFragment_username_not_found">Kasutajanime ei leitud</string>
     <string name="ContactSelectionListFragment_s_is_not_a_signal_user">"\"%1$s\" ei ole Signali kasutaja. Palun kontrolli kasutajanime ja proovi uuesti."</string>
@@ -2149,7 +2149,7 @@
     </plurals>
 
     <!-- contact_selection_list_fragment -->
-    <string name="contact_selection_list_fragment__signal_needs_access_to_your_contacts_in_order_to_display_them">Signal vajab kontaktide kuvamiseks nendele ligipääsu.</string>
+    <string name="contact_selection_list_fragment__signal_needs_access_to_your_contacts_in_order_to_display_them">Kahf Messenger vajab kontaktide kuvamiseks nendele ligipääsu.</string>
     <string name="contact_selection_list_fragment__show_contacts">Näita kontakte</string>
 
     <!-- contact_selection_list_item -->
@@ -2176,7 +2176,7 @@
     <string name="conversation_activity__quick_attachment_drawer_toggle_camera_description">Lülita kiire kaamera manuse sahtel sisse või välja</string>
     <string name="conversation_activity__quick_attachment_drawer_record_and_send_audio_description">Salvesta ja saada helimanus</string>
     <string name="conversation_activity__quick_attachment_drawer_lock_record_description">Lukusta helimanuse salvestamine</string>
-    <string name="conversation_activity__enable_signal_for_sms">Luba Signal SMSide jaoks</string>
+    <string name="conversation_activity__enable_signal_for_sms">Luba Kahf Messenger SMSide jaoks</string>
     <string name="conversation_activity__message_could_not_be_sent">Sõnumi saatmine ei õnnestunud. Kontrolli internetiühendust ja proovi uuesti.</string>
 
     <!-- conversation_input_panel -->
@@ -2386,7 +2386,7 @@
     <string name="prompt_passphrase_activity__unlock">Eemalda blokeering</string>
 
     <!-- prompt_mms_activity -->
-    <string name="prompt_mms_activity__signal_requires_mms_settings_to_deliver_media_and_group_messages">Signal vajab MMS-seadeid, et edastada meediat ja grupisõnumeid läbi sinu võrguteenuse pakkuja. Sinu seade ei tee seda informatsiooni saadavaks, mis esineb mõnikord lukustatud seadmete ja piiravate konfiguratsioonide puhul.</string>
+    <string name="prompt_mms_activity__signal_requires_mms_settings_to_deliver_media_and_group_messages">Kahf Messenger vajab MMS-seadeid, et edastada meediat ja grupisõnumeid läbi sinu võrguteenuse pakkuja. Sinu seade ei tee seda informatsiooni saadavaks, mis esineb mõnikord lukustatud seadmete ja piiravate konfiguratsioonide puhul.</string>
     <string name="prompt_mms_activity__to_send_media_and_group_messages_tap_ok">Meedia- ja grupisõnumite saatmiseks klõpsa nupul \"OK\" ja lõpeta taotletud seaded. MMS-seaded sinu teenusepakkuja jaoks võib tavaliselt leida, otsides \"sinu teenusepakkuja APN\". Sa pead seda tegema ainult ühe korra.</string>
 
     <!-- BadDecryptLearnMoreDialog -->
@@ -2598,7 +2598,7 @@
     <string name="preferences__lock_signal_and_message_notifications_with_a_passphrase">Lukusta ekraan ja teavitused salasõnaga</string>
     <string name="preferences__screen_security">Kuva turvamine</string>
     <string name="preferences__disable_screen_security_to_allow_screen_shots">Blokeeri kuvatõmmised viimatiste nimekirjas ja rakenduse sees</string>
-    <string name="preferences__auto_lock_signal_after_a_specified_time_interval_of_inactivity">Lukusta Signal automaatselt pärast määratud ebaaktiivsuse ajaintervalli</string>
+    <string name="preferences__auto_lock_signal_after_a_specified_time_interval_of_inactivity">Lukusta Kahf Messenger automaatselt pärast määratud ebaaktiivsuse ajaintervalli</string>
     <string name="preferences__inactivity_timeout_passphrase">Mitteaktiivsuse aegumise salasõna</string>
     <string name="preferences__inactivity_timeout_interval">Ebaaktiivsuse ajalõpu pikkus</string>
     <string name="preferences__notifications">Teavitused</string>
@@ -2632,7 +2632,7 @@
     <string name="preferences__help">Abi</string>
     <string name="preferences__advanced">Täpsem</string>
     <string name="preferences__donate_to_signal">Anneta Signalile</string>
-    <!-- Preference label for making one-time donations to Signal -->
+    <!-- Preference label for making one-time donations to Kahf Messenger -->
     <string name="preferences__one_time_donation">Ühekordne annetus</string>
     <string name="preferences__privacy">Privaatsus</string>
     <!-- Preference label for stories -->
@@ -2664,7 +2664,7 @@
     <string name="preferences__chat_color_and_wallpaper">Vestluse värv ja taustapilt</string>
     <string name="preferences__disable_pin">Keela PIN</string>
     <string name="preferences__enable_pin">Luba PIN</string>
-    <string name="preferences__if_you_disable_the_pin_you_will_lose_all_data">Kui keelad PIN-koodi, siis kaotad kõik andmed, kui eemaldad Signal rakenduse ja pole seda käsitsi varundanud ja taastanud. Registreerimislukku pole võimalik sisse lülitada, kui PIN-kood on keelatud.</string>
+    <string name="preferences__if_you_disable_the_pin_you_will_lose_all_data">Kui keelad PIN-koodi, siis kaotad kõik andmed, kui eemaldad Kahf Messenger rakenduse ja pole seda käsitsi varundanud ja taastanud. Registreerimislukku pole võimalik sisse lülitada, kui PIN-kood on keelatud.</string>
     <string name="preferences__pins_keep_information_stored_with_signal_encrypted_so_only_you_can_access_it">PIN-koodid hoiavad Signalis salvestatud teabe krüptituna, seega ainult sinul on sellele juurdepääs. Kui paigaldad Signali uuesti, siis sinu profiil, sätted ja kontaktid taastatakse. Rakenduse avamiseks pole PIN-koodi vaja.</string>
     <string name="preferences__system_default">Süsteemi vaikeväärtus</string>
     <string name="preferences__language">Keel</string>
@@ -2742,12 +2742,12 @@
     <string name="preferences_communication__category_censorship_circumvention">Tsensuuri vältimine</string>
     <!-- Title of the \'censorship circumvention\' toggle switch -->
     <string name="preferences_communication__censorship_circumvention">Tsensuuri vältimine</string>
-    <string name="preferences_communication__censorship_circumvention_if_enabled_signal_will_attempt_to_circumvent_censorship">Kui on lubatud, siis püüab Signal tsenseerimisest mööda hiilida. Luba see funktsioon vaid siis, kui oled kohas, kus Signal on tsenseeritud.</string>
+    <string name="preferences_communication__censorship_circumvention_if_enabled_signal_will_attempt_to_circumvent_censorship">Kui on lubatud, siis püüab Kahf Messenger tsenseerimisest mööda hiilida. Luba see funktsioon vaid siis, kui oled kohas, kus Kahf Messenger on tsenseeritud.</string>
     <!-- Summary text for \'censorship circumvention\' toggle. Indicates that we automatically enabled it because we believe you\'re in a censored country -->
     <string name="preferences_communication__censorship_circumvention_has_been_activated_based_on_your_accounts_phone_number">Tsenseerimisest möödahiilimine on aktiveeritud sinu konto telefoninumbri järgi.</string>
     <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you disabled it even though we believe you\'re in a censored country -->
     <string name="preferences_communication__censorship_circumvention_you_have_manually_disabled">Sa oled käsitsi keelanud tsenseerimisest möödahiilimise</string>
-    <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you cannot use it because you\'re already connected to the Signal service -->
+    <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you cannot use it because you\'re already connected to the Kahf Messenger service -->
     <string name="preferences_communication__censorship_circumvention_is_not_necessary_you_are_already_connected">Tsenseerimisest möödahiilimine pole vajalik, sa oled juba Signali teenusega ühendatud.</string>
     <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you cannot use it because you\'re not connected to the internet -->
     <string name="preferences_communication__censorship_circumvention_can_only_be_activated_when_connected_to_the_internet">Tsenseerimisest möödahiilimist saab aktiveerida ainult Internetis olles.</string>
@@ -3001,9 +3001,9 @@
     <string name="PaymentsTransferFragment__invalid_address">Vigane aadress</string>
     <string name="PaymentsTransferFragment__check_the_wallet_address">Kontrolli walleti aadressi, millele üritad ülekannet teha, ning proovi uuesti.</string>
     <string name="PaymentsTransferFragment__you_cant_transfer_to_your_own_signal_wallet_address">Sa ei saa teha ülekannet omaenda Signali walleti aadressile. Sisesta oma kontolt walleti aadress toetatud vahetuskeskuses.</string>
-    <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs">QR-koodi skannimiseks vajab Signal ligipääsu kaamerale.</string>
-    <string name="PaymentsTransferFragment__signal_needs_the_camera_permission_to_capture_qr_code_go_to_settings">QR-koodi skannimiseks vajab Signal luba kaamera kasutamiseks. Mine sätetesse, vali \"Load\" ning märgi \"Kaamera\".</string>
-    <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs_access_to_the_camera">QR-koodi skannimiseks vajab Signal ligipääsu kaamerale.</string>
+    <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs">QR-koodi skannimiseks vajab Kahf Messenger ligipääsu kaamerale.</string>
+    <string name="PaymentsTransferFragment__signal_needs_the_camera_permission_to_capture_qr_code_go_to_settings">QR-koodi skannimiseks vajab Kahf Messenger luba kaamera kasutamiseks. Mine sätetesse, vali \"Load\" ning märgi \"Kaamera\".</string>
+    <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs_access_to_the_camera">QR-koodi skannimiseks vajab Kahf Messenger ligipääsu kaamerale.</string>
     <string name="PaymentsTransferFragment__settings">Sätted</string>
 
     <!-- PaymentsTransferQrScanFragment -->
@@ -3060,7 +3060,7 @@
 
     <!-- BiometricDeviceAuthentication -->
     <!-- Biometric/Device authentication prompt title -->
-    <string name="BiometricDeviceAuthentication__signal">Signal</string>
+    <string name="BiometricDeviceAuthentication__signal">Kahf Messenger</string>
 
 
     <!-- CurrencyAmountFormatter_s_at_s -->
@@ -3348,7 +3348,7 @@
     <string name="ConversationListFragment_loading">Laadimine…</string>
     <string name="CallNotificationBuilder_connecting">Ühendumine…</string>
     <string name="Permissions_permission_required">Luba on vajalik</string>
-    <string name="ConversationActivity_signal_needs_sms_permission_in_order_to_send_an_sms">Signal vajab SMS-uba, et saata SMSi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"SMS\".</string>
+    <string name="ConversationActivity_signal_needs_sms_permission_in_order_to_send_an_sms">Kahf Messenger vajab SMS-uba, et saata SMSi, ent see on püsivalt keelatud. Palun jätka rakenduse seadetes, vali \"Load\" ja luba \"SMS\".</string>
     <string name="Permissions_continue">Jätka</string>
     <string name="Permissions_not_now">Mitte praegu</string>
     <string name="conversation_activity__enable_signal_messages">LUBA SIGNALI SÕNUMID</string>
@@ -3445,7 +3445,7 @@
     <string name="RegistrationActivity_you_have_made_too_many_attempts_please_try_again_later">Oled sooritanud liiga palju katseid. Palun proovi hiljem uuesti.</string>
     <string name="RegistrationActivity_error_connecting_to_service">Teenusega ühendamisel esines viga</string>
     <string name="preferences_chats__backups">Varukoopiad</string>
-    <string name="prompt_passphrase_activity__signal_is_locked">Signal on lukus</string>
+    <string name="prompt_passphrase_activity__signal_is_locked">Kahf Messenger on lukus</string>
     <string name="prompt_passphrase_activity__tap_to_unlock">KOPUTA AVAMISEKS</string>
     <string name="Recipient_unknown">Tundmatu</string>
 
@@ -3459,7 +3459,7 @@
     <string name="TransferOrRestoreFragment__restore_your_messages_from_a_local_backup">Taasta sõnumid lokaalsest varukoopiast. Kui sa nüüd ei taasta, siis sa ei saa ka hiljem taastada.</string>
 
     <!-- NewDeviceTransferInstructionsFragment -->
-    <string name="NewDeviceTransferInstructions__open_signal_on_your_old_android_phone">Ava Signal vanas Android-seadmes</string>
+    <string name="NewDeviceTransferInstructions__open_signal_on_your_old_android_phone">Ava Kahf Messenger vanas Android-seadmes</string>
     <string name="NewDeviceTransferInstructions__continue">Jätka</string>
     <string name="NewDeviceTransferInstructions__first_bullet">1.</string>
     <string name="NewDeviceTransferInstructions__tap_on_your_profile_photo_in_the_top_left_to_open_settings">Sätete avamiseks klõpsa enda profiilifotol üleval vasakul</string>
@@ -3472,19 +3472,19 @@
     <string name="NewDeviceTransferSetup__preparing_to_connect_to_old_android_device">Valmistun ühenduma vanasse Android-seadmesse…</string>
     <string name="NewDeviceTransferSetup__take_a_moment_should_be_ready_soon">See võtab hetke aega, peaks varsti valmis olema</string>
     <string name="NewDeviceTransferSetup__waiting_for_old_device_to_connect">Ootan vana Android-seadme ühendumist…</string>
-    <string name="NewDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_old_device">Signal vajab vana Android-seadme leidmiseks ja ühendamiseks juurdepääsu asukohainfole.</string>
-    <string name="NewDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_old_device">Signal vajab sinu eelmise Android-seadme leidmiseks ja ühendumiseks ligipääsu asukohateenustele.</string>
-    <string name="NewDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_old_device">Signal vajab sinu eelmise Android-seadme leidmiseks ja ühendumiseks WiFi-t. WiFi peab olema sees, aga ei pea olema ühtegi WiFi võrku ühendatud.</string>
-    <string name="NewDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Vabandust, nähtavasti ei toeta see seade Wi-Fi Directi. Signal kasutab Wi-Fi Directi sinu vana Android-seadme tuvastamiseks ja sellega ühenduse loomiseks. Siiski saad taastada oma konto vanast seadmest ka varukoopia kaudu.</string>
+    <string name="NewDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_old_device">Kahf Messenger vajab vana Android-seadme leidmiseks ja ühendamiseks juurdepääsu asukohainfole.</string>
+    <string name="NewDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_old_device">Kahf Messenger vajab sinu eelmise Android-seadme leidmiseks ja ühendumiseks ligipääsu asukohateenustele.</string>
+    <string name="NewDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_old_device">Kahf Messenger vajab sinu eelmise Android-seadme leidmiseks ja ühendumiseks WiFi-t. WiFi peab olema sees, aga ei pea olema ühtegi WiFi võrku ühendatud.</string>
+    <string name="NewDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Vabandust, nähtavasti ei toeta see seade Wi-Fi Directi. Kahf Messenger kasutab Wi-Fi Directi sinu vana Android-seadme tuvastamiseks ja sellega ühenduse loomiseks. Siiski saad taastada oma konto vanast seadmest ka varukoopia kaudu.</string>
     <string name="NewDeviceTransferSetup__restore_a_backup">Taasta varukoopia</string>
     <string name="NewDeviceTransferSetup__an_unexpected_error_occurred_while_attempting_to_connect_to_your_old_device">Sinu vana Android-seadmega ühenduse loomisel tekkis ootamatu tõrge.</string>
 
     <!-- OldDeviceTransferSetupFragment -->
     <string name="OldDeviceTransferSetup__searching_for_new_android_device">Uue Android-seadme otsimine…</string>
-    <string name="OldDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_new_device">Signal vajab sinu uue Android-seadmega ühenduse loomiseks asukoha kasutamise luba.</string>
-    <string name="OldDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_new_device">Signal vajab sinu uue Android-seadme leidmiseks ja ühendumiseks ligipääsu asukohateenustele.</string>
-    <string name="OldDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_new_device">Signal vajab sinu uue Android-seadme leidmiseks ja ühendumiseks WiFi-t. WiFi peab olema sees, aga ei pea olema ühtegi WiFi võrku ühendatud.</string>
-    <string name="OldDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Vabandust, nähtavasti ei toeta see seade Wi-Fi Directi. Signal kasutab Wi-Fi Directi sinu uue Android-seadme tuvastamiseks ja sellega ühenduse loomiseks. Siiski saad luua oma konto taastamiseks uues seadmes ka varukoopia.</string>
+    <string name="OldDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_new_device">Kahf Messenger vajab sinu uue Android-seadmega ühenduse loomiseks asukoha kasutamise luba.</string>
+    <string name="OldDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_new_device">Kahf Messenger vajab sinu uue Android-seadme leidmiseks ja ühendumiseks ligipääsu asukohateenustele.</string>
+    <string name="OldDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_new_device">Kahf Messenger vajab sinu uue Android-seadme leidmiseks ja ühendumiseks WiFi-t. WiFi peab olema sees, aga ei pea olema ühtegi WiFi võrku ühendatud.</string>
+    <string name="OldDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Vabandust, nähtavasti ei toeta see seade Wi-Fi Directi. Kahf Messenger kasutab Wi-Fi Directi sinu uue Android-seadme tuvastamiseks ja sellega ühenduse loomiseks. Siiski saad luua oma konto taastamiseks uues seadmes ka varukoopia.</string>
     <string name="OldDeviceTransferSetup__create_a_backup">Loo varukoopia</string>
     <string name="OldDeviceTransferSetup__an_unexpected_error_occurred_while_attempting_to_connect_to_your_old_device">Sinu uue Android-seadmega ühenduse loomisel tekkis ootamatu tõrge.</string>
 
@@ -3525,7 +3525,7 @@
 
     <!-- DeviceTransferFragment -->
     <string name="DeviceTransfer__transferring_data">Andmete ülekandmine</string>
-    <string name="DeviceTransfer__keep_both_devices_near_each_other">Hoia seadmeid teineteise lähedal. Ära lülita seadmeid välja ja hoia Signal avatuna. Ülekandmine on otspunktkrüptitud.</string>
+    <string name="DeviceTransfer__keep_both_devices_near_each_other">Hoia seadmeid teineteise lähedal. Ära lülita seadmeid välja ja hoia Kahf Messenger avatuna. Ülekandmine on otspunktkrüptitud.</string>
     <string name="DeviceTransfer__d_messages_so_far">%1$d sõnumit siiani…</string>
     <!-- Filled in with total percentage of messages transferred -->
     <string name="DeviceTransfer__s_of_messages_so_far">%1$s%% sõnumitest…</string>
@@ -3541,7 +3541,7 @@
     <string name="OldDeviceTransferInstructions__transfer_account">Kanna konto üle</string>
     <string name="OldDeviceTransferInstructions__you_can_transfer_your_signal_account_when_setting_up_signal_on_a_new_android_device">Kui uues seadmes Signali käivitad, saad oma Signali konto üle kanda. Enne kui jätkad:</string>
     <string name="OldDeviceTransferInstructions__first_bullet">1.</string>
-    <string name="OldDeviceTransferInstructions__download_signal_on_your_new_android_device">Laadi Signal alla uues Android-seadmes</string>
+    <string name="OldDeviceTransferInstructions__download_signal_on_your_new_android_device">Laadi Kahf Messenger alla uues Android-seadmes</string>
     <string name="OldDeviceTransferInstructions__second_bullet">2.</string>
     <string name="OldDeviceTransferInstructions__tap_on_transfer_or_restore_account">"Toksa \"Konto ülekandmine või taastamine\""</string>
     <string name="OldDeviceTransferInstructions__third_bullet">3.</string>
@@ -3571,7 +3571,7 @@
 
     <!-- OldDeviceTransferLockedDialog -->
     <string name="OldDeviceTransferLockedDialog__complete_registration_on_your_new_device">Vii lõpule registreerimine oma uues seadmes</string>
-    <string name="OldDeviceTransferLockedDialog__your_signal_account_has_been_transferred_to_your_new_device">Sinu Signali konto on kantud üle sinu uude seadmesse, kuid jätkamiseks pead viima uues seadmes lõpule registreerimise. Selles seadmes on Signal mitteaktiivne.</string>
+    <string name="OldDeviceTransferLockedDialog__your_signal_account_has_been_transferred_to_your_new_device">Sinu Signali konto on kantud üle sinu uude seadmesse, kuid jätkamiseks pead viima uues seadmes lõpule registreerimise. Selles seadmes on Kahf Messenger mitteaktiivne.</string>
     <string name="OldDeviceTransferLockedDialog__done">Tehtud</string>
     <string name="OldDeviceTransferLockedDialog__cancel_and_activate_this_device">Loobu ja aktiveeri see seade</string>
 
@@ -3618,7 +3618,7 @@
     <string name="GroupsLearnMore_paragraph_1">Vanad grupid on need grupid, mis pole ühilduvad uute gruppide funktsionaalsustega nagu administraatorid ja rohkem kirjeldavad grupi muudatused.</string>
     <string name="GroupsLearnMore_can_i_upgrade_a_legacy_group">Kas saan vana gruppi uuendada?</string>
     <string name="GroupsLearnMore_paragraph_2">Vanu gruppe ei saa veel uuteks gruppideks uuendada, aga sa saad luua samade liikmetega uue grupi, kui need liikmed kasutavad uusimat Signali versiooni.</string>
-    <string name="GroupsLearnMore_paragraph_3">Tulevikus pakub Signal võimalust vanu gruppe uuteks uuendada.</string>
+    <string name="GroupsLearnMore_paragraph_3">Tulevikus pakub Kahf Messenger võimalust vanu gruppe uuteks uuendada.</string>
 
     <!-- GroupLinkBottomSheetDialogFragment -->
     <string name="GroupLinkBottomSheet_share_hint_requiring_approval">Igaüks saab selle lingi kaudu näha grupi nime ja fotot ning saata taotluse liitumiseks. Jaga seda isikutega, keda usaldad.</string>
@@ -4082,7 +4082,7 @@
     <string name="HelpSettingsFragment__version">Versioon</string>
     <string name="HelpSettingsFragment__debug_log">Silumisinfo</string>
     <string name="HelpSettingsFragment__terms_amp_privacy_policy">Tingimused ja privaatsuspoliitika</string>
-    <string name="HelpFragment__copyright_signal_messenger">Autoriõigus Signal Messenger</string>
+    <string name="HelpFragment__copyright_signal_messenger">Autoriõigus Kahf Messenger Messenger</string>
     <string name="HelpFragment__licenced_under_the_gplv3">Litsentsitud GPLv3 litsentsiga</string>
 
     <!-- DataAndStorageSettingsFragment -->
@@ -4128,7 +4128,7 @@
     <!-- Title text for prompt to donate. Shown in a popup at the bottom of the chat list. -->
     <string name="Donate2022Q2Megaphone_donate_to_signal">Anneta Signalile</string>
     <!-- Body text for prompt to donate. Shown in a popup at the bottom of the chat list. -->
-    <string name="Donate2022Q2Megaphone_signal_is_powered_by_people_like_you">Signal toimib tänu inimestele, nagu Sina. Anneta igakuiselt, et saada medal.</string>
+    <string name="Donate2022Q2Megaphone_signal_is_powered_by_people_like_you">Kahf Messenger toimib tänu inimestele, nagu Sina. Anneta igakuiselt, et saada medal.</string>
     <!-- Button label that brings a user to the donate screen. Shown in a popup at the bottom of the chat list. -->
     <string name="Donate2022Q2Megaphone_donate">Anneta</string>
     <!-- Button label that dismissed a prompt to donate. Shown in a popup at the bottom of the chat list. -->
@@ -4151,7 +4151,7 @@
     <!-- BecomeASustainerMegaphone -->
     <string name="BecomeASustainerMegaphone__become_a_sustainer">Hakka toetajaks</string>
     <!-- Displayed in the Become a Sustainer megaphone -->
-    <string name="BecomeASustainerMegaphone__signal_is_powered_by">Signal toimib tänu inimestele nagu sina. Anneta, et saada toetaja märk.</string>
+    <string name="BecomeASustainerMegaphone__signal_is_powered_by">Kahf Messenger toimib tänu inimestele nagu sina. Anneta, et saada toetaja märk.</string>
     <string name="BecomeASustainerMegaphone__not_now">Mitte praegu</string>
     <string name="BecomeASustainerMegaphone__donate">Anneta</string>
 
@@ -4414,9 +4414,9 @@
     <string name="Subscription__s_per_month_dot_expires_s">%1$s/kuu · Aegub %2$s</string>
 
     <!-- First small text blurb on learn more sheet -->
-    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_a_nonprofit_with_no">Signal on mittetulundusühing, millel ei ole reklaami ega investoreid ning mida toetavad vaid inimesed, kes seda kasutavad ja väärtustavad. Tee igakuine annetus ja teeni profiilile märk, et oma toetajastaatust jagada.</string>
+    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_a_nonprofit_with_no">Kahf Messenger on mittetulundusühing, millel ei ole reklaami ega investoreid ning mida toetavad vaid inimesed, kes seda kasutavad ja väärtustavad. Tee igakuine annetus ja teeni profiilile märk, et oma toetajastaatust jagada.</string>
     <string name="SubscribeLearnMoreBottomSheetDialogFragment__why_donate">Miks annetada?</string>
-    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_committed_to_developing">Signal on pühendunud avatud lähtekoodiga privaatsustehnoloogia arendamisele, mis kaitseb väljendusvabadust ja võimaldab turvalist ülemaailmset suhtlust.</string>
+    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_committed_to_developing">Kahf Messenger on pühendunud avatud lähtekoodiga privaatsustehnoloogia arendamisele, mis kaitseb väljendusvabadust ja võimaldab turvalist ülemaailmset suhtlust.</string>
     <string name="SubscribeLearnMoreBottomSheetDialogFragment__your_donation">Sinu annetus toetab seda eesmärki ning maksab miljonite inimeste poolt kasutatava rakenduse arendamise ja käigus hoidmise eest. Ilma reklaamideta. Ilma jälgijateta. Ilma naljata.</string>
 
     <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__thanks_for_your_support">Täname sind toetuse eest!</string>
@@ -4431,7 +4431,7 @@
     <string name="ThanksForYourSupportBottomSheetFragment__when_you_have_more">Kui sul on rohkem kui üks märk, saad valida, millist soovid oma profiilil kuvada.</string>
 
     <string name="BecomeASustainerFragment__get_badges">Toeta Signalit ja teeni oma profiilile märke.</string>
-    <string name="BecomeASustainerFragment__signal_is_a_non_profit">Signal on ilma reklaamide ja investoriteta mittetulundusühing, mida toetavad ainult inimesed nagu sina.</string>
+    <string name="BecomeASustainerFragment__signal_is_a_non_profit">Kahf Messenger on ilma reklaamide ja investoriteta mittetulundusühing, mida toetavad ainult inimesed nagu sina.</string>
 
     <!-- Button label for creating a monthly donation -->
     <string name="ManageDonationsFragment__make_a_monthly_donation">Tee igakuine annetus</string>
@@ -4491,7 +4491,7 @@
     <string name="ExpiredBadgeBottomSheetDialogFragment__go_to_google_pay">Mine Google Pay-sse</string>
 
     <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__cant_process_subscription_payment">Tellimuse makset ei õnnestu töödelda</string>
-    <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__were_having_trouble">Meil on probleeme sinu Signali toetaja tasu töötlemisega. Palun veendu, et sinu maksemeetod on uuendatud. Kui ei ole, siis palun uuenda seda Google Pay kaudu. Signal proovib makset paari päeva pärast uuesti töödelda.</string>
+    <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__were_having_trouble">Meil on probleeme sinu Signali toetaja tasu töötlemisega. Palun veendu, et sinu maksemeetod on uuendatud. Kui ei ole, siis palun uuenda seda Google Pay kaudu. Kahf Messenger proovib makset paari päeva pärast uuesti töödelda.</string>
     <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__dont_show_this_again">Ära näita seda uuesti</string>
 
     <string name="Subscription__please_contact_support_for_more_information">Täiendava info saamiseks pöördu kasutajatoe poole.</string>
@@ -4549,7 +4549,7 @@
     <!-- Gift badge redeemed label -->
     <string name="GiftMessageView__redeemed">Lunastatud</string>
 
-    <string name="Boost__thank_you_for_your_donation" translatable="false">Thank you for your donation. Your contribution helps fuel the mission of developing open source privacy technology that protects free expression and enables secure global communication for millions around the world. Signal Technology Foundation is a tax-exempt nonprofit organization in the United States under section 501c3 of the Internal Revenue Code. Our Federal Tax ID is 82-4506840. No goods or services were provided in exchange for this donation. Please retain this receipt for your tax records.</string>
+    <string name="Boost__thank_you_for_your_donation" translatable="false">Thank you for your donation. Your contribution helps fuel the mission of developing open source privacy technology that protects free expression and enables secure global communication for millions around the world. Kahf Messenger Technology Foundation is a tax-exempt nonprofit organization in the United States under section 501c3 of the Internal Revenue Code. Our Federal Tax ID is 82-4506840. No goods or services were provided in exchange for this donation. Please retain this receipt for your tax records.</string>
 
     <!-- Stripe decline code generic_failure -->
     <string name="DeclineCode__try_another_payment_method_or_contact_your_bank">Proovi teist maksemeetodit või võta ühendust oma pangaga, et saada täiendavat teavet.</string>
@@ -4721,7 +4721,7 @@
     <!-- Displayed in a toast when we fail to open the ringtone picker -->
     <string name="NotificationSettingsFragment__failed_to_open_picker">Valija avamine nurjus.</string>
 
-    <!-- Description shown for the Signal Release Notes channel -->
+    <!-- Description shown for the Kahf Messenger Release Notes channel -->
     <string name="ReleaseNotes__signal_release_notes_and_news">Signali väljalaskemärkmed &amp; Uudised</string>
 
     <!-- Donation receipts activity title -->
@@ -4751,7 +4751,7 @@
     <!-- Donation receipts amount title -->
     <string name="DonationReceiptDetailsFragment__amount">Summa</string>
     <!-- Donation receipts thanks -->
-    <string name="DonationReceiptDetailsFragment__thank_you_for_supporting">Aitäh Signalit toetamast. Sinu panus annab tõuke missioonile arendada avatud lähtekoodiga privaatsustehnoloogiat, mis kaitseb väljendusvabadust ja võimaldab turvalist suhtlust miljonitele inimestele üle kogu maailma. Kui elad Ameerika Ühendriikides, jäta see kviitung alles oma maksude deklareerimiseks. Signal Technology Foundation on Ameerika Ühendriikides maksuseadustiku (US Internal Revenue Code) jao 501c3 järgi registreeritud maksuvaba mittetulundusühing. Meie föderaalne maksukood (Federal Tax ID) on 82–4506840.</string>
+    <string name="DonationReceiptDetailsFragment__thank_you_for_supporting">Aitäh Signalit toetamast. Sinu panus annab tõuke missioonile arendada avatud lähtekoodiga privaatsustehnoloogiat, mis kaitseb väljendusvabadust ja võimaldab turvalist suhtlust miljonitele inimestele üle kogu maailma. Kui elad Ameerika Ühendriikides, jäta see kviitung alles oma maksude deklareerimiseks. Kahf Messenger Technology Foundation on Ameerika Ühendriikides maksuseadustiku (US Internal Revenue Code) jao 501c3 järgi registreeritud maksuvaba mittetulundusühing. Meie föderaalne maksukood (Federal Tax ID) on 82–4506840.</string>
     <!-- Donation receipt type -->
     <string name="DonationReceiptDetailsFragment__s_dash_s">%1$s - %2$s</string>
     <!-- Donation reciepts screen empty state title -->
@@ -4923,17 +4923,17 @@
     <string name="MyStorySettingsFragment__allow_replies_amp_reactions">Luba vastuseid &amp; reaktsioone</string>
     <!-- Summary for switchable option allowing replies and reactions on your story -->
     <string name="MyStorySettingsFragment__let_people_who_can_view_your_story_react_and_reply">Luba inimestel, kes saavad su lugu vaadata, reageerida ja vastata</string>
-    <!-- Signal connections bolded text in the Signal Connections sheet -->
+    <!-- Kahf Messenger connections bolded text in the Kahf Messenger Connections sheet -->
     <string name="SignalConnectionsBottomSheet___signal_connections">Signali kontaktid</string>
     <!-- Displayed at the top of the signal connections sheet. Please remember to insert strong tag as required. -->
     <string name="SignalConnectionsBottomSheet__signal_connections_are_people">Signali kontaktid on inimesed, keda oled otsustanud usaldada, kas siis …</string>
-    <!-- Signal connections sheet bullet point 1 -->
+    <!-- Kahf Messenger connections sheet bullet point 1 -->
     <string name="SignalConnectionsBottomSheet__starting_a_conversation">alustades vestlust</string>
-    <!-- Signal connections sheet bullet point 2 -->
+    <!-- Kahf Messenger connections sheet bullet point 2 -->
     <string name="SignalConnectionsBottomSheet__accepting_a_message_request">võttes vastu sõnumitaotluse</string>
-    <!-- Signal connections sheet bullet point 3 -->
+    <!-- Kahf Messenger connections sheet bullet point 3 -->
     <string name="SignalConnectionsBottomSheet__having_them_in_your_system_contacts">olles salvestanud nende kontakti oma telefoni</string>
-    <!-- Note at the bottom of the Signal connections sheet -->
+    <!-- Note at the bottom of the Kahf Messenger connections sheet -->
     <string name="SignalConnectionsBottomSheet__your_connections_can_see_your_name">"Sinu kontaktid näevad sinu nime ja fotot ning postitusi „Minu loo“ alla, kui sa neid nende eest ei peida."</string>
     <!-- Clickable option to add a viewer to a custom story -->
     <string name="PrivateStorySettingsFragment__add_viewer">Lisa vaataja</string>
@@ -5361,8 +5361,8 @@
     <string name="ExportingSmsMessagesFragment__you_need_approximately_s_to_export_your_messages_ensure_you_have_enough_space_before_continuing">Vajad sõnumite eksportimiseks ligikaudu %1$s. Veendu enne jätkamist, et sul on piisavalt salvestusruumi.</string>
     <!-- Alert dialog button to continue with exporting sms after seeing the lack of storage warning -->
     <string name="ExportingSmsMessagesFragment__continue_anyway">Jätka siiski</string>
-    <!-- Dialog text shown when Signal isn't granted the sms permission needed to export messages, different than being selected as the sms app -->
-    <string name="ExportingSmsMessagesFragment__signal_needs_the_sms_permission_to_be_able_to_export_your_sms_messages">Signal needs the SMS permission to be able to export your SMS messages.</string>
+    <!-- Dialog text shown when Kahf Messenger isn't granted the sms permission needed to export messages, different than being selected as the sms app -->
+    <string name="ExportingSmsMessagesFragment__signal_needs_the_sms_permission_to_be_able_to_export_your_sms_messages">Kahf Messenger needs the SMS permission to be able to export your SMS messages.</string>
 
     <!-- ChooseANewDefaultSmsAppFragment -->
     <!-- Title of the screen -->
@@ -5404,7 +5404,7 @@
 
     <!-- SetSignalAsDefaultSmsAppFragment -->
     <!-- Title of the screen -->
-    <string name="SetSignalAsDefaultSmsAppFragment__set_signal_as_the_default_sms_app">Kõigepealt muuda Signal vaikimisi SMS-rakenduseks</string>
+    <string name="SetSignalAsDefaultSmsAppFragment__set_signal_as_the_default_sms_app">Kõigepealt muuda Kahf Messenger vaikimisi SMS-rakenduseks</string>
     <!-- Message of the screen -->
     <string name="SetSignalAsDefaultSmsAppFragment__to_export_your_sms_messages">Selleks, et oma SMS-sõnumeid eksportida, pead Signali vaikimisi SMS-rakenduseks määrama.</string>
     <!-- Button label to start export -->
@@ -5430,13 +5430,13 @@
 
     <!-- SmsExportMegaphoneActivity -->
     <!-- Phase 2 title of full screen megaphone indicating sms will no longer be supported in the near future -->
-    <string name="SmsExportMegaphoneActivity__signal_will_no_longer_support_sms">Signal ei toeta enam varsti SMS-sõnumeid</string>
+    <string name="SmsExportMegaphoneActivity__signal_will_no_longer_support_sms">Kahf Messenger ei toeta enam varsti SMS-sõnumeid</string>
     <!-- Phase 3 title of full screen megaphone indicating sms is longer supported  -->
-    <string name="SmsExportMegaphoneActivity__signal_no_longer_supports_sms">Signal ei toeta enam SMS-sõnumeid</string>
+    <string name="SmsExportMegaphoneActivity__signal_no_longer_supports_sms">Kahf Messenger ei toeta enam SMS-sõnumeid</string>
     <!-- Phase 2 message describing that sms is going away soon -->
-    <string name="SmsExportMegaphoneActivity__signal_will_soon_remove_support_for_sending_sms_messages">Signal lõpetab varsti SMS-sõnumite toetamise, sest Signali sõnumid on otspunktkrüptitud ja neil on tugev privaatsuskaitse, mis SMS-sõnumitel puudub. See võimaldab meil parandada Signali sõnumite kasutuskogemust.</string>
+    <string name="SmsExportMegaphoneActivity__signal_will_soon_remove_support_for_sending_sms_messages">Kahf Messenger lõpetab varsti SMS-sõnumite toetamise, sest Signali sõnumid on otspunktkrüptitud ja neil on tugev privaatsuskaitse, mis SMS-sõnumitel puudub. See võimaldab meil parandada Signali sõnumite kasutuskogemust.</string>
     <!-- Phase 3 message describing that sms has gone away -->
-    <string name="SmsExportMegaphoneActivity__signal_has_removed_support_for_sending_sms_messages">Signal on lõpetanud SMS-sõnumite toetamise, sest Signali sõnumid on otspunktkrüptitud ja neil on tugev privaatsuskaitse, mis SMS-sõnumitel puudub. See võimaldab meil parandada Signali sõnumite kasutuskogemust.</string>
+    <string name="SmsExportMegaphoneActivity__signal_has_removed_support_for_sending_sms_messages">Kahf Messenger on lõpetanud SMS-sõnumite toetamise, sest Signali sõnumid on otspunktkrüptitud ja neil on tugev privaatsuskaitse, mis SMS-sõnumitel puudub. See võimaldab meil parandada Signali sõnumite kasutuskogemust.</string>
     <!-- The text on a button in a popup that, when clicked, will take the user to a screen to export their SMS messages -->
     <string name="SmsExportMegaphoneActivity__export_sms">Ekspordi SMS</string>
     <!-- The text on a button in a popup that, when clicked, will dismiss the popup and schedule the prompt to occur at a later time. -->

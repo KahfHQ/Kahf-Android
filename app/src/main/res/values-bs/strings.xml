@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- smartling.instruction_comments_enabled = on -->
 <resources>
-    <string name="app_name" translatable="false">Signal</string>
+    <string name="app_name" translatable="false">Kahf Messenger</string>
 
     <string name="install_url" translatable="false">https://signal.org/install</string>
     <string name="donate_url" translatable="false">https://signal.org/donate</string>
@@ -30,23 +30,23 @@
     <string name="AlbumThumbnailView_plus" translatable="false">\+%d</string>
 
     <!-- ApplicationMigrationActivity -->
-    <string name="ApplicationMigrationActivity__signal_is_updating">Signal se ažurira …</string>
+    <string name="ApplicationMigrationActivity__signal_is_updating">Kahf Messenger se ažurira …</string>
 
     <!-- ApplicationPreferencesActivity -->
     <string name="ApplicationPreferencesActivity_currently_s">Trenutno: %1$s</string>
     <string name="ApplicationPreferenceActivity_you_havent_set_a_passphrase_yet">Još niste zadali lozinku!</string>
     <string name="ApplicationPreferencesActivity_disable_passphrase">Isključiti lozinku?</string>
-    <string name="ApplicationPreferencesActivity_this_will_permanently_unlock_signal_and_message_notifications">Ovo će trajno otključati Signal i obavještenja o porukama.</string>
+    <string name="ApplicationPreferencesActivity_this_will_permanently_unlock_signal_and_message_notifications">Ovo će trajno otključati Kahf Messenger i obavještenja o porukama.</string>
     <string name="ApplicationPreferencesActivity_disable">Onemogući</string>
     <string name="ApplicationPreferencesActivity_unregistering">Odjavljivanje</string>
-    <string name="ApplicationPreferencesActivity_unregistering_from_signal_messages_and_calls">Odjavljivanje iz Signal poruka i poziva …</string>
-    <string name="ApplicationPreferencesActivity_disable_signal_messages_and_calls">Onemogućiti Signal poruke i pozive?</string>
-    <string name="ApplicationPreferencesActivity_disable_signal_messages_and_calls_by_unregistering">Onemogućite Signal poruke i pozive tako što ćete se odjaviti sa servera. Morate ponovo registrovati svoj broj telefona da biste ih koristili u budućnosti.</string>
+    <string name="ApplicationPreferencesActivity_unregistering_from_signal_messages_and_calls">Odjavljivanje iz Kahf Messenger poruka i poziva …</string>
+    <string name="ApplicationPreferencesActivity_disable_signal_messages_and_calls">Onemogućiti Kahf Messenger poruke i pozive?</string>
+    <string name="ApplicationPreferencesActivity_disable_signal_messages_and_calls_by_unregistering">Onemogućite Kahf Messenger poruke i pozive tako što ćete se odjaviti sa servera. Morate ponovo registrovati svoj broj telefona da biste ih koristili u budućnosti.</string>
     <string name="ApplicationPreferencesActivity_error_connecting_to_server">Greška pri povezivanju sa serverom!</string>
     <string name="ApplicationPreferencesActivity_sms_enabled">SMS aktivan</string>
     <string name="ApplicationPreferencesActivity_touch_to_change_your_default_sms_app">Pritisnite ovdje da biste promijenili svoju glavnu aplikaciju za slanje SMS poruka</string>
     <string name="ApplicationPreferencesActivity_sms_disabled">SMS neaktivan</string>
-    <string name="ApplicationPreferencesActivity_touch_to_make_signal_your_default_sms_app">Pritisnite ovdje da Signal učinite svojom glavnom aplikacijom za slanje SMS poruka</string>
+    <string name="ApplicationPreferencesActivity_touch_to_make_signal_your_default_sms_app">Pritisnite ovdje da Kahf Messenger učinite svojom glavnom aplikacijom za slanje SMS poruka</string>
     <string name="ApplicationPreferencesActivity_on">uključeno</string>
     <string name="ApplicationPreferencesActivity_On">Uključeno</string>
     <string name="ApplicationPreferencesActivity_off">isključeno</string>
@@ -134,15 +134,15 @@
     <string name="BlockUnblockDialog_you_will_no_longer_receive_messages_or_updates">Nećete više primati poruke i obavještenja iz ove grupe, niti će Vas njeni članovi moći ponovo u grupu dodati.</string>
     <string name="BlockUnblockDialog_group_members_wont_be_able_to_add_you">Članovi grupe neće Vas moći ponovo uvrstiti u grupu.</string>
     <string name="BlockUnblockDialog_group_members_will_be_able_to_add_you">Članovi grupe moći će Vas ponovo uvrstiti u grupu.</string>
-    <!-- Text that is shown when unblocking a Signal contact -->
+    <!-- Text that is shown when unblocking a Kahf Messenger contact -->
     <string name="BlockUnblockDialog_you_will_be_able_to_call_and_message_each_other">Moći ćete razmjenjivati poruke i pozive, a sa sagovornikom će biti podijeljeni i Vaše ime i slika.</string>
     <!-- Text that is shown when unblocking an SMS contact -->
     <string name="BlockUnblockDialog_you_will_be_able_to_message_each_other">Moći ćete razmjenjivati poruke.</string>
     <string name="BlockUnblockDialog_blocked_people_wont_be_able_to_call_you_or_send_you_messages">Blokirane osobe neće Vas više moći zvati niti Vam slati poruke.</string>
     <string name="BlockUnblockDialog_blocked_people_wont_be_able_to_send_you_messages">Blokirane osobe više neće moći slati Vam poruke.</string>
-    <!-- Message shown on block dialog when blocking the Signal release notes recipient -->
+    <!-- Message shown on block dialog when blocking the Kahf Messenger release notes recipient -->
     <string name="BlockUnblockDialog_block_getting_signal_updates_and_news">Blokiraj primanje ažuriranja Signala i novosti.</string>
-    <!-- Message shown on unblock dialog when unblocking the Signal release notes recipient -->
+    <!-- Message shown on unblock dialog when unblocking the Kahf Messenger release notes recipient -->
     <string name="BlockUnblockDialog_resume_getting_signal_updates_and_news">Nastavi primati ažuriranja Signala i novosti.</string>
     <string name="BlockUnblockDialog_unblock_s">Deblokirati %1$s?</string>
     <string name="BlockUnblockDialog_block">Blokiraj</string>
@@ -166,14 +166,14 @@
 
     <!-- CameraContacts -->
     <string name="CameraContacts_recent_contacts">Nedavni kontakti</string>
-    <string name="CameraContacts_signal_contacts">Signal kontakti</string>
-    <string name="CameraContacts_signal_groups">Signal grupe</string>
+    <string name="CameraContacts_signal_contacts">Kahf Messenger kontakti</string>
+    <string name="CameraContacts_signal_groups">Kahf Messenger grupe</string>
     <string name="CameraContacts_you_can_share_with_a_maximum_of_n_conversations">Možete dijeliti sa najviše %1$d konverzacija.</string>
-    <string name="CameraContacts_select_signal_recipients">Odaberite Signal primaoce</string>
-    <string name="CameraContacts_no_signal_contacts">Nema Signal kontakata</string>
-    <string name="CameraContacts_you_can_only_use_the_camera_button">Okidač kamere možete koristiti samo za slanje fotografija Signal kontaktima. </string>
+    <string name="CameraContacts_select_signal_recipients">Odaberite Kahf Messenger primaoce</string>
+    <string name="CameraContacts_no_signal_contacts">Nema Kahf Messenger kontakata</string>
+    <string name="CameraContacts_you_can_only_use_the_camera_button">Okidač kamere možete koristiti samo za slanje fotografija Kahf Messenger kontaktima. </string>
     <string name="CameraContacts_cant_find_who_youre_looking_for">Ne možete pronaći koga tražite?</string>
-    <string name="CameraContacts_invite_a_contact_to_join_signal">Pozovite osobu da koristi Signal</string>
+    <string name="CameraContacts_invite_a_contact_to_join_signal">Pozovite osobu da koristi Kahf Messenger</string>
     <string name="CameraContacts__menu_search">Traži</string>
 
     <!-- Censorship Circumvention Megaphone -->
@@ -192,7 +192,7 @@
     <string name="ClearProfileActivity_remove_group_photo">Ukloni sliku grupe</string>
 
     <!-- ClientDeprecatedActivity -->
-    <string name="ClientDeprecatedActivity_update_signal">Ažurirajte Signal</string>
+    <string name="ClientDeprecatedActivity_update_signal">Ažurirajte Kahf Messenger</string>
     <string name="ClientDeprecatedActivity_this_version_of_the_app_is_no_longer_supported">Ova verzija aplikacije više nije podržana. Da biste mogli slati i primati poruke, instalirajte zadnju verziju.</string>
     <string name="ClientDeprecatedActivity_update">Ažuriraj</string>
     <string name="ClientDeprecatedActivity_dont_update">Ne ažuriraj</string>
@@ -210,7 +210,7 @@
     <string name="CommunicationActions_carrier_charges_may_apply">Može doći do troškova. Broj koji pozivate nije registrovan na Signalu. Poziv će biti usmjeren preko Vašeg mobilnog operatera, ne preko interneta.</string>
 
     <!-- ConfirmIdentityDialog -->
-    <string name="ConfirmIdentityDialog_your_safety_number_with_s_has_changed">Promijenjen je Vaš sigurnosni broj %1$s. To može značiti da neko pokušava presresti Vašu komunikaciju ili da je %2$s iznova instalirao/la Signal.</string>
+    <string name="ConfirmIdentityDialog_your_safety_number_with_s_has_changed">Promijenjen je Vaš sigurnosni broj %1$s. To može značiti da neko pokušava presresti Vašu komunikaciju ili da je %2$s iznova instalirao/la Kahf Messenger.</string>
     <string name="ConfirmIdentityDialog_you_may_wish_to_verify_your_safety_number_with_this_contact">Trebali biste provjeriti svoj sigurnosni broj s ovom osobom.</string>
     <string name="ConfirmIdentityDialog_accept">Prihvati</string>
 
@@ -228,7 +228,7 @@
 
     <!-- ContactsDatabase -->
     <string name="ContactsDatabase_message_s">Poruka %1$s</string>
-    <string name="ContactsDatabase_signal_call_s">Signal poziv %1$s</string>
+    <string name="ContactsDatabase_signal_call_s">Kahf Messenger poziv %1$s</string>
 
     <!-- ContactNameEditActivity -->
     <!-- Toolbar title for contact name edit activity -->
@@ -262,7 +262,7 @@
     <string name="ConversationItem_click_to_approve_unencrypted">Slanje nije uspjelo. Dodirnite za nešifriranu alternativu.</string>
     <string name="ConversationItem_click_to_approve_unencrypted_sms_dialog_title">Koristiti nešifrirani SMS?</string>
     <string name="ConversationItem_click_to_approve_unencrypted_mms_dialog_title">Koristiti nešifrirani MMS?</string>
-    <string name="ConversationItem_click_to_approve_unencrypted_dialog_message">Poruka <b>neće</b> biti šifrirana jer primalac više ne koristi Signal.\n\nPoslati nezaštićenu poruku?</string>
+    <string name="ConversationItem_click_to_approve_unencrypted_dialog_message">Poruka <b>neće</b> biti šifrirana jer primalac više ne koristi Kahf Messenger.\n\nPoslati nezaštićenu poruku?</string>
     <string name="ConversationItem_unable_to_open_media">Nije pronađena aplikacija koja može otvoriti ovu datoteku.</string>
     <string name="ConversationItem_copied_text">Kopirano %1$s</string>
     <string name="ConversationItem_from_s">od %1$s</string>
@@ -293,8 +293,8 @@
     <string name="ConversationActivity_transport_insecure_mms">Nezaštićen MMS</string>
     <!-- A title for the option to send an SMS with a placeholder to put the name of their SIM card -->
     <string name="ConversationActivity_transport_insecure_mms_with_sim">Nesiguran MMS (%1$s)</string>
-    <string name="ConversationActivity_transport_signal">Signal poruka</string>
-    <string name="ConversationActivity_lets_switch_to_signal">Pređimo na Signal %1$s</string>
+    <string name="ConversationActivity_transport_signal">Kahf Messenger poruka</string>
+    <string name="ConversationActivity_lets_switch_to_signal">Pređimo na Kahf Messenger %1$s</string>
     <string name="ConversationActivity_specify_recipient">Molimo odaberite kontakt</string>
     <string name="ConversationActivity_unblock">Deblokiraj</string>
     <string name="ConversationActivity_attachment_exceeds_size_limits">Veličina priloga veća je od dopuštene za vrstu poruke koju šaljete.</string>
@@ -320,7 +320,7 @@
     <string name="ConversationActivity_signal_needs_recording_permissions_to_capture_video">Signalu je potrebno dopuštenje da pristupi mikrofonu kako bi mogao snimati videozapise.</string>
 
     <string name="ConversationActivity_quoted_contact_message">%1$s %2$s</string>
-    <string name="ConversationActivity_signal_cannot_sent_sms_mms_messages_because_it_is_not_your_default_sms_app">Signal ne može slati SMS/MMS poruke zato što nije Vaša glavna SMS aplikacija. Želite li ovo promijeniti u postavkama Androida?</string>
+    <string name="ConversationActivity_signal_cannot_sent_sms_mms_messages_because_it_is_not_your_default_sms_app">Kahf Messenger ne može slati SMS/MMS poruke zato što nije Vaša glavna SMS aplikacija. Želite li ovo promijeniti u postavkama Androida?</string>
     <string name="ConversationActivity_yes">Da</string>
     <string name="ConversationActivity_no">Ne</string>
     <string name="ConversationActivity_search_position">%1$d od %2$d</string>
@@ -354,11 +354,11 @@
     <!-- Action button shown when in sms conversation, sms is disabled, and unexported sms messages are present -->
     <string name="ConversationActivity__export_sms_messages">Izvezite SMS poruke</string>
     <!-- Message shown when opening an SMS conversation with SMS disabled and there are no exported messages -->
-    <string name="ConversationActivity__sms_messaging_is_currently_disabled_invite_s_to_to_signal_to_keep_the_conversation_here">Razmjena SMS poruka je trenutno onemogućena. Pozovite korisnika %1$s u Signal da zadržite razgovor ovdje.</string>
+    <string name="ConversationActivity__sms_messaging_is_currently_disabled_invite_s_to_to_signal_to_keep_the_conversation_here">Razmjena SMS poruka je trenutno onemogućena. Pozovite korisnika %1$s u Kahf Messenger da zadržite razgovor ovdje.</string>
     <!-- Message shown when opening an SMS conversation with SMS disabled and there are no exported messages -->
-    <string name="ConversationActivity__sms_messaging_is_no_longer_supported_in_signal_invite_s_to_to_signal_to_keep_the_conversation_here">Razmjena SMS poruka više nije podržana u Signalu. Pozovite korisnika %1$s u Signal da zadržite razgovor ovdje.</string>
+    <string name="ConversationActivity__sms_messaging_is_no_longer_supported_in_signal_invite_s_to_to_signal_to_keep_the_conversation_here">Razmjena SMS poruka više nije podržana u Signalu. Pozovite korisnika %1$s u Kahf Messenger da zadržite razgovor ovdje.</string>
     <!-- Action button shown when opening an SMS conversation with SMS disabled and there are no exported messages -->
-    <string name="ConversationActivity__invite_to_signal">Pozovite na Signal</string>
+    <string name="ConversationActivity__invite_to_signal">Pozovite na Kahf Messenger</string>
     <!-- Snackbar message shown after dismissing the full screen sms export megaphone indicating we'll do it again soon -->
     <string name="ConversationActivity__you_will_be_reminded_again_soon">Ponovno ćemo vas ponovo podsjetiti.</string>
 
@@ -406,7 +406,7 @@
         <item quantity="other">%1$d priloga se pohranjuje u memoriju uređaja…</item>
     </plurals>
     <string name="ConversationFragment_pending">U obradi…</string>
-    <string name="ConversationFragment_push">Internet (Signal)</string>
+    <string name="ConversationFragment_push">Internet (Kahf Messenger)</string>
     <string name="ConversationFragment_mms">MMS</string>
     <string name="ConversationFragment_sms">SMS</string>
     <string name="ConversationFragment_deleting">Brisanje</string>
@@ -421,16 +421,16 @@
     <string name="ConversationFragment_you_can_swipe_to_the_left_reply">Na svaku poruku možete brzo odgovoriti tako što ćete je povući ulijevo</string>
     <string name="ConversationFragment_outgoing_view_once_media_files_are_automatically_removed">Jednokratne multimedijske datoteke automatski će se izbrisati nakon što su poslane</string>
     <string name="ConversationFragment_you_already_viewed_this_message">Već ste vidjeli ovu poruku</string>
-    <string name="ConversationFragment__you_can_add_notes_for_yourself_in_this_conversation">U ovoj konverzaciji možete dodati bilješke za sebe.\nAko Signal koristite na više uređaja, ove će bilješke biti sinhronizovane među njima.</string>
+    <string name="ConversationFragment__you_can_add_notes_for_yourself_in_this_conversation">U ovoj konverzaciji možete dodati bilješke za sebe.\nAko Kahf Messenger koristite na više uređaja, ove će bilješke biti sinhronizovane među njima.</string>
     <string name="ConversationFragment__d_group_members_have_the_same_name">%1$d člana grupe imaju isto ime.</string>
     <string name="ConversationFragment__tap_to_review">Dotaknite da provjerite</string>
     <string name="ConversationFragment__review_requests_carefully">Pažljivo pregledajte zahtjeve</string>
-    <string name="ConversationFragment__signal_found_another_contact_with_the_same_name">Signal je među kontaktima pronašao još jednu osobu s istim imenom.</string>
+    <string name="ConversationFragment__signal_found_another_contact_with_the_same_name">Kahf Messenger je među kontaktima pronašao još jednu osobu s istim imenom.</string>
     <string name="ConversationFragment_contact_us">Kontaktirajte nas</string>
     <string name="ConversationFragment_verify">Verifikuj</string>
     <string name="ConversationFragment_not_now">Ne sada</string>
     <string name="ConversationFragment_your_safety_number_with_s_changed">Vaš je sigurnosni broj sa %1$s promijenjen</string>
-    <string name="ConversationFragment_your_safety_number_with_s_changed_likey_because_they_reinstalled_signal">Vaš je sigurnosni broj sa %1$s promijenjen, vjerovatno zbog toga što su on ili ona iznova instalirali Signal ili promijenili uređaj. Pritisnite Verifikuj da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</string>
+    <string name="ConversationFragment_your_safety_number_with_s_changed_likey_because_they_reinstalled_signal">Vaš je sigurnosni broj sa %1$s promijenjen, vjerovatno zbog toga što su on ili ona iznova instalirali Kahf Messenger ili promijenili uređaj. Pritisnite Verifikuj da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</string>
     <!-- Message shown to indicate which notification profile is on/active -->
     <string name="ConversationFragment__s_on">%1$s uključen</string>
     <!-- Dialog title for block group link join requests -->
@@ -609,7 +609,7 @@
     <string name="BackupsPreferenceFragment__test_your_backup_passphrase">Provjerite svoju lozinku za rezervne kopije i potvrdite da je tačna</string>
     <string name="BackupsPreferenceFragment__turn_on">Uključi</string>
     <string name="BackupsPreferenceFragment__turn_off">Isključi</string>
-    <string name="BackupsPreferenceFragment__to_restore_a_backup">"Da biste vratili podatke, instalirajte Signal iznova. Otvorite aplikaciju i odaberite \"Vrati podatke\", a potom pronađite rezervnu kopiju. %1$s"</string>
+    <string name="BackupsPreferenceFragment__to_restore_a_backup">"Da biste vratili podatke, instalirajte Kahf Messenger iznova. Otvorite aplikaciju i odaberite \"Vrati podatke\", a potom pronađite rezervnu kopiju. %1$s"</string>
     <string name="BackupsPreferenceFragment__learn_more">Saznajte više</string>
     <string name="BackupsPreferenceFragment__in_progress">U toku…</string>
     <!-- Status text shown in backup preferences when verifying a backup -->
@@ -641,7 +641,7 @@
 
     <!-- DecryptionFailedDialog -->
     <string name="DecryptionFailedDialog_chat_session_refreshed">Konverzacija je osvježena</string>
-    <string name="DecryptionFailedDialog_signal_uses_end_to_end_encryption">Signal koristi enkripciju s kraja na kraj (end-to-end) i možda će ponekad biti potrebno konverzaciju/sesiju osvježiti. Ovo ne utječe na sigurnost konverzacije, ali se može dogoditi da propustite poruku koju Vam je kontakt poslao. Možete ga zamoliti da Vam poruku pošalje ponovo.</string>
+    <string name="DecryptionFailedDialog_signal_uses_end_to_end_encryption">Kahf Messenger koristi enkripciju s kraja na kraj (end-to-end) i možda će ponekad biti potrebno konverzaciju/sesiju osvježiti. Ovo ne utječe na sigurnost konverzacije, ali se može dogoditi da propustite poruku koju Vam je kontakt poslao. Možete ga zamoliti da Vam poruku pošalje ponovo.</string>
 
     <!-- DeviceListActivity -->
     <string name="DeviceListActivity_unlink_s">Prekinuti vezu sa \'%1$s\'?</string>
@@ -663,7 +663,7 @@
 
     <!-- DozeReminder -->
     <string name="DozeReminder_optimize_for_missing_play_services">Optimizuj za nepostojanje Play Services</string>
-    <string name="DozeReminder_this_device_does_not_support_play_services_tap_to_disable_system_battery">Ovaj uređaj ne podržava Play Services. Pritisnite ovdje kako biste onemogućili sistemske optimizacije korištenja baterije koje sprečavaju Signal da prima poruke dok je aplikacija zatvorena.</string>
+    <string name="DozeReminder_this_device_does_not_support_play_services_tap_to_disable_system_battery">Ovaj uređaj ne podržava Play Services. Pritisnite ovdje kako biste onemogućili sistemske optimizacije korištenja baterije koje sprečavaju Kahf Messenger da prima poruke dok je aplikacija zatvorena.</string>
 
     <!-- ExpiredBuildReminder -->
     <string name="ExpiredBuildReminder_this_version_of_signal_has_expired">Ova verzija Signala je istekla. Ažurirajte aplikaciju sada da biste mogli slati i primati poruke.</string>
@@ -899,9 +899,9 @@
     <string name="AddGroupDetailsFragment__sms_contact">SMS kontakt</string>
     <string name="AddGroupDetailsFragment__remove_s_from_this_group">Udaljiti %1$s iz ove grupe?</string>
     <!-- Info message shown in the middle of the screen, displayed when adding group details to an MMS Group -->
-    <string name="AddGroupDetailsFragment__youve_selected_a_contact_that_doesnt_support">Odabrali ste kontakt koji ne podržava Signal grupe pa će ovo biti MMS grupa. Prilagođena MMS imena grupe i fotografije će biti vidljivi samo vama.</string>
+    <string name="AddGroupDetailsFragment__youve_selected_a_contact_that_doesnt_support">Odabrali ste kontakt koji ne podržava Kahf Messenger grupe pa će ovo biti MMS grupa. Prilagođena MMS imena grupe i fotografije će biti vidljivi samo vama.</string>
     <!-- Info message shown in the middle of the screen, displayed when adding group details to an MMS Group after SMS Phase 0 -->
-    <string name="AddGroupDetailsFragment__youve_selected_a_contact_that_doesnt_support_signal_groups_mms_removal">Odabrali ste kontakt koji ne podržava Signal grupe, stoga će ovo biti MMS grupa. Vlastiti nazivi dodijeljeni MMS grupama i slike bit će vidljivi samo Vama. Podrška za MMS grupe će se uskoro ukloniti radi fokusiranja na šifrirane poruke.</string>
+    <string name="AddGroupDetailsFragment__youve_selected_a_contact_that_doesnt_support_signal_groups_mms_removal">Odabrali ste kontakt koji ne podržava Kahf Messenger grupe, stoga će ovo biti MMS grupa. Vlastiti nazivi dodijeljeni MMS grupama i slike bit će vidljivi samo Vama. Podrška za MMS grupe će se uskoro ukloniti radi fokusiranja na šifrirane poruke.</string>
 
     <!-- ManageGroupActivity -->
     <string name="ManageGroupActivity_member_requests_and_invites">Zahtjevi za članstvo i pozivnice</string>
@@ -937,7 +937,7 @@
 
     <string name="ManageGroupActivity_you_dont_have_the_rights_to_do_this">Niste ovlašteni za to</string>
     <string name="ManageGroupActivity_not_capable">Neko koga ste uvrstili ne podržava nove grupe i treba ažurirati verziju Signala</string>
-    <string name="ManageGroupActivity_not_announcement_capable">Neko koga ste uvrstili nema podrške za proglasne grupe i treba ažurirati Signal</string>
+    <string name="ManageGroupActivity_not_announcement_capable">Neko koga ste uvrstili nema podrške za proglasne grupe i treba ažurirati Kahf Messenger</string>
     <string name="ManageGroupActivity_failed_to_update_the_group">Neuspjelo ažuriranje grupe</string>
     <string name="ManageGroupActivity_youre_not_a_member_of_the_group">Niste član ove grupe</string>
     <string name="ManageGroupActivity_failed_to_update_the_group_please_retry_later">Neuspjelo ažuriranje grupe, molimo, pokušajte kasnije</string>
@@ -949,7 +949,7 @@
     <string name="ManageGroupActivity_legacy_group_upgrade">Ovo je stara grupa. Da biste mogli koristiti opcije poput @spomena i administracije grupe,</string>
     <string name="ManageGroupActivity_legacy_group_too_large">Ova grupa ne može se preinačiti u novu grupu jer je prevelika. Maksimum za grupu iznosi %1$d.</string>
     <string name="ManageGroupActivity_upgrade_this_group">nadogradi ovu grupu.</string>
-    <string name="ManageGroupActivity_this_is_an_insecure_mms_group">Ovo je nezaštićena MMS grupa. Da biste razgovarali u privatnosti, pozovite svoje kontakte da koriste Signal.</string>
+    <string name="ManageGroupActivity_this_is_an_insecure_mms_group">Ovo je nezaštićena MMS grupa. Da biste razgovarali u privatnosti, pozovite svoje kontakte da koriste Kahf Messenger.</string>
     <string name="ManageGroupActivity_invite_now">Pozovi odmah</string>
     <string name="ManageGroupActivity_more">više</string>
     <string name="ManageGroupActivity_add_group_description">Unesite opis grupe…</string>
@@ -1061,10 +1061,10 @@
     </plurals>
 
     <!-- GroupJoinUpdateRequiredBottomSheetDialogFragment -->
-    <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_signal_to_use_group_links">Ažurirajte Signal da biste mogli koristiti grupne linkove</string>
+    <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_signal_to_use_group_links">Ažurirajte Kahf Messenger da biste mogli koristiti grupne linkove</string>
     <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_message">Verzija Signala koju koristite ne podržava ovaj link za grupu. Instalirajte zadnju verziju da biste se mogli priključiti ovoj grupi putem linka.</string>
-    <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_signal">Ažurirajte Signal</string>
-    <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_linked_device_message">Jedan ili više Vaših povezanih uređaja koriste verziju Signala koja ne podržava linkove za grupe. Ažurirajte Signal na svojim povezanim uređajima da biste pristupili ovoj grupi.</string>
+    <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_signal">Ažurirajte Kahf Messenger</string>
+    <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_update_linked_device_message">Jedan ili više Vaših povezanih uređaja koriste verziju Signala koja ne podržava linkove za grupe. Ažurirajte Kahf Messenger na svojim povezanim uređajima da biste pristupili ovoj grupi.</string>
     <string name="GroupJoinUpdateRequiredBottomSheetDialogFragment_group_link_is_not_valid">Link za grupu nije ispravan</string>
 
     <!-- GroupInviteLinkEnableAndShareBottomSheetDialogFragment -->
@@ -1095,7 +1095,7 @@
 
     <!-- InputPanel -->
     <string name="InputPanel_tap_and_hold_to_record_a_voice_message_release_to_send">Pritisnite i držite da biste snimili glasovnu poruku, pustite da je pošaljete</string>
-    <!-- Message shown if the user tries to switch a conversation from Signal to SMS -->
+    <!-- Message shown if the user tries to switch a conversation from Kahf Messenger to SMS -->
     <string name="InputPanel__sms_messaging_is_no_longer_supported_in_signal">Razmjena SMS poruka više nije podržana u Signalu.</string>
 
     <!-- InviteActivity -->
@@ -1106,7 +1106,7 @@
     <string name="InviteActivity_cancel">Otkaži</string>
     <string name="InviteActivity_sending">Šaljem…</string>
     <string name="InviteActivity_invitations_sent">Pozivnica poslana!</string>
-    <string name="InviteActivity_invite_to_signal">Pozovite na Signal</string>
+    <string name="InviteActivity_invite_to_signal">Pozovite na Kahf Messenger</string>
     <string name="InviteActivity_send_sms">Pošalji SMS (%1$d)</string>
     <plurals name="InviteActivity_send_sms_invites">
         <item quantity="one">Poslati %1$d SMS pozivnicu?</item>
@@ -1114,7 +1114,7 @@
         <item quantity="many">Poslati %1$d SMS pozivnica?</item>
         <item quantity="other">Poslati %1$d SMS pozivnica?</item>
     </plurals>
-    <string name="InviteActivity_lets_switch_to_signal">Pređimo na Signal: %1$s</string>
+    <string name="InviteActivity_lets_switch_to_signal">Pređimo na Kahf Messenger: %1$s</string>
     <string name="InviteActivity_no_app_to_share_to">Izgleda da nemate nijednu aplikaciju s kojom je moguće dijeljenje.</string>
 
     <!-- LearnMoreTextView -->
@@ -1128,7 +1128,7 @@
     <string name="LongMessageActivity_your_message">Vaša poruka</string>
 
     <!-- MessageRetrievalService -->
-    <string name="MessageRetrievalService_signal">Signal</string>
+    <string name="MessageRetrievalService_signal">Kahf Messenger</string>
     <string name="MessageRetrievalService_background_connection_enabled">Aktivirana konekcija u pozadini</string>
 
     <!-- MmsDownloader -->
@@ -1198,7 +1198,7 @@
 
     <!-- Megaphones -->
     <string name="Megaphones_remind_me_later">Podsjeti me kasnije</string>
-    <string name="Megaphones_verify_your_signal_pin">Potvrdite svoj Signal PIN</string>
+    <string name="Megaphones_verify_your_signal_pin">Potvrdite svoj Kahf Messenger PIN</string>
     <string name="Megaphones_well_occasionally_ask_you_to_verify_your_pin">Povremeno ćemo od Vas tražiti da potvrdite svoj PIN kako biste ga zapamtili.</string>
     <string name="Megaphones_verify_pin">Potvrdi PIN</string>
     <string name="Megaphones_get_started">Krenite</string>
@@ -1212,13 +1212,13 @@
     <string name="MessageQuotesBottomSheet_replies">Odgovori</string>
 
     <!-- NotificationBarManager -->
-    <string name="NotificationBarManager_signal_call_in_progress">Signal poziv u toku</string>
-    <string name="NotificationBarManager__establishing_signal_call">Uspostavljam Signal poziv</string>
-    <string name="NotificationBarManager__incoming_signal_call">Dolazni Signal poziv</string>
-    <string name="NotificationBarManager__incoming_signal_group_call">Dolazni grupni Signal poziv</string>
+    <string name="NotificationBarManager_signal_call_in_progress">Kahf Messenger poziv u toku</string>
+    <string name="NotificationBarManager__establishing_signal_call">Uspostavljam Kahf Messenger poziv</string>
+    <string name="NotificationBarManager__incoming_signal_call">Dolazni Kahf Messenger poziv</string>
+    <string name="NotificationBarManager__incoming_signal_group_call">Dolazni grupni Kahf Messenger poziv</string>
     <!-- Temporary notification shown when starting the calling service -->
     <string name="NotificationBarManager__starting_signal_call_service">Pokretanje usluge poziva Signala</string>
-    <string name="NotificationBarManager__stopping_signal_call_service">Zaustavljam servis za Signal pozive</string>
+    <string name="NotificationBarManager__stopping_signal_call_service">Zaustavljam servis za Kahf Messenger pozive</string>
     <string name="NotificationBarManager__decline_call">Odbij poziv</string>
     <string name="NotificationBarManager__answer_call">Odgovori na poziv</string>
     <string name="NotificationBarManager__end_call">Završi razgovor</string>
@@ -1481,7 +1481,7 @@
     <string name="MessageRecord_a_message_from_s_couldnt_be_delivered">Poruku od %1$s nije bilo moguće dostaviti</string>
     <string name="MessageRecord_s_changed_their_phone_number">%1$s je promijenio/la broj.</string>
     <!-- Update item message shown in the release channel when someone is already a sustainer so we ask them if they want to boost. -->
-    <string name="MessageRecord_like_this_new_feature_help_support_signal_with_a_one_time_donation">Sviđa vam se nova funkcija? Podržite Signal jednokratnom donacijom.</string>
+    <string name="MessageRecord_like_this_new_feature_help_support_signal_with_a_one_time_donation">Sviđa vam se nova funkcija? Podržite Kahf Messenger jednokratnom donacijom.</string>
     <!-- Update item message shown when we merge two threads together -->
     <string name="MessageRecord_your_message_history_with_s_and_their_number_s_has_been_merged">Vaša historija razmjenjivanja poruka s korisnikom %1$s i njihovim brojem %2$s je spojena.</string>
     <!-- Update item message shown when we merge two threads together and we don't know the phone number of the other thread -->
@@ -1517,9 +1517,9 @@
     </plurals>
 
     <!-- In-conversation update message to indicate that the current contact is sms only and will need to migrate to signal to continue the conversation in signal. -->
-    <string name="MessageRecord__you_will_no_longer_be_able_to_send_sms_messages_from_signal_soon">Uskoro više nećete moći slati SMS poruke pomoću Signala. Pozovite korisnika %1$s u Signal da zadržite razgovor ovdje.</string>
+    <string name="MessageRecord__you_will_no_longer_be_able_to_send_sms_messages_from_signal_soon">Uskoro više nećete moći slati SMS poruke pomoću Signala. Pozovite korisnika %1$s u Kahf Messenger da zadržite razgovor ovdje.</string>
     <!-- In-conversation update message to indicate that the current contact is sms only and will need to migrate to signal to continue the conversation in signal. -->
-    <string name="MessageRecord__you_can_no_longer_send_sms_messages_in_signal">Više ne možete slati SMS poruke pomoću Signala. Pozovite korisnika %1$s u Signal da zadržite razgovor ovdje.</string>
+    <string name="MessageRecord__you_can_no_longer_send_sms_messages_in_signal">Više ne možete slati SMS poruke pomoću Signala. Pozovite korisnika %1$s u Kahf Messenger da zadržite razgovor ovdje.</string>
 
     <!-- MessageRequestBottomView -->
     <string name="MessageRequestBottomView_accept">Prihvati</string>
@@ -1528,7 +1528,7 @@
     <string name="MessageRequestBottomView_block">Blokiraj</string>
     <string name="MessageRequestBottomView_unblock">Deblokiraj</string>
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_they_wont_know_youve_seen_their_messages_until_you_accept">Dopustiti da Vam %1$s šalje poruke i vidi Vaše ime i sliku? On ili ona neće znati da ste vidjeli njihove poruke dok ne prihvatite.</string>
-    <!-- Shown in message request flow. Describes what will happen if you unblock a Signal user -->
+    <!-- Shown in message request flow. Describes what will happen if you unblock a Kahf Messenger user -->
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_wont_receive_any_messages_until_you_unblock_them">Dopustiti da Vam %1$s šalje poruke i vidi Vaše ime i sliku? Nećete primati poruke od njega ili nje dok ih ne prestanete blokirati.</string>
     <!-- Shown in message request flow. Describes what will happen if you unblock an SMS user -->
     <string name="MessageRequestBottomView_do_you_want_to_let_s_message_you_wont_receive_any_messages_until_you_unblock_them_SMS">Dopustiti da Vam %1$s šalje poruke? Nećete primati poruke od njega ili nje dok ih ne prestanete blokirati.</string>
@@ -1594,8 +1594,8 @@
     <string name="DeviceProvisioningActivity_content_progress_key_error">Nevažeći QR kōd.</string>
     <string name="DeviceProvisioningActivity_sorry_you_have_too_many_devices_linked_already">Povezali ste previše uređaja, molimo pokušajte ukloniti neke od njih</string>
     <string name="DeviceActivity_sorry_this_is_not_a_valid_device_link_qr_code">Ovo nije ispravan QR kōd za povezivanje uređaja.</string>
-    <string name="DeviceProvisioningActivity_link_a_signal_device">Povezati Signal uređaj?</string>
-    <string name="DeviceProvisioningActivity_it_looks_like_youre_trying_to_link_a_signal_device_using_a_3rd_party_scanner">Izgleda da ste pokušali povezati Signal uređaj koristeći neki eksterni skener. Radi vlastite sigurnosti, molimo ponovo skenirajte kōd, ali kroz Signal.</string>
+    <string name="DeviceProvisioningActivity_link_a_signal_device">Povezati Kahf Messenger uređaj?</string>
+    <string name="DeviceProvisioningActivity_it_looks_like_youre_trying_to_link_a_signal_device_using_a_3rd_party_scanner">Izgleda da ste pokušali povezati Kahf Messenger uređaj koristeći neki eksterni skener. Radi vlastite sigurnosti, molimo ponovo skenirajte kōd, ali kroz Kahf Messenger.</string>
 
     <string name="DeviceActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code">Signalu je potrebno dopuštenje da pristupi kameri kako bi mogao skenirati QR kōd, ali je ono trajno uskraćeno. Molimo nastavite do postavki aplikacije, odaberite \"Dozvole\" i aktivirajte stavku \"Kamera\".</string>
     <string name="DeviceActivity_unable_to_scan_a_qr_code_without_the_camera_permission">Nije moguće skenirati QR kōd bez dopuštenja za pristup kameri.</string>
@@ -1612,11 +1612,11 @@
 
     <!-- PassphrasePromptActivity -->
     <string name="PassphrasePromptActivity_enter_passphrase">Unesite lozinku</string>
-    <string name="PassphrasePromptActivity_watermark_content_description">Signal sličica</string>
+    <string name="PassphrasePromptActivity_watermark_content_description">Kahf Messenger sličica</string>
     <string name="PassphrasePromptActivity_ok_button_content_description">Unesite lozinku</string>
     <string name="PassphrasePromptActivity_invalid_passphrase_exclamation">Pogrešna lozinka!</string>
-    <string name="PassphrasePromptActivity_unlock_signal">Otključajte Signal</string>
-    <string name="PassphrasePromptActivity_signal_android_lock_screen">Signal Android – Zaključan ekran</string>
+    <string name="PassphrasePromptActivity_unlock_signal">Otključajte Kahf Messenger</string>
+    <string name="PassphrasePromptActivity_signal_android_lock_screen">Kahf Messenger Android – Zaključan ekran</string>
 
     <!-- PlacePickerActivity -->
     <string name="PlacePickerActivity_title">Karta</string>
@@ -1643,19 +1643,19 @@
         <item quantity="many">Preostalo vam je %1$d pokušaja. Ako svi vaši pokušaji budu neuspješni, možete kreirati novi PIN. Moći ćete se registrovati i koristiti svoj račun, ali će neke postavke računa, poput informacija o profilu, biti poništene.</item>
         <item quantity="other">Preostalo vam je %1$d pokušaja. Ako svi vaši pokušaji budu neuspješni, možete kreirati novi PIN. Moći ćete se registrovati i koristiti svoj račun, ali će neke postavke računa, poput informacija o profilu, biti poništene.</item>
     </plurals>
-    <string name="PinRestoreEntryFragment_signal_registration_need_help_with_pin">Signal registracija – trebate pomoć u vezi s PIN-om za Android</string>
+    <string name="PinRestoreEntryFragment_signal_registration_need_help_with_pin">Kahf Messenger registracija – trebate pomoć u vezi s PIN-om za Android</string>
     <string name="PinRestoreEntryFragment_enter_alphanumeric_pin">Unesite alfanumerički PIN</string>
     <string name="PinRestoreEntryFragment_enter_numeric_pin">Unesite numerički PIN</string>
 
     <!-- PinRestoreLockedFragment -->
     <string name="PinRestoreLockedFragment_create_your_pin">Kreirajte svoj PIN</string>
-    <string name="PinRestoreLockedFragment_youve_run_out_of_pin_guesses">Iskoristili ste sve pokušaje za unošenje PIN-a, ali i dalje možete pristupiti svom Signal računu kreiranjem novog PIN-a. Radi zaštite privatnosti i sigurnosti, Vaš će račun biti obnovljen, ali neće sadržavati stare informacije o profilu ili podešavanja.</string>
+    <string name="PinRestoreLockedFragment_youve_run_out_of_pin_guesses">Iskoristili ste sve pokušaje za unošenje PIN-a, ali i dalje možete pristupiti svom Kahf Messenger računu kreiranjem novog PIN-a. Radi zaštite privatnosti i sigurnosti, Vaš će račun biti obnovljen, ali neće sadržavati stare informacije o profilu ili podešavanja.</string>
     <string name="PinRestoreLockedFragment_create_new_pin">Kreiraj novi PIN</string>
     <string name="PinRestoreLockedFragment_learn_more_url" translatable="false">https://support.signal.org/hc/articles/360007059792</string>
 
     <!-- PinOptOutDialog -->
     <string name="PinOptOutDialog_warning">Upozorenje</string>
-    <string name="PinOptOutDialog_if_you_disable_the_pin_you_will_lose_all_data">Ako isključite PIN, svi Vaši podaci bit će izbrisani kada se ponovo registrujete na Signal, izuzev ako ručno kreirate rezervnu kopiju i koristite je za povrat podataka. Nećete moći aktivirati zaključavanje registracije dok god je PIN isključen.</string>
+    <string name="PinOptOutDialog_if_you_disable_the_pin_you_will_lose_all_data">Ako isključite PIN, svi Vaši podaci bit će izbrisani kada se ponovo registrujete na Kahf Messenger, izuzev ako ručno kreirate rezervnu kopiju i koristite je za povrat podataka. Nećete moći aktivirati zaključavanje registracije dok god je PIN isključen.</string>
     <string name="PinOptOutDialog_disable_pin">Isključi PIN</string>
 
     <!-- RatingManager -->
@@ -1706,12 +1706,12 @@
     <!-- Title text for the Valentine\'s Day donation megaphone. The placeholder will always be a heart emoji. Needs to be a placeholder for Android reasons. -->
     <string name="ValentinesDayMegaphone_happy_heart_day">Sretan dan 💜!</string>
     <!-- Body text for the Valentine\'s Day donation megaphone. -->
-    <string name="ValentinesDayMegaphone_show_your_affection">Pokažite svoju privrženost postavši Signal pokrovitelj.</string>
+    <string name="ValentinesDayMegaphone_show_your_affection">Pokažite svoju privrženost postavši Kahf Messenger pokrovitelj.</string>
 
     <!-- WebRtcCallActivity -->
     <string name="WebRtcCallActivity__tap_here_to_turn_on_your_video">Pritisnite ovdje da uključite video</string>
     <string name="WebRtcCallActivity__to_call_s_signal_needs_access_to_your_camera">Da biste nazvali %1$s, Signalu je potreban pristup Vašoj kameri</string>
-    <string name="WebRtcCallActivity__signal_s">Signal %1$s</string>
+    <string name="WebRtcCallActivity__signal_s">Kahf Messenger %1$s</string>
     <string name="WebRtcCallActivity__calling">Pozivam…</string>
     <string name="WebRtcCallActivity__group_is_too_large_to_ring_the_participants">Grupa je prevelika za zazvoniti učesnicima.</string>
     <!-- Call status shown when an active call was disconnected (e.g., network hiccup) and is trying to reconnect -->
@@ -1726,8 +1726,8 @@
     <string name="WebRtcCallActivity__not_now">Ne sada</string>
 
     <!-- WebRtcCallView -->
-    <string name="WebRtcCallView__signal_call">Signal poziv</string>
-    <string name="WebRtcCallView__signal_video_call">Signal videopoziv</string>
+    <string name="WebRtcCallView__signal_call">Kahf Messenger poziv</string>
+    <string name="WebRtcCallView__signal_video_call">Kahf Messenger videopoziv</string>
     <string name="WebRtcCallView__start_call">Nazovi</string>
     <string name="WebRtcCallView__join_call">Pridruži se pozivu</string>
     <string name="WebRtcCallView__call_is_full">Poziv je popunjen</string>
@@ -1738,13 +1738,13 @@
     <string name="WebRtcCallView__joining">Pristupam…</string>
     <string name="WebRtcCallView__disconnected">Prekinuta veza</string>
 
-    <string name="WebRtcCallView__signal_will_ring_s">Signal će zazvoniti %1$s</string>
-    <string name="WebRtcCallView__signal_will_ring_s_and_s">Signal će zazvoniti %1$s i %2$s</string>
+    <string name="WebRtcCallView__signal_will_ring_s">Kahf Messenger će zazvoniti %1$s</string>
+    <string name="WebRtcCallView__signal_will_ring_s_and_s">Kahf Messenger će zazvoniti %1$s i %2$s</string>
     <plurals name="WebRtcCallView__signal_will_ring_s_s_and_d_others">
-        <item quantity="one">Signal će pozvati %1$s, %2$s i još %3$d osobu</item>
-        <item quantity="few">Signal će pozvati %1$s, %2$s i još %3$d osobe</item>
-        <item quantity="many">Signal će pozvati %1$s, %2$s i još %3$d osoba</item>
-        <item quantity="other">Signal će pozvati %1$s, %2$s i još %3$d osoba</item>
+        <item quantity="one">Kahf Messenger će pozvati %1$s, %2$s i još %3$d osobu</item>
+        <item quantity="few">Kahf Messenger će pozvati %1$s, %2$s i još %3$d osobe</item>
+        <item quantity="many">Kahf Messenger će pozvati %1$s, %2$s i još %3$d osoba</item>
+        <item quantity="other">Kahf Messenger će pozvati %1$s, %2$s i još %3$d osoba</item>
     </plurals>
 
     <string name="WebRtcCallView__s_will_be_notified">%1$s će biti obaviješten/a</string>
@@ -1840,18 +1840,18 @@
     <string name="RegistrationActivity_is_your_phone_number_above_correct">Je li gore navedeni broj Vašega telefona tačan?</string>
     <string name="RegistrationActivity_edit_number">Ispravite broj</string>
     <string name="RegistrationActivity_missing_google_play_services">Nedostaju Google Play Services</string>
-    <string name="RegistrationActivity_this_device_is_missing_google_play_services">Na ovom uređaju nisu instalirani Google Play Services. I dalje ćete moći koristiti Signal, ali ova konfiguracija može dovesti do manje pouzdanosti i lošijih performansi.\n\nAko niste napredni korisnik, ako nemate ručno instaliranu verziju Android ROM-a ili smatrate da je ova poruka greška, molimo kontaktirajte support@signal.org za pomoć.</string>
+    <string name="RegistrationActivity_this_device_is_missing_google_play_services">Na ovom uređaju nisu instalirani Google Play Services. I dalje ćete moći koristiti Kahf Messenger, ali ova konfiguracija može dovesti do manje pouzdanosti i lošijih performansi.\n\nAko niste napredni korisnik, ako nemate ručno instaliranu verziju Android ROM-a ili smatrate da je ova poruka greška, molimo kontaktirajte support@signal.org za pomoć.</string>
     <string name="RegistrationActivity_i_understand">Razumijem</string>
     <string name="RegistrationActivity_play_services_error">Play Services greška</string>
     <string name="RegistrationActivity_google_play_services_is_updating_or_unavailable">Google Play Services se ažuriraju ili su privremeno nedostupni. Pokušajte ponovo.</string>
     <string name="RegistrationActivity_terms_and_privacy">Sporazum o korištenju i privatnosti</string>
-    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_and_media_in_order_to_connect_with_friends">Signalu je potrebno dopuštenje da pristupi kontaktima i multimediji kako bi Vam pomogao u povezivanju s prijateljima i slanju poruka. Vaši su kontakti preneseni na Signal server putem Signalovog privatnog uvezivanja kontakata, što znači da su šifrirani s kraja na kraj i nisu nikada vidljivi Signal servisu.</string>
-    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_in_order_to_connect_with_friends">Signalu je potrebno dopuštenje da pristupi kontaktima kako bi Vam pomogao u povezivanju s prijateljima. Vaši su kontakti preneseni na Signal server putem Signalovog privatnog uvezivanja kontakata, što znači da su šifrirani s kraja na kraj i nisu nikada vidljivi Signal servisu.</string>
+    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_and_media_in_order_to_connect_with_friends">Signalu je potrebno dopuštenje da pristupi kontaktima i multimediji kako bi Vam pomogao u povezivanju s prijateljima i slanju poruka. Vaši su kontakti preneseni na Kahf Messenger server putem Signalovog privatnog uvezivanja kontakata, što znači da su šifrirani s kraja na kraj i nisu nikada vidljivi Kahf Messenger servisu.</string>
+    <string name="RegistrationActivity_signal_needs_access_to_your_contacts_in_order_to_connect_with_friends">Signalu je potrebno dopuštenje da pristupi kontaktima kako bi Vam pomogao u povezivanju s prijateljima. Vaši su kontakti preneseni na Kahf Messenger server putem Signalovog privatnog uvezivanja kontakata, što znači da su šifrirani s kraja na kraj i nisu nikada vidljivi Kahf Messenger servisu.</string>
     <string name="RegistrationActivity_rate_limited_to_service">Pokušali ste previše puta registrovati ovaj broj. Molimo pokušajte ponovo kasnije.</string>
     <string name="RegistrationActivity_unable_to_connect_to_service">Povezivanje nije uspjelo. Molimo provjerite internet-konekciju i pokušajte ponovo.</string>
     <string name="RegistrationActivity_non_standard_number_format">Nestandardni oblik broja</string>
     <string name="RegistrationActivity_the_number_you_entered_appears_to_be_a_non_standard">Broj koji ste unijeli (%1$s) izgleda nije standardnog oblika.\n\nJeste li mislili na %2$s?</string>
-    <string name="RegistrationActivity_signal_android_phone_number_format">Signal Android – oblik telefonskog broja</string>
+    <string name="RegistrationActivity_signal_android_phone_number_format">Kahf Messenger Android – oblik telefonskog broja</string>
     <string name="RegistrationActivity_call_requested">Zahtijevan poziv</string>
     <plurals name="RegistrationActivity_debug_log_hint">
         <item quantity="one">Preostao vam je %1$d korak da pošaljete izvještaj o greškama.</item>
@@ -1876,7 +1876,7 @@
     <!-- RegistrationLockV2Dialog -->
     <string name="RegistrationLockV2Dialog_turn_on_registration_lock">Uključiti zaključavanje registracije?</string>
     <string name="RegistrationLockV2Dialog_turn_off_registration_lock">Isključiti zaključavanje registracije?</string>
-    <string name="RegistrationLockV2Dialog_if_you_forget_your_signal_pin_when_registering_again">Ako zaboravite svoj Signal PIN kad se budete ponovo registrovali na Signalu, Vaš račun bit će Vam nedostupan 7 dana.</string>
+    <string name="RegistrationLockV2Dialog_if_you_forget_your_signal_pin_when_registering_again">Ako zaboravite svoj Kahf Messenger PIN kad se budete ponovo registrovali na Signalu, Vaš račun bit će Vam nedostupan 7 dana.</string>
     <string name="RegistrationLockV2Dialog_turn_on">Uključi</string>
     <string name="RegistrationLockV2Dialog_turn_off">Isključi</string>
 
@@ -1902,14 +1902,14 @@
 
     <!-- SharedContactDetailsActivity -->
     <string name="SharedContactDetailsActivity_add_to_contacts">Dodaj među kontakte</string>
-    <string name="SharedContactDetailsActivity_invite_to_signal">Pozovite na Signal</string>
-    <string name="SharedContactDetailsActivity_signal_message">Signal poruke</string>
-    <string name="SharedContactDetailsActivity_signal_call">Signal poziv</string>
+    <string name="SharedContactDetailsActivity_invite_to_signal">Pozovite na Kahf Messenger</string>
+    <string name="SharedContactDetailsActivity_signal_message">Kahf Messenger poruke</string>
+    <string name="SharedContactDetailsActivity_signal_call">Kahf Messenger poziv</string>
 
     <!-- SharedContactView -->
     <string name="SharedContactView_add_to_contacts">Dodaj među kontakte</string>
-    <string name="SharedContactView_invite_to_signal">Pozovite na Signal</string>
-    <string name="SharedContactView_message">Signal poruka</string>
+    <string name="SharedContactView_invite_to_signal">Pozovite na Kahf Messenger</string>
+    <string name="SharedContactView_message">Kahf Messenger poruka</string>
 
     <!-- SignalBottomActionBar -->
     <string name="SignalBottomActionBar_more">Više</string>
@@ -1938,7 +1938,7 @@
     <string name="SmsMessageRecord_secure_session_reset">Pokrenuli ste iznova zaštićenu sesiju.</string>
     <string name="SmsMessageRecord_secure_session_reset_s">%1$s je iznova pokrenuo/la zaštićenu sesiju.</string>
     <string name="SmsMessageRecord_duplicate_message">Dvostruka poruka.</string>
-    <string name="SmsMessageRecord_this_message_could_not_be_processed_because_it_was_sent_from_a_newer_version">Poruka nije mogla biti obrađena jer je poslata putem novije verzije Signala. Nakon što ažurirate Signal, možete zamoliti sagovornika da Vam poruku pošalje ponovo.</string>
+    <string name="SmsMessageRecord_this_message_could_not_be_processed_because_it_was_sent_from_a_newer_version">Poruka nije mogla biti obrađena jer je poslata putem novije verzije Signala. Nakon što ažurirate Kahf Messenger, možete zamoliti sagovornika da Vam poruku pošalje ponovo.</string>
     <string name="SmsMessageRecord_error_handling_incoming_message">Greška u obradi dolazne poruke.</string>
 
     <!-- StickerManagementActivity -->
@@ -1947,7 +1947,7 @@
     <!-- StickerManagementAdapter -->
     <string name="StickerManagementAdapter_installed_stickers">Instalirane naljepnice</string>
     <string name="StickerManagementAdapter_stickers_you_received">Primljene naljepnice</string>
-    <string name="StickerManagementAdapter_signal_artist_series">Signal umjetnički serijal</string>
+    <string name="StickerManagementAdapter_signal_artist_series">Kahf Messenger umjetnički serijal</string>
     <string name="StickerManagementAdapter_no_stickers_installed">Nema instaliranih naljepnica</string>
     <string name="StickerManagementAdapter_stickers_from_incoming_messages_will_appear_here">Naljepnice iz primljenih poruka bit će prikazane ovdje</string>
     <string name="StickerManagementAdapter_untitled">Bez naziva</string>
@@ -1984,7 +1984,7 @@
     <string name="SupportEmailUtil_device_info">Podaci o uređaju:</string>
     <string name="SupportEmailUtil_android_version">Verzija Androida:</string>
     <string name="SupportEmailUtil_signal_version">Verzija Signala:</string>
-    <string name="SupportEmailUtil_signal_package">Signal paket:</string>
+    <string name="SupportEmailUtil_signal_package">Kahf Messenger paket:</string>
     <string name="SupportEmailUtil_registration_lock">Zaključavanje registracije:</string>
     <string name="SupportEmailUtil_locale">Region:</string>
 
@@ -2082,10 +2082,10 @@
 
     <!-- VerifyIdentityActivity -->
     <string name="VerifyIdentityActivity_your_contact_is_running_an_old_version_of_signal">Ova osoba koristi stariju verziju Signala. Molimo tražite da instalira novu verziju prije verifikacije sigurnosnog broja.</string>
-    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Ova osoba koristi noviju verziju Signala, sa nekompatibilnim QR kōdom. Molimo nadogradite Signal da uporedite.</string>
+    <string name="VerifyIdentityActivity_your_contact_is_running_a_newer_version_of_Signal">Ova osoba koristi noviju verziju Signala, sa nekompatibilnim QR kōdom. Molimo nadogradite Kahf Messenger da uporedite.</string>
     <string name="VerifyIdentityActivity_the_scanned_qr_code_is_not_a_correctly_formatted_safety_number">Skenirani QR kōd nije ispravno oblikovan kōd za provjeru sigurnosnog broja. Molimo pokušajte skenirati ponovo.</string>
     <string name="VerifyIdentityActivity_share_safety_number_via">Podijeli sigurnosni broj putem…</string>
-    <string name="VerifyIdentityActivity_our_signal_safety_number">Naš Signal sigurnosni broj:</string>
+    <string name="VerifyIdentityActivity_our_signal_safety_number">Naš Kahf Messenger sigurnosni broj:</string>
     <string name="VerifyIdentityActivity_no_app_to_share_to">Izgleda da nemate nijednu aplikaciju s kojom je moguće dijeljenje.</string>
     <string name="VerifyIdentityActivity_no_safety_number_to_compare_was_found_in_the_clipboard">U spremniku nije pronađen sigurnosni broj za upoređivanje</string>
     <string name="VerifyIdentityActivity_signal_needs_the_camera_permission_in_order_to_scan_a_qr_code_but_it_has_been_permanently_denied">Signalu je potrebno dopuštenje da pristupi kameri kako bi mogao skenirati QR kōd, ali je ono trajno uskraćeno. Molimo nastavite do postavki aplikacije, odaberite \"Dozvole\" i aktivirajte stavku \"Kamera\".</string>
@@ -2116,8 +2116,8 @@
 
     <!-- KeyCachingService -->
     <string name="KeyCachingService_signal_passphrase_cached">Dotaknite da otvorite.</string>
-    <string name="KeyCachingService_passphrase_cached">Signal je otključan</string>
-    <string name="KeyCachingService_lock">Zaključaj Signal</string>
+    <string name="KeyCachingService_passphrase_cached">Kahf Messenger je otključan</string>
+    <string name="KeyCachingService_lock">Zaključaj Kahf Messenger</string>
 
     <!-- MediaPreviewActivity -->
     <string name="MediaPreviewActivity_you">Vi</string>
@@ -2144,17 +2144,17 @@
     <string name="MessageNotifier_failed_to_deliver_message">Neuspjelo isporučenje poruke.</string>
     <string name="MessageNotifier_error_delivering_message">Greška u isporučenju poruke.</string>
     <string name="MessageNotifier_message_delivery_paused">Pauzirana isporuka poruke.</string>
-    <string name="MessageNotifier_verify_to_continue_messaging_on_signal">Potvrdite da biste nastavili slanje poruka kroz Signal.</string>
+    <string name="MessageNotifier_verify_to_continue_messaging_on_signal">Potvrdite da biste nastavili slanje poruka kroz Kahf Messenger.</string>
     <string name="MessageNotifier_mark_all_as_read">Sve označi kao pročitano</string>
     <string name="MessageNotifier_mark_read">Označi kao pročitano</string>
     <string name="MessageNotifier_turn_off_these_notifications">Isključi ova obavještenja</string>
     <string name="MessageNotifier_view_once_photo">Jednokratna fotografija</string>
     <string name="MessageNotifier_view_once_video">Jednokratni videozapis</string>
     <string name="MessageNotifier_reply">Odgovori</string>
-    <string name="MessageNotifier_signal_message">Signal poruka</string>
+    <string name="MessageNotifier_signal_message">Kahf Messenger poruka</string>
     <string name="MessageNotifier_unsecured_sms">Nezaštićen SMS</string>
     <string name="MessageNotifier_you_may_have_new_messages">Možda imate novih poruka</string>
-    <string name="MessageNotifier_open_signal_to_check_for_recent_notifications">Otvorite Signal da provjerite zadnja obavještenja.</string>
+    <string name="MessageNotifier_open_signal_to_check_for_recent_notifications">Otvorite Kahf Messenger da provjerite zadnja obavještenja.</string>
     <string name="MessageNotifier_contact_message">%1$s %2$s</string>
     <string name="MessageNotifier_unknown_contact_message">Kontakt</string>
     <string name="MessageNotifier_reacted_s_to_s">Reagovao/la je sa %1$s na: \"%2$s\".</string>
@@ -2167,7 +2167,7 @@
     <string name="MessageNotifier_reacted_s_to_your_sticker">Reagovao/la je sa %1$s na Vašu naljepnicu.</string>
     <string name="MessageNotifier_this_message_was_deleted">Ova je poruka izbrisana.</string>
 
-    <string name="TurnOffContactJoinedNotificationsActivity__turn_off_contact_joined_signal">Isključiti obavještenja o tome da se kontakt prijavio na Signal? Možete ih ponovo aktivirati kroz Signal &gt; Podešavanja &gt; Obavještenja.</string>
+    <string name="TurnOffContactJoinedNotificationsActivity__turn_off_contact_joined_signal">Isključiti obavještenja o tome da se kontakt prijavio na Kahf Messenger? Možete ih ponovo aktivirati kroz Kahf Messenger &gt; Podešavanja &gt; Obavještenja.</string>
 
     <!-- Notification Channels -->
     <string name="NotificationChannel_channel_messages">Poruke</string>
@@ -2180,7 +2180,7 @@
     <string name="NotificationChannel_group_chats">Konverzacije</string>
     <string name="NotificationChannel_missing_display_name">Nepoznato</string>
     <string name="NotificationChannel_voice_notes">Glasovne bilješke</string>
-    <string name="NotificationChannel_contact_joined_signal">Kontakt je počeo koristiti Signal</string>
+    <string name="NotificationChannel_contact_joined_signal">Kontakt je počeo koristiti Kahf Messenger</string>
     <string name="NotificationChannels__no_activity_available_to_open_notification_channel_settings">Nema aktivnosti za otvaranje postavki obavještenjā.</string>
     <!-- Notification channel name for showing persistent background connection on devices without push notifications -->
     <string name="NotificationChannel_background_connection">Konekcija u pozadini</string>
@@ -2192,7 +2192,7 @@
     <!-- ProfileEditNameFragment -->
 
     <!-- QuickResponseService -->
-    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Brzi odgovori nisu dostupni kada je Signal zaključan!</string>
+    <string name="QuickResponseService_quick_response_unavailable_when_Signal_is_locked">Brzi odgovori nisu dostupni kada je Kahf Messenger zaključan!</string>
     <string name="QuickResponseService_problem_sending_message">Problem prilikom slanja poruke!</string>
 
     <!-- SaveAttachmentTask -->
@@ -2211,7 +2211,7 @@
     <string name="ShortcutLauncherActivity_invalid_shortcut">Nevažeća kratica</string>
 
     <!-- SingleRecipientNotificationBuilder -->
-    <string name="SingleRecipientNotificationBuilder_signal">Signal</string>
+    <string name="SingleRecipientNotificationBuilder_signal">Kahf Messenger</string>
     <string name="SingleRecipientNotificationBuilder_new_message">Nova poruka</string>
     <string name="SingleRecipientNotificationBuilder_message_request">Zahtjev za komunikaciju</string>
     <string name="SingleRecipientNotificationBuilder_you">Vi</string>
@@ -2268,7 +2268,7 @@
 
     <!-- contact_selection_activity -->
     <string name="contact_selection_activity__enter_name_or_number">Unesite ime ili broj</string>
-    <string name="contact_selection_activity__invite_to_signal">Pozovite u Signal</string>
+    <string name="contact_selection_activity__invite_to_signal">Pozovite u Kahf Messenger</string>
     <string name="contact_selection_activity__new_group">Nova grupa</string>
 
     <!-- contact_filter_toolbar -->
@@ -2287,12 +2287,12 @@
     <string name="ContactSelectionListFragment_signal_requires_the_contacts_permission_in_order_to_display_your_contacts">Signalu je potrebno dopuštenje da pristupi kontaktima kako bi mogao prikazati Vaše kontakte, ali je ono trajno uskraćeno. Molimo nastavite do postavki aplikacije, odaberite \"Dozvole\" i aktivirajte stavku \"Kontakti\".</string>
     <string name="ContactSelectionListFragment_error_retrieving_contacts_check_your_network_connection">Greška prilikom preuzimanja kontakta, provjerite internet-konekciju</string>
     <string name="ContactSelectionListFragment_username_not_found">Korisničko ime nije pronađeno</string>
-    <string name="ContactSelectionListFragment_s_is_not_a_signal_user">"\"%1$s\" ne koristi Signal. Provjerite korisničko ime i pokušajte ponovo."</string>
+    <string name="ContactSelectionListFragment_s_is_not_a_signal_user">"\"%1$s\" ne koristi Kahf Messenger. Provjerite korisničko ime i pokušajte ponovo."</string>
     <string name="ContactSelectionListFragment_you_do_not_need_to_add_yourself_to_the_group">Nema potrebe da sebe uvrštavate u grupu</string>
     <string name="ContactSelectionListFragment_maximum_group_size_reached">Dostignuta je maksimalna veličina grupe</string>
-    <string name="ContactSelectionListFragment_signal_groups_can_have_a_maximum_of_d_members">Signal grupe mogu imati maksimalno %1$d članova.</string>
+    <string name="ContactSelectionListFragment_signal_groups_can_have_a_maximum_of_d_members">Kahf Messenger grupe mogu imati maksimalno %1$d članova.</string>
     <string name="ContactSelectionListFragment_recommended_member_limit_reached">Dostignut je preporučljiv broj članova</string>
-    <string name="ContactSelectionListFragment_signal_groups_perform_best_with_d_members_or_fewer">Signal grupe najbolje funkcionišu sa %1$d ili manje članova. Uvrštavanje novih članova dovest će do usporenog slanja i primanja poruka.</string>
+    <string name="ContactSelectionListFragment_signal_groups_perform_best_with_d_members_or_fewer">Kahf Messenger grupe najbolje funkcionišu sa %1$d ili manje članova. Uvrštavanje novih članova dovest će do usporenog slanja i primanja poruka.</string>
     <plurals name="ContactSelectionListFragment_d_members">
         <item quantity="one">%1$d član</item>
         <item quantity="few">%1$d člana</item>
@@ -2320,7 +2320,7 @@
     </plurals>
 
     <!-- conversation_activity -->
-    <string name="conversation_activity__type_message_push">Signal poruka</string>
+    <string name="conversation_activity__type_message_push">Kahf Messenger poruka</string>
     <string name="conversation_activity__type_message_sms_insecure">Nezaštićen SMS</string>
     <string name="conversation_activity__type_message_mms_insecure">Nezaštićen MMS</string>
     <string name="conversation_activity__from_sim_name">Od %1$s</string>
@@ -2397,7 +2397,7 @@
 
     <!-- BubbleOptOutTooltip -->
     <!-- Message to inform the user of what Android chat bubbles are -->
-    <string name="BubbleOptOutTooltip__description">Balončići su opcija Androida koju možete isključiti u Signal-porukama.</string>
+    <string name="BubbleOptOutTooltip__description">Balončići su opcija Androida koju možete isključiti u Kahf Messenger-porukama.</string>
     <!-- Button to dismiss the tooltip for opting out of using Android bubbles -->
     <string name="BubbleOptOutTooltip__not_now">Ne sada</string>
     <!-- Button to move to the system settings to control the use of Android bubbles -->
@@ -2411,7 +2411,7 @@
     <string name="safety_number_change_dialog__join_call">Pridruži se pozivu</string>
     <string name="safety_number_change_dialog__continue_call">Nastavi s pozivom</string>
     <string name="safety_number_change_dialog__leave_call">Završi poziv</string>
-    <string name="safety_number_change_dialog__the_following_people_may_have_reinstalled_or_changed_devices">Ove su osobe možda iznova instalirale Signal ili promijenile uređaj. Potvrdite svoj sigurnosni broj s njima da osigurate privatnost.</string>
+    <string name="safety_number_change_dialog__the_following_people_may_have_reinstalled_or_changed_devices">Ove su osobe možda iznova instalirale Kahf Messenger ili promijenile uređaj. Potvrdite svoj sigurnosni broj s njima da osigurate privatnost.</string>
     <string name="safety_number_change_dialog__view">Pregled</string>
     <string name="safety_number_change_dialog__previous_verified">Ranije potvrđeno</string>
 
@@ -2497,9 +2497,9 @@
     <string name="IdentityUtil_unverified_banner_two">Vaši sigurnosni brojevi sa %1$s i %2$s više nisu potvrđeni</string>
     <string name="IdentityUtil_unverified_banner_many">Vaši sigurnosni brojevi sa %1$s, %2$s i %3$s više nisu potvrđeni</string>
 
-    <string name="IdentityUtil_unverified_dialog_one">Vaš je sigurnosni broj sa %1$s promijenjen i više nije potvrđen. Ovo može značiti da neko pokušava presresti Vašu komunikaciju ili da je %1$s iznova instalirao/la Signal.</string>
-    <string name="IdentityUtil_unverified_dialog_two">Vaši sigurnosni brojevi sa %1$s i %2$s više nisu potvrđeni. Ovo može značiti da neko pokušava presresti Vašu komunikaciju ili da su oni iznova instalirali Signal.</string>
-    <string name="IdentityUtil_unverified_dialog_many">Vaši sigurnosni brojevi sa %1$s, %2$s i %3$s više nisu potvrđeni. Ovo može značiti da neko pokušava presresti Vašu komunikaciju ili da su oni iznova instalirali Signal.</string>
+    <string name="IdentityUtil_unverified_dialog_one">Vaš je sigurnosni broj sa %1$s promijenjen i više nije potvrđen. Ovo može značiti da neko pokušava presresti Vašu komunikaciju ili da je %1$s iznova instalirao/la Kahf Messenger.</string>
+    <string name="IdentityUtil_unverified_dialog_two">Vaši sigurnosni brojevi sa %1$s i %2$s više nisu potvrđeni. Ovo može značiti da neko pokušava presresti Vašu komunikaciju ili da su oni iznova instalirali Kahf Messenger.</string>
+    <string name="IdentityUtil_unverified_dialog_many">Vaši sigurnosni brojevi sa %1$s, %2$s i %3$s više nisu potvrđeni. Ovo može značiti da neko pokušava presresti Vašu komunikaciju ili da su oni iznova instalirali Kahf Messenger.</string>
 
     <string name="IdentityUtil_untrusted_dialog_one">Vaš sigurnosni broj sa %1$s upravo je promijenjen.</string>
     <string name="IdentityUtil_untrusted_dialog_two">Vaši sigurnosno brojevi sa %1$s i %2$s upravo su promijenjeni.</string>
@@ -2556,7 +2556,7 @@
     <string name="prompt_passphrase_activity__unlock">Otključaj</string>
 
     <!-- prompt_mms_activity -->
-    <string name="prompt_mms_activity__signal_requires_mms_settings_to_deliver_media_and_group_messages">Signal zahtijeva MMS postavke da bi dostavio multimedijalne i grupne poruke putem Vaše bežične konekcije. Vaš uređaj nije omogućio pristup ovim informacijama, što se povremeno dešava na zaključanim uređajima i u slučaju ograničavajućih podešavanja.</string>
+    <string name="prompt_mms_activity__signal_requires_mms_settings_to_deliver_media_and_group_messages">Kahf Messenger zahtijeva MMS postavke da bi dostavio multimedijalne i grupne poruke putem Vaše bežične konekcije. Vaš uređaj nije omogućio pristup ovim informacijama, što se povremeno dešava na zaključanim uređajima i u slučaju ograničavajućih podešavanja.</string>
     <string name="prompt_mms_activity__to_send_media_and_group_messages_tap_ok">Da biste slali multimedijalne i grupne poruke, pritisnite \'Uredu\' i popunite tražene postavke. MMS postavke za Vašeg operatera obično se mogu saznati tražeći \'APN Vašeg operatera\'. Ovo je potrebno učiniti samo jednom.</string>
 
     <!-- BadDecryptLearnMoreDialog -->
@@ -2679,7 +2679,7 @@
     <string name="HelpFragment__link__debug_info" translatable="false">https://support.signal.org/hc/articles/360007318591</string>
     <string name="HelpFragment__link__faq" translatable="false">https://support.signal.org</string>
     <string name="HelpFragment__support_info">Informacije o podršci</string>
-    <string name="HelpFragment__signal_android_support_request">Zahtjev za pomoć (Signal Android)</string>
+    <string name="HelpFragment__signal_android_support_request">Zahtjev za pomoć (Kahf Messenger Android)</string>
     <string name="HelpFragment__debug_log">Zapis za ispravljanje grešaka:</string>
     <string name="HelpFragment__could_not_upload_logs">Neuspješan prenos zapisa</string>
     <string name="HelpFragment__please_be_as_descriptive_as_possible">Molimo budite što detaljniji kako biste nam pomogli u razumijevanju problema.</string>
@@ -2754,8 +2754,8 @@
     <string name="preferences__sms_mms">SMS i MMS</string>
     <string name="preferences__pref_all_sms_title">Primi sve SMS poruke</string>
     <string name="preferences__pref_all_mms_title">Primi sve MMS poruke</string>
-    <string name="preferences__use_signal_for_viewing_and_storing_all_incoming_text_messages">Koristiti Signal za sve dolazne tekstualne poruke</string>
-    <string name="preferences__use_signal_for_viewing_and_storing_all_incoming_multimedia_messages">Koristiti Signal za sve dolazne multimedijalne poruke</string>
+    <string name="preferences__use_signal_for_viewing_and_storing_all_incoming_text_messages">Koristiti Kahf Messenger za sve dolazne tekstualne poruke</string>
+    <string name="preferences__use_signal_for_viewing_and_storing_all_incoming_multimedia_messages">Koristiti Kahf Messenger za sve dolazne multimedijalne poruke</string>
     <string name="preferences__pref_enter_sends_title">Tipka Enter šalje</string>
     <string name="preferences__pressing_the_enter_key_will_send_text_messages">Pritiskom na tipku Enter poslat će se tekstualna poruka</string>
     <string name="preferences__pref_use_address_book_photos">Koristi fotografije iz adresara</string>
@@ -2770,7 +2770,7 @@
     <string name="preferences__lock_signal_and_message_notifications_with_a_passphrase">Zaključaj ekran i obavještenja lozinkom</string>
     <string name="preferences__screen_security">Sigurnost ekrana</string>
     <string name="preferences__disable_screen_security_to_allow_screen_shots">Onemogući slikanje ekrana u popisu nedavno korištenih aplikacija i unutar Signala</string>
-    <string name="preferences__auto_lock_signal_after_a_specified_time_interval_of_inactivity">Automatski zaključaj Signal nakon određenog intervala neaktivnosti</string>
+    <string name="preferences__auto_lock_signal_after_a_specified_time_interval_of_inactivity">Automatski zaključaj Kahf Messenger nakon određenog intervala neaktivnosti</string>
     <string name="preferences__inactivity_timeout_passphrase">Lozinka nakon neaktivnosti</string>
     <string name="preferences__inactivity_timeout_interval">Interval neaktivnosti</string>
     <string name="preferences__notifications">Obavještenja</string>
@@ -2803,8 +2803,8 @@
     <string name="preferences__slow">Spora</string>
     <string name="preferences__help">Pomoć</string>
     <string name="preferences__advanced">Napredno</string>
-    <string name="preferences__donate_to_signal">Donirajte za Signal</string>
-    <!-- Preference label for making one-time donations to Signal -->
+    <string name="preferences__donate_to_signal">Donirajte za Kahf Messenger</string>
+    <!-- Preference label for making one-time donations to Kahf Messenger -->
     <string name="preferences__one_time_donation">Jednokratna donacija</string>
     <string name="preferences__privacy">Privatnost</string>
     <!-- Preference label for stories -->
@@ -2836,11 +2836,11 @@
     <string name="preferences__chat_color_and_wallpaper">Boja poruka i pozadina</string>
     <string name="preferences__disable_pin">Isključi PIN</string>
     <string name="preferences__enable_pin">Uključi PIN</string>
-    <string name="preferences__if_you_disable_the_pin_you_will_lose_all_data">Ako isključite PIN, svi Vaši podaci bit će izbrisani kada se ponovo registrujete na Signal, izuzev ako ručno kreirate rezervnu kopiju i koristite je za povrat podataka. Nećete moći aktivirati zaključavanje registracije dok god je PIN isključen.</string>
-    <string name="preferences__pins_keep_information_stored_with_signal_encrypted_so_only_you_can_access_it">PIN služi za šifriranje informacija na Signalu tako da im samo Vi možete pristupiti. Vaš profil, podešavanja i kontakti bit će sačuvani i učitani kad ponovo instalirate Signal. PIN Vam neće trebati da otvorite aplikaciju.</string>
+    <string name="preferences__if_you_disable_the_pin_you_will_lose_all_data">Ako isključite PIN, svi Vaši podaci bit će izbrisani kada se ponovo registrujete na Kahf Messenger, izuzev ako ručno kreirate rezervnu kopiju i koristite je za povrat podataka. Nećete moći aktivirati zaključavanje registracije dok god je PIN isključen.</string>
+    <string name="preferences__pins_keep_information_stored_with_signal_encrypted_so_only_you_can_access_it">PIN služi za šifriranje informacija na Signalu tako da im samo Vi možete pristupiti. Vaš profil, podešavanja i kontakti bit će sačuvani i učitani kad ponovo instalirate Kahf Messenger. PIN Vam neće trebati da otvorite aplikaciju.</string>
     <string name="preferences__system_default">Sistemske postavke</string>
     <string name="preferences__language">Jezik</string>
-    <string name="preferences__signal_messages_and_calls">Signal poruke i pozivi</string>
+    <string name="preferences__signal_messages_and_calls">Kahf Messenger poruke i pozivi</string>
     <string name="preferences__advanced_pin_settings">Napredna podešavanja PIN-a</string>
     <string name="preferences__free_private_messages_and_calls">Besplatne privatne poruke i pozivi za korisnike Signala</string>
     <string name="preferences__submit_debug_log">Pošaljite zapis za ispravljanje grešaka</string>
@@ -2884,7 +2884,7 @@
     <string name="preferences_storage__custom">Drugo</string>
     <string name="preferences_advanced__use_system_emoji">Koristi sistemske emoji sličice</string>
     <string name="preferences_advanced__disable_signal_built_in_emoji_support">Isključi Signalovu ugrađenu podršku za emoji sličice</string>
-    <string name="preferences_advanced__relay_all_calls_through_the_signal_server_to_avoid_revealing_your_ip_address">Preusmjeri sve pozive na Signal server kako bi Vaša IP adresa bila skrivena od sagovornika. Aktiviranjem ove opcije smanjit će se kvalitet poziva.</string>
+    <string name="preferences_advanced__relay_all_calls_through_the_signal_server_to_avoid_revealing_your_ip_address">Preusmjeri sve pozive na Kahf Messenger server kako bi Vaša IP adresa bila skrivena od sagovornika. Aktiviranjem ove opcije smanjit će se kvalitet poziva.</string>
     <string name="preferences_advanced__always_relay_calls">Uvijek preusmjeri pozive</string>
     <string name="preferences_app_protection__who_can">Ko može…</string>
     <string name="preferences_app_protection__app_access">Pristup aplikaciji</string>
@@ -2906,21 +2906,21 @@
     <string name="preferences_notifications__calls">Pozivi</string>
     <string name="preferences_notifications__ringtone">Zvono</string>
     <string name="preferences_chats__show_invitation_prompts">Prikaži upite za pozivnice</string>
-    <string name="preferences_chats__display_invitation_prompts_for_contacts_without_signal">Prikaži sugestije za slanje pozivnice kontaktima koji ne koriste Signal</string>
+    <string name="preferences_chats__display_invitation_prompts_for_contacts_without_signal">Prikaži sugestije za slanje pozivnice kontaktima koji ne koriste Kahf Messenger</string>
     <string name="preferences_chats__message_text_size">Veličina slova u poruci</string>
-    <string name="preferences_events__contact_joined_signal">Kontakt je počeo koristiti Signal</string>
+    <string name="preferences_events__contact_joined_signal">Kontakt je počeo koristiti Kahf Messenger</string>
     <string name="preferences_notifications__priority">Prioritet</string>
     <!-- Heading for the \'censorship circumvention\' section of privacy preferences -->
     <string name="preferences_communication__category_censorship_circumvention">Zaobilazak cenzure</string>
     <!-- Title of the \'censorship circumvention\' toggle switch -->
     <string name="preferences_communication__censorship_circumvention">Zaobilazak cenzure</string>
-    <string name="preferences_communication__censorship_circumvention_if_enabled_signal_will_attempt_to_circumvent_censorship">Ako je omogućeno, Signal će pokušati zaobići cenzuru. Nemojte omogućiti ovu funkciju osim ako niste na mjestu gdje je Signal cenzuriran.</string>
+    <string name="preferences_communication__censorship_circumvention_if_enabled_signal_will_attempt_to_circumvent_censorship">Ako je omogućeno, Kahf Messenger će pokušati zaobići cenzuru. Nemojte omogućiti ovu funkciju osim ako niste na mjestu gdje je Kahf Messenger cenzuriran.</string>
     <!-- Summary text for \'censorship circumvention\' toggle. Indicates that we automatically enabled it because we believe you\'re in a censored country -->
     <string name="preferences_communication__censorship_circumvention_has_been_activated_based_on_your_accounts_phone_number">Korištenje cenzure je aktivirano na temelju telefonskog broja vašeg računa.</string>
     <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you disabled it even though we believe you\'re in a censored country -->
     <string name="preferences_communication__censorship_circumvention_you_have_manually_disabled">Ručno ste isključili zaobilazak cenzure.</string>
-    <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you cannot use it because you\'re already connected to the Signal service -->
-    <string name="preferences_communication__censorship_circumvention_is_not_necessary_you_are_already_connected">Zaobilazak cenzure nije potreban; već ste spojeni na uslugu Signal.</string>
+    <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you cannot use it because you\'re already connected to the Kahf Messenger service -->
+    <string name="preferences_communication__censorship_circumvention_is_not_necessary_you_are_already_connected">Zaobilazak cenzure nije potreban; već ste spojeni na uslugu Kahf Messenger.</string>
     <!-- Summary text for \'censorship circumvention\' toggle. Indicates that you cannot use it because you\'re not connected to the internet -->
     <string name="preferences_communication__censorship_circumvention_can_only_be_activated_when_connected_to_the_internet">Korištenje cenzure može se aktivirati samo ako ste povezani na internet.</string>
     <string name="preferences_communication__category_sealed_sender">Zapečaćeni pošiljalac</string>
@@ -3061,7 +3061,7 @@
     <string name="PaymentsAllActivityFragment__received">Primljeno</string>
 
     <string name="PaymentsHomeFragment__introducing_payments">Novo: plaćanja (Beta)</string>
-    <string name="PaymentsHomeFragment__use_signal_to_send_and_receive">Koristite Signal za slanje i primanje MobileCoina, nove digitalne valute s fokusom na privatnost. Aktivirajte da započnete.</string>
+    <string name="PaymentsHomeFragment__use_signal_to_send_and_receive">Koristite Kahf Messenger za slanje i primanje MobileCoina, nove digitalne valute s fokusom na privatnost. Aktivirajte da započnete.</string>
     <string name="PaymentsHomeFragment__activate_payments">Aktiviraj plaćanja</string>
     <string name="PaymentsHomeFragment__activating_payments">Aktiviram plaćanja…</string>
     <string name="PaymentsHomeFragment__restore_payments_account">Obnovi račun s uplatama i isplatama</string>
@@ -3096,7 +3096,7 @@
     <string name="PaymentsHomeFragment__payment_failed">Plaćanje nije uspjelo</string>
     <string name="PaymentsHomeFragment__details">Detalji</string>
     <string name="PaymentsHomeFragment__learn_more__activate_payments" translatable="false">https://support.signal.org/hc/articles/360057625692#payments_activate </string>
-    <string name="PaymentsHomeFragment__you_can_use_signal_to_send">Možete koristiti Signal za slanje i primanje MobileCoina. Sve uplate i isplate podliježu Uslovima korištenja MobileCoina i MobileCoin novčanika. Ovo je probna verzija i možete se susresti s greškama i situacijom da izgubljene uplate/isplate ili raspoloživa sredstva nije moguće vratiti. </string>
+    <string name="PaymentsHomeFragment__you_can_use_signal_to_send">Možete koristiti Kahf Messenger za slanje i primanje MobileCoina. Sve uplate i isplate podliježu Uslovima korištenja MobileCoina i MobileCoin novčanika. Ovo je probna verzija i možete se susresti s greškama i situacijom da izgubljene uplate/isplate ili raspoloživa sredstva nije moguće vratiti. </string>
     <string name="PaymentsHomeFragment__activate">Aktiviraj</string>
     <string name="PaymentsHomeFragment__view_mobile_coin_terms">Pregledaj uslove korištenja MobileCoina</string>
     <string name="PaymentsHomeFragment__payments_not_available">Plaćanja preko Signala više nisu dostupna. Još uvijek možete prenijeti sredstva na berzu, ali više ne možete vršiti isplate i uplate niti dodavati sredstva.</string>
@@ -3172,7 +3172,7 @@
     <string name="PaymentsTransferFragment__next">Dalje</string>
     <string name="PaymentsTransferFragment__invalid_address">Adresa nije valjana</string>
     <string name="PaymentsTransferFragment__check_the_wallet_address">Provjerite adresu novčanika na koju pokušavate prenijeti sredstva i pokušajte ponovo.</string>
-    <string name="PaymentsTransferFragment__you_cant_transfer_to_your_own_signal_wallet_address">Ne možete izvršiti prenos sredstava na adresu vlastitog Signal novčanika. Unesite adresu novčanika sa svoga računa na podržanoj berzi.</string>
+    <string name="PaymentsTransferFragment__you_cant_transfer_to_your_own_signal_wallet_address">Ne možete izvršiti prenos sredstava na adresu vlastitog Kahf Messenger novčanika. Unesite adresu novčanika sa svoga računa na podržanoj berzi.</string>
     <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs">Da bi mogao skenirati QR kōd, Signalu je potreban pristup kameri.</string>
     <string name="PaymentsTransferFragment__signal_needs_the_camera_permission_to_capture_qr_code_go_to_settings">Signalu je potrebno odobrenje za pristup kameri kako bi mogao skenirati QR kōd. Idite na sistemska podešavanja, izaberite \"Dopuštenja\" i uključite \"Kamera\".</string>
     <string name="PaymentsTransferFragment__to_scan_a_qr_code_signal_needs_access_to_the_camera">Da bi mogao skenirati QR kōd, Signalu je potreban pristup kameri.</string>
@@ -3232,7 +3232,7 @@
 
     <!-- BiometricDeviceAuthentication -->
     <!-- Biometric/Device authentication prompt title -->
-    <string name="BiometricDeviceAuthentication__signal">Signal</string>
+    <string name="BiometricDeviceAuthentication__signal">Kahf Messenger</string>
 
 
     <!-- CurrencyAmountFormatter_s_at_s -->
@@ -3255,8 +3255,8 @@
     <string name="conversation_callable_insecure__menu_call">Poziv</string>
 
     <!-- conversation_callable_secure -->
-    <string name="conversation_callable_secure__menu_call">Signal poziv</string>
-    <string name="conversation_callable_secure__menu_video">Signal videopoziv</string>
+    <string name="conversation_callable_secure__menu_call">Kahf Messenger poziv</string>
+    <string name="conversation_callable_secure__menu_video">Kahf Messenger videopoziv</string>
 
     <!-- conversation_context -->
 
@@ -3369,9 +3369,9 @@
     <!-- reminder_header -->
     <string name="reminder_header_sms_import_title">Unesi sistemske SMS poruke</string>
     <string name="reminder_header_sms_import_text">Pritisnite da kopirate SMS poruke na telefonu u Signalovu šifriranu bazu podataka.</string>
-    <string name="reminder_header_push_title">Aktivirajte Signal poruke i pozive</string>
+    <string name="reminder_header_push_title">Aktivirajte Kahf Messenger poruke i pozive</string>
     <string name="reminder_header_push_text">Poboljšajte svoje iskustvo u komunikaciji.</string>
-    <string name="reminder_header_service_outage_text">Signal ima tehničkih poteškoća. Trudimo se da što prije uslugu ponovo osposobimo.</string>
+    <string name="reminder_header_service_outage_text">Kahf Messenger ima tehničkih poteškoća. Trudimo se da što prije uslugu ponovo osposobimo.</string>
     <string name="reminder_header_progress">%1$d%%</string>
 
     <!-- media_preview -->
@@ -3391,23 +3391,23 @@
     <string name="Insights__percent">%</string>
     <string name="Insights__title">Statistika</string>
     <string name="InsightsDashboardFragment__title">Statistika</string>
-    <string name="InsightsDashboardFragment__signal_protocol_automatically_protected">Signal protokol automatski je zaštitio %1$d%% poruka koje ste poslali u zadnjih %2$d dana. Komunikacija između korisnika Signala uvijek je šifrirana od uređaja pošiljaoca do uređaja primaoca.</string>
+    <string name="InsightsDashboardFragment__signal_protocol_automatically_protected">Kahf Messenger protokol automatski je zaštitio %1$d%% poruka koje ste poslali u zadnjih %2$d dana. Komunikacija između korisnika Signala uvijek je šifrirana od uređaja pošiljaoca do uređaja primaoca.</string>
     <string name="InsightsDashboardFragment__spread_the_word">Razglasi</string>
     <string name="InsightsDashboardFragment__not_enough_data">Nedovoljno podataka</string>
     <string name="InsightsDashboardFragment__your_insights_percentage_is_calculated_based_on">Procenat prikazan ovdje izračunava se na temelju poslatih poruka u zadnjih %1$d dana, a koje nisu istekle ili izbrisane.</string>
     <string name="InsightsDashboardFragment__start_a_conversation">Započnite komunikaciju</string>
-    <string name="InsightsDashboardFragment__invite_your_contacts">Započnite sigurnu komunikaciju i imajte na raspolaganju mogućnosti koje su izvan ograničenja nezaštićenih SMS-poruka tako što ćete pozvati druge da koriste Signal.</string>
+    <string name="InsightsDashboardFragment__invite_your_contacts">Započnite sigurnu komunikaciju i imajte na raspolaganju mogućnosti koje su izvan ograničenja nezaštićenih SMS-poruka tako što ćete pozvati druge da koriste Kahf Messenger.</string>
     <string name="InsightsDashboardFragment__this_stat_was_generated_locally">Prikazani statistički podaci kreirani su na Vašem uređaju i dostupni su samo Vama. Ovi se podaci nikada nigdje ne šalju.</string>
     <string name="InsightsDashboardFragment__encrypted_messages">Šifrirane poruke</string>
     <string name="InsightsDashboardFragment__cancel">Otkaži</string>
     <string name="InsightsDashboardFragment__send">Šalji</string>
     <string name="InsightsModalFragment__title">Novo: statistika</string>
-    <string name="InsightsModalFragment__description">Saznajte koliko je poruka koje ste poslali zaštićeno, a potom pozovite druge da koriste Signal i tako povećate učešće Signal-poruka.</string>
+    <string name="InsightsModalFragment__description">Saznajte koliko je poruka koje ste poslali zaštićeno, a potom pozovite druge da koriste Kahf Messenger i tako povećate učešće Kahf Messenger-poruka.</string>
     <string name="InsightsModalFragment__view_insights">Pogledajte statistiku</string>
 
-    <string name="FirstInviteReminder__title">Pozovite na Signal</string>
+    <string name="FirstInviteReminder__title">Pozovite na Kahf Messenger</string>
     <string name="FirstInviteReminder__description">Broj šifriranih poruka koje šaljete možete povećati za %1$d%%</string>
-    <string name="SecondInviteReminder__title">Osnažite svoj Signal</string>
+    <string name="SecondInviteReminder__title">Osnažite svoj Kahf Messenger</string>
     <string name="SecondInviteReminder__description">Pozovite %1$s</string>
     <string name="InsightsReminder__view_insights">Pogledajte statistiku</string>
     <string name="InsightsReminder__invite">Pozovi</string>
@@ -3436,7 +3436,7 @@
     <string name="CreateKbsPinFragment__create_a_new_pin">Kreirajte novi PIN</string>
     <string name="CreateKbsPinFragment__you_can_choose_a_new_pin_as_long_as_this_device_is_registered">Možete promijeniti PIN sve dok je ovaj uređaj registrovan.</string>
     <string name="CreateKbsPinFragment__create_your_pin">Kreirajte svoj PIN</string>
-    <string name="CreateKbsPinFragment__pins_keep_information_stored_with_signal_encrypted">PIN služi za šifriranje informacija na Signalu tako da im samo Vi možete pristupiti. Vaš profil, podešavanja i kontakti bit će sačuvani i učitani kad ponovo instalirate Signal. PIN Vam neće trebati da otvorite aplikaciju.</string>
+    <string name="CreateKbsPinFragment__pins_keep_information_stored_with_signal_encrypted">PIN služi za šifriranje informacija na Signalu tako da im samo Vi možete pristupiti. Vaš profil, podešavanja i kontakti bit će sačuvani i učitani kad ponovo instalirate Kahf Messenger. PIN Vam neće trebati da otvorite aplikaciju.</string>
     <string name="CreateKbsPinFragment__choose_a_stronger_pin">Izaberite snažniji PIN</string>
 
     <!-- ConfirmKbsPinFragment -->
@@ -3450,7 +3450,7 @@
 
     <!-- KbsSplashFragment -->
     <string name="KbsSplashFragment__introducing_pins">Novo: PIN-ovi</string>
-    <string name="KbsSplashFragment__pins_keep_information_stored_with_signal_encrypted">PIN služi za šifriranje informacija na Signalu tako da im samo Vi možete pristupiti. Vaš profil, podešavanja i kontakti bit će sačuvani i učitani kad ponovo instalirate Signal. PIN Vam neće trebati da otvorite aplikaciju.</string>
+    <string name="KbsSplashFragment__pins_keep_information_stored_with_signal_encrypted">PIN služi za šifriranje informacija na Signalu tako da im samo Vi možete pristupiti. Vaš profil, podešavanja i kontakti bit će sačuvani i učitani kad ponovo instalirate Kahf Messenger. PIN Vam neće trebati da otvorite aplikaciju.</string>
     <string name="KbsSplashFragment__learn_more">Saznaj više</string>
     <string name="KbsSplashFragment__learn_more_link" translatable="false">https://support.signal.org/hc/articles/360007059792</string>
     <string name="KbsSplashFragment__registration_lock_equals_pin">Zaključavanje registracije = PIN</string>
@@ -3461,7 +3461,7 @@
     <string name="KbsSplashFragment__disable_pin">Isključi PIN</string>
 
     <!-- KBS Reminder Dialog -->
-    <string name="KbsReminderDialog__enter_your_signal_pin">Unesite svoj Signal PIN</string>
+    <string name="KbsReminderDialog__enter_your_signal_pin">Unesite svoj Kahf Messenger PIN</string>
     <string name="KbsReminderDialog__to_help_you_memorize_your_pin">Kako bismo Vam pomogli da upamtite svoj PIN, povremeno ćemo od Vas tražiti da ga ponovo unesete. Vremenom ćemo Vas rjeđe podsjećati.</string>
     <string name="KbsReminderDialog__skip">Preskoči</string>
     <string name="KbsReminderDialog__submit">Šalji</string>
@@ -3485,8 +3485,8 @@
     <string name="RegistrationLockFragment__incorrect_pin">Netačan PIN</string>
     <string name="RegistrationLockFragment__forgot_your_pin">Zaboravili ste svoj PIN?</string>
     <string name="RegistrationLockFragment__not_many_tries_left">Preostalo je svega nekoliko pokušaja!</string>
-    <string name="RegistrationLockFragment__signal_registration_need_help_with_pin_for_android_v1_pin">Signal registracija – trebate pomoć u vezi s PIN-om za Android (v1 PIN)</string>
-    <string name="RegistrationLockFragment__signal_registration_need_help_with_pin_for_android_v2_pin">Signal registracija – trebate pomoć u vezi s PIN-om za Android (v2 PIN)</string>
+    <string name="RegistrationLockFragment__signal_registration_need_help_with_pin_for_android_v1_pin">Kahf Messenger registracija – trebate pomoć u vezi s PIN-om za Android (v1 PIN)</string>
+    <string name="RegistrationLockFragment__signal_registration_need_help_with_pin_for_android_v2_pin">Kahf Messenger registracija – trebate pomoć u vezi s PIN-om za Android (v2 PIN)</string>
 
     <plurals name="RegistrationLockFragment__for_your_privacy_and_security_there_is_no_way_to_recover">
         <item quantity="one">Radi zaštite vaše privatnosti i sigurnosti, PIN nije moguće obnoviti. Ako se ne možete sjetiti svog PIN-a, moći ćete ponovo verifikovati telefonski broj putem SMS-a nakon %1$d dana neaktivnosti. U tom slučaju, vaš račun će se obrisati i sav raniji sadržaj će biti izbrisan.</item>
@@ -3596,7 +3596,7 @@
     <string name="RegistrationActivity_wrong_number">Pogrešan broj</string>
     <string name="RegistrationActivity_call_me_instead_available_in">Radije me pozovite \n (Dostupni u %1$02d:%2$02d)</string>
     <string name="RegistrationActivity_contact_signal_support">Kontaktirajte Signalovu podršku</string>
-    <string name="RegistrationActivity_code_support_subject">Signal registracija – potvrda kōda za Android</string>
+    <string name="RegistrationActivity_code_support_subject">Kahf Messenger registracija – potvrda kōda za Android</string>
     <string name="RegistrationActivity_incorrect_code">Pogrešan kôd</string>
     <string name="BackupUtil_never">Nikad</string>
     <string name="BackupUtil_unknown">Nepoznato</string>
@@ -3610,17 +3610,17 @@
     <string name="preferences_app_protection__screen_lock">Zaključavanje ekrana</string>
     <string name="preferences_app_protection__lock_signal_access_with_android_screen_lock_or_fingerprint">Zaključaj pristup Signalu pomoću Androidovog zaključavanja ekrana ili otiska prsta</string>
     <string name="preferences_app_protection__screen_lock_inactivity_timeout">Zaključavanje ekrana nakon neaktivnosti</string>
-    <string name="preferences_app_protection__signal_pin">Signal PIN</string>
+    <string name="preferences_app_protection__signal_pin">Kahf Messenger PIN</string>
     <string name="preferences_app_protection__create_a_pin">Kreiraj PIN</string>
     <string name="preferences_app_protection__change_your_pin">Promijenite svoj PIN</string>
     <string name="preferences_app_protection__pin_reminders">PIN podsjetnici</string>
-    <string name="preferences_app_protection__pins_keep_information_stored_with_signal_encrypted">PIN služi za šifriranje informacija na Signalu tako da im samo Vi možete pristupiti. Vaš profil, podešavanja i kontakti bit će sačuvani i učitani kad ponovo instalirate Signal.</string>
-    <string name="preferences_app_protection__add_extra_security_by_requiring_your_signal_pin_to_register">Povećajte sigurnost tako što ćete svoj Signal PIN učiniti obaveznim prilikom ponovne registracije Vašeg telefonskog broja na Signalu.</string>
+    <string name="preferences_app_protection__pins_keep_information_stored_with_signal_encrypted">PIN služi za šifriranje informacija na Signalu tako da im samo Vi možete pristupiti. Vaš profil, podešavanja i kontakti bit će sačuvani i učitani kad ponovo instalirate Kahf Messenger.</string>
+    <string name="preferences_app_protection__add_extra_security_by_requiring_your_signal_pin_to_register">Povećajte sigurnost tako što ćete svoj Kahf Messenger PIN učiniti obaveznim prilikom ponovne registracije Vašeg telefonskog broja na Signalu.</string>
     <string name="preferences_app_protection__reminders_help_you_remember_your_pin">Podsjetnici Vam pomažu da se prisjetite svog PIN-a, jer se on ne može vratiti na drugi način. Vremenom ćete biti podsjećani sve rjeđe.</string>
     <string name="preferences_app_protection__turn_off">Isključi</string>
     <string name="preferences_app_protection__confirm_pin">Potvrdite PIN</string>
-    <string name="preferences_app_protection__confirm_your_signal_pin">Potvrdite svoj Signal PIN</string>
-    <string name="preferences_app_protection__make_sure_you_memorize_or_securely_store_your_pin">Budite sigurni da ste svoj PIN zapamtili ili pohranili na sigurno mjesto, jer se on ne može vratiti. Ako zaboravite PIN, može se dogoditi da izgubite stare podatke prilikom ponovne registracije na Signal.</string>
+    <string name="preferences_app_protection__confirm_your_signal_pin">Potvrdite svoj Kahf Messenger PIN</string>
+    <string name="preferences_app_protection__make_sure_you_memorize_or_securely_store_your_pin">Budite sigurni da ste svoj PIN zapamtili ili pohranili na sigurno mjesto, jer se on ne može vratiti. Ako zaboravite PIN, može se dogoditi da izgubite stare podatke prilikom ponovne registracije na Kahf Messenger.</string>
     <string name="preferences_app_protection__incorrect_pin_try_again">Netačan PIN. Pokušajte ponovo.</string>
     <string name="preferences_app_protection__failed_to_enable_registration_lock">Neuspjelo aktiviranje zaključavanja registracije.</string>
     <string name="preferences_app_protection__failed_to_disable_registration_lock">Neuspjelo deaktiviranje zaključavanja registracije.</string>
@@ -3633,13 +3633,13 @@
     <string name="RegistrationActivity_you_have_made_too_many_attempts_please_try_again_later">Pokušali ste previše puta. Molimo pokušajte ponovo kasnije.</string>
     <string name="RegistrationActivity_error_connecting_to_service">Greška pri povezivanju sa uslugom</string>
     <string name="preferences_chats__backups">Rezervne kopije</string>
-    <string name="prompt_passphrase_activity__signal_is_locked">Signal je zaključan</string>
+    <string name="prompt_passphrase_activity__signal_is_locked">Kahf Messenger je zaključan</string>
     <string name="prompt_passphrase_activity__tap_to_unlock">PRITISNITE DA OTKLJUČATE</string>
     <string name="Recipient_unknown">Nepoznato</string>
 
     <!-- TransferOrRestoreFragment -->
     <string name="TransferOrRestoreFragment__transfer_or_restore_account">Prenesi ili vrati račun</string>
-    <string name="TransferOrRestoreFragment__if_you_have_previously_registered_a_signal_account">Ako imate odranije registrovan Signal račun, možete prenijeti ili vratiti svoj račun i poruke</string>
+    <string name="TransferOrRestoreFragment__if_you_have_previously_registered_a_signal_account">Ako imate odranije registrovan Kahf Messenger račun, možete prenijeti ili vratiti svoj račun i poruke</string>
     <string name="TransferOrRestoreFragment__transfer_from_android_device">Prenesi sa Android uređaja</string>
     <string name="TransferOrRestoreFragment__transfer_your_account_and_messages_from_your_old_android_device">Prenesite svoj račun i poruke sa starog Android uređaja. Morate imati pristup tom svom starom uređaju.</string>
     <string name="TransferOrRestoreFragment__you_need_access_to_your_old_device">Trebate pristup svom starom uređaju.</string>
@@ -3647,7 +3647,7 @@
     <string name="TransferOrRestoreFragment__restore_your_messages_from_a_local_backup">Vratite svoje poruke iz lokalne rezervne kopije. Ako to ne učinite sada, nećete biti u mogućnosti vratiti poruke kasnije.</string>
 
     <!-- NewDeviceTransferInstructionsFragment -->
-    <string name="NewDeviceTransferInstructions__open_signal_on_your_old_android_phone">Otvorite Signal na svom starom Android telefonu</string>
+    <string name="NewDeviceTransferInstructions__open_signal_on_your_old_android_phone">Otvorite Kahf Messenger na svom starom Android telefonu</string>
     <string name="NewDeviceTransferInstructions__continue">Nastavi</string>
     <string name="NewDeviceTransferInstructions__first_bullet">1.</string>
     <string name="NewDeviceTransferInstructions__tap_on_your_profile_photo_in_the_top_left_to_open_settings">Pritisnite sliku svog profila gore lijevo da otvorite Podešavanja</string>
@@ -3663,7 +3663,7 @@
     <string name="NewDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_old_device">Signalu je potrebno dopuštenje za pristup lokaciji kako bi pronašao i povezao se s Vašim starim Android uređajem.</string>
     <string name="NewDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_old_device">Signalu je potrebno da lokacija na telefonu bude aktivna kako bi mogao pronaći i povezati se s Vašim starim Android uređajem.</string>
     <string name="NewDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_old_device">Signalu je potrebno da Wi-Fi konekcija bude aktivna kako bi mogao pronaći i povezati se sa Vašim starim Android uređajem. Wi-Fi treba biti uključen, ali ne mora biti povezan na Wi-Fi mrežu.</string>
-    <string name="NewDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Nažalost, izgleda da ovaj uređaj ne podržava Wi-Fi Direct. Signal koristi Wi-Fi Direct da pronađe i poveže se s Vašim starim Android uređajem. I dalje možete vratiti podatke iz rezervne kopije kako biste prenijeli račun sa svog starog Android uređaja.</string>
+    <string name="NewDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Nažalost, izgleda da ovaj uređaj ne podržava Wi-Fi Direct. Kahf Messenger koristi Wi-Fi Direct da pronađe i poveže se s Vašim starim Android uređajem. I dalje možete vratiti podatke iz rezervne kopije kako biste prenijeli račun sa svog starog Android uređaja.</string>
     <string name="NewDeviceTransferSetup__restore_a_backup">Vrati podatke iz rezervne kopije</string>
     <string name="NewDeviceTransferSetup__an_unexpected_error_occurred_while_attempting_to_connect_to_your_old_device">Došlo je do neočekivane greške prilikom pokušaja da se poveže s Vašim starim Android uređajem.</string>
 
@@ -3672,7 +3672,7 @@
     <string name="OldDeviceTransferSetup__signal_needs_the_location_permission_to_discover_and_connect_with_your_new_device">Signalu je potrebno dopuštenje za pristup lokaciji kako bi pronašao i povezao se s Vašim novim Android uređajem.</string>
     <string name="OldDeviceTransferSetup__signal_needs_location_services_enabled_to_discover_and_connect_with_your_new_device">Signalu je potrebno da lokacija na telefonu bude aktivna kako bi mogao pronaći i povezati se s Vašim novim Android uređajem.</string>
     <string name="OldDeviceTransferSetup__signal_needs_wifi_on_to_discover_and_connect_with_your_new_device">Signalu je potrebno da Wi-Fi konekcija bude aktivna kako bi mogao pronaći i povezati se sa Vašim novim Android uređajem. Wi-Fi treba biti uključen, ali ne mora biti povezan na Wi-Fi mrežu.</string>
-    <string name="OldDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Nažalost, izgleda da ovaj uređaj ne podržava Wi-Fi Direct. Signal koristi Wi-Fi Direct da pronađe i poveže se s Vašim novim Android uređajem. I dalje možete kreirati rezervnu kopiju podataka kako biste prenijeli račun na svoj novi Android uređaj.</string>
+    <string name="OldDeviceTransferSetup__sorry_it_appears_your_device_does_not_support_wifi_direct">Nažalost, izgleda da ovaj uređaj ne podržava Wi-Fi Direct. Kahf Messenger koristi Wi-Fi Direct da pronađe i poveže se s Vašim novim Android uređajem. I dalje možete kreirati rezervnu kopiju podataka kako biste prenijeli račun na svoj novi Android uređaj.</string>
     <string name="OldDeviceTransferSetup__create_a_backup">Kreiraj rezervnu kopiju</string>
     <string name="OldDeviceTransferSetup__an_unexpected_error_occurred_while_attempting_to_connect_to_your_old_device">Došlo je do neočekivane greške prilikom pokušaja da se poveže s Vašim novim Android uređajem.</string>
 
@@ -3713,7 +3713,7 @@
 
     <!-- DeviceTransferFragment -->
     <string name="DeviceTransfer__transferring_data">Prenos podataka</string>
-    <string name="DeviceTransfer__keep_both_devices_near_each_other">Držite oba uređaja u blizini. Ne isključujte uređaje i držite Signal otvorenim. Prenos podataka je šifriran.</string>
+    <string name="DeviceTransfer__keep_both_devices_near_each_other">Držite oba uređaja u blizini. Ne isključujte uređaje i držite Kahf Messenger otvorenim. Prenos podataka je šifriran.</string>
     <string name="DeviceTransfer__d_messages_so_far">%1$d poruka do sada…</string>
     <!-- Filled in with total percentage of messages transferred -->
     <string name="DeviceTransfer__s_of_messages_so_far">%1$s%% poruka do sada…</string>
@@ -3727,9 +3727,9 @@
 
     <!-- OldDeviceTransferInstructionsFragment -->
     <string name="OldDeviceTransferInstructions__transfer_account">Prenesi račun</string>
-    <string name="OldDeviceTransferInstructions__you_can_transfer_your_signal_account_when_setting_up_signal_on_a_new_android_device">Svoj Signal račun možete prenijeti prilikom podešavanja Signala na novom Android uređaju. Prije nego što nastavite:</string>
+    <string name="OldDeviceTransferInstructions__you_can_transfer_your_signal_account_when_setting_up_signal_on_a_new_android_device">Svoj Kahf Messenger račun možete prenijeti prilikom podešavanja Signala na novom Android uređaju. Prije nego što nastavite:</string>
     <string name="OldDeviceTransferInstructions__first_bullet">1.</string>
-    <string name="OldDeviceTransferInstructions__download_signal_on_your_new_android_device">Instalirajte Signal na svoj novi Android uređaj</string>
+    <string name="OldDeviceTransferInstructions__download_signal_on_your_new_android_device">Instalirajte Kahf Messenger na svoj novi Android uređaj</string>
     <string name="OldDeviceTransferInstructions__second_bullet">2.</string>
     <string name="OldDeviceTransferInstructions__tap_on_transfer_or_restore_account">"Pritisnite \"Prenesi ili vrati račun\""</string>
     <string name="OldDeviceTransferInstructions__third_bullet">3.</string>
@@ -3739,7 +3739,7 @@
     <!-- OldDeviceTransferComplete -->
     <string name="OldDeviceTransferComplete__transfer_complete">Prenos je završen</string>
     <string name="OldDeviceTransferComplete__go_to_your_new_device">Otvorite svoj novi uređaj</string>
-    <string name="OldDeviceTransferComplete__your_signal_data_has_Been_transferred_to_your_new_device">Vaši Signal podaci preneseni su na Vaš novi uređaj. Da biste okončali prenos, morate nastaviti s registracijom na svom novom uređaju.</string>
+    <string name="OldDeviceTransferComplete__your_signal_data_has_Been_transferred_to_your_new_device">Vaši Kahf Messenger podaci preneseni su na Vaš novi uređaj. Da biste okončali prenos, morate nastaviti s registracijom na svom novom uređaju.</string>
     <string name="OldDeviceTransferComplete__close">Zatvori</string>
 
     <!-- NewDeviceTransferComplete -->
@@ -3759,7 +3759,7 @@
 
     <!-- OldDeviceTransferLockedDialog -->
     <string name="OldDeviceTransferLockedDialog__complete_registration_on_your_new_device">Dovršite registraciju na svom novom uređaju</string>
-    <string name="OldDeviceTransferLockedDialog__your_signal_account_has_been_transferred_to_your_new_device">Vaš Signal račun prenesen je na Vaš novi uređaj, ali morate na njemu dovršiti registraciju da biste nastavili dalje. Signal će biti neaktivan na ovom uređaju.</string>
+    <string name="OldDeviceTransferLockedDialog__your_signal_account_has_been_transferred_to_your_new_device">Vaš Kahf Messenger račun prenesen je na Vaš novi uređaj, ali morate na njemu dovršiti registraciju da biste nastavili dalje. Kahf Messenger će biti neaktivan na ovom uređaju.</string>
     <string name="OldDeviceTransferLockedDialog__done">Uredu</string>
     <string name="OldDeviceTransferLockedDialog__cancel_and_activate_this_device">Prekini i aktiviraj ovaj uređaj</string>
 
@@ -3806,7 +3806,7 @@
     <string name="GroupsLearnMore_paragraph_1">Stare su one grupe koje nisu kompatibilne s novim grupnim opcijama poput administratora i detaljnih grupnih izvještaja.</string>
     <string name="GroupsLearnMore_can_i_upgrade_a_legacy_group">Mogu li nadograditi staru grupu?</string>
     <string name="GroupsLearnMore_paragraph_2">Stare grupe ne mogu se još uvijek nadograditi u nove, ali možete oformiti novu grupu sa istim članovima, ako oni koriste posljednju verziju Signala.</string>
-    <string name="GroupsLearnMore_paragraph_3">Signal će u budućnosti nuditi mogućnost za nadogradnju starih grupa.</string>
+    <string name="GroupsLearnMore_paragraph_3">Kahf Messenger će u budućnosti nuditi mogućnost za nadogradnju starih grupa.</string>
 
     <!-- GroupLinkBottomSheetDialogFragment -->
     <string name="GroupLinkBottomSheet_share_hint_requiring_approval">Svako ko dobije ovaj link može vidjeti naziv i sliku grupe, kao i zatražiti da se pridruži grupi. Podijelite ga samo s osobama u koje imate povjerenja.</string>
@@ -3893,7 +3893,7 @@
     <string name="DeleteAccountFragment__no_number">Nije naveden broj</string>
     <string name="DeleteAccountFragment__the_phone_number">Broj telefona koji ste unijeli ne podudara se s onim na Vašem računu.</string>
     <string name="DeleteAccountFragment__are_you_sure">Da li ste sigurni da želite izbrisati vaš račun?</string>
-    <string name="DeleteAccountFragment__this_will_delete_your_signal_account">Ovo će izbrisati Vaš Signal račun i poništiti sve ranije postavke aplikacije. Kad se proces okonča, aplikacija će se zatvoriti.</string>
+    <string name="DeleteAccountFragment__this_will_delete_your_signal_account">Ovo će izbrisati Vaš Kahf Messenger račun i poništiti sve ranije postavke aplikacije. Kad se proces okonča, aplikacija će se zatvoriti.</string>
     <string name="DeleteAccountFragment__failed_to_delete_account">Brisanje računa nije uspjelo. Je li Vam aktivna internet-konekcija?</string>
     <string name="DeleteAccountFragment__failed_to_delete_local_data">Neuspjelo brisanje lokalnih podataka. Možete ih ručno izbrisati kroz sistemska podešavanja aplikacija.</string>
     <string name="DeleteAccountFragment__launch_app_settings">Pokreni podešavanja aplikacije</string>
@@ -4022,7 +4022,7 @@
     <!-- Title in save recovery phrase screen -->
     <string name="PaymentsRecoveryStartFragment__save_recovery_phrase">Sačuvajte frazu za oporavak</string>
     <string name="PaymentsRecoveryStartFragment__enter_recovery_phrase">Unesite frazu za obnavljanje</string>
-    <string name="PaymentsRecoveryStartFragment__your_balance_will_automatically_restore">Stanje na Vašem računu automatski će Vam biti na raspolaganju ako potvrdite svoj Signal PIN. Sredstvima također možete pristupiti koristeći jedinstvenu zadatu frazu za obnavljanje, koja se sastoji od %1$d riječi. Zapišite je i pohranite na sigurno mjesto.</string>
+    <string name="PaymentsRecoveryStartFragment__your_balance_will_automatically_restore">Stanje na Vašem računu automatski će Vam biti na raspolaganju ako potvrdite svoj Kahf Messenger PIN. Sredstvima također možete pristupiti koristeći jedinstvenu zadatu frazu za obnavljanje, koja se sastoji od %1$d riječi. Zapišite je i pohranite na sigurno mjesto.</string>
     <!-- Description in save recovery phrase screen which shows up when user has non zero balance -->
     <string name="PaymentsRecoveryStartFragment__got_balance">Na svom računu imate sredstva! Vrijeme je da sačuvate svoju frazu za oporavak—šifru od 24 riječi koju možete koristiti za vraćanje stanja računa.</string>
     <!-- Description in save recovery phrase screen which shows up when user navigates from info card -->
@@ -4121,7 +4121,7 @@
     <!-- AccountSettingsFragment -->
     <string name="AccountSettingsFragment__account">Račun</string>
     <string name="AccountSettingsFragment__youll_be_asked_less_frequently">Bit ćete podsjećani sve rjeđe i rjeđe</string>
-    <string name="AccountSettingsFragment__require_your_signal_pin">Zahtijevajte svoj Signal PIN da bi se Vaš telefonski broj mogao ponovo registrovati na Signal</string>
+    <string name="AccountSettingsFragment__require_your_signal_pin">Zahtijevajte svoj Kahf Messenger PIN da bi se Vaš telefonski broj mogao ponovo registrovati na Kahf Messenger</string>
     <string name="AccountSettingsFragment__change_phone_number">Promijeni broj telefona</string>
 
     <!-- ChangeNumberFragment -->
@@ -4155,7 +4155,7 @@
     <string name="ChangeNumberConfirmFragment__edit_number">Ispravite broj</string>
 
     <!-- ChangeNumberRegistrationLockFragment -->
-    <string name="ChangeNumberRegistrationLockFragment__signal_change_number_need_help_with_pin_for_android_v2_pin">Signal promjena broja – trebate pomoć u vezi s PIN-om za Android (v2 PIN)</string>
+    <string name="ChangeNumberRegistrationLockFragment__signal_change_number_need_help_with_pin_for_android_v2_pin">Kahf Messenger promjena broja – trebate pomoć u vezi s PIN-om za Android (v2 PIN)</string>
 
     <!-- ChangeNumberPinDiffersFragment -->
     <string name="ChangeNumberPinDiffersFragment__pins_do_not_match">PIN-ovi se ne podudaraju</string>
@@ -4206,7 +4206,7 @@
     <string name="NotificationsSettingsFragment__messages">Poruke</string>
     <string name="NotificationsSettingsFragment__calls">Pozivi</string>
     <string name="NotificationsSettingsFragment__notify_when">Obavijesti kad…</string>
-    <string name="NotificationsSettingsFragment__contact_joins_signal">Kontakt je počeo koristiti Signal</string>
+    <string name="NotificationsSettingsFragment__contact_joins_signal">Kontakt je počeo koristiti Kahf Messenger</string>
     <!-- Notification preference header -->
     <string name="NotificationsSettingsFragment__notification_profiles">Profili obavještenja</string>
     <!-- Notification preference option header -->
@@ -4227,7 +4227,7 @@
     <string name="PrivacySettingsFragment__disappearing_messages">Nestajuće poruke</string>
     <string name="PrivacySettingsFragment__app_security">Sigurnost aplikacije</string>
     <string name="PrivacySettingsFragment__block_screenshots_in_the_recents_list_and_inside_the_app">Onemogući slikanje ekrana u popisu nedavno korištenih aplikacija i unutar Signala</string>
-    <string name="PrivacySettingsFragment__signal_message_and_calls">Signal poruke i pozivi, preusmjeravanje poziva i zapečaćeni pošiljalac</string>
+    <string name="PrivacySettingsFragment__signal_message_and_calls">Kahf Messenger poruke i pozivi, preusmjeravanje poziva i zapečaćeni pošiljalac</string>
     <string name="PrivacySettingsFragment__default_timer_for_new_changes">Predefinisani rok za nove konverzacije</string>
     <string name="PrivacySettingsFragment__set_a_default_disappearing_message_timer_for_all_new_chats_started_by_you">Podesite vrijeme za nestajanje poruka koje će se automatski primijeniti na sve nove konverzacije kada ih Vi započnete.</string>
     <!-- Summary for stories preference to launch into story privacy settings -->
@@ -4276,7 +4276,7 @@
     <string name="HelpSettingsFragment__version">Verzija</string>
     <string name="HelpSettingsFragment__debug_log">Zapis za ispravljanje grešaka</string>
     <string name="HelpSettingsFragment__terms_amp_privacy_policy">Sporazum o korištenju i privatnosti</string>
-    <string name="HelpFragment__copyright_signal_messenger">Prava: Signal Messenger</string>
+    <string name="HelpFragment__copyright_signal_messenger">Prava: Kahf Messenger Messenger</string>
     <string name="HelpFragment__licenced_under_the_gplv3">Licenca: GPLv3</string>
 
     <!-- DataAndStorageSettingsFragment -->
@@ -4324,9 +4324,9 @@
     <string name="ChatColorGradientTool_bottom_edge_selector">Birač za dno</string>
 
     <!-- Title text for prompt to donate. Shown in a popup at the bottom of the chat list. -->
-    <string name="Donate2022Q2Megaphone_donate_to_signal">Donirajte za Signal</string>
+    <string name="Donate2022Q2Megaphone_donate_to_signal">Donirajte za Kahf Messenger</string>
     <!-- Body text for prompt to donate. Shown in a popup at the bottom of the chat list. -->
-    <string name="Donate2022Q2Megaphone_signal_is_powered_by_people_like_you">Signal postoji zahvaljujući osobama poput Vas. Donirajte mjesečno i primite značku.</string>
+    <string name="Donate2022Q2Megaphone_signal_is_powered_by_people_like_you">Kahf Messenger postoji zahvaljujući osobama poput Vas. Donirajte mjesečno i primite značku.</string>
     <!-- Button label that brings a user to the donate screen. Shown in a popup at the bottom of the chat list. -->
     <string name="Donate2022Q2Megaphone_donate">Doniraj</string>
     <!-- Button label that dismissed a prompt to donate. Shown in a popup at the bottom of the chat list. -->
@@ -4349,7 +4349,7 @@
     <!-- BecomeASustainerMegaphone -->
     <string name="BecomeASustainerMegaphone__become_a_sustainer">Postanite pokrovitelj</string>
     <!-- Displayed in the Become a Sustainer megaphone -->
-    <string name="BecomeASustainerMegaphone__signal_is_powered_by">Signal postoji zahvaljujući osobama poput Vas. Donirajte i primite značku.</string>
+    <string name="BecomeASustainerMegaphone__signal_is_powered_by">Kahf Messenger postoji zahvaljujući osobama poput Vas. Donirajte i primite značku.</string>
     <string name="BecomeASustainerMegaphone__not_now">Ne sada</string>
     <string name="BecomeASustainerMegaphone__donate">Doniraj</string>
 
@@ -4406,7 +4406,7 @@
     <string name="ConversationSettingsFragment__conversation_muted_forever">Konverzacije zastalno stišane</string>
     <string name="ConversationSettingsFragment__copied_phone_number_to_clipboard">Telefonski broj kopiran je u međuspremnik.</string>
     <string name="ConversationSettingsFragment__phone_number">Broj telefona</string>
-    <string name="ConversationSettingsFragment__get_badges">Nabavite značke za svoj profil podržavši Signal. Pritisnite značku kako biste saznali više.</string>
+    <string name="ConversationSettingsFragment__get_badges">Nabavite značke za svoj profil podržavši Kahf Messenger. Pritisnite značku kako biste saznali više.</string>
 
     <!-- PermissionsSettingsFragment -->
     <string name="PermissionsSettingsFragment__add_members">Uvrštavanje članova</string>
@@ -4598,10 +4598,10 @@
 
     <string name="ImageView__badge">Značka</string>
 
-    <string name="SubscribeFragment__signal_is_powered_by_people_like_you">Signal postoji zbog osoba poput Vas.</string>
+    <string name="SubscribeFragment__signal_is_powered_by_people_like_you">Kahf Messenger postoji zbog osoba poput Vas.</string>
     <string name="SubscribeFragment__support_technology_that_is_built_for_you">Podržite tehnologiju koja je kreirana radi Vas – ne radi Vaših podataka – pridruživši se zajednici koja je održava.</string>
-    <string name="SubscribeFragment__support_technology_that_is_built_for_you_not">Podržite tehnologiju koja je kreirana radi Vas, ne radi Vaših podataka, pridruživši se zajednici koja održava Signal.</string>
-    <string name="SubscribeFragment__make_a_recurring_monthly_donation">Donirajte za Signal svakog mjeseca da biste dali podršku tehnologiji kreiranoj zbog Vas, a ne zbog Vaših podataka.</string>
+    <string name="SubscribeFragment__support_technology_that_is_built_for_you_not">Podržite tehnologiju koja je kreirana radi Vas, ne radi Vaših podataka, pridruživši se zajednici koja održava Kahf Messenger.</string>
+    <string name="SubscribeFragment__make_a_recurring_monthly_donation">Donirajte za Kahf Messenger svakog mjeseca da biste dali podršku tehnologiji kreiranoj zbog Vas, a ne zbog Vaših podataka.</string>
     <string name="SubscribeFragment__currency">Valuta</string>
     <string name="SubscribeFragment__more_payment_options">Više opcija za plaćanje</string>
     <string name="SubscribeFragment__cancel_subscription">Otkaži pretplatu</string>
@@ -4620,15 +4620,15 @@
     <string name="Subscription__s_per_month_dot_expires_s">%1$s/mjesecu · Ističe %2$s</string>
 
     <!-- First small text blurb on learn more sheet -->
-    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_a_nonprofit_with_no">Signal je neprofitna organizacija koja se ne finansira reklamama i investicijama, već je održavaju osobe koje koriste aplikaciju i cijene je. Donirajte svakog mjeseca i primite značku za svoj profil koja pokazuje Vašu podršku.</string>
+    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_a_nonprofit_with_no">Kahf Messenger je neprofitna organizacija koja se ne finansira reklamama i investicijama, već je održavaju osobe koje koriste aplikaciju i cijene je. Donirajte svakog mjeseca i primite značku za svoj profil koja pokazuje Vašu podršku.</string>
     <string name="SubscribeLearnMoreBottomSheetDialogFragment__why_donate">Zašto donirati?</string>
-    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_committed_to_developing">Signal je posvećen razvoju tehnologije za zaštitu privatnosti slijedeći model otvorenog kōda a koja štiti slobodu izražavanja i omogućava sigurnu globalnu komunikaciju.</string>
+    <string name="SubscribeLearnMoreBottomSheetDialogFragment__signal_is_committed_to_developing">Kahf Messenger je posvećen razvoju tehnologije za zaštitu privatnosti slijedeći model otvorenog kōda a koja štiti slobodu izražavanja i omogućava sigurnu globalnu komunikaciju.</string>
     <string name="SubscribeLearnMoreBottomSheetDialogFragment__your_donation">Vaša donacija održava taj razvoj i finansira razvoj i funkcionisanje aplikacije za privatnu komunikaciju koju koriste milioni ljudi. Bez reklama. Bez praćenja. Bez zezanja.</string>
 
     <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__thanks_for_your_support">Hvala Vam za Vašu podršku!</string>
     <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__thanks_for_the_boost">Hvala za Podsticaj!</string>
-    <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__youve_earned_s_badge_display">Zaslužili ste %1$s značku! Prikažite ovu značku na svom profilu da biste gradili svijest o doniranju za Signal.</string>
-    <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__youve_earned_a_boost_badge_display">Zaslužili ste značku Pojačivač! Prikažite ovu značku na svom profilu da biste gradili svijest o doniranju za Signal.</string>
+    <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__youve_earned_s_badge_display">Zaslužili ste %1$s značku! Prikažite ovu značku na svom profilu da biste gradili svijest o doniranju za Kahf Messenger.</string>
+    <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__youve_earned_a_boost_badge_display">Zaslužili ste značku Pojačivač! Prikažite ovu značku na svom profilu da biste gradili svijest o doniranju za Kahf Messenger.</string>
     <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__you_can_also">Također možete</string>
     <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__become_a_montly_sustainer">postati redovni mjesečni pokrovitelj.</string>
     <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__display_on_profile">Prikaži na profilu</string>
@@ -4636,8 +4636,8 @@
     <string name="SubscribeThanksForYourSupportBottomSheetDialogFragment__done">Uredu</string>
     <string name="ThanksForYourSupportBottomSheetFragment__when_you_have_more">Kad posjedujete više od jedne značke, možete birati koju od njih želite prezentovati drugima na svom profilu.</string>
 
-    <string name="BecomeASustainerFragment__get_badges">Nabavite značke za svoj profil podržavši Signal.</string>
-    <string name="BecomeASustainerFragment__signal_is_a_non_profit">Signal je neprofitna organizacija iza koje ne stoje oglašivači i investitori već je održavaju ljudi poput Vas.</string>
+    <string name="BecomeASustainerFragment__get_badges">Nabavite značke za svoj profil podržavši Kahf Messenger.</string>
+    <string name="BecomeASustainerFragment__signal_is_a_non_profit">Kahf Messenger je neprofitna organizacija iza koje ne stoje oglašivači i investitori već je održavaju ljudi poput Vas.</string>
 
     <!-- Button label for creating a monthly donation -->
     <string name="ManageDonationsFragment__make_a_monthly_donation">Dajte mjesečnu donaciju</string>
@@ -4658,14 +4658,14 @@
     <!-- Preference label to launch badge gifting -->
     <string name="ManageDonationsFragment__gift_a_badge">Poklonite značku</string>
 
-    <string name="BoostFragment__give_signal_a_boost">Pojačajte Signal</string>
+    <string name="BoostFragment__give_signal_a_boost">Pojačajte Kahf Messenger</string>
     <!-- Description text in boost sheet -->
     <string name="BoostFragment__make_a_one_time">Uplatite jednokratnu donaciju i zaslužite značku Pojačivač na %1$d dana.</string>
 
     <string name="Boost__enter_custom_amount">Unesite iznos</string>
     <string name="Boost__one_time_contribution">Jednokratni doprinos</string>
 
-    <string name="MySupportPreference__add_a_signal_boost">Pojačajte Signal</string>
+    <string name="MySupportPreference__add_a_signal_boost">Pojačajte Kahf Messenger</string>
     <string name="MySupportPreference__s_per_month">%1$s/mjesecu</string>
     <string name="MySupportPreference__renews_s">Obnavlja se %1$s</string>
     <string name="MySupportPreference__processing_transaction">Obrađujem transakciju…</string>
@@ -4697,7 +4697,7 @@
     <string name="ExpiredBadgeBottomSheetDialogFragment__go_to_google_pay">Idi na Google Pay</string>
 
     <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__cant_process_subscription_payment">Ne možemo obraditi uplatu</string>
-    <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__were_having_trouble">Imamo problem s naplatom Vaše pretplate. Provjerite i potvrdite da je metod koji koristite za plaćanje ažuriran. Ukoliko nije, ažurirajte ga na Google Payu. Signal će pokušati ponovo obraditi uplatu za nekoliko dana.</string>
+    <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__were_having_trouble">Imamo problem s naplatom Vaše pretplate. Provjerite i potvrdite da je metod koji koristite za plaćanje ažuriran. Ukoliko nije, ažurirajte ga na Google Payu. Kahf Messenger će pokušati ponovo obraditi uplatu za nekoliko dana.</string>
     <string name="CantProcessSubscriptionPaymentBottomSheetDialogFragment__dont_show_this_again">Ne prikazuj ovo ponovo</string>
 
     <string name="Subscription__please_contact_support_for_more_information">Molimo kontaktirajte podršku za više informacija.</string>
@@ -4727,7 +4727,7 @@
     <string name="DonationsErrors__you_have_to_set_up_google_pay_to_donate_in_app">Morate podesiti Google Pay da biste donirali kroz aplikaciju.</string>
     <string name="DonationsErrors__failed_to_cancel_subscription">Neuspjelo otkazivanje pretplate</string>
     <string name="DonationsErrors__subscription_cancellation_requires_an_internet_connection">Otkazivanje pretplate traži internet-konekciju.</string>
-    <string name="ViewBadgeBottomSheetDialogFragment__your_device_doesn_t_support_google_pay_so_you_can_t_subscribe_to_earn_a_badge_you_can_still_support_signal_by_making_a_donation_on_our_website">Vaš uređaj ne podržava Google Pay i zato se ne možete pretplatiti i zaslužiti značku. I dalje možete podržati Signal kroz donaciju na našoj internet-stranici.</string>
+    <string name="ViewBadgeBottomSheetDialogFragment__your_device_doesn_t_support_google_pay_so_you_can_t_subscribe_to_earn_a_badge_you_can_still_support_signal_by_making_a_donation_on_our_website">Vaš uređaj ne podržava Google Pay i zato se ne možete pretplatiti i zaslužiti značku. I dalje možete podržati Kahf Messenger kroz donaciju na našoj internet-stranici.</string>
     <string name="NetworkFailure__network_error_check_your_connection_and_try_again">Mrežna greška. Provjerite svoju internet-konekciju i pokušajte ponovo.</string>
     <string name="NetworkFailure__retry">Pokušaj</string>
     <!-- Displayed as a dialog title when the selected recipient for a gift doesn\'t support gifting -->
@@ -4757,7 +4757,7 @@
     <!-- Gift badge redeemed label -->
     <string name="GiftMessageView__redeemed">Prihvaćeno</string>
 
-    <string name="Boost__thank_you_for_your_donation" translatable="false">Thank you for your donation. Your contribution helps fuel the mission of developing open source privacy technology that protects free expression and enables secure global communication for millions around the world. Signal Technology Foundation is a tax-exempt nonprofit organization in the United States under section 501c3 of the Internal Revenue Code. Our Federal Tax ID is 82-4506840. No goods or services were provided in exchange for this donation. Please retain this receipt for your tax records.</string>
+    <string name="Boost__thank_you_for_your_donation" translatable="false">Thank you for your donation. Your contribution helps fuel the mission of developing open source privacy technology that protects free expression and enables secure global communication for millions around the world. Kahf Messenger Technology Foundation is a tax-exempt nonprofit organization in the United States under section 501c3 of the Internal Revenue Code. Our Federal Tax ID is 82-4506840. No goods or services were provided in exchange for this donation. Please retain this receipt for your tax records.</string>
 
     <!-- Stripe decline code generic_failure -->
     <string name="DeclineCode__try_another_payment_method_or_contact_your_bank">Pokušajte koristiti drugi metod plaćanja ili kontaktirajte svoju banku za više informacija.</string>
@@ -4929,8 +4929,8 @@
     <!-- Displayed in a toast when we fail to open the ringtone picker -->
     <string name="NotificationSettingsFragment__failed_to_open_picker">Neuspjelo otvaranje birača.</string>
 
-    <!-- Description shown for the Signal Release Notes channel -->
-    <string name="ReleaseNotes__signal_release_notes_and_news">Signal napomene o novoobjavljenoj verziji i novosti</string>
+    <!-- Description shown for the Kahf Messenger Release Notes channel -->
+    <string name="ReleaseNotes__signal_release_notes_and_news">Kahf Messenger napomene o novoobjavljenoj verziji i novosti</string>
 
     <!-- Donation receipts activity title -->
     <string name="DonationReceiptListFragment__all_activity">Aktivnosti</string>
@@ -4953,13 +4953,13 @@
     <!-- Donation receipts share PNG -->
     <string name="DonationReceiptDetailsFragment__share_receipt">Podijeli priznanicu</string>
     <!-- Donation receipts list end note -->
-    <string name="DonationReceiptListFragment__if_you_have">Ako ste iznova instalirali Signal, priznanice za prethodne donacije neće biti dostupne.</string>
+    <string name="DonationReceiptListFragment__if_you_have">Ako ste iznova instalirali Kahf Messenger, priznanice za prethodne donacije neće biti dostupne.</string>
     <!-- Donation receipts document title -->
     <string name="DonationReceiptDetailsFragment__donation_receipt">Priznanica za donaciju</string>
     <!-- Donation receipts amount title -->
     <string name="DonationReceiptDetailsFragment__amount">Iznos</string>
     <!-- Donation receipts thanks -->
-    <string name="DonationReceiptDetailsFragment__thank_you_for_supporting">Hvala Vam za podršku Signalu. Vaš doprinos pomaže u održavanju misije kreiranja tehnologije otvorenog kōda za zaštitu privatnosti i slobode izražavanja, i omogućava sigurnu komunikaciju na globalnom nivou za milione ljudi širom svijeta. Ako živite u Sjedinjenim Američkim Državama, sačuvajte ovu priznanicu za svoju poresku prijavu. Signal Technology Foundation je oslobođena poreza i registrovana je kao neprofitna organizacija u Sjedinjenim Američkim Državama pod stavkom 501c3 zakon o oporezivanju (Internal Revenue Code). Naš federalni poreski broj glasi: 82–4506840.</string>
+    <string name="DonationReceiptDetailsFragment__thank_you_for_supporting">Hvala Vam za podršku Signalu. Vaš doprinos pomaže u održavanju misije kreiranja tehnologije otvorenog kōda za zaštitu privatnosti i slobode izražavanja, i omogućava sigurnu komunikaciju na globalnom nivou za milione ljudi širom svijeta. Ako živite u Sjedinjenim Američkim Državama, sačuvajte ovu priznanicu za svoju poresku prijavu. Kahf Messenger Technology Foundation je oslobođena poreza i registrovana je kao neprofitna organizacija u Sjedinjenim Američkim Državama pod stavkom 501c3 zakon o oporezivanju (Internal Revenue Code). Naš federalni poreski broj glasi: 82–4506840.</string>
     <!-- Donation receipt type -->
     <string name="DonationReceiptDetailsFragment__s_dash_s">%1$s – %2$s</string>
     <!-- Donation reciepts screen empty state title -->
@@ -5110,7 +5110,7 @@
     <!-- Clickable option for selecting people to hide your story from -->
     <string name="MyStorySettingsFragment__hide_story_from">Sakrij priču od</string>
     <!-- Privacy setting title for sending stories to all your signal connections -->
-    <string name="MyStorySettingsFragment__all_signal_connections">Sve Signal veze</string>
+    <string name="MyStorySettingsFragment__all_signal_connections">Sve Kahf Messenger veze</string>
     <!-- Privacy setting description for sending stories to all your signal connections -->
     <string name="MyStorySettingsFragment__share_with_all_connections">Dijelite sa svim vezama</string>
     <!-- Privacy setting title for sending stories to all except the specified connections -->
@@ -5143,17 +5143,17 @@
     <string name="MyStorySettingsFragment__allow_replies_amp_reactions">Dopusti odgovore i reakcije</string>
     <!-- Summary for switchable option allowing replies and reactions on your story -->
     <string name="MyStorySettingsFragment__let_people_who_can_view_your_story_react_and_reply">Dopustite osobama koje mogu vidjeti vašu priču da reaguju i odgovore</string>
-    <!-- Signal connections bolded text in the Signal Connections sheet -->
-    <string name="SignalConnectionsBottomSheet___signal_connections">Signal veze</string>
+    <!-- Kahf Messenger connections bolded text in the Kahf Messenger Connections sheet -->
+    <string name="SignalConnectionsBottomSheet___signal_connections">Kahf Messenger veze</string>
     <!-- Displayed at the top of the signal connections sheet. Please remember to insert strong tag as required. -->
-    <string name="SignalConnectionsBottomSheet__signal_connections_are_people">Signal veze predstavljaju osobe kojima ste odabrali vjerovati:</string>
-    <!-- Signal connections sheet bullet point 1 -->
+    <string name="SignalConnectionsBottomSheet__signal_connections_are_people">Kahf Messenger veze predstavljaju osobe kojima ste odabrali vjerovati:</string>
+    <!-- Kahf Messenger connections sheet bullet point 1 -->
     <string name="SignalConnectionsBottomSheet__starting_a_conversation">Započinjem konverzaciju</string>
-    <!-- Signal connections sheet bullet point 2 -->
+    <!-- Kahf Messenger connections sheet bullet point 2 -->
     <string name="SignalConnectionsBottomSheet__accepting_a_message_request">Prihvatam zahtjev za komunikaciju</string>
-    <!-- Signal connections sheet bullet point 3 -->
+    <!-- Kahf Messenger connections sheet bullet point 3 -->
     <string name="SignalConnectionsBottomSheet__having_them_in_your_system_contacts">Imate ih u svojim kontaktima na telefonu</string>
-    <!-- Note at the bottom of the Signal connections sheet -->
+    <!-- Note at the bottom of the Kahf Messenger connections sheet -->
     <string name="SignalConnectionsBottomSheet__your_connections_can_see_your_name">"Vaši kontakti mogu vidjeti vaše ime i fotografiju, a mogu vidjeti i objave u \"Moja priča\", izuzev ako to ne sakrijete od njih."</string>
     <!-- Clickable option to add a viewer to a custom story -->
     <string name="PrivateStorySettingsFragment__add_viewer">Dodaj posmatrača</string>
@@ -5222,7 +5222,7 @@
     <!-- Dialog title for first time adding something to a story -->
     <string name="StoryDialogs__add_to_story_q">Dodati u priču?</string>
     <!-- Dialog message for first time adding something to a story -->
-    <string name="StoryDialogs__adding_content">Ako dodate sadržaj svojoj priči, omogućavate svojim Signal kontaktima da ga vide naredna 24 sata. U Postavkama možete odrediti ko će vidjeti vašu priču.</string>
+    <string name="StoryDialogs__adding_content">Ako dodate sadržaj svojoj priči, omogućavate svojim Kahf Messenger kontaktima da ga vide naredna 24 sata. U Postavkama možete odrediti ko će vidjeti vašu priču.</string>
     <!-- First time share to story dialog: Positive action to go ahead and add to story -->
     <string name="StoryDialogs__add_to_story">Dodaj u priču</string>
     <!-- First time share to story dialog: Neutral action to edit who can view "My Story" -->
@@ -5330,7 +5330,7 @@
     <!-- Headline text on start fragment for gifting a badge -->
     <string name="GiftFlowStartFragment__gift_a_badge">Poklonite značku</string>
     <!-- Description text on start fragment for gifting a badge -->
-    <string name="GiftFlowStartFragment__gift_someone_a_badge">Poklonite nekom značku uplativši donaciju za Signal u njegovo ili njeno ime. Oni će dobiti značku koju mogu prikazati na svojoj slici profila.</string>
+    <string name="GiftFlowStartFragment__gift_someone_a_badge">Poklonite nekom značku uplativši donaciju za Kahf Messenger u njegovo ili njeno ime. Oni će dobiti značku koju mogu prikazati na svojoj slici profila.</string>
     <!-- Action button label for start fragment for gifting a badge -->
     <string name="GiftFlowStartFragment__next">Dalje</string>
     <!-- Title text on choose recipient page for badge gifting -->
@@ -5466,7 +5466,7 @@
     <!-- Title of safety number changes bottom sheet when showing individual records -->
     <string name="SafetyNumberBottomSheetFragment__safety_number_changes">Promjene sigurnosnog broja</string>
     <!-- Message of safety number changes bottom sheet when showing individual records -->
-    <string name="SafetyNumberBottomSheetFragment__the_following_people">Sljedeće osobe su možda ponovo instalirale Signal ili su promijenili uređaje. Dodirnite primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</string>
+    <string name="SafetyNumberBottomSheetFragment__the_following_people">Sljedeće osobe su možda ponovo instalirale Kahf Messenger ili su promijenili uređaje. Dodirnite primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</string>
     <!-- Title of safety number changes bottom sheet when not showing individual records -->
     <string name="SafetyNumberBottomSheetFragment__safety_number_checkup">Provjera sigurnosnog broja</string>
     <!-- Title of safety number changes bottom sheet when not showing individual records and user has seen review screen -->
@@ -5474,7 +5474,7 @@
     <!-- Message of safety number changes bottom sheet when not showing individual records and user has seen review screen -->
     <string name="SafetyNumberBottomSheetFragment__all_connections_have_been_reviewed">Sve veze su pregledane, dodirnite \"Pošalji\" da nastavite.</string>
     <!-- Message of safety number changes bottom sheet when not showing individual records -->
-    <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">Imate kontakte (njih %1$d) koji su možda ponovo instalirali Signal ili su promijenili uređaje. Prije nego podijelite priču s tim osobama, pregledajte njihove sigurnosne brojeve ili razmotrite opciju da ih uklonite iz svoje priče.</string>
+    <string name="SafetyNumberBottomSheetFragment__you_have_d_connections">Imate kontakte (njih %1$d) koji su možda ponovo instalirali Kahf Messenger ili su promijenili uređaje. Prije nego podijelite priču s tim osobama, pregledajte njihove sigurnosne brojeve ili razmotrite opciju da ih uklonite iz svoje priče.</string>
     <!-- Menu action to launch safety number verification screen -->
     <string name="SafetyNumberBottomSheetFragment__verify_safety_number">Provjerite sigurnosni broj</string>
     <!-- Menu action to remove user from story -->
@@ -5491,10 +5491,10 @@
     <string name="SafetyNumberReviewConnectionsFragment__safety_number_changes">Promjene sigurnosnog broja</string>
     <!-- Message of safety number review fragment -->
     <plurals name="SafetyNumberReviewConnectionsFragment__d_recipients_may_have">
-        <item quantity="one">%1$d primalac je ponovo instalirao Signal ili je promijenio uređaj. Dodirnite na primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
-        <item quantity="few">%1$d primaoca su ponovo instalirala Signal ili su promijenili uređaje. Dodirnite na primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
-        <item quantity="many">%1$d primaoca je ponovo instaliralo Signal ili su promijenili uređaje. Dodirnite na primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
-        <item quantity="other">%1$d primaoca je ponovo instaliralo Signal ili su promijenili uređaje. Dodirnite na primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
+        <item quantity="one">%1$d primalac je ponovo instalirao Kahf Messenger ili je promijenio uređaj. Dodirnite na primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
+        <item quantity="few">%1$d primaoca su ponovo instalirala Kahf Messenger ili su promijenili uređaje. Dodirnite na primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
+        <item quantity="many">%1$d primaoca je ponovo instaliralo Kahf Messenger ili su promijenili uređaje. Dodirnite na primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
+        <item quantity="other">%1$d primaoca je ponovo instaliralo Kahf Messenger ili su promijenili uređaje. Dodirnite na primaoca da potvrdite novi sigurnosni broj. Ova radnja nije obavezna.</item>
     </plurals>
     <!-- Section header for 1:1 contacts in review fragment -->
     <string name="SafetyNumberBucketRowItem__contacts">Kontakti</string>
@@ -5508,7 +5508,7 @@
     <!-- Subtitle of initial My Story settings configuration shown when sending to My Story for the first time -->
     <string name="ChooseInitialMyStoryMembershipFragment__choose_who_can_see_posts_to_my_story_you_can_always_make_changes_in_settings">Odaberite ko može vidjeti objave u Mojim pričama. Promjene uvijek možete izvršiti u postavkama.</string>
     <!-- All connections option for initial My Story settings configuration shown when sending to My Story for the first time -->
-    <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">Sve Signal veze</string>
+    <string name="ChooseInitialMyStoryMembershipFragment__all_signal_connections">Sve Kahf Messenger veze</string>
     <!-- All connections except option for initial My Story settings configuration shown when sending to My Story for the first time -->
     <string name="ChooseInitialMyStoryMembershipFragment__all_except">Svi osim…</string>
     <!-- Only with selected connections option for initial My Story settings configuration shown when sending to My Story for the first time -->
@@ -5575,7 +5575,7 @@
     <!-- Displayed in the notification title when export completes -->
     <string name="SignalSmsExportService__signal_sms_export_complete">Izvoz SMS poruka Signala je završen</string>
     <!-- Displayed in the notification message when export completes -->
-    <string name="SignalSmsExportService__tap_to_return_to_signal">Dodirnite da se vratite u Signal</string>
+    <string name="SignalSmsExportService__tap_to_return_to_signal">Dodirnite da se vratite u Kahf Messenger</string>
 
     <!-- ExportYourSmsMessagesFragment -->
     <!-- Title of the screen -->
@@ -5603,8 +5603,8 @@
     <string name="ExportingSmsMessagesFragment__you_need_approximately_s_to_export_your_messages_ensure_you_have_enough_space_before_continuing">Potrebno je otprilike %1$s za izvoz poruka, provjerite imate li dovoljno prostora prije nego nastavite.</string>
     <!-- Alert dialog button to continue with exporting sms after seeing the lack of storage warning -->
     <string name="ExportingSmsMessagesFragment__continue_anyway">Svejedno nastavi</string>
-    <!-- Dialog text shown when Signal isn't granted the sms permission needed to export messages, different than being selected as the sms app -->
-    <string name="ExportingSmsMessagesFragment__signal_needs_the_sms_permission_to_be_able_to_export_your_sms_messages">Signal needs the SMS permission to be able to export your SMS messages.</string>
+    <!-- Dialog text shown when Kahf Messenger isn't granted the sms permission needed to export messages, different than being selected as the sms app -->
+    <string name="ExportingSmsMessagesFragment__signal_needs_the_sms_permission_to_be_able_to_export_your_sms_messages">Kahf Messenger needs the SMS permission to be able to export your SMS messages.</string>
 
     <!-- ChooseANewDefaultSmsAppFragment -->
     <!-- Title of the screen -->
@@ -5628,7 +5628,7 @@
     <!-- Instruction step for choosing a new default sms app -->
     <string name="ChooseANewDefaultSmsAppFragment__choose_another_app_to_use_for_sms_messaging">Odaberite drugu aplikaciju za razmjenu SMS poruka</string>
     <!-- Instruction step for choosing a new default sms app -->
-    <string name="ChooseANewDefaultSmsAppFragment__return_to_signal">Vratite se na Signal</string>
+    <string name="ChooseANewDefaultSmsAppFragment__return_to_signal">Vratite se na Kahf Messenger</string>
     <!-- Instruction step for choosing a new default sms app -->
     <string name="ChooseANewDefaultSmsAppFragment__open_your_phones_settings_app">Otvorite Postavke na telefonu</string>
     <!-- Instruction step for choosing a new default sms app -->
@@ -5646,9 +5646,9 @@
 
     <!-- SetSignalAsDefaultSmsAppFragment -->
     <!-- Title of the screen -->
-    <string name="SetSignalAsDefaultSmsAppFragment__set_signal_as_the_default_sms_app">Postavite Signal kao zadanu aplikaciju za SMS</string>
+    <string name="SetSignalAsDefaultSmsAppFragment__set_signal_as_the_default_sms_app">Postavite Kahf Messenger kao zadanu aplikaciju za SMS</string>
     <!-- Message of the screen -->
-    <string name="SetSignalAsDefaultSmsAppFragment__to_export_your_sms_messages">Da izvezete SMS poruke, morate postaviti Signal kao zadanu aplikaciju za SMS.</string>
+    <string name="SetSignalAsDefaultSmsAppFragment__to_export_your_sms_messages">Da izvezete SMS poruke, morate postaviti Kahf Messenger kao zadanu aplikaciju za SMS.</string>
     <!-- Button label to start export -->
     <string name="SetSignalAsDefaultSmsAppFragment__next">Dalje</string>
 
@@ -5672,13 +5672,13 @@
 
     <!-- SmsExportMegaphoneActivity -->
     <!-- Phase 2 title of full screen megaphone indicating sms will no longer be supported in the near future -->
-    <string name="SmsExportMegaphoneActivity__signal_will_no_longer_support_sms">Signal više neće podržavati SMS</string>
+    <string name="SmsExportMegaphoneActivity__signal_will_no_longer_support_sms">Kahf Messenger više neće podržavati SMS</string>
     <!-- Phase 3 title of full screen megaphone indicating sms is longer supported  -->
-    <string name="SmsExportMegaphoneActivity__signal_no_longer_supports_sms">Signal više ne podržava SMS</string>
+    <string name="SmsExportMegaphoneActivity__signal_no_longer_supports_sms">Kahf Messenger više ne podržava SMS</string>
     <!-- Phase 2 message describing that sms is going away soon -->
-    <string name="SmsExportMegaphoneActivity__signal_will_soon_remove_support_for_sending_sms_messages">Signal će uskoro ukloniti podršku za slanje SMS poruka jer Signal poruke pružaju potpuno šifriranje i jaku privatnost koju SMS poruke nemaju. To će nam također omogućiti da poboljšamo iskustvo razmjene poruka Signala.</string>
+    <string name="SmsExportMegaphoneActivity__signal_will_soon_remove_support_for_sending_sms_messages">Kahf Messenger će uskoro ukloniti podršku za slanje SMS poruka jer Kahf Messenger poruke pružaju potpuno šifriranje i jaku privatnost koju SMS poruke nemaju. To će nam također omogućiti da poboljšamo iskustvo razmjene poruka Signala.</string>
     <!-- Phase 3 message describing that sms has gone away -->
-    <string name="SmsExportMegaphoneActivity__signal_has_removed_support_for_sending_sms_messages">Signal je uklonio podršku za slanje SMS poruka jer Signal poruke pružaju potpuno šifriranje i jaku privatnost koju SMS poruke nemaju. To će nam također omogućiti da poboljšamo iskustvo razmjene poruka Signala.</string>
+    <string name="SmsExportMegaphoneActivity__signal_has_removed_support_for_sending_sms_messages">Kahf Messenger je uklonio podršku za slanje SMS poruka jer Kahf Messenger poruke pružaju potpuno šifriranje i jaku privatnost koju SMS poruke nemaju. To će nam također omogućiti da poboljšamo iskustvo razmjene poruka Signala.</string>
     <!-- The text on a button in a popup that, when clicked, will take the user to a screen to export their SMS messages -->
     <string name="SmsExportMegaphoneActivity__export_sms">Izvezi SMS</string>
     <!-- The text on a button in a popup that, when clicked, will dismiss the popup and schedule the prompt to occur at a later time. -->
