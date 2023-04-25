@@ -490,13 +490,6 @@ class InternalSettingsFragment : DSLSettingsFragment(R.string.preferences__inter
           viewModel.onClearOnboardingState()
         }
       )
-
-      clickPref(
-        title = DSLSettingsText.from(R.string.preferences__internal_stories_dialog_launcher),
-        onClick = {
-          findNavController().safeNavigate(InternalSettingsFragmentDirections.actionInternalSettingsFragmentToStoryDialogsLauncherFragment())
-        }
-      )
     }
   }
 

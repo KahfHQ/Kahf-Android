@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.ActionMenuView
@@ -18,6 +19,10 @@ import androidx.navigation.Navigator
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import org.signal.core.util.concurrent.SimpleTask
 import org.signal.core.util.logging.Log
 import org.thoughtcrime.securesms.MainActivity
@@ -35,17 +40,11 @@ import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTab
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTabsState
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTabsViewModel
-import org.thoughtcrime.securesms.util.AvatarUtil
-import org.thoughtcrime.securesms.util.BottomSheetUtil
-import org.thoughtcrime.securesms.util.Material3OnScrollHelper
-import org.thoughtcrime.securesms.util.TopToastPopup
+import org.thoughtcrime.securesms.util.*
 import org.thoughtcrime.securesms.util.TopToastPopup.Companion.show
-import org.thoughtcrime.securesms.util.Util
-import org.thoughtcrime.securesms.util.runHideAnimation
-import org.thoughtcrime.securesms.util.runRevealAnimation
 import org.thoughtcrime.securesms.util.views.Stub
-import org.thoughtcrime.securesms.util.visible
 import org.whispersystems.signalservice.api.websocket.WebSocketConnectionState
+
 
 class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_fragment), ConversationListFragment.Callback, Material3OnScrollHelperBinder {
 
@@ -57,14 +56,15 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 
   private lateinit var _toolbarBackground: View
   private lateinit var _toolbar: Toolbar
+  private lateinit var _toolbarSettings: Toolbar
   private lateinit var _basicToolbar: Stub<Toolbar>
   private lateinit var notificationProfileStatus: ImageView
   private lateinit var proxyStatus: ImageView
   private lateinit var _searchToolbar: Stub<Material3SearchToolbar>
   private lateinit var _searchAction: ImageView
   private lateinit var _unreadPaymentsDot: View
-
   private var previousTopToastPopup: TopToastPopup? = null
+  private var _isComingFromSettings = false
 
   private val destinationChangedListener = DestinationChangedListener()
 
@@ -77,60 +77,123 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     _toolbarBackground = view.findViewById(R.id.toolbar_background)
     _toolbar = view.findViewById(R.id.toolbar)
+    _toolbarSettings = view.findViewById(R.id.settings_tool_bar)
     _basicToolbar = Stub(view.findViewById(R.id.toolbar_basic_stub))
     notificationProfileStatus = view.findViewById(R.id.conversation_list_notification_profile_status)
     proxyStatus = view.findViewById(R.id.conversation_list_proxy_status)
     _searchAction = view.findViewById(R.id.search_action)
     _searchToolbar = Stub(view.findViewById(R.id.search_toolbar))
     _unreadPaymentsDot = view.findViewById(R.id.unread_payments_indicator)
-
     notificationProfileStatus.setOnClickListener { handleNotificationProfile() }
     proxyStatus.setOnClickListener { onProxyStatusClicked() }
-
-    initializeSettingsTouchTarget()
 
     (requireActivity() as AppCompatActivity).setSupportActionBar(_toolbar)
 
     conversationListTabsViewModel.state.observe(viewLifecycleOwner) { state ->
       val controller: NavController = requireView().findViewById<View>(R.id.fragment_container).findNavController()
+      println(controller.currentDestination)
       when (controller.currentDestination?.id) {
         R.id.conversationListFragment -> goToStateFromConversationList(state, controller)
         R.id.conversationListArchiveFragment -> Unit
         R.id.storiesLandingFragment -> goToStateFromStories(state, controller)
+        R.id.newSettingsFragment -> goToStateFromSettingFragment(state ,controller)
+        else -> {
+          changeView(state, controller)
+        }
+      }
+    }
+  }
+
+  private fun changeView(state: ConversationListTabsState, navController: NavController) {
+    when(state.tab){
+      ConversationListTab.SETTINGS -> {
+        navController.navigate(R.id.action_global_newSettingsFragment)
+      }
+      ConversationListTab.CHATS -> {
+        navController.navigate(R.id.action_global_conversationListFragment)
+      }
+      ConversationListTab.STORIES -> {
+        navController.navigate(R.id.action_global_storiesLandingFragment)
+      }
+    }
+  }
+
+
+  private fun goToStateFromSettingFragment(state: ConversationListTabsState, navController: NavController) {
+    when(state.tab){
+      ConversationListTab.SETTINGS -> {
+        return
+      }
+      ConversationListTab.STORIES -> {
+        navController.navigate(
+          R.id.action_global_storiesLandingFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.CHATS -> {
+        navController.navigate(
+          R.id.action_global_conversationListFragment,
+          null,
+          null
+        )
       }
     }
   }
 
   private fun goToStateFromConversationList(state: ConversationListTabsState, navController: NavController) {
-    if (state.tab == ConversationListTab.CHATS) {
-      return
-    } else {
-      val cameraFab = requireView().findViewById<View>(R.id.camera_fab)
-      val newConvoFab = requireView().findViewById<View>(R.id.fab)
+    when (state.tab) {
+      ConversationListTab.CHATS -> {
+        return
+      }
+      ConversationListTab.STORIES -> {
+        val cameraFab = requireView().findViewById<View>(R.id.camera_fab)
+        val newConvoFab = requireView().findViewById<View>(R.id.fab)
 
-      val extras: Navigator.Extras? = if (cameraFab == null || newConvoFab == null) {
-        null
-      } else {
-        FragmentNavigatorExtras(
-          cameraFab to "camera_fab",
-          newConvoFab to "new_convo_fab"
+        val extras: Navigator.Extras? = if (cameraFab == null || newConvoFab == null) {
+          null
+        } else {
+          FragmentNavigatorExtras(
+            cameraFab to "camera_fab",
+            newConvoFab to "new_convo_fab"
+          )
+        }
+        navController.navigate(
+          R.id.action_global_storiesLandingFragment,
+          null,
+          null,
+          extras
         )
       }
-
-      navController.navigate(
-        R.id.action_conversationListFragment_to_storiesLandingFragment,
-        null,
-        null,
-        extras
-      )
+      else -> {
+        navController.navigate(
+          R.id.action_global_newSettingsFragment,
+          null,
+          null
+        )
+      }
     }
   }
 
   private fun goToStateFromStories(state: ConversationListTabsState, navController: NavController) {
-    if (state.tab == ConversationListTab.STORIES) {
-      return
-    } else {
-      navController.popBackStack()
+    when(state.tab){
+      ConversationListTab.STORIES -> {
+        return
+      }
+      ConversationListTab.SETTINGS -> {
+        navController.navigate(
+          R.id.action_global_newSettingsFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.CHATS -> {
+        navController.navigate(
+          R.id.action_global_conversationListFragment,
+          null,
+          null
+        )
+      }
     }
   }
 
@@ -157,6 +220,11 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
       _toolbar.runRevealAnimation(R.anim.slide_from_start)
     }
 
+    if (_isComingFromSettings){
+      _isComingFromSettings = false
+      _toolbarSettings.visible = false
+      _toolbar.runRevealAnimation(R.anim.slide_from_end)
+    }
     _toolbar.visible = true
     _searchAction.visible = true
 
@@ -170,9 +238,19 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     _basicToolbar.get().runRevealAnimation(R.anim.slide_from_end)
   }
 
+  private fun presentToolbarForNewSettingsFragment() {
+    _toolbar.visible = false
+    _toolbarSettings.runRevealAnimation(R.anim.slide_from_end)
+  }
+
   private fun presentToolbarForStoriesLandingFragment() {
     _toolbar.visible = true
-    _searchAction.visible = true
+    _searchAction.visible = false
+    if (_isComingFromSettings){
+      _isComingFromSettings = false
+      _toolbarSettings.visible = false
+      _toolbar.runRevealAnimation(R.anim.slide_from_end)
+    }
     if (_basicToolbar.resolved()) {
       _basicToolbar.get().visible = false
     }
@@ -212,8 +290,6 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 
   override fun onSearchOpened() {
     conversationListTabsViewModel.onSearchOpened()
-    _searchToolbar.get().clearText()
-    _searchToolbar.get().display(_searchAction.x + (_searchAction.width / 2.0f), _searchAction.y + (_searchAction.height / 2.0f))
   }
 
   override fun onSearchClosed() {
@@ -327,6 +403,11 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
       R.id.storiesLandingFragment -> {
         conversationListTabsViewModel.isShowingArchived(false)
         presentToolbarForStoriesLandingFragment()
+      }
+      R.id.newSettingsFragment -> {
+        _isComingFromSettings = true
+        conversationListTabsViewModel.isShowingArchived(false)
+        presentToolbarForNewSettingsFragment()
       }
     }
   }

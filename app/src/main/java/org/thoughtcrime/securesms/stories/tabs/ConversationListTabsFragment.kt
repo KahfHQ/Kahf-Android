@@ -29,11 +29,12 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
   private lateinit var chatsUnreadIndicator: TextView
   private lateinit var storiesUnreadIndicator: TextView
   private lateinit var chatsIcon: LottieAnimationView
+  private lateinit var settingsIcon: LottieAnimationView
   private lateinit var storiesIcon: LottieAnimationView
   private lateinit var chatsPill: ImageView
   private lateinit var storiesPill: ImageView
+  private lateinit var settingsPill: ImageView
 
-  private var shouldBeImmediate = true
   private var pillAnimator: Animator? = null
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,8 +42,10 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
     storiesUnreadIndicator = view.findViewById(R.id.stories_unread_indicator)
     chatsIcon = view.findViewById(R.id.chats_tab_icon)
     storiesIcon = view.findViewById(R.id.stories_tab_icon)
+    settingsIcon = view.findViewById(R.id.settings_tab_icon)
     chatsPill = view.findViewById(R.id.chats_pill)
     storiesPill = view.findViewById(R.id.stories_pill)
+    settingsPill = view.findViewById(R.id.settings_pill)
 
     val iconTint = ContextCompat.getColor(requireContext(), R.color.signal_colorOnSecondaryContainer)
 
@@ -56,39 +59,54 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
       LottieProperty.COLOR
     ) { iconTint }
 
+    settingsIcon.addValueCallback(
+      KeyPath("**"),
+      LottieProperty.COLOR
+    ) { iconTint }
+
     view.findViewById<View>(R.id.chats_tab_touch_point).setOnClickListener {
       viewModel.onChatsSelected()
+    }
+
+    view.findViewById<View>(R.id.settings_tab_touch_point).setOnClickListener {
+      viewModel.onSettingsSelected()
     }
 
     view.findViewById<View>(R.id.stories_tab_touch_point).setOnClickListener {
       viewModel.onStoriesSelected()
     }
 
+    update(viewModel.stateSnapshot, true)
+
     viewModel.state.observe(viewLifecycleOwner) {
-      update(it, shouldBeImmediate)
-      shouldBeImmediate = false
+      update(it, false)
+      println("here")
     }
   }
 
   private fun update(state: ConversationListTabsState, immediate: Boolean) {
     chatsIcon.isSelected = state.tab == ConversationListTab.CHATS
-    chatsPill.isSelected = state.tab == ConversationListTab.CHATS
-
     storiesIcon.isSelected = state.tab == ConversationListTab.STORIES
-    storiesPill.isSelected = state.tab == ConversationListTab.STORIES
+    settingsIcon.isSelected = state.tab == ConversationListTab.SETTINGS
 
-    val hasStateChange = state.tab != state.prevTab
+    chatsPill.isSelected = chatsIcon.isSelected
+    storiesPill.isSelected = storiesIcon.isSelected
+    settingsPill.isSelected = settingsIcon.isSelected
+
+    val hasStateChange = chatsIcon.isSelected or settingsIcon.isSelected or storiesIcon.isSelected
     if (immediate) {
       chatsIcon.pauseAnimation()
       storiesIcon.pauseAnimation()
+      /*settingsIcon.pauseAnimation()*/
 
-      chatsIcon.progress = if (state.tab == ConversationListTab.CHATS) 1f else 0f
-      storiesIcon.progress = if (state.tab == ConversationListTab.STORIES) 1f else 0f
+      chatsIcon.progress = if (chatsIcon.isSelected) 1f else 0f
+      storiesIcon.progress = if (storiesIcon.isSelected) 1f else 0f
+      settingsIcon.progress = if (settingsIcon.isSelected) 1f else 0f
 
-      runPillAnimation(0, chatsPill, storiesPill)
+      runPillAnimation(0, chatsPill, storiesPill, settingsPill)
     } else if (hasStateChange) {
-      runLottieAnimations(chatsIcon, storiesIcon)
-      runPillAnimation(150, chatsPill, storiesPill)
+      runLottieAnimations(chatsIcon, storiesIcon, /*settingsIcon*/)
+      runPillAnimation(150, chatsPill, storiesPill, /*settingsIcon*/)
     }
 
     chatsUnreadIndicator.visible = state.unreadChatsCount > 0

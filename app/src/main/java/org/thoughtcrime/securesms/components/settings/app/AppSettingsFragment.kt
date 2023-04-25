@@ -18,7 +18,6 @@ import org.thoughtcrime.securesms.components.settings.configure
 import org.thoughtcrime.securesms.keyvalue.SignalStore
 import org.thoughtcrime.securesms.phonenumbers.PhoneNumberFormatter
 import org.thoughtcrime.securesms.recipients.Recipient
-import org.thoughtcrime.securesms.stories.Stories.isFeatureFlagEnabled
 import org.thoughtcrime.securesms.util.FeatureFlags
 import org.thoughtcrime.securesms.util.PlayServicesUtil
 import org.thoughtcrime.securesms.util.Util
@@ -48,7 +47,6 @@ class AppSettingsFragment : DSLSettingsFragment(R.string.text_secure_normal__men
 
   private fun getConfiguration(state: AppSettingsState): DSLConfiguration {
     return configure {
-
       customPref(
         BioPreference(state.self) {
           findNavController().safeNavigate(R.id.action_appSettingsFragment_to_manageProfileActivity)
@@ -71,24 +69,6 @@ class AppSettingsFragment : DSLSettingsFragment(R.string.text_secure_normal__men
         }
       )
 
-      if (PlayServicesUtil.getPlayServicesStatus(requireContext()) == PlayServicesUtil.PlayServicesStatus.SUCCESS) {
-        clickPref(
-          title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
-          icon = DSLSettingsIcon.from(R.drawable.ic_heart_24),
-          iconEnd = if (state.hasExpiredGiftBadge) DSLSettingsIcon.from(R.drawable.ic_info_solid_24, R.color.signal_accent_primary) else null,
-          onClick = {
-            findNavController().safeNavigate(AppSettingsFragmentDirections.actionAppSettingsFragmentToManageDonationsFragment())
-          },
-          onLongClick = this@AppSettingsFragment::copySubscriberIdToClipboard
-        )
-      } else {
-        externalLinkPref(
-          title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
-          icon = DSLSettingsIcon.from(R.drawable.ic_heart_24),
-          linkId = R.string.donate_url
-        )
-      }
-
       dividerPref()
 
       clickPref(
@@ -106,16 +86,6 @@ class AppSettingsFragment : DSLSettingsFragment(R.string.text_secure_normal__men
           findNavController().safeNavigate(R.id.action_appSettingsFragment_to_chatsSettingsFragment)
         }
       )
-
-      if (isFeatureFlagEnabled()) {
-        clickPref(
-          title = DSLSettingsText.from(R.string.preferences__stories),
-          icon = DSLSettingsIcon.from(R.drawable.ic_stories_24),
-          onClick = {
-            findNavController().safeNavigate(AppSettingsFragmentDirections.actionAppSettingsFragmentToStoryPrivacySettings(R.string.preferences__stories))
-          }
-        )
-      }
 
       clickPref(
         title = DSLSettingsText.from(R.string.preferences__notifications),

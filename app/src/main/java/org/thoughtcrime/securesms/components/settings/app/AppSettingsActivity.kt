@@ -1,5 +1,6 @@
 package org.thoughtcrime.securesms.components.settings.app
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -29,7 +30,7 @@ private const val NOTIFICATION_CATEGORY = "android.intent.category.NOTIFICATION_
 private const val STATE_WAS_CONFIGURATION_UPDATED = "app.settings.state.configuration.updated"
 private const val EXTRA_PERFORM_ACTION_ON_CREATE = "extra_perform_action_on_create"
 
-class AppSettingsActivity : DSLSettingsActivity(), DonationPaymentComponent {
+open class AppSettingsActivity : DSLSettingsActivity(), DonationPaymentComponent {
 
   private var wasConfigurationUpdated = false
 
@@ -102,6 +103,7 @@ class AppSettingsActivity : DSLSettingsActivity(), DonationPaymentComponent {
     }
   }
 
+  @SuppressLint("MissingSuperCall")
   override fun onNewIntent(intent: Intent?) {
     super.onNewIntent(intent)
     finish()

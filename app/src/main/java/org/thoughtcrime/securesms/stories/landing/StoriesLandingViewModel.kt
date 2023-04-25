@@ -25,7 +25,9 @@ class StoriesLandingViewModel(private val storiesLandingRepository: StoriesLandi
         state.copy(
           loadingState = StoriesLandingState.LoadingState.LOADED,
           storiesLandingItems = stories.sorted(),
-          displayMyStoryItem = stories.isEmpty() || stories.none { it.storyRecipient.isMyStory }
+          displayMyStoryItem = stories.isEmpty() || stories.none {
+            it.storyRecipient.isMyStory
+          }
         )
       }
     }
@@ -52,14 +54,6 @@ class StoriesLandingViewModel(private val storiesLandingRepository: StoriesLandi
       .filter { it.isHidden == hidden }
       .filter { if (isUnviewed) it.storyViewState == StoryViewState.UNVIEWED else true }
       .map { it.storyRecipient.id }
-  }
-
-  fun setSearchQuery(query: String) {
-    store.update { it.copy(searchQuery = query) }
-  }
-
-  fun markStoriesRead() {
-    storiesLandingRepository.markStoriesRead()
   }
 
   class Factory(private val storiesLandingRepository: StoriesLandingRepository) : ViewModelProvider.Factory {

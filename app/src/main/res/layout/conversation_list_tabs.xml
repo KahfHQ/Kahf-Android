@@ -29,6 +29,16 @@
         app:layout_constraintStart_toStartOf="@id/stories_tab_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        android:id="@+id/settings_tab_touch_point"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:background="?selectableItemBackgroundBorderless"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/settings_tab_icon"
+        app:layout_constraintStart_toStartOf="@id/settings_tab_icon"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ImageView
         android:id="@+id/chats_pill"
         android:layout_width="64dp"
@@ -52,18 +62,56 @@
         app:layout_constraintStart_toStartOf="@id/stories_tab_icon"
         app:layout_constraintTop_toTopOf="@id/stories_tab_icon" />
 
+    <ImageView
+        android:id="@+id/settings_pill"
+        android:layout_width="64dp"
+        android:layout_height="32dp"
+        android:importantForAccessibility="no"
+        android:paddingHorizontal="16dp"
+        android:src="@drawable/conversation_tab_icon_background"
+        app:layout_constraintBottom_toBottomOf="@id/settings_tab_icon"
+        app:layout_constraintEnd_toEndOf="@id/settings_tab_icon"
+        app:layout_constraintStart_toStartOf="@id/settings_tab_icon"
+        app:layout_constraintTop_toTopOf="@id/settings_tab_icon" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/settings_tab_icon"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerInside"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tabs_end_guide"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        android:src="@drawable/ic_settings_24" />
+
+    <TextView
+        android:id="@+id/settings_tab_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="@string/EnableCallNotificationSettingsDialog__settings"
+        android:textAppearance="@style/TextAppearance.Signal.Body2"
+        android:textColor="@color/signal_colorOnBackground"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/settings_tab_icon"
+        app:layout_constraintStart_toStartOf="@id/settings_tab_icon"
+        app:layout_constraintTop_toBottomOf="@id/settings_tab_icon" />
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/chats_tab_icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:importantForAccessibility="no"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@id/chats_tab_label"
-        app:layout_constraintEnd_toStartOf="@id/tabs_center_guide"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tabs_start_guide"
+        app:layout_constraintEnd_toStartOf="@id/tabs_end_guide"
         app:layout_constraintVertical_chainStyle="packed"
-        app:lottie_rawRes="@raw/chats_32" />
+        android:src="@drawable/chat" />
 
     <TextView
         android:id="@+id/chats_tab_label"
@@ -79,11 +127,18 @@
         app:layout_constraintTop_toBottomOf="@id/chats_tab_icon" />
 
     <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/tabs_center_guide"
+        android:id="@+id/tabs_start_guide"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.5" />
+        app:layout_constraintGuide_percent="0.333" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/tabs_end_guide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.666" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/stories_tab_icon"
@@ -91,12 +146,12 @@
         android:layout_height="32dp"
         android:importantForAccessibility="no"
         android:scaleType="centerInside"
-        app:layout_constraintBottom_toTopOf="@id/stories_tab_label"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tabs_center_guide"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tabs_start_guide"
         app:layout_constraintVertical_chainStyle="packed"
-        app:lottie_rawRes="@raw/stories_32" />
+        android:src="@drawable/story"/>
 
     <TextView
         android:id="@+id/stories_tab_label"

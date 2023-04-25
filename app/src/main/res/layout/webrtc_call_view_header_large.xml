@@ -18,7 +18,6 @@
         android:textAppearance="@style/TextAppearance.Signal.Body2"
         android:textColor="@color/core_white"
         android:visibility="gone"
-        app:drawableStartCompat="@drawable/ic_signal_logo_small"
         app:layout_constraintBottom_toBottomOf="@id/action_bar_guideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

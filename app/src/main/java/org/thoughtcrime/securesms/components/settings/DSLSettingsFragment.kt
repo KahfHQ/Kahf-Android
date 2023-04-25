@@ -12,6 +12,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -83,7 +84,7 @@ abstract class DSLSettingsFragment(
   }
 
   open fun onToolbarNavigationClicked() {
-    requireActivity().onBackPressed()
+    findNavController().popBackStack()
   }
 
   override fun onDestroyView() {

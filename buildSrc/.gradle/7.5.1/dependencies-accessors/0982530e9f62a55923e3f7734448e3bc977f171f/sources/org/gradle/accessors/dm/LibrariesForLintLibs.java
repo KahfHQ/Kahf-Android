@@ -55,19 +55,19 @@ public class LibrariesForLintLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for api (com.android.tools.lint:lint-api)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getApi() { return create("lint.api"); }
 
             /**
              * Creates a dependency provider for checks (com.android.tools.lint:lint-checks)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getChecks() { return create("lint.checks"); }
 
             /**
              * Creates a dependency provider for tests (com.android.tools.lint:lint-tests)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getTests() { return create("lint.tests"); }
 
@@ -81,7 +81,7 @@ public class LibrariesForLintLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: lint (30.2.2)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getLint() { return getVersion("lint"); }
 

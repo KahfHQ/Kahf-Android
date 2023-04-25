@@ -123,7 +123,7 @@ class DonationReceiptDetailFragment : DSLSettingsFragment(layoutId = R.layout.do
     return configure {
       customPref(
         SplashImage.Model(
-          splashImageResId = R.drawable.ic_signal_logo_type
+          splashImageResId = R.drawable.kahf_icon
         )
       )
 

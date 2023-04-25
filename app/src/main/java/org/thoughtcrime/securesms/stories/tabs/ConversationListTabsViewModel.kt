@@ -1,7 +1,6 @@
 package org.thoughtcrime.securesms.stories.tabs
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import io.reactivex.rxjava3.core.Observable
@@ -16,7 +15,7 @@ class ConversationListTabsViewModel(repository: ConversationListTabRepository) :
   private val store = Store(ConversationListTabsState())
 
   val stateSnapshot: ConversationListTabsState = store.state
-  val state: LiveData<ConversationListTabsState> = Transformations.distinctUntilChanged(store.stateLiveData)
+  val state: LiveData<ConversationListTabsState> = store.stateLiveData
   val disposables = CompositeDisposable()
 
   private val internalTabClickEvents: Subject<ConversationListTab> = PublishSubject.create()
@@ -38,12 +37,17 @@ class ConversationListTabsViewModel(repository: ConversationListTabRepository) :
 
   fun onChatsSelected() {
     internalTabClickEvents.onNext(ConversationListTab.CHATS)
-    store.update { it.copy(tab = ConversationListTab.CHATS, prevTab = it.tab) }
+    store.update { it.copy(tab = ConversationListTab.CHATS) }
+  }
+
+  fun onSettingsSelected(){
+    internalTabClickEvents.onNext(ConversationListTab.SETTINGS)
+    store.update{it.copy(tab = ConversationListTab.SETTINGS)}
   }
 
   fun onStoriesSelected() {
     internalTabClickEvents.onNext(ConversationListTab.STORIES)
-    store.update { it.copy(tab = ConversationListTab.STORIES, prevTab = it.tab) }
+    store.update { it.copy(tab = ConversationListTab.STORIES) }
   }
 
   fun onSearchOpened() {

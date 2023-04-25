@@ -123,7 +123,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for orchestrator (androidx.test:orchestrator)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getOrchestrator() { return create("androidx.test.orchestrator"); }
 
@@ -145,13 +145,13 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (androidx.test:core)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> asProvider() { return create("androidx.test.core"); }
 
             /**
              * Creates a dependency provider for ktx (androidx.test:core-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.test.core.ktx"); }
 
@@ -175,13 +175,13 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for junit (androidx.test.ext:junit)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> asProvider() { return create("androidx.test.ext.junit"); }
 
             /**
              * Creates a dependency provider for ktx (androidx.test.ext:junit-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.test.ext.junit.ktx"); }
 
@@ -193,7 +193,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (org.assertj:assertj-core)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCore() { return create("assertj.core"); }
 
@@ -217,7 +217,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for jdk15on (org.bouncycastle:bcprov-jdk15on)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getJdk15on() { return create("bouncycastle.bcprov.jdk15on"); }
 
@@ -241,7 +241,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for uber (org.conscrypt:conscrypt-openjdk-uber)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getUber() { return create("conscrypt.openjdk.uber"); }
 
@@ -253,7 +253,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (androidx.test.espresso:espresso-core)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCore() { return create("espresso.core"); }
 
@@ -265,7 +265,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for hamcrest (org.hamcrest:hamcrest)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getHamcrest() { return create("hamcrest.hamcrest"); }
 
@@ -277,7 +277,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for junit (junit:junit)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getJunit() { return create("junit.junit"); }
 
@@ -289,19 +289,19 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for android (org.mockito:mockito-android)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAndroid() { return create("mockito.android"); }
 
             /**
              * Creates a dependency provider for core (org.mockito:mockito-inline)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCore() { return create("mockito.core"); }
 
             /**
              * Creates a dependency provider for kotlin (org.mockito.kotlin:mockito-kotlin)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKotlin() { return create("mockito.kotlin"); }
 
@@ -314,7 +314,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for robolectric (org.robolectric:robolectric)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getRobolectric() { return create("robolectric.robolectric"); }
 
@@ -331,7 +331,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for multidex (org.robolectric:shadows-multidex)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getMultidex() { return create("robolectric.shadows.multidex"); }
 
@@ -355,7 +355,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for mockserver (com.squareup.okhttp3:mockwebserver)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getMockserver() { return create("square.okhttp.mockserver"); }
 
@@ -370,7 +370,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: robolectric (4.8.1)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getRobolectric() { return getVersion("robolectric"); }
 
@@ -402,7 +402,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
          * Returns the version associated to this alias: androidx.test (1.4.0)
          * If the version is a rich version and that its not expressible as a
          * single version string, then an empty string is returned.
-         * This version was declared in script '../dependencies.gradle'
+         * This version was declared in script '..\dependencies.gradle'
          */
         public Provider<String> asProvider() { return getVersion("androidx.test"); }
 
@@ -421,7 +421,7 @@ public class LibrariesForTestLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: androidx.test.ext.junit (1.1.1)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getJunit() { return getVersion("androidx.test.ext.junit"); }
 

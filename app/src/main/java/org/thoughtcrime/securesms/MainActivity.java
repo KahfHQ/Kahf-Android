@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
+import org.thoughtcrime.securesms.components.settings.app.AppSettingsActivity;
 import org.thoughtcrime.securesms.components.voice.VoiceNoteMediaController;
 import org.thoughtcrime.securesms.components.voice.VoiceNoteMediaControllerOwner;
 import org.thoughtcrime.securesms.devicetransfer.olddevice.OldDeviceTransferLockedDialog;
@@ -41,8 +42,8 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
     Intent intent = new Intent(context, MainActivity.class);
 
     intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
-                    Intent.FLAG_ACTIVITY_NEW_TASK |
-                    Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            Intent.FLAG_ACTIVITY_NEW_TASK |
+            Intent.FLAG_ACTIVITY_SINGLE_TOP);
 
     return intent;
   }
@@ -72,8 +73,8 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
   @Override
   public Intent getIntent() {
     return super.getIntent().setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
-                                      Intent.FLAG_ACTIVITY_NEW_TASK |
-                                      Intent.FLAG_ACTIVITY_SINGLE_TOP);
+            Intent.FLAG_ACTIVITY_NEW_TASK |
+            Intent.FLAG_ACTIVITY_SINGLE_TOP);
   }
 
   @Override

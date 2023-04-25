@@ -47,7 +47,7 @@ class MyStorySettingsFragment : DSLSettingsFragment(
 
   private fun getConfiguration(state: MyStorySettingsState): DSLConfiguration {
     return configure {
-      sectionHeaderPref(R.string.MyStorySettingsFragment__who_can_view_this_story)
+      sectionHeaderPref(R.string.StoriesPrivacySettingsFragment__story_updates_automatically_disappear)
 
       customPref(
         AllSignalConnectionsRowItem.Model(

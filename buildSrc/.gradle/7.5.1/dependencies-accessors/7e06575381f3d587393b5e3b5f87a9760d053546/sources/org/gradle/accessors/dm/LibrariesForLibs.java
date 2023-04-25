@@ -55,67 +55,67 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
         /**
          * Creates a dependency provider for colorpicker (com.takisoft.fix:colorpicker)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getColorpicker() { return create("colorpicker"); }
 
         /**
          * Creates a dependency provider for dnsjava (dnsjava:dnsjava)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getDnsjava() { return create("dnsjava"); }
 
         /**
          * Creates a dependency provider for lottie (com.airbnb.android:lottie)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getLottie() { return create("lottie"); }
 
         /**
          * Creates a dependency provider for mobilecoin (com.mobilecoin:android-sdk)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getMobilecoin() { return create("mobilecoin"); }
 
         /**
          * Creates a dependency provider for numberpickerview (cn.carbswang.android:NumberPickerView)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getNumberpickerview() { return create("numberpickerview"); }
 
         /**
          * Creates a dependency provider for photoview (com.github.chrisbanes:PhotoView)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getPhotoview() { return create("photoview"); }
 
         /**
          * Creates a dependency provider for roundedimageview (com.makeramen:roundedimageview)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getRoundedimageview() { return create("roundedimageview"); }
 
         /**
          * Creates a dependency provider for rxdogtag (com.uber.rxdogtag2:rxdogtag)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getRxdogtag() { return create("rxdogtag"); }
 
         /**
          * Creates a dependency provider for stickyheadergrid (com.codewaves.stickyheadergrid:stickyheadergrid)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getStickyheadergrid() { return create("stickyheadergrid"); }
 
         /**
          * Creates a dependency provider for stream (com.annimon:stream)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getStream() { return create("stream"); }
 
         /**
          * Creates a dependency provider for waitingdots (pl.tajchert:waitingdots)
-         * This dependency was declared in script '../dependencies.gradle'
+         * This dependency was declared in script '..\dependencies.gradle'
          */
         public Provider<MinimalExternalModuleDependency> getWaitingdots() { return create("waitingdots"); }
 
@@ -266,13 +266,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for smsmms (com.klinkerapps:android-smsmms)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getSmsmms() { return create("android.smsmms"); }
 
             /**
              * Creates a dependency provider for tooltips (com.tomergoldst.android:tooltips)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getTooltips() { return create("android.tooltips"); }
 
@@ -289,7 +289,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for desugar (com.android.tools:desugar_jdk_libs)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getDesugar() { return create("android.tools.desugar"); }
 
@@ -310,79 +310,79 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for annotation (androidx.annotation:annotation)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAnnotation() { return create("androidx.annotation"); }
 
             /**
              * Creates a dependency provider for appcompat (androidx.appcompat:appcompat)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAppcompat() { return create("androidx.appcompat"); }
 
             /**
              * Creates a dependency provider for autofill (androidx.autofill:autofill)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAutofill() { return create("androidx.autofill"); }
 
             /**
              * Creates a dependency provider for biometric (androidx.biometric:biometric)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getBiometric() { return create("androidx.biometric"); }
 
             /**
              * Creates a dependency provider for cardview (androidx.cardview:cardview)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCardview() { return create("androidx.cardview"); }
 
             /**
              * Creates a dependency provider for constraintlayout (androidx.constraintlayout:constraintlayout)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getConstraintlayout() { return create("androidx.constraintlayout"); }
 
             /**
              * Creates a dependency provider for exifinterface (androidx.exifinterface:exifinterface)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getExifinterface() { return create("androidx.exifinterface"); }
 
             /**
              * Creates a dependency provider for gridlayout (androidx.gridlayout:gridlayout)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getGridlayout() { return create("androidx.gridlayout"); }
 
             /**
              * Creates a dependency provider for multidex (androidx.multidex:multidex)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getMultidex() { return create("androidx.multidex"); }
 
             /**
              * Creates a dependency provider for preference (androidx.preference:preference)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getPreference() { return create("androidx.preference"); }
 
             /**
              * Creates a dependency provider for recyclerview (androidx.recyclerview:recyclerview)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getRecyclerview() { return create("androidx.recyclerview"); }
 
             /**
              * Creates a dependency provider for sharetarget (androidx.sharetarget:sharetarget)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getSharetarget() { return create("androidx.sharetarget"); }
 
             /**
              * Creates a dependency provider for sqlite (androidx.sqlite:sqlite)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getSqlite() { return create("androidx.sqlite"); }
 
@@ -439,7 +439,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for ktx (androidx.activity:activity-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.activity.ktx"); }
 
@@ -451,25 +451,25 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for camera2 (androidx.camera:camera-camera2)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCamera2() { return create("androidx.camera.camera2"); }
 
             /**
              * Creates a dependency provider for core (androidx.camera:camera-core)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCore() { return create("androidx.camera.core"); }
 
             /**
              * Creates a dependency provider for lifecycle (androidx.camera:camera-lifecycle)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getLifecycle() { return create("androidx.camera.lifecycle"); }
 
             /**
              * Creates a dependency provider for view (androidx.camera:camera-view)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getView() { return create("androidx.camera.view"); }
 
@@ -481,7 +481,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for futures (androidx.concurrent:concurrent-futures)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getFutures() { return create("androidx.concurrent.futures"); }
 
@@ -493,13 +493,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for ktx (androidx.core:core-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.core.ktx"); }
 
             /**
              * Creates a dependency provider for role (androidx.core:core-role)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getRole() { return create("androidx.core.role"); }
 
@@ -511,13 +511,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for ktx (androidx.fragment:fragment-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.fragment.ktx"); }
 
             /**
              * Creates a dependency provider for testing (androidx.fragment:fragment-testing)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getTesting() { return create("androidx.fragment.testing"); }
 
@@ -529,13 +529,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for preference (androidx.legacy:legacy-preference-v14)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getPreference() { return create("androidx.legacy.preference"); }
 
             /**
              * Creates a dependency provider for support (androidx.legacy:legacy-support-v13)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getSupport() { return create("androidx.legacy.support"); }
 
@@ -551,7 +551,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for process (androidx.lifecycle:lifecycle-process)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getProcess() { return create("androidx.lifecycle.process"); }
 
@@ -583,7 +583,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for java8 (androidx.lifecycle:lifecycle-common-java8)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getJava8() { return create("androidx.lifecycle.common.java8"); }
 
@@ -595,13 +595,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (androidx.lifecycle:lifecycle-livedata)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCore() { return create("androidx.lifecycle.livedata.core"); }
 
             /**
              * Creates a dependency provider for ktx (androidx.lifecycle:lifecycle-livedata-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.lifecycle.livedata.ktx"); }
 
@@ -613,7 +613,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for ktx (androidx.lifecycle:lifecycle-reactivestreams-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.lifecycle.reactivestreams.ktx"); }
 
@@ -625,13 +625,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for ktx (androidx.lifecycle:lifecycle-viewmodel-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.lifecycle.viewmodel.ktx"); }
 
             /**
              * Creates a dependency provider for savedstate (androidx.lifecycle:lifecycle-viewmodel-savedstate)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getSavedstate() { return create("androidx.lifecycle.viewmodel.savedstate"); }
 
@@ -661,7 +661,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for ktx (androidx.navigation:navigation-fragment-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.navigation.fragment.ktx"); }
 
@@ -673,7 +673,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for ktx (androidx.navigation:navigation-ui-ktx)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKtx() { return create("androidx.navigation.ui.ktx"); }
 
@@ -685,13 +685,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for java (androidx.window:window-java)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getJava() { return create("androidx.window.java"); }
 
             /**
              * Creates a dependency provider for window (androidx.window:window)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getWindow() { return create("androidx.window.window"); }
 
@@ -715,7 +715,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for android (org.apache.httpcomponents:httpclient-android)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAndroid() { return create("apache.httpclient.android"); }
 
@@ -727,7 +727,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for android (org.conscrypt:conscrypt-android)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAndroid() { return create("conscrypt.android"); }
 
@@ -739,7 +739,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for stickylistheaders (se.emilsjolander:stickylistheaders)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getStickylistheaders() { return create("emilsjolander.stickylistheaders"); }
 
@@ -752,13 +752,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (com.google.android.exoplayer:exoplayer-core)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCore() { return create("exoplayer.core"); }
 
             /**
              * Creates a dependency provider for ui (com.google.android.exoplayer:exoplayer-ui)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getUi() { return create("exoplayer.ui"); }
 
@@ -775,7 +775,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for mediasession (com.google.android.exoplayer:extension-mediasession)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getMediasession() { return create("exoplayer.extension.mediasession"); }
 
@@ -787,7 +787,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for messaging (com.google.firebase:firebase-messaging)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getMessaging() { return create("firebase.messaging"); }
 
@@ -799,13 +799,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for compiler (com.github.bumptech.glide:compiler)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCompiler() { return create("glide.compiler"); }
 
             /**
              * Creates a dependency provider for glide (com.github.bumptech.glide:glide)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getGlide() { return create("glide.glide"); }
 
@@ -822,13 +822,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for jsr305 (com.google.code.findbugs:jsr305)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getJsr305() { return create("google.jsr305"); }
 
             /**
              * Creates a dependency provider for libphonenumber (com.googlecode.libphonenumber:libphonenumber)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getLibphonenumber() { return create("google.libphonenumber"); }
 
@@ -865,7 +865,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for vcard (com.googlecode.ez-vcard:ez-vcard)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getVcard() { return create("google.ez.vcard"); }
 
@@ -877,7 +877,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for android (com.google.guava:guava)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAndroid() { return create("google.guava.android"); }
 
@@ -901,19 +901,19 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for auth (com.google.android.gms:play-services-auth)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAuth() { return create("google.play.services.auth"); }
 
             /**
              * Creates a dependency provider for maps (com.google.android.gms:play-services-maps)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getMaps() { return create("google.play.services.maps"); }
 
             /**
              * Creates a dependency provider for wallet (com.google.android.gms:play-services-wallet)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getWallet() { return create("google.play.services.wallet"); }
 
@@ -925,7 +925,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for javalite (com.google.protobuf:protobuf-javalite)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getJavalite() { return create("google.protobuf.javalite"); }
 
@@ -938,7 +938,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (com.google.zxing:core)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCore() { return create("google.zxing.core"); }
 
@@ -955,7 +955,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for integration (com.google.zxing:android-integration)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getIntegration() { return create("google.zxing.android.integration"); }
 
@@ -967,7 +967,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for eventbus (org.greenrobot:eventbus)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getEventbus() { return create("greenrobot.eventbus"); }
 
@@ -980,7 +980,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for core (com.fasterxml.jackson.core:jackson-databind)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getCore() { return create("jackson.core"); }
 
@@ -997,7 +997,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for kotlin (com.fasterxml.jackson.module:jackson-module-kotlin)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getKotlin() { return create("jackson.module.kotlin"); }
 
@@ -1009,7 +1009,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for handlebars (com.github.jknack:handlebars)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getHandlebars() { return create("jknack.handlebars"); }
 
@@ -1021,7 +1021,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for materialtabstrip (com.jpardogo.materialtabstrip:library)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getMaterialtabstrip() { return create("jpardogo.materialtabstrip"); }
 
@@ -1034,7 +1034,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for reflect (org.jetbrains.kotlin:kotlin-reflect)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getReflect() { return create("kotlin.reflect"); }
 
@@ -1051,7 +1051,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for jdk8 (org.jetbrains.kotlin:kotlin-stdlib-jdk8)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getJdk8() { return create("kotlin.stdlib.jdk8"); }
 
@@ -1063,7 +1063,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for shortcutbadger (me.leolin:ShortcutBadger)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getShortcutbadger() { return create("leolin.shortcutbadger"); }
 
@@ -1075,13 +1075,13 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for android (org.signal:libsignal-android)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAndroid() { return create("libsignal.android"); }
 
             /**
              * Creates a dependency provider for client (org.signal:libsignal-client)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getClient() { return create("libsignal.client"); }
 
@@ -1093,7 +1093,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for material (com.google.android.material:material)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getMaterial() { return create("material.material"); }
 
@@ -1105,7 +1105,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for progress (com.pnikosis:materialish-progress)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getProgress() { return create("materialish.progress"); }
 
@@ -1117,19 +1117,19 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for isoparser (org.mp4parser:isoparser)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getIsoparser() { return create("mp4parser.isoparser"); }
 
             /**
              * Creates a dependency provider for muxer (org.mp4parser:muxer)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getMuxer() { return create("mp4parser.muxer"); }
 
             /**
              * Creates a dependency provider for streaming (org.mp4parser:streaming)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getStreaming() { return create("mp4parser.streaming"); }
 
@@ -1141,7 +1141,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for webserver (org.nanohttpd:nanohttpd-webserver)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getWebserver() { return create("nanohttpd.webserver"); }
 
@@ -1153,19 +1153,19 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for rxandroid (io.reactivex.rxjava3:rxandroid)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getRxandroid() { return create("rxjava3.rxandroid"); }
 
             /**
              * Creates a dependency provider for rxjava (io.reactivex.rxjava3:rxjava)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getRxjava() { return create("rxjava3.rxjava"); }
 
             /**
              * Creates a dependency provider for rxkotlin (io.reactivex.rxjava3:rxkotlin)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getRxkotlin() { return create("rxjava3.rxkotlin"); }
 
@@ -1178,19 +1178,19 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for aesgcmprovider (org.signal:aesgcmprovider)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getAesgcmprovider() { return create("signal.aesgcmprovider"); }
 
             /**
              * Creates a dependency provider for argon2 (org.signal:argon2)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getArgon2() { return create("signal.argon2"); }
 
             /**
              * Creates a dependency provider for ringrtc (org.signal:ringrtc-android)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getRingrtc() { return create("signal.ringrtc"); }
 
@@ -1219,7 +1219,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for sqlcipher (org.signal:android-database-sqlcipher)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getSqlcipher() { return create("signal.android.database.sqlcipher"); }
 
@@ -1231,19 +1231,19 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for leakcanary (com.squareup.leakcanary:leakcanary-android)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getLeakcanary() { return create("square.leakcanary"); }
 
             /**
              * Creates a dependency provider for okhttp3 (com.squareup.okhttp3:okhttp)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getOkhttp3() { return create("square.okhttp3"); }
 
             /**
              * Creates a dependency provider for okio (com.squareup.okio:okio)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getOkio() { return create("square.okio"); }
 
@@ -1279,7 +1279,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for view (com.davemorrissey.labs:subsampling-scale-image-view)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getView() { return create("subsampling.scale.image.view"); }
 
@@ -1303,7 +1303,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
 
             /**
              * Creates a dependency provider for picker (mobi.upod:time-duration-picker)
-             * This dependency was declared in script '../dependencies.gradle'
+             * This dependency was declared in script '..\dependencies.gradle'
              */
             public Provider<MinimalExternalModuleDependency> getPicker() { return create("time.duration.picker"); }
 
@@ -1319,7 +1319,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: exoplayer (2.18.1)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getExoplayer() { return getVersion("exoplayer"); }
 
@@ -1327,7 +1327,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: glide (4.13.2)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getGlide() { return getVersion("glide"); }
 
@@ -1335,7 +1335,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: kotlin (1.6.21)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getKotlin() { return getVersion("kotlin"); }
 
@@ -1343,7 +1343,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: mp4parser (1.9.39)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getMp4parser() { return getVersion("mp4parser"); }
 
@@ -1367,7 +1367,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: androidx.camera (1.1.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getCamera() { return getVersion("androidx.camera"); }
 
@@ -1375,7 +1375,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: androidx.fragment (1.5.2)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getFragment() { return getVersion("androidx.fragment"); }
 
@@ -1383,7 +1383,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: androidx.lifecycle (2.5.1)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getLifecycle() { return getVersion("androidx.lifecycle"); }
 
@@ -1391,7 +1391,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: androidx.navigation (2.5.2)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getNavigation() { return getVersion("androidx.navigation"); }
 
@@ -1399,7 +1399,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: androidx.window (1.0.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getWindow() { return getVersion("androidx.window"); }
 
@@ -1413,7 +1413,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              * Returns the version associated to this alias: libsignal.client (0.20.0)
              * If the version is a rich version and that its not expressible as a
              * single version string, then an empty string is returned.
-             * This version was declared in script '../dependencies.gradle'
+             * This version was declared in script '..\dependencies.gradle'
              */
             public Provider<String> getClient() { return getVersion("libsignal.client"); }
 
@@ -1430,7 +1430,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              *    <li>com.google.android.exoplayer:exoplayer-ui</li>
              *    <li>com.google.android.exoplayer:extension-mediasession</li>
              * </ul>
-             * This bundle was declared in script '../dependencies.gradle'
+             * This bundle was declared in script '..\dependencies.gradle'
              */
             public Provider<ExternalModuleDependencyBundle> getExoplayer() { return createBundle("exoplayer"); }
 
@@ -1441,7 +1441,7 @@ public class LibrariesForLibs extends AbstractExternalDependencyFactory {
              *    <li>org.mp4parser:streaming</li>
              *    <li>org.mp4parser:muxer</li>
              * </ul>
-             * This bundle was declared in script '../dependencies.gradle'
+             * This bundle was declared in script '..\dependencies.gradle'
              */
             public Provider<ExternalModuleDependencyBundle> getMp4parser() { return createBundle("mp4parser"); }
 

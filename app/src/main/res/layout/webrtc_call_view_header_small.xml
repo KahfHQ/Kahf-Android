@@ -16,7 +16,6 @@
         android:gravity="center"
         android:textAppearance="@style/TextAppearance.Signal.Body2"
         android:textColor="@color/core_white"
-        app:drawableStartCompat="@drawable/ic_signal_logo_small"
         android:drawablePadding="4dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/action_bar_guideline"
