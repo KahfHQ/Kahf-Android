@@ -6,22 +6,26 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".profiles.manage.GenderEditFragment">
 
-    <TextView
-        android:id="@+id/gender_text_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tool_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/signal_m3_toolbar_height"
+        android:minHeight="@dimen/signal_m3_toolbar_height"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginStart="24dp"
-        android:text="@string/gender"
-        android:textStyle="bold" />
+        app:navigationIcon="@drawable/ic_x_24"
+        app:title="@string/gender"
+        app:titleTextAppearance="@style/Signal.Text.TitleLarge" />
+
 
     <ListView
         android:id="@+id/gender_list_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/gender_text_view"
+        app:layout_constraintTop_toBottomOf="@id/tool_bar"
         android:paddingHorizontal="24dp"
         android:scrollIndicators="none"
         tools:targetApi="m" />

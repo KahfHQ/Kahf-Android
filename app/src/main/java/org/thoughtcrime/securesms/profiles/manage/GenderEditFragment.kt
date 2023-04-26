@@ -1,14 +1,14 @@
 package org.thoughtcrime.securesms.profiles.manage
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.ListView
-import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation.findNavController
 import org.thoughtcrime.securesms.databinding.FragmentGenderEditBinding
 
 class GenderEditFragment : Fragment() {
@@ -27,10 +27,39 @@ class GenderEditFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val list = listOf("Male", "Female")
         arrayAdapter = ArrayAdapter(requireContext(), android.R.layout.simple_list_item_single_choice, list)
-        binding.genderListView.apply {
-            choiceMode = ListView.CHOICE_MODE_SINGLE
-            adapter = arrayAdapter
+        binding.apply {
+            toolBar.setNavigationOnClickListener {
+                findNavController(view).popBackStack()
+            }
+            genderListView.apply {
+                choiceMode = ListView.CHOICE_MODE_SINGLE
+                adapter = arrayAdapter
+                onItemClickListener = AdapterView.OnItemClickListener{ parent, view, position, id ->
+                    println(parent.getItemAtPosition(position))
+                }
+            }
         }
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
