@@ -62,6 +62,7 @@
             android:inputType="textPersonName"
             android:singleLine="true" />
 
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <org.thoughtcrime.securesms.util.views.CircularProgressMaterialButton

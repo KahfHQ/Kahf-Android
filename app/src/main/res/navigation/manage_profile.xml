@@ -65,6 +65,13 @@
         <action
             android:id="@+id/action_manageProfileFragment_to_shareUsernameDialog"
             app:destination="@id/shareUsernameDialog" />
+        <action
+            android:id="@+id/action_manageProfileFragment_to_genderEditFragment"
+            app:destination="@id/genderEditFragment"
+            app:enterAnim="@anim/slide_from_end"
+            app:exitAnim="@anim/slide_to_start"
+            app:popEnterAnim="@anim/slide_from_start"
+            app:popExitAnim="@anim/slide_to_end" />
 
     </fragment>
 
@@ -94,5 +101,10 @@
         android:id="@+id/shareUsernameDialog"
         android:name="org.thoughtcrime.securesms.profiles.manage.UsernameShareBottomSheet"
         android:label="fragment_username_share" />
+    <fragment
+        android:id="@+id/genderEditFragment"
+        android:name="org.thoughtcrime.securesms.profiles.manage.GenderEditFragment"
+        android:label="fragment_gender_edit"
+        tools:layout="@layout/fragment_gender_edit" />
 
 </navigation>

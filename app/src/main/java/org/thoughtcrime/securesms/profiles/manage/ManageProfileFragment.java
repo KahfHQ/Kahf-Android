@@ -29,7 +29,6 @@ import org.thoughtcrime.securesms.R;
 import org.thoughtcrime.securesms.avatar.Avatars;
 import org.thoughtcrime.securesms.avatar.picker.AvatarPickerFragment;
 import org.thoughtcrime.securesms.badges.models.Badge;
-import org.thoughtcrime.securesms.badges.self.none.BecomeASustainerFragment;
 import org.thoughtcrime.securesms.components.emoji.EmojiTextView;
 import org.thoughtcrime.securesms.components.emoji.EmojiUtil;
 import org.thoughtcrime.securesms.databinding.ManageProfileFragmentBinding;
@@ -37,7 +36,6 @@ import org.thoughtcrime.securesms.mediasend.Media;
 import org.thoughtcrime.securesms.profiles.ProfileName;
 import org.thoughtcrime.securesms.profiles.manage.ManageProfileViewModel.AvatarState;
 import org.thoughtcrime.securesms.recipients.Recipient;
-import org.thoughtcrime.securesms.util.FeatureFlags;
 import org.thoughtcrime.securesms.util.NameUtil;
 import org.thoughtcrime.securesms.util.livedata.LiveDataUtil;
 import org.thoughtcrime.securesms.util.navigation.SafeNavigation;
@@ -88,6 +86,10 @@ public class ManageProfileFragment extends LoggingFragment {
       SafeNavigation.safeNavigate(Navigation.findNavController(v), ManageProfileFragmentDirections.actionManageUsername());
     });
 
+    binding.manageProfileGender.setOnClickListener(v -> {
+      SafeNavigation.safeNavigate(Navigation.findNavController(v), ManageProfileFragmentDirections.actionManageProfileFragmentToGenderEditFragment());
+    });
+
     binding.manageProfileAboutContainer.setOnClickListener(v -> {
       SafeNavigation.safeNavigate(Navigation.findNavController(v), ManageProfileFragmentDirections.actionManageAbout());
     });
@@ -105,14 +107,6 @@ public class ManageProfileFragment extends LoggingFragment {
     avatarInitials.addOnLayoutChangeListener((v, left, top, right, bottom, oldLeft, oldTop, oldRight, oldBottom) -> {
       if (avatarInitials.length() > 0) {
         updateInitials(avatarInitials.getText().toString());
-      }
-    });
-
-    binding.manageProfileBadgesContainer.setOnClickListener(v -> {
-      if (Recipient.self().getBadges().isEmpty()) {
-        BecomeASustainerFragment.show(getParentFragmentManager());
-      } else {
-        SafeNavigation.safeNavigate(Navigation.findNavController(v), ManageProfileFragmentDirections.actionManageProfileFragmentToBadgeManageFragment());
       }
     });
 

@@ -5517,6 +5517,9 @@
     <string name="ExportSmsFullError__error_exporting_sms_messages">Error exporting SMS messages</string>
     <!-- Helper text shown when all sms messages failed to export -->
     <string name="ExportSmsFullError__please_try_again_if_the_problem_persists">Please try again. If the problem persists, </string>
+    <string name="gender">Gender</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
     <!-- EOF -->
