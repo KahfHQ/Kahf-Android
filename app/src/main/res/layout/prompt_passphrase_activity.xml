@@ -30,12 +30,6 @@
             android:layout_height="?attr/actionBarSize"
             android:layout_marginTop="20dp">
 
-        <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_launcher_foreground"
-                android:layout_gravity="center"/>
-
     </androidx.appcompat.widget.Toolbar>
 
 
