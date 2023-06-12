@@ -9,11 +9,22 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9071b13a-ca83-4bf1-ab09-c0c0d697ecac" name="Changes" comment="Signal icon removed.">
+    <list default="true" id="9071b13a-ca83-4bf1-ab09-c0c0d697ecac" name="Changes" comment="New release configurations made.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.5.1/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.5.1/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.5.1/dependencies-accessors/dependencies-accessors.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.5.1/dependencies-accessors/dependencies-accessors.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.5.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.5.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/7.5.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/7.5.1/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/buildSrc/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/buildSrc/.gradle/file-system.probe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contacts/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/contacts/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/device-transfer/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/device-transfer/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/donations/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/donations/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/image-editor/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/image-editor/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/paging/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/paging/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/signalModuleApp.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/signalModuleApp.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spinner/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/spinner/app/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -661,7 +672,14 @@
       <option name="project" value="LOCAL" />
       <updated>1679931347582</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Assets added.">
+      <created>1685967663539</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685967663540</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -677,6 +695,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="String rebranding." />
-    <option name="LAST_COMMIT_MESSAGE" value="String rebranding." />
+    <MESSAGE value="Assets added." />
+    <MESSAGE value="New release configurations made." />
+    <option name="LAST_COMMIT_MESSAGE" value="New release configurations made." />
   </component>
 </project>

@@ -6,8 +6,8 @@ android {
 
     defaultConfig {
         applicationId "org.signal.devicetransfer.app"
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
 
         minSdkVersion MINIMUM_SDK
         targetSdkVersion TARGET_SDK

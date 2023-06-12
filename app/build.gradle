@@ -57,8 +57,8 @@ ktlint {
     version = "0.43.2"
 }
 
-def canonicalVersionCode = 1002
-def canonicalVersionName = "1.0.2"
+def canonicalVersionCode = 1003
+def canonicalVersionName = "1.0.3"
 
 def postFixSize = 100
 def abiPostFix = ['universal'   : 10,
@@ -173,7 +173,7 @@ android {
         multiDexEnabled true
 
         vectorDrawables.useSupportLibrary = true
-        project.ext.set("archivesBaseName", "Kahf-Messenger");
+        project.ext.set("archivesBaseName", "Kahf-Messenger")
 
         manifestPlaceholders = [mapsKey:"AIzaSyCpOQYtl7Sc6RphkUpIT76g9BgP2AZ417U"]
 
@@ -656,9 +656,9 @@ def loadKeystoreProperties(filename) {
     if (keystorePropertiesFile.exists()) {
         def keystoreProperties = new Properties()
         keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-        return keystoreProperties;
+        return keystoreProperties
     } else {
-        return null;
+        return null
     }
 }
 

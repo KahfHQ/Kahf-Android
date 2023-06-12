@@ -7,8 +7,8 @@ android {
     compileSdkVersion COMPILE_SDK
 
     defaultConfig {
-        versionCode 3
-        versionName "1.0.2"
+        versionCode 4
+        versionName "1.0.3"
 
         minSdkVersion 19
         targetSdkVersion TARGET_SDK
