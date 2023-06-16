@@ -34,7 +34,7 @@ class GenderEditFragment : Fragment() {
             genderListView.apply {
                 choiceMode = ListView.CHOICE_MODE_SINGLE
                 adapter = arrayAdapter
-                onItemClickListener = AdapterView.OnItemClickListener{ parent, view, position, id ->
+                onItemClickListener = AdapterView.OnItemClickListener{ parent, _, position, _ ->
                     println(parent.getItemAtPosition(position))
                 }
             }
