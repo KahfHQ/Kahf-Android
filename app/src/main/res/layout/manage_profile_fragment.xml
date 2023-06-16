@@ -282,8 +282,21 @@
                 android:textAlignment="viewStart"
                 app:emoji_forceCustom="true"
                 app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/open_gender_selection_image_view"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginEnd="8dp"
+                />
+
+            <ImageView
+                android:id="@+id/open_gender_selection_image_view"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/arrow_right"
+                tools:ignore="RtlSymmetry"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
