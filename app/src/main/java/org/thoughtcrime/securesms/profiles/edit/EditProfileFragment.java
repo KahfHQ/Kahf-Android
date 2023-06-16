@@ -177,34 +177,34 @@ public class EditProfileFragment extends LoggingFragment {
       binding.namePreview.setVisibility(View.GONE);
 
       if (groupId.isV2()) {
-        EditTextUtil.addGraphemeClusterLimitFilter(binding.familyName, MAX_DESCRIPTION_GLYPHS);
-        binding.familyName.addTextChangedListener(new AfterTextChanged(s -> {
-          EditProfileNameFragment.trimFieldToMaxByteLength(s, MAX_DESCRIPTION_BYTES);
-          viewModel.setFamilyName(s.toString());
-        }));
-        binding.familyNameWrapper.setHint(R.string.EditProfileFragment__group_description);
-        binding.familyName.setSingleLine(false);
-        binding.familyName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+//        EditTextUtil.addGraphemeClusterLimitFilter(binding.familyName, MAX_DESCRIPTION_GLYPHS);
+//        binding.familyName.addTextChangedListener(new AfterTextChanged(s -> {
+//          EditProfileNameFragment.trimFieldToMaxByteLength(s, MAX_DESCRIPTION_BYTES);
+//          viewModel.setFamilyName(s.toString());
+//        }));
+//        binding.familyNameWrapper.setHint(R.string.EditProfileFragment__group_description);
+//        binding.familyName.setSingleLine(false);
+//        binding.familyName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
 
         binding.groupDescriptionText.setLearnMoreVisible(false);
         binding.groupDescriptionText.setText(R.string.CreateProfileActivity_group_descriptions_will_be_visible_to_members_of_this_group_and_people_who_have_been_invited);
       } else {
-        binding.familyNameWrapper.setVisibility(View.GONE);
-        binding.familyName.setEnabled(false);
+//        binding.familyNameWrapper.setVisibility(View.GONE);
+//        binding.familyName.setEnabled(false);
         binding.groupDescriptionText.setVisibility(View.GONE);
       }
       binding.avatarPlaceholder.setImageResource(R.drawable.ic_group_outline_40);
     } else {
       EditTextUtil.addGraphemeClusterLimitFilter(binding.givenName, EditProfileNameFragment.NAME_MAX_GLYPHS);
-      EditTextUtil.addGraphemeClusterLimitFilter(binding.familyName, EditProfileNameFragment.NAME_MAX_GLYPHS);
+      //EditTextUtil.addGraphemeClusterLimitFilter(binding.familyName, EditProfileNameFragment.NAME_MAX_GLYPHS);
       binding.givenName.addTextChangedListener(new AfterTextChanged(s -> {
                                                                         EditProfileNameFragment.trimFieldToMaxByteLength(s);
                                                                         viewModel.setGivenName(s.toString());
                                                                       }));
-      binding.familyName.addTextChangedListener(new AfterTextChanged(s -> {
-                                                                         EditProfileNameFragment.trimFieldToMaxByteLength(s);
-                                                                         viewModel.setFamilyName(s.toString());
-                                                                       }));
+//      binding.familyName.addTextChangedListener(new AfterTextChanged(s -> {
+//                                                                         EditProfileNameFragment.trimFieldToMaxByteLength(s);
+//                                                                         viewModel.setFamilyName(s.toString());
+//                                                                       }));
       binding.groupDescriptionText.setVisibility(View.GONE);
       binding.profileDescriptionText.setLearnMoreVisible(true);
       binding.profileDescriptionText.setLinkColor(ContextCompat.getColor(requireContext(), R.color.signal_colorPrimary));
@@ -245,7 +245,7 @@ public class EditProfileFragment extends LoggingFragment {
 
     viewModel.givenName().observe(getViewLifecycleOwner(), givenName -> updateFieldIfNeeded(binding.givenName, givenName));
 
-    viewModel.familyName().observe(getViewLifecycleOwner(), familyName -> updateFieldIfNeeded(binding.familyName, familyName));
+//    viewModel.familyName().observe(getViewLifecycleOwner(), familyName -> updateFieldIfNeeded(binding.familyName, familyName));
 
     viewModel.profileName().observe(getViewLifecycleOwner(), profileName -> binding.namePreview.setText(profileName.toString()));
   }
