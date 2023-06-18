@@ -25,7 +25,6 @@ import org.thoughtcrime.securesms.keyvalue.SignalStore
 import org.thoughtcrime.securesms.phonenumbers.PhoneNumberFormatter
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.util.FeatureFlags
-import org.thoughtcrime.securesms.util.PlayServicesUtil
 import org.thoughtcrime.securesms.util.Util
 import org.thoughtcrime.securesms.util.adapter.mapping.LayoutFactory
 import org.thoughtcrime.securesms.util.adapter.mapping.MappingAdapter
@@ -158,17 +157,17 @@ class NewSettingsFragment : Fragment() {
 
             dividerPref()
 
-            if (SignalStore.paymentsValues().paymentsAvailability.showPaymentsMenu()) {
-                customPref(
-                    PaymentsPreference(
-                        unreadCount = state.unreadPaymentsCount
-                    ) {
-                        findNavController().safeNavigate(R.id.action_appSettingsFragment_to_paymentsActivity)
-                    }
-                )
-
-                dividerPref()
-            }
+//            if (SignalStore.paymentsValues().paymentsAvailability.showPaymentsMenu()) {
+//                customPref(
+//                    PaymentsPreference(
+//                        unreadCount = state.unreadPaymentsCount
+//                    ) {
+//                        findNavController().safeNavigate(R.id.action_appSettingsFragment_to_paymentsActivity)
+//                    }
+//                )
+//
+//                dividerPref()
+//            }
 
             clickPref(
                 title = DSLSettingsText.from(R.string.preferences__help),
