@@ -64,12 +64,12 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
 
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-    toolbar = requireCallback().getBasicToolbar();
+//    toolbar = requireCallback().getBasicToolbar();
 
     super.onViewCreated(view, savedInstanceState);
 
     coordinator = view.findViewById(R.id.coordinator);
-    list        = view.findViewById(R.id.list);
+//    list        = view.findViewById(R.id.list);
     emptyState  = new Stub<>(view.findViewById(R.id.empty_state));
     fab         = view.findViewById(R.id.fab);
     cameraFab   = view.findViewById(R.id.camera_fab);
@@ -81,79 +81,79 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
     cameraFab.hide();
   }
 
-  @Override
-  protected void onPostSubmitList(int conversationCount) {
-    list.setVisibility(View.VISIBLE);
-
-    if (emptyState.resolved()) {
-      emptyState.get().setVisibility(View.GONE);
-    }
-  }
-
-  @Override
-  protected boolean isArchived() {
-    return true;
-  }
-
-  @Override
-  protected @NonNull Toolbar getToolbar(@NonNull View rootView) {
-    return toolbar.get();
-  }
-
-  @Override
-  protected @StringRes int getArchivedSnackbarTitleRes() {
-    return R.plurals.ConversationListFragment_moved_conversations_to_inbox;
-  }
-
-  @Override
-  protected @DrawableRes int getArchiveIconRes() {
-    return R.drawable.ic_unarchive_24;
-  }
-
-  @Override
-  @WorkerThread
-  protected void archiveThreads(Set<Long> threadIds) {
-    SignalDatabase.threads().setArchived(threadIds, false);
-  }
-
-  @Override
-  @WorkerThread
-  protected void reverseArchiveThreads(Set<Long> threadIds) {
-    SignalDatabase.threads().setArchived(threadIds, true);
-  }
-
-  @SuppressLint("StaticFieldLeak")
-  @Override
-  protected void onItemSwiped(long threadId, int unreadCount) {
-    archiveDecoration.onArchiveStarted();
-    itemAnimator.enable();
-
-    new SnackbarAsyncTask<Long>(getViewLifecycleOwner().getLifecycle(),
-                                coordinator,
-                                getResources().getQuantityString(R.plurals.ConversationListFragment_moved_conversations_to_inbox, 1, 1),
-                                getString(R.string.ConversationListFragment_undo),
-                                getResources().getColor(R.color.amber_500),
-                                Snackbar.LENGTH_LONG,
-                                false)
-    {
-      @Override
-      protected void executeAction(@Nullable Long parameter) {
-        SignalDatabase.threads().unarchiveConversation(threadId);
-        ConversationUtil.refreshRecipientShortcuts();
-      }
-
-      @Override
-      protected void reverseAction(@Nullable Long parameter) {
-        SignalDatabase.threads().archiveConversation(threadId);
-        ConversationUtil.refreshRecipientShortcuts();
-      }
-    }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, threadId);
-  }
-
-  @Override
-  void updateEmptyState(boolean isConversationEmpty) {
-    // Do nothing
-  }
+//  @Override
+//  protected void onPostSubmitList(int conversationCount) {
+//    list.setVisibility(View.VISIBLE);
+//
+//    if (emptyState.resolved()) {
+//      emptyState.get().setVisibility(View.GONE);
+//    }
+//  }
+//
+//  @Override
+//  protected boolean isArchived() {
+//    return true;
+//  }
+//
+//  @Override
+//  protected @NonNull Toolbar getToolbar(@NonNull View rootView) {
+//    return toolbar.get();
+//  }
+//
+//  @Override
+//  protected @StringRes int getArchivedSnackbarTitleRes() {
+//    return R.plurals.ConversationListFragment_moved_conversations_to_inbox;
+//  }
+//
+//  @Override
+//  protected @DrawableRes int getArchiveIconRes() {
+//    return R.drawable.ic_unarchive_24;
+//  }
+//
+//  @Override
+//  @WorkerThread
+//  protected void archiveThreads(Set<Long> threadIds) {
+//    SignalDatabase.threads().setArchived(threadIds, false);
+//  }
+//
+//  @Override
+//  @WorkerThread
+//  protected void reverseArchiveThreads(Set<Long> threadIds) {
+//    SignalDatabase.threads().setArchived(threadIds, true);
+//  }
+//
+//  @SuppressLint("StaticFieldLeak")
+//  @Override
+//  protected void onItemSwiped(long threadId, int unreadCount) {
+//    archiveDecoration.onArchiveStarted();
+//    itemAnimator.enable();
+//
+//    new SnackbarAsyncTask<Long>(getViewLifecycleOwner().getLifecycle(),
+//                                coordinator,
+//                                getResources().getQuantityString(R.plurals.ConversationListFragment_moved_conversations_to_inbox, 1, 1),
+//                                getString(R.string.ConversationListFragment_undo),
+//                                getResources().getColor(R.color.amber_500),
+//                                Snackbar.LENGTH_LONG,
+//                                false)
+//    {
+//      @Override
+//      protected void executeAction(@Nullable Long parameter) {
+//        SignalDatabase.threads().unarchiveConversation(threadId);
+//        ConversationUtil.refreshRecipientShortcuts();
+//      }
+//
+//      @Override
+//      protected void reverseAction(@Nullable Long parameter) {
+//        SignalDatabase.threads().archiveConversation(threadId);
+//        ConversationUtil.refreshRecipientShortcuts();
+//      }
+//    }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, threadId);
+//  }
+//
+//  @Override
+//  void updateEmptyState(boolean isConversationEmpty) {
+//    // Do nothing
+//  }
 }
 
 

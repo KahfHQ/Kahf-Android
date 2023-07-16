@@ -4782,6 +4782,10 @@
     <string name="ConversationListTabs__chats">Chats</string>
     <!-- Label for Stories tab in home app screen -->
     <string name="ConversationListTabs__stories">Stories</string>
+    <!-- Label for Home tab in home app screen -->
+    <string name="ConversationListTabs__home">Home</string>
+    <!-- Label for Home tab in home app screen -->
+    <string name="ConversationListTabs__prayers">Prayers</string>
     <!-- String for counts above 99 in conversation list tabs -->
     <string name="ConversationListTabs__99p">99+</string>
     <!-- Menu item on stories landing page -->

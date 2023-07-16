@@ -55,6 +55,8 @@ import androidx.annotation.WorkerThread;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
 import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.TooltipCompat;
 import androidx.core.content.ContextCompat;
@@ -192,6 +194,794 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 {
   public static final short MESSAGE_REQUESTS_REQUEST_CODE_CREATE_NAME = 32562;
   public static final short SMS_ROLE_REQUEST_CODE                     = 32563;
+  private static final int LIST_SMOOTH_SCROLL_TO_TOP_THRESHOLD = 25;
+  private static final String TAG = Log.tag(ConversationListFragment.class);
+  private static final int MAXIMUM_PINNED_CONVERSATIONS = 4;
+
+  private RecyclerView recyclerView;
+  private SearchView searchView;
+  private AppCompatImageView fab;
+  private RecyclerView.Adapter activeAdapter;
+  private ConversationListAdapter defaultAdapter;
+  private ConversationListSearchAdapter searchAdapter;
+  private ConversationListViewModel viewModel;
+  private SnapToTopDataObserver snapToTopDataObserver;
+  private StickyHeaderDecoration searchAdapterDecoration;
+  private Stopwatch startupStopwatch;
+  private ActionMode actionMode;
+  private AppForegroundObserver.Listener appForegroundObserver;
+  private SignalBottomActionBar bottomActionBar;
+  private View coordinator;
+  private LifecycleDisposable  lifecycleDisposable;
+  private  ConversationListTabsViewModel conversationListTabsViewModel;
+  private SignalContextMenu activeContextMenu;
+  protected ConversationListItemAnimator itemAnimator;
+  protected ConversationListArchiveItemDecoration archiveDecoration;
+
+
+  @Nullable
+  @Override
+  public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    return inflater.inflate(R.layout.conversation_list_fragment, container, false);
+  }
+
+  @Override
+  public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    super.onViewCreated(view, savedInstanceState);
+    initView(view);
+  }
+
+  @Override
+  public void onCreate(Bundle icicle) {
+    super.onCreate(icicle);
+//    setHasOptionsMenu(true);
+    startupStopwatch = new Stopwatch("startup");
+  }
+
+  @Override
+  public void onStart() {
+    super.onStart();
+    ApplicationDependencies.getAppForegroundObserver().addListener(appForegroundObserver);
+    itemAnimator.disable();
+  }
+
+  @Override
+  public void onPause() {
+    super.onPause();
+
+    requireCallback().getSearchAction().setOnClickListener(null);
+    EventBus.getDefault().unregister(this);
+  }
+
+  @Override
+  public void onStop() {
+    super.onStop();
+    ApplicationDependencies.getAppForegroundObserver().removeListener(appForegroundObserver);
+  }
+
+  private void initView(View view) {
+    coordinator = view.findViewById(R.id.conversation_list_fragment_coordinator);
+    recyclerView = view.findViewById(R.id.conversation_list_fragment_recycler_view);
+    searchView = view.findViewById(R.id.conversation_list_fragment_search_bar);
+    fab = view.findViewById(R.id.conversation_list_fragment_fab);
+    bottomActionBar = view.findViewById(R.id.conversation_list_bottom_action_bar);
+
+    archiveDecoration = new ConversationListArchiveItemDecoration(new ColorDrawable(getResources().getColor(R.color.conversation_list_archive_background_end)));
+    itemAnimator = new ConversationListItemAnimator();
+
+    recyclerView.setLayoutManager(new LinearLayoutManager(requireActivity()));
+    recyclerView.setItemAnimator(itemAnimator);
+    recyclerView.addItemDecoration(archiveDecoration);
+
+    snapToTopDataObserver = new SnapToTopDataObserver(recyclerView);
+
+//    new ItemTouchHelper(new ArchiveListenerCallback(getResources().getColor(R.color.conversation_list_archive_background_start),
+//            getResources().getColor(R.color.conversation_list_archive_background_end))).attachToRecyclerView(list);
+
+    fab.setOnClickListener(v -> startActivity(new Intent(getActivity(), NewConversationActivity.class)));
+
+    initializeViewModel();
+    initializeListAdapters();
+    initializeTypingObserver();
+
+    RatingManager.showRatingDialogIfNecessary(requireContext());
+
+//    TooltipCompat.setTooltipText(requireCallback().getSearchAction(), getText(R.string.SearchToolbar_search_for_conversations_contacts_and_messages));
+
+    requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
+      @Override
+      public void handleOnBackPressed() {
+        if (!closeSearchIfOpen()) {
+          if (!NavHostFragment.findNavController(ConversationListFragment.this).popBackStack()) {
+            requireActivity().finish();
+          }
+        }
+      }
+    });
+
+    lifecycleDisposable  = new LifecycleDisposable();
+    conversationListTabsViewModel = new ViewModelProvider(requireActivity()).get(ConversationListTabsViewModel.class);
+
+    lifecycleDisposable.bindTo(getViewLifecycleOwner());
+    lifecycleDisposable.add(conversationListTabsViewModel.getTabClickEvents().filter(tab -> tab == ConversationListTab.CHATS)
+            .subscribe(unused -> {
+              LinearLayoutManager layoutManager = (LinearLayoutManager) recyclerView.getLayoutManager();
+              int firstVisibleItemPosition = layoutManager.findFirstVisibleItemPosition();
+              if (firstVisibleItemPosition <= LIST_SMOOTH_SCROLL_TO_TOP_THRESHOLD) {
+                recyclerView.smoothScrollToPosition(0);
+              } else {
+                recyclerView.scrollToPosition(0);
+              }
+            }));
+
+    requireCallback().bindScrollHelper(recyclerView);
+  }
+
+  @SuppressWarnings("rawtypes")
+  private void setAdapter(@NonNull RecyclerView.Adapter adapter) {
+    RecyclerView.Adapter oldAdapter = activeAdapter;
+
+    activeAdapter = adapter;
+
+    if (oldAdapter == activeAdapter) {
+      return;
+    }
+
+    if (adapter instanceof ConversationListAdapter) {
+      ((ConversationListAdapter) adapter).setPagingController(viewModel.getPagingController());
+    }
+
+    recyclerView.setAdapter(adapter);
+
+    if (adapter == defaultAdapter) {
+      defaultAdapter.registerAdapterDataObserver(snapToTopDataObserver);
+    } else {
+      defaultAdapter.unregisterAdapterDataObserver(snapToTopDataObserver);
+    }
+  }
+
+  private void initializeViewModel() {
+    ConversationListViewModel.Factory viewModelFactory = new ConversationListViewModel.Factory(isArchived(),
+            getString(R.string.note_to_self));
+
+    viewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) viewModelFactory).get(ConversationListViewModel.class);
+
+    viewModel.getSearchResult().observe(getViewLifecycleOwner(), this::onSearchResultChanged);
+//    viewModel.getMegaphone().observe(getViewLifecycleOwner(), this::onMegaphoneChanged);
+    viewModel.getConversationList().observe(getViewLifecycleOwner(), this::onConversationListChanged);
+//    viewModel.hasNoConversations().observe(getViewLifecycleOwner(), this::updateEmptyState);
+    viewModel.getNotificationProfiles().observe(getViewLifecycleOwner(), profiles -> requireCallback().updateNotificationProfileStatus(profiles));
+    viewModel.getPipeState().observe(getViewLifecycleOwner(), pipeState -> requireCallback().updateProxyStatus(pipeState));
+
+    appForegroundObserver = new AppForegroundObserver.Listener() {
+      @Override
+      public void onForeground() {
+        viewModel.onVisible();
+      }
+
+      @Override
+      public void onBackground() {}
+    };
+
+//    viewModel.getUnreadPaymentsLiveData().observe(getViewLifecycleOwner(), this::onUnreadPaymentsChanged);
+
+    viewModel.getSelectedConversations().observe(getViewLifecycleOwner(), conversations -> {
+      defaultAdapter.setSelectedConversations(conversations);
+      updateMultiSelectState();
+    });
+  }
+
+  private void initializeListAdapters() {
+    defaultAdapter = new ConversationListAdapter(getViewLifecycleOwner(), GlideApp.with(this), this);
+    searchAdapter = new ConversationListSearchAdapter(getViewLifecycleOwner(), GlideApp.with(this), this, Locale.getDefault());
+    searchAdapterDecoration = new StickyHeaderDecoration(searchAdapter, false, false, 0);
+
+    setAdapter(defaultAdapter);
+
+    defaultAdapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+      @Override
+      public void onItemRangeInserted(int positionStart, int itemCount) {
+        startupStopwatch.split("data-set");
+        SignalLocalMetrics.ColdStart.onConversationListDataLoaded();
+        defaultAdapter.unregisterAdapterDataObserver(this);
+        recyclerView.post(() -> {
+          AppStartup.getInstance().onCriticalRenderEventEnd();
+          startupStopwatch.split("first-render");
+          startupStopwatch.stop(TAG);
+
+          if (getContext() != null) {
+            ConversationFragment.prepare(getContext());
+          }
+        });
+      }
+    });
+  }
+
+  private void initializeTypingObserver() {
+    ApplicationDependencies.getTypingStatusRepository().getTypingThreads().observe(getViewLifecycleOwner(), threadIds -> {
+      if (threadIds == null) {
+        threadIds = Collections.emptySet();
+      }
+
+      defaultAdapter.setTypingThreads(threadIds);
+    });
+  }
+
+  private void updateMultiSelectState() {
+    int count = viewModel.currentSelectedConversations().size();
+    boolean hasUnread = Stream.of(viewModel.currentSelectedConversations()).anyMatch(conversation -> !conversation.getThreadRecord().isRead());
+    boolean hasUnpinned = Stream.of(viewModel.currentSelectedConversations()).anyMatch(conversation -> !conversation.getThreadRecord().isPinned());
+    boolean hasUnmuted = Stream.of(viewModel.currentSelectedConversations()).anyMatch(conversation -> !conversation.getThreadRecord().getRecipient().live().get().isMuted());
+    boolean canPin  = viewModel.getPinnedCount() < MAXIMUM_PINNED_CONVERSATIONS;
+
+//    if (actionMode != null) {
+//      actionMode.setTitle(requireContext().getResources().getQuantityString(R.plurals.ConversationListFragment_s_selected, count, count));
+//    }
+
+    List<ActionItem> items = new ArrayList<>();
+
+    Set<Long> selectionIds = viewModel.currentSelectedConversations()
+            .stream()
+            .map(conversation -> conversation.getThreadRecord().getThreadId())
+            .collect(Collectors.toSet());
+
+    if (hasUnread) {
+      items.add(new ActionItem(R.drawable.ic_read_24, getResources().getQuantityString(R.plurals.ConversationListFragment_read_plural, count), () -> handleMarkAsRead(selectionIds)));
+    } else {
+      items.add(new ActionItem(R.drawable.ic_unread_24, getResources().getQuantityString(R.plurals.ConversationListFragment_unread_plural, count), () -> handleMarkAsUnread(selectionIds)));
+    }
+
+    if (!isArchived() && hasUnpinned && canPin) {
+      items.add(new ActionItem(R.drawable.ic_pin_24, getResources().getQuantityString(R.plurals.ConversationListFragment_pin_plural, count), () -> handlePin(viewModel.currentSelectedConversations())));
+    } else if (!isArchived() && !hasUnpinned) {
+      items.add(new ActionItem(R.drawable.ic_unpin_24, getResources().getQuantityString(R.plurals.ConversationListFragment_unpin_plural, count), () -> handleUnpin(selectionIds)));
+    }
+
+    if (isArchived()) {
+      items.add(new ActionItem(R.drawable.ic_unarchive_24, getResources().getQuantityString(R.plurals.ConversationListFragment_unarchive_plural, count), () -> handleArchive(selectionIds, true)));
+    } else {
+      items.add(new ActionItem(R.drawable.ic_archive_24, getResources().getQuantityString(R.plurals.ConversationListFragment_archive_plural, count), () -> handleArchive(selectionIds, true)));
+    }
+
+    items.add(new ActionItem(R.drawable.ic_delete_24, getResources().getQuantityString(R.plurals.ConversationListFragment_delete_plural, count), () -> handleDelete(selectionIds)));
+
+    if (hasUnmuted) {
+      items.add(new ActionItem(R.drawable.ic_mute_24, getResources().getQuantityString(R.plurals.ConversationListFragment_mute_plural, count), () -> handleMute(viewModel.currentSelectedConversations())));
+    } else {
+      items.add(new ActionItem(R.drawable.ic_unmute_24, getResources().getQuantityString(R.plurals.ConversationListFragment_unmute_plural, count), () -> handleUnmute(viewModel.currentSelectedConversations())));
+    }
+
+    items.add(new ActionItem(R.drawable.ic_select_24, getString(R.string.ConversationListFragment_select_all), viewModel::onSelectAllClick));
+
+    bottomActionBar.setItems(items);
+  }
+
+  private boolean isArchived() {
+    return false;
+  }
+
+  private void onConversationListChanged(@NonNull List<Conversation> conversations) {
+    LinearLayoutManager layoutManager    = (LinearLayoutManager) recyclerView.getLayoutManager();
+    int                 firstVisibleItem = layoutManager != null ? layoutManager.findFirstCompletelyVisibleItemPosition() : -1;
+
+    defaultAdapter.submitList(conversations, () -> {
+      if (recyclerView == null) {
+        return;
+      }
+
+      if (firstVisibleItem == 0) {
+        recyclerView.scrollToPosition(0);
+      }
+      onPostSubmitList(conversations.size());
+    });
+  }
+
+  private void onSearchResultChanged(@Nullable SearchResult result) {
+    result = result != null ? result : SearchResult.EMPTY;
+    searchAdapter.updateResults(result);
+
+    if (result.isEmpty() && activeAdapter == searchAdapter) {
+//      searchEmptyState.setText(getString(R.string.SearchFragment_no_results, result.getQuery()));
+//      searchEmptyState.setVisibility(View.VISIBLE);
+    } else {
+//      searchEmptyState.setVisibility(View.GONE);
+    }
+  }
+
+//  private void onMegaphoneChanged(@Nullable Megaphone megaphone) {
+//    if (megaphone == null || isArchived()) {
+//      if (megaphoneContainer.resolved()) {
+//        megaphoneContainer.get().setVisibility(View.GONE);
+//        megaphoneContainer.get().removeAllViews();
+//      }
+//      return;
+//    }
+//
+//    View view = MegaphoneViewBuilder.build(requireContext(), megaphone, this);
+//
+//    megaphoneContainer.get().removeAllViews();
+//
+//    if (view != null) {
+//      megaphoneContainer.get().addView(view);
+//      if (isSearchOpen() || actionMode != null) {
+//        megaphoneContainer.get().setVisibility(View.GONE);
+//      } else {
+//        megaphoneContainer.get().setVisibility(View.VISIBLE);
+//      }
+//    } else {
+//      megaphoneContainer.get().setVisibility(View.GONE);
+//
+//      if (megaphone.getOnVisibleListener() != null) {
+//        megaphone.getOnVisibleListener().onEvent(megaphone, this);
+//      }
+//    }
+//
+//    viewModel.onMegaphoneVisible(megaphone);
+//  }
+
+  protected void onPostSubmitList(int conversationCount) {
+    if (conversationCount >= 6 && (SignalStore.onboarding().shouldShowInviteFriends() || SignalStore.onboarding().shouldShowNewGroup())) {
+      SignalStore.onboarding().clearAll();
+      ApplicationDependencies.getMegaphoneRepository().markFinished(Megaphones.Event.ONBOARDING);
+    }
+  }
+
+  private void handleMarkAsRead(@NonNull Collection<Long> ids) {
+    Context context = requireContext();
+
+    SimpleTask.run(getViewLifecycleOwner().getLifecycle(), () -> {
+      List<MarkedMessageInfo> messageIds = SignalDatabase.threads().setRead(ids, false);
+
+      ApplicationDependencies.getMessageNotifier().updateNotification(context);
+      MarkReadReceiver.process(context, messageIds);
+
+      return null;
+    }, none -> {
+      endActionModeIfActive();
+    });
+  }
+
+  private void handleMarkAsUnread(@NonNull Collection<Long> ids) {
+    Context context = requireContext();
+
+    SimpleTask.run(getViewLifecycleOwner().getLifecycle(), () -> {
+      SignalDatabase.threads().setForcedUnread(ids);
+      StorageSyncHelper.scheduleSyncForDataChange();
+      return null;
+    }, none -> {
+      endActionModeIfActive();
+    });
+  }
+
+  private void handlePin(@NonNull Collection<Conversation> conversations) {
+    final Set<Long> toPin = new LinkedHashSet<>(Stream.of(conversations)
+            .filterNot(conversation -> conversation.getThreadRecord().isPinned())
+            .map(conversation -> conversation.getThreadRecord().getThreadId())
+            .toList());
+
+    if (toPin.size() + viewModel.getPinnedCount() > MAXIMUM_PINNED_CONVERSATIONS) {
+      Snackbar.make(fab,
+                      getString(R.string.conversation_list__you_can_only_pin_up_to_d_chats, MAXIMUM_PINNED_CONVERSATIONS),
+                      Snackbar.LENGTH_LONG)
+              .show();
+      endActionModeIfActive();
+      return;
+    }
+
+    SimpleTask.run(SignalExecutors.BOUNDED, () -> {
+      ThreadDatabase db = SignalDatabase.threads();
+
+      db.pinConversations(toPin);
+      ConversationUtil.refreshRecipientShortcuts();
+
+      return null;
+    }, unused -> {
+      endActionModeIfActive();
+    });
+  }
+
+  private void handleUnpin(@NonNull Collection<Long> ids) {
+    SimpleTask.run(SignalExecutors.BOUNDED, () -> {
+      ThreadDatabase db = SignalDatabase.threads();
+
+      db.unpinConversations(ids);
+      ConversationUtil.refreshRecipientShortcuts();
+
+      return null;
+    }, unused -> {
+      endActionModeIfActive();
+    });
+  }
+
+  @SuppressLint("StaticFieldLeak")
+  private void handleArchive(@NonNull Collection<Long> ids, boolean showProgress) {
+    Set<Long> selectedConversations = new HashSet<>(ids);
+    int count = selectedConversations.size();
+    String snackBarTitle = getResources().getQuantityString(getArchivedSnackbarTitleRes(), count, count);
+
+    new SnackbarAsyncTask<Void>(getViewLifecycleOwner().getLifecycle(),
+            coordinator,
+            snackBarTitle,
+            getString(R.string.ConversationListFragment_undo),
+            getResources().getColor(R.color.amber_500),
+            Snackbar.LENGTH_LONG,
+            showProgress)
+    {
+
+      @Override
+      protected void onPostExecute(Void result) {
+        super.onPostExecute(result);
+        endActionModeIfActive();
+      }
+
+      @Override
+      protected void executeAction(@Nullable Void parameter) {
+        archiveThreads(selectedConversations);
+      }
+
+      @Override
+      protected void reverseAction(@Nullable Void parameter) {
+        reverseArchiveThreads(selectedConversations);
+      }
+    }.executeOnExecutor(SignalExecutors.BOUNDED);
+  }
+
+  @SuppressLint("StaticFieldLeak")
+  private void handleDelete(@NonNull Collection<Long> ids) {
+    int conversationsCount = ids.size();
+    MaterialAlertDialogBuilder alert = new MaterialAlertDialogBuilder(requireActivity());
+    Context context = requireContext();
+
+    alert.setTitle(context.getResources().getQuantityString(R.plurals.ConversationListFragment_delete_selected_conversations,
+            conversationsCount, conversationsCount));
+    alert.setMessage(context.getResources().getQuantityString(R.plurals.ConversationListFragment_this_will_permanently_delete_all_n_selected_conversations,
+            conversationsCount, conversationsCount));
+    alert.setCancelable(true);
+
+    alert.setPositiveButton(R.string.delete, (dialog, which) -> {
+      final Set<Long> selectedConversations = new HashSet<>(ids);
+
+      if (!selectedConversations.isEmpty()) {
+        new AsyncTask<Void, Void, Void>() {
+          private ProgressDialog dialog;
+
+          @Override
+          protected void onPreExecute() {
+            dialog = ProgressDialog.show(requireActivity(),
+                    context.getString(R.string.ConversationListFragment_deleting),
+                    context.getString(R.string.ConversationListFragment_deleting_selected_conversations),
+                    true, false);
+          }
+
+          @Override
+          protected Void doInBackground(Void... params) {
+            SignalDatabase.threads().deleteConversations(selectedConversations);
+            ApplicationDependencies.getMessageNotifier().updateNotification(requireActivity());
+            return null;
+          }
+
+          @Override
+          protected void onPostExecute(Void result) {
+            dialog.dismiss();
+            endActionModeIfActive();
+          }
+        }.executeOnExecutor(SignalExecutors.BOUNDED);
+      }
+    });
+
+    alert.setNegativeButton(android.R.string.cancel, null);
+    alert.show();
+  }
+
+  private void handleMute(@NonNull Collection<Conversation> conversations) {
+    MuteDialog.show(requireContext(), until -> {
+      updateMute(conversations, until);
+    });
+  }
+
+  private void handleUnmute(@NonNull Collection<Conversation> conversations) {
+    updateMute(conversations, 0);
+  }
+
+  private void updateMute(@NonNull Collection<Conversation> conversations, long until) {
+    SimpleProgressDialog.DismissibleDialog dialog = SimpleProgressDialog.showDelayed(requireContext(), 250, 250);
+
+    SimpleTask.run(SignalExecutors.BOUNDED, () -> {
+      List<RecipientId> recipientIds = conversations.stream()
+              .map(conversation -> conversation.getThreadRecord().getRecipient().live().get())
+              .filter(r -> r.getMuteUntil() != until)
+              .map(Recipient::getId)
+              .collect(Collectors.toList());
+      SignalDatabase.recipients().setMuted(recipientIds, until);
+      return null;
+    }, unused -> {
+      endActionModeIfActive();
+      dialog.dismiss();
+    });
+  }
+
+  private void endActionModeIfActive() {
+    if (actionMode != null) {
+      endActionMode();
+    }
+  }
+
+  private void endActionMode() {
+    actionMode.finish();
+    actionMode = null;
+    ViewUtil.animateOut(bottomActionBar, bottomActionBar.getExitAnimation());
+    ViewUtil.fadeIn(fab, 250);
+//    ViewUtil.fadeIn(cameraFab, 250);
+//    if (megaphoneContainer.resolved()) {
+//      ViewUtil.fadeIn(megaphoneContainer.get(), 250);
+//    }
+    requireCallback().onMultiSelectFinished();
+  }
+
+  protected Callback requireCallback() {
+    return ((Callback) getParentFragment().getParentFragment());
+  }
+
+  protected @PluralsRes int getArchivedSnackbarTitleRes() {
+    return R.plurals.ConversationListFragment_conversations_archived;
+  }
+
+  @WorkerThread
+  protected void archiveThreads(Set<Long> threadIds) {
+    SignalDatabase.threads().setArchived(threadIds, true);
+  }
+
+  @WorkerThread
+  protected void reverseArchiveThreads(Set<Long> threadIds) {
+    SignalDatabase.threads().setArchived(threadIds, false);
+  }
+
+  private boolean closeSearchIfOpen() {
+    if (isSearchOpen()) {
+      recyclerView.removeItemDecoration(searchAdapterDecoration);
+      setAdapter(defaultAdapter);
+      requireCallback().getSearchToolbar().get().collapse();
+      requireCallback().onSearchClosed();
+      return true;
+    }
+
+    return false;
+  }
+
+  private boolean isSearchOpen() {
+    return isSearchVisible() || activeAdapter == searchAdapter;
+  }
+
+  private boolean isSearchVisible() {
+    return (requireCallback().getSearchToolbar().resolved() && requireCallback().getSearchToolbar().get().getVisibility() == View.VISIBLE);
+  }
+
+  private void handleCreateConversation(long threadId, Recipient recipient, int distributionType) {
+    SimpleTask.run(getLifecycle(), () -> {
+      ChatWallpaper wallpaper = recipient.resolve().getWallpaper();
+      if (wallpaper != null && !wallpaper.prefetch(requireContext(), 250)) {
+        Log.w(TAG, "Failed to prefetch wallpaper.");
+      }
+      return null;
+    }, (nothing) -> {
+      getNavigator().goToConversation(recipient.getId(), threadId, distributionType, -1);
+    });
+  }
+
+  private void hideKeyboard() {
+    InputMethodManager imm = ServiceUtil.getInputMethodManager(requireContext());
+    imm.hideSoftInputFromWindow(requireView().getWindowToken(), 0);
+  }
+
+  private void startActionMode() {
+    actionMode = ((AppCompatActivity) getActivity()).startSupportActionMode(ConversationListFragment.this);
+    ViewUtil.animateIn(bottomActionBar, bottomActionBar.getEnterAnimation());
+    ViewUtil.fadeOut(fab, 250);
+    requireCallback().onMultiSelectStarted();
+  }
+
+  @Override
+  public boolean onCreateActionMode(ActionMode mode, Menu menu) {
+//    mode.setTitle(0);
+//    mode.setTitle(requireContext().getResources().getQuantityString(R.plurals.ConversationListFragment_s_selected, 1, 1));
+    return true;
+  }
+
+  @Override
+  public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+    updateMultiSelectState();
+    return false;
+  }
+
+  @Override
+  public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+    return true;
+  }
+
+  @Override
+  public void onDestroyActionMode(ActionMode mode) {
+    viewModel.endSelection();
+
+    if (Build.VERSION.SDK_INT >= 21) {
+      TypedArray color = getActivity().getTheme().obtainStyledAttributes(new int[] { android.R.attr.statusBarColor });
+      WindowUtil.setStatusBarColor(getActivity().getWindow(), color.getColor(0, Color.BLACK));
+      color.recycle();
+    }
+
+    if (Build.VERSION.SDK_INT >= 23) {
+      TypedArray lightStatusBarAttr = getActivity().getTheme().obtainStyledAttributes(new int[] { android.R.attr.windowLightStatusBar });
+      int        current            = getActivity().getWindow().getDecorView().getSystemUiVisibility();
+      int statusBarMode = lightStatusBarAttr.getBoolean(0, false) ? current | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+              : current & ~View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
+
+      getActivity().getWindow().getDecorView().setSystemUiVisibility(statusBarMode);
+
+      lightStatusBarAttr.recycle();
+    }
+
+    endActionModeIfActive();
+  }
+
+  @Override
+  public void onConversationClick(@NonNull Conversation conversation) {
+    if (actionMode == null) {
+      handleCreateConversation(conversation.getThreadRecord().getThreadId(), conversation.getThreadRecord().getRecipient(), conversation.getThreadRecord().getDistributionType());
+    } else {
+      viewModel.toggleConversationSelected(conversation);
+
+      if (viewModel.currentSelectedConversations().isEmpty()) {
+        endActionModeIfActive();
+      } else {
+        updateMultiSelectState();
+      }
+    }
+  }
+
+  @Override
+  public boolean onConversationLongClick(@NonNull Conversation conversation, @NonNull View view) {
+    if (actionMode != null) {
+      onConversationClick(conversation);
+      return true;
+    }
+
+    if (activeContextMenu != null) {
+      Log.w(TAG, "Already showing a context menu.");
+      return true;
+    }
+
+    view.setSelected(true);
+
+    Collection<Long> id = Collections.singleton(conversation.getThreadRecord().getThreadId());
+
+    List<ActionItem> items = new ArrayList<>();
+
+    if (!conversation.getThreadRecord().isArchived()) {
+      if (conversation.getThreadRecord().isRead()) {
+        items.add(new ActionItem(R.drawable.ic_unread_24, getResources().getQuantityString(R.plurals.ConversationListFragment_unread_plural, 1), () -> handleMarkAsUnread(id)));
+      } else {
+        items.add(new ActionItem(R.drawable.ic_read_24, getResources().getQuantityString(R.plurals.ConversationListFragment_read_plural, 1), () -> handleMarkAsRead(id)));
+      }
+
+      if (conversation.getThreadRecord().isPinned()) {
+        items.add(new ActionItem(R.drawable.ic_unpin_24, getResources().getQuantityString(R.plurals.ConversationListFragment_unpin_plural, 1), () -> handleUnpin(id)));
+      } else {
+        items.add(new ActionItem(R.drawable.ic_pin_24, getResources().getQuantityString(R.plurals.ConversationListFragment_pin_plural, 1), () -> handlePin(Collections.singleton(conversation))));
+      }
+
+      if (conversation.getThreadRecord().getRecipient().live().get().isMuted()) {
+        items.add(new ActionItem(R.drawable.ic_unmute_24, getResources().getQuantityString(R.plurals.ConversationListFragment_unmute_plural, 1), () -> handleUnmute(Collections.singleton(conversation))));
+      } else {
+        items.add(new ActionItem(R.drawable.ic_mute_24, getResources().getQuantityString(R.plurals.ConversationListFragment_mute_plural, 1), () -> handleMute(Collections.singleton(conversation))));
+      }
+    }
+
+    items.add(new ActionItem(R.drawable.ic_select_24, getString(R.string.ConversationListFragment_select), () -> {
+      viewModel.startSelection(conversation);
+      startActionMode();
+    }));
+
+    if (conversation.getThreadRecord().isArchived()) {
+      items.add(new ActionItem(R.drawable.ic_unarchive_24, getResources().getQuantityString(R.plurals.ConversationListFragment_unarchive_plural, 1), () -> handleArchive(id, false)));
+    } else {
+      items.add(new ActionItem(R.drawable.ic_archive_24, getResources().getQuantityString(R.plurals.ConversationListFragment_archive_plural, 1), () -> handleArchive(id, false)));
+    }
+
+    items.add(new ActionItem(R.drawable.ic_delete_24, getResources().getQuantityString(R.plurals.ConversationListFragment_delete_plural, 1), () -> handleDelete(id)));
+
+    activeContextMenu = new SignalContextMenu.Builder(view, recyclerView)
+            .offsetX(ViewUtil.dpToPx(12))
+            .offsetY(ViewUtil.dpToPx(12))
+            .onDismiss(() -> {
+              activeContextMenu = null;
+              view.setSelected(false);
+              recyclerView.suppressLayout(false);
+            })
+            .show(items);
+
+    recyclerView.suppressLayout(true);
+
+    return true;
+  }
+
+  @Override
+  public void onShowArchiveClick() {
+
+  }
+
+  @Override
+  public void onConversationClicked(@NonNull ThreadRecord threadRecord) {
+    hideKeyboard();
+    getNavigator().goToConversation(threadRecord.getRecipient().getId(),
+            threadRecord.getThreadId(),
+            threadRecord.getDistributionType(),
+            -1);
+  }
+
+  @Override
+  public void onContactClicked(@NonNull Recipient contact) {
+
+  }
+
+  @Override
+  public void onMessageClicked(@NonNull MessageResult message) {
+
+  }
+
+  @Override
+  public void onMegaphoneNavigationRequested(@NonNull Intent intent) {
+
+  }
+
+  @Override
+  public void onMegaphoneNavigationRequested(@NonNull Intent intent, int requestCode) {
+
+  }
+
+  @Override
+  public void onMegaphoneToastRequested(@NonNull String string) {
+
+  }
+
+  @NonNull
+  @Override
+  public Activity getMegaphoneActivity() {
+    return null;
+  }
+
+  @Override
+  public void onMegaphoneSnooze(@NonNull Megaphones.Event event) {
+
+  }
+
+  @Override
+  public void onMegaphoneCompleted(@NonNull Megaphones.Event event) {
+
+  }
+
+  @Override
+  public void onMegaphoneDialogFragmentRequested(@NonNull DialogFragment dialogFragment) {
+
+  }
+
+  public interface Callback extends Material3OnScrollHelperBinder, SearchBinder {
+    @NonNull Toolbar getToolbar();
+
+    @NonNull View getUnreadPaymentsDot();
+
+    @NonNull Stub<Toolbar> getBasicToolbar();
+
+    void updateNotificationProfileStatus(@NonNull List<NotificationProfile> notificationProfiles);
+
+    void updateProxyStatus(@NonNull WebSocketConnectionState state);
+
+    void onMultiSelectStarted();
+
+    void onMultiSelectFinished();
+  }
+
+
+  /*public static final short MESSAGE_REQUESTS_REQUEST_CODE_CREATE_NAME = 32562;
+  public static final short SMS_ROLE_REQUEST_CODE                     = 32563;
 
   private static final int LIST_SMOOTH_SCROLL_TO_TOP_THRESHOLD = 25;
 
@@ -200,6 +990,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   private static final int MAXIMUM_PINNED_CONVERSATIONS = 4;
 
   private ActionMode                     actionMode;
+  private AppForegroundObserver.Listener appForegroundObserver;
   private View                           coordinator;
   private RecyclerView                   list;
   private Stub<ReminderView>             reminderView;
@@ -216,17 +1007,18 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   private Stub<ViewGroup>                megaphoneContainer;
   private SnapToTopDataObserver          snapToTopDataObserver;
   private Drawable                       archiveDrawable;
-  private AppForegroundObserver.Listener appForegroundObserver;
+
   private VoiceNoteMediaControllerOwner  mediaControllerOwner;
   private Stub<FrameLayout>              voiceNotePlayerViewStub;
   private VoiceNotePlayerView            voiceNotePlayerView;
   private SignalBottomActionBar          bottomActionBar;
   private SignalContextMenu              activeContextMenu;
-  private LifecycleDisposable            lifecycleDisposable;
+
 
   protected ConversationListArchiveItemDecoration archiveDecoration;
   protected ConversationListItemAnimator          itemAnimator;
   private   Stopwatch                             startupStopwatch;
+  private LifecycleDisposable            lifecycleDisposable;
   private   ConversationListTabsViewModel         conversationListTabsViewModel;
 
   public static ConversationListFragment newInstance() {
@@ -307,7 +1099,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
     RatingManager.showRatingDialogIfNecessary(requireContext());
 
-    TooltipCompat.setTooltipText(requireCallback().getSearchAction(), getText(R.string.SearchToolbar_search_for_conversations_contacts_and_messages));
+//    TooltipCompat.setTooltipText(requireCallback().getSearchAction(), getText(R.string.SearchToolbar_search_for_conversations_contacts_and_messages));
 
     requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(), new OnBackPressedCallback(true) {
       @Override
@@ -365,7 +1157,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   public void onResume() {
     super.onResume();
 
-    initializeSearchListener();
+//    initializeSearchListener();
     updateReminders();
     EventBus.getDefault().register(this);
     itemAnimator.disable();
@@ -1364,7 +2156,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
     items.add(new ActionItem(R.drawable.ic_select_24, getString(R.string.ConversationListFragment_select_all), viewModel::onSelectAllClick));
 
-    bottomActionBar.setItems(items);
+//    bottomActionBar.setItems(items);
   }
 
   protected Callback requireCallback() {
@@ -1692,7 +2484,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     void onMultiSelectStarted();
 
     void onMultiSelectFinished();
-  }
+  }*/
 }
 
 

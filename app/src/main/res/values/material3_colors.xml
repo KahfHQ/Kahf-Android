@@ -60,4 +60,8 @@
     <!-- Core color alpha variants without alpha channel -->
     <color name="signal_colorSurfaceVariant_16_no_alpha">#D5D8DE</color>
     <color name="signal_colorSurfaceVariant_32_no_alpha">#B8BCC5</color>
+
+    <color name="kahf_bottomNavBar_selectedItemColor">#3E8DFF</color>
+    <color name="kahf_unread_message_count_background">#EB5757</color>
+
 </resources>
