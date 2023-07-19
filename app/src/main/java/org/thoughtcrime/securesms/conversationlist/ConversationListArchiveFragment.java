@@ -27,8 +27,6 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.WorkerThread;
 import androidx.appcompat.view.ActionMode;
-import androidx.appcompat.widget.AppCompatImageView;
-import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -47,13 +45,12 @@ import java.util.Set;
 
 public class ConversationListArchiveFragment extends ConversationListFragment implements ActionMode.Callback
 {
-  private View coordinator;
-  private RecyclerView list;
-  private Stub<View> emptyState;
-  private AppCompatImageView fab;
+  private View                        coordinator;
+  private RecyclerView                list;
+  private Stub<View>                  emptyState;
+  private PulsingFloatingActionButton fab;
 //  private PulsingFloatingActionButton cameraFab;
-  private Stub<Toolbar> toolbar;
-  private SearchView searchView;
+  private Stub<Toolbar>               toolbar;
 
   public static ConversationListArchiveFragment newInstance() {
     return new ConversationListArchiveFragment();
@@ -71,19 +68,16 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
 
     super.onViewCreated(view, savedInstanceState);
 
-    coordinator = view.findViewById(R.id.conversation_list_fragment_coordinator);
-    list = view.findViewById(R.id.conversation_list_fragment_recycler_view);
-    emptyState = new Stub<>(view.findViewById(R.id.empty_state));
-    fab = view.findViewById(R.id.conversation_list_fragment_fab);
-    searchView = view.findViewById(R.id.conversation_list_fragment_search_bar);
-
+    coordinator = view.findViewById(R.id.coordinator);
+    list        = view.findViewById(R.id.list);
+    emptyState  = new Stub<>(view.findViewById(R.id.empty_state));
+    fab         = view.findViewById(R.id.fab);
 //    cameraFab   = view.findViewById(R.id.camera_fab);
 
     toolbar.get().setNavigationOnClickListener(v -> NavHostFragment.findNavController(this).popBackStack());
     toolbar.get().setTitle(R.string.AndroidManifest_archived_conversations);
 
-    fab.setVisibility(View.GONE);
-    searchView.setVisibility(View.GONE);
+    fab.hide();
 //    cameraFab.hide();
   }
 
@@ -135,12 +129,12 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
     itemAnimator.enable();
 
     new SnackbarAsyncTask<Long>(getViewLifecycleOwner().getLifecycle(),
-                                coordinator,
-                                getResources().getQuantityString(R.plurals.ConversationListFragment_moved_conversations_to_inbox, 1, 1),
-                                getString(R.string.ConversationListFragment_undo),
-                                getResources().getColor(R.color.amber_500),
-                                Snackbar.LENGTH_LONG,
-                                false)
+            coordinator,
+            getResources().getQuantityString(R.plurals.ConversationListFragment_moved_conversations_to_inbox, 1, 1),
+            getString(R.string.ConversationListFragment_undo),
+            getResources().getColor(R.color.amber_500),
+            Snackbar.LENGTH_LONG,
+            false)
     {
       @Override
       protected void executeAction(@Nullable Long parameter) {
@@ -161,5 +155,4 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
     // Do nothing
   }
 }
-
 

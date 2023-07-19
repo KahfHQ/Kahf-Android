@@ -277,4 +277,9 @@
     <style name="Widget.Signal.CircularProgressIndicator.Medium.Indeterminate.Tonal">
         <item name="indicatorColor">@color/signal_colorPrimaryContainer</item>
     </style>
+
+    <style name="FabCircle">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
 </resources>
