@@ -27,6 +27,8 @@ import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.annotation.WorkerThread;
 import androidx.appcompat.view.ActionMode;
+import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -45,12 +47,13 @@ import java.util.Set;
 
 public class ConversationListArchiveFragment extends ConversationListFragment implements ActionMode.Callback
 {
-  private View                        coordinator;
-  private RecyclerView                list;
-  private Stub<View>                  emptyState;
-  private PulsingFloatingActionButton fab;
-  private PulsingFloatingActionButton cameraFab;
-  private Stub<Toolbar>               toolbar;
+  private View coordinator;
+  private RecyclerView list;
+  private Stub<View> emptyState;
+  private AppCompatImageView fab;
+//  private PulsingFloatingActionButton cameraFab;
+  private Stub<Toolbar> toolbar;
+  private SearchView searchView;
 
   public static ConversationListArchiveFragment newInstance() {
     return new ConversationListArchiveFragment();
@@ -64,96 +67,99 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
 
   @Override
   public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//    toolbar = requireCallback().getBasicToolbar();
+    toolbar = requireCallback().getBasicToolbar();
 
     super.onViewCreated(view, savedInstanceState);
 
-    coordinator = view.findViewById(R.id.coordinator);
-//    list        = view.findViewById(R.id.list);
-    emptyState  = new Stub<>(view.findViewById(R.id.empty_state));
-    fab         = view.findViewById(R.id.fab);
-    cameraFab   = view.findViewById(R.id.camera_fab);
+    coordinator = view.findViewById(R.id.conversation_list_fragment_coordinator);
+    list = view.findViewById(R.id.conversation_list_fragment_recycler_view);
+    emptyState = new Stub<>(view.findViewById(R.id.empty_state));
+    fab = view.findViewById(R.id.conversation_list_fragment_fab);
+    searchView = view.findViewById(R.id.conversation_list_fragment_search_bar);
+
+//    cameraFab   = view.findViewById(R.id.camera_fab);
 
     toolbar.get().setNavigationOnClickListener(v -> NavHostFragment.findNavController(this).popBackStack());
     toolbar.get().setTitle(R.string.AndroidManifest_archived_conversations);
 
-    fab.hide();
-    cameraFab.hide();
+    fab.setVisibility(View.GONE);
+    searchView.setVisibility(View.GONE);
+//    cameraFab.hide();
   }
 
-//  @Override
-//  protected void onPostSubmitList(int conversationCount) {
-//    list.setVisibility(View.VISIBLE);
-//
-//    if (emptyState.resolved()) {
-//      emptyState.get().setVisibility(View.GONE);
-//    }
-//  }
-//
-//  @Override
-//  protected boolean isArchived() {
-//    return true;
-//  }
-//
-//  @Override
-//  protected @NonNull Toolbar getToolbar(@NonNull View rootView) {
-//    return toolbar.get();
-//  }
-//
-//  @Override
-//  protected @StringRes int getArchivedSnackbarTitleRes() {
-//    return R.plurals.ConversationListFragment_moved_conversations_to_inbox;
-//  }
-//
-//  @Override
-//  protected @DrawableRes int getArchiveIconRes() {
-//    return R.drawable.ic_unarchive_24;
-//  }
-//
-//  @Override
-//  @WorkerThread
-//  protected void archiveThreads(Set<Long> threadIds) {
-//    SignalDatabase.threads().setArchived(threadIds, false);
-//  }
-//
-//  @Override
-//  @WorkerThread
-//  protected void reverseArchiveThreads(Set<Long> threadIds) {
-//    SignalDatabase.threads().setArchived(threadIds, true);
-//  }
-//
-//  @SuppressLint("StaticFieldLeak")
-//  @Override
-//  protected void onItemSwiped(long threadId, int unreadCount) {
-//    archiveDecoration.onArchiveStarted();
-//    itemAnimator.enable();
-//
-//    new SnackbarAsyncTask<Long>(getViewLifecycleOwner().getLifecycle(),
-//                                coordinator,
-//                                getResources().getQuantityString(R.plurals.ConversationListFragment_moved_conversations_to_inbox, 1, 1),
-//                                getString(R.string.ConversationListFragment_undo),
-//                                getResources().getColor(R.color.amber_500),
-//                                Snackbar.LENGTH_LONG,
-//                                false)
-//    {
-//      @Override
-//      protected void executeAction(@Nullable Long parameter) {
-//        SignalDatabase.threads().unarchiveConversation(threadId);
-//        ConversationUtil.refreshRecipientShortcuts();
-//      }
-//
-//      @Override
-//      protected void reverseAction(@Nullable Long parameter) {
-//        SignalDatabase.threads().archiveConversation(threadId);
-//        ConversationUtil.refreshRecipientShortcuts();
-//      }
-//    }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, threadId);
-//  }
-//
-//  @Override
-//  void updateEmptyState(boolean isConversationEmpty) {
-//    // Do nothing
-//  }
+  @Override
+  protected void onPostSubmitList(int conversationCount) {
+    list.setVisibility(View.VISIBLE);
+
+    if (emptyState.resolved()) {
+      emptyState.get().setVisibility(View.GONE);
+    }
+  }
+
+  @Override
+  protected boolean isArchived() {
+    return true;
+  }
+
+  @Override
+  protected @NonNull Toolbar getToolbar(@NonNull View rootView) {
+    return toolbar.get();
+  }
+
+  @Override
+  protected @StringRes int getArchivedSnackbarTitleRes() {
+    return R.plurals.ConversationListFragment_moved_conversations_to_inbox;
+  }
+
+  @Override
+  protected @DrawableRes int getArchiveIconRes() {
+    return R.drawable.ic_unarchive_24;
+  }
+
+  @Override
+  @WorkerThread
+  protected void archiveThreads(Set<Long> threadIds) {
+    SignalDatabase.threads().setArchived(threadIds, false);
+  }
+
+  @Override
+  @WorkerThread
+  protected void reverseArchiveThreads(Set<Long> threadIds) {
+    SignalDatabase.threads().setArchived(threadIds, true);
+  }
+
+  @SuppressLint("StaticFieldLeak")
+  @Override
+  protected void onItemSwiped(long threadId, int unreadCount) {
+    archiveDecoration.onArchiveStarted();
+    itemAnimator.enable();
+
+    new SnackbarAsyncTask<Long>(getViewLifecycleOwner().getLifecycle(),
+                                coordinator,
+                                getResources().getQuantityString(R.plurals.ConversationListFragment_moved_conversations_to_inbox, 1, 1),
+                                getString(R.string.ConversationListFragment_undo),
+                                getResources().getColor(R.color.amber_500),
+                                Snackbar.LENGTH_LONG,
+                                false)
+    {
+      @Override
+      protected void executeAction(@Nullable Long parameter) {
+        SignalDatabase.threads().unarchiveConversation(threadId);
+        ConversationUtil.refreshRecipientShortcuts();
+      }
+
+      @Override
+      protected void reverseAction(@Nullable Long parameter) {
+        SignalDatabase.threads().archiveConversation(threadId);
+        ConversationUtil.refreshRecipientShortcuts();
+      }
+    }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, threadId);
+  }
+
+  @Override
+  void updateEmptyState(boolean isConversationEmpty) {
+    // Do nothing
+  }
 }
 
 

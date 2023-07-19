@@ -60,6 +60,7 @@ import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
 import androidx.appcompat.widget.TooltipCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.core.view.ViewCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -215,9 +216,33 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   private LifecycleDisposable  lifecycleDisposable;
   private  ConversationListTabsViewModel conversationListTabsViewModel;
   private SignalContextMenu activeContextMenu;
+  private Drawable archiveDrawable;
+  private Stub<ViewGroup> emptyState;
+  private TextView searchEmptyState;
+  private Stub<ReminderView> reminderView;
+  private VoiceNoteMediaControllerOwner  mediaControllerOwner;
+  private Stub<FrameLayout> voiceNotePlayerViewStub;
+  private VoiceNotePlayerView  voiceNotePlayerView;
+  private Stub<ViewGroup> megaphoneContainer;
+  private Stub<UnreadPaymentsView> paymentNotificationView;
+
   protected ConversationListItemAnimator itemAnimator;
   protected ConversationListArchiveItemDecoration archiveDecoration;
 
+  public static ConversationListFragment newInstance() {
+    return new ConversationListFragment();
+  }
+
+  @Override
+  public void onAttach(@NonNull Context context) {
+    super.onAttach(context);
+
+    if (context instanceof VoiceNoteMediaControllerOwner) {
+      mediaControllerOwner = (VoiceNoteMediaControllerOwner) context;
+    } else {
+      throw new ClassCastException("Expected context to be a Listener");
+    }
+  }
 
   @Nullable
   @Override
@@ -232,10 +257,102 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   }
 
   @Override
+  public void onDestroyView() {
+    coordinator = null;
+    recyclerView = null;
+    searchEmptyState = null;
+    bottomActionBar = null;
+    reminderView = null;
+    emptyState = null;
+    megaphoneContainer = null;
+    paymentNotificationView = null;
+    voiceNotePlayerViewStub = null;
+    fab = null;
+//    cameraFab               = null;
+    snapToTopDataObserver = null;
+    itemAnimator = null;
+
+    activeAdapter  = null;
+    defaultAdapter = null;
+    searchAdapter  = null;
+
+    super.onDestroyView();
+  }
+
+  @Override
   public void onCreate(Bundle icicle) {
     super.onCreate(icicle);
-//    setHasOptionsMenu(true);
+    setHasOptionsMenu(true);
     startupStopwatch = new Stopwatch("startup");
+  }
+
+  @Override
+  public void onResume() {
+    super.onResume();
+
+//    initializeSearchListener();
+    updateReminders();
+    EventBus.getDefault().register(this);
+    itemAnimator.disable();
+
+    if (Util.isDefaultSmsProvider(requireContext())) {
+      InsightsLauncher.showInsightsModal(requireContext(), requireFragmentManager());
+    }
+
+//    if ((!requireCallback().getSearchToolbar().resolved() || !(requireCallback().getSearchToolbar().get().getVisibility() == View.VISIBLE)) && list.getAdapter() != defaultAdapter) {
+//      list.removeItemDecoration(searchAdapterDecoration);
+//      setAdapter(defaultAdapter);
+//    }
+
+    if (activeAdapter != null) {
+      activeAdapter.notifyItemRangeChanged(0, activeAdapter.getItemCount());
+    }
+
+    SignalProxyUtil.startListeningToWebsocket();
+
+    if (SignalStore.rateLimit().needsRecaptcha()) {
+      Log.i(TAG, "Recaptcha required.");
+      RecaptchaProofBottomSheetFragment.show(getChildFragmentManager());
+    }
+
+    Badge                              expiredBadge                       = SignalStore.donationsValues().getExpiredBadge();
+    String                             subscriptionCancellationReason     = SignalStore.donationsValues().getUnexpectedSubscriptionCancelationReason();
+    UnexpectedSubscriptionCancellation unexpectedSubscriptionCancellation = UnexpectedSubscriptionCancellation.fromStatus(subscriptionCancellationReason);
+    boolean                            isDisplayingSubscriptionFailure    = false;
+    long                               subscriptionFailureTimestamp       = SignalStore.donationsValues().getUnexpectedSubscriptionCancelationTimestamp();
+    long                               subscriptionFailureWatermark       = SignalStore.donationsValues().getUnexpectedSubscriptionCancelationWatermark();
+    boolean                            isWatermarkPriorToTimestamp        = subscriptionFailureWatermark < subscriptionFailureTimestamp;
+
+    if (unexpectedSubscriptionCancellation != null &&
+            !SignalStore.donationsValues().isUserManuallyCancelled() &&
+            SignalStore.donationsValues().showCantProcessDialog() &&
+            isWatermarkPriorToTimestamp)
+    {
+      Log.w(TAG, "Displaying bottom sheet for unexpected cancellation: " + unexpectedSubscriptionCancellation, true);
+      new CantProcessSubscriptionPaymentBottomSheetDialogFragment().show(getChildFragmentManager(), BottomSheetUtil.STANDARD_BOTTOM_SHEET_FRAGMENT_TAG);
+      SignalStore.donationsValues().setUnexpectedSubscriptionCancelationWatermark(subscriptionFailureTimestamp);
+      isDisplayingSubscriptionFailure = true;
+    } else if (unexpectedSubscriptionCancellation != null && SignalStore.donationsValues().isUserManuallyCancelled()) {
+      Log.w(TAG, "Unexpected cancellation detected but not displaying dialog because user manually cancelled their subscription: " + unexpectedSubscriptionCancellation, true);
+    } else if (unexpectedSubscriptionCancellation != null && !SignalStore.donationsValues().showCantProcessDialog()) {
+      Log.w(TAG, "Unexpected cancellation detected but not displaying dialog because user has silenced it.", true);
+    }
+
+    if (expiredBadge != null && !isDisplayingSubscriptionFailure) {
+      SignalStore.donationsValues().setExpiredBadge(null);
+
+      if (expiredBadge.isBoost() || !SignalStore.donationsValues().isUserManuallyCancelled()) {
+        Log.w(TAG, "Displaying bottom sheet for an expired badge", true);
+        ExpiredBadgeBottomSheetDialogFragment.show(
+                expiredBadge,
+                unexpectedSubscriptionCancellation,
+                SignalStore.donationsValues().getUnexpectedSubscriptionCancelationChargeFailure(),
+                getParentFragmentManager());
+      }
+    }
+
+    fab.setVisibility(View.VISIBLE);
+    searchView.setVisibility(View.VISIBLE);
   }
 
   @Override
@@ -249,7 +366,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   public void onPause() {
     super.onPause();
 
-    requireCallback().getSearchAction().setOnClickListener(null);
+//    requireCallback().getSearchAction().setOnClickListener(null);
     EventBus.getDefault().unregister(this);
   }
 
@@ -258,6 +375,41 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     super.onStop();
     ApplicationDependencies.getAppForegroundObserver().removeListener(appForegroundObserver);
   }
+  @Override
+  public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+    menu.clear();
+    inflater.inflate(R.menu.text_secure_normal, menu);
+  }
+
+  @Override
+  public void onPrepareOptionsMenu(Menu menu) {
+    menu.findItem(R.id.menu_insights).setVisible(Util.isDefaultSmsProvider(requireContext()));
+    menu.findItem(R.id.menu_clear_passphrase).setVisible(!TextSecurePreferences.isPasswordDisabled(requireContext()));
+  }
+
+  @Override
+  public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    super.onOptionsItemSelected(item);
+
+    switch (item.getItemId()) {
+      case R.id.menu_new_group:
+        handleCreateGroup(); return true;
+      case R.id.menu_settings:
+        handleDisplaySettings(); return true;
+      case R.id.menu_clear_passphrase:
+        handleClearPassphrase(); return true;
+      case R.id.menu_mark_all_read:
+        handleMarkAllRead(); return true;
+      case R.id.menu_invite:
+        handleInvite(); return true;
+      case R.id.menu_insights:
+        handleInsights(); return true;
+      case R.id.menu_notification_profile:
+        handleNotificationProfile(); return true;
+    }
+
+    return false;
+  }
 
   private void initView(View view) {
     coordinator = view.findViewById(R.id.conversation_list_fragment_coordinator);
@@ -265,6 +417,12 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     searchView = view.findViewById(R.id.conversation_list_fragment_search_bar);
     fab = view.findViewById(R.id.conversation_list_fragment_fab);
     bottomActionBar = view.findViewById(R.id.conversation_list_bottom_action_bar);
+    emptyState = new Stub<>(view.findViewById(R.id.empty_state));
+    searchEmptyState = view.findViewById(R.id.search_no_results);
+    reminderView = new Stub<>(view.findViewById(R.id.reminder));
+    megaphoneContainer = new Stub<>(view.findViewById(R.id.megaphone_container));
+    paymentNotificationView = new Stub<>(view.findViewById(R.id.payments_notification));
+    voiceNotePlayerViewStub = new Stub<>(view.findViewById(R.id.voice_note_player));
 
     archiveDecoration = new ConversationListArchiveItemDecoration(new ColorDrawable(getResources().getColor(R.color.conversation_list_archive_background_end)));
     itemAnimator = new ConversationListItemAnimator();
@@ -274,17 +432,59 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     recyclerView.addItemDecoration(archiveDecoration);
 
     snapToTopDataObserver = new SnapToTopDataObserver(recyclerView);
+    getToolbar(view).setOverflowIcon(ResourcesCompat.getDrawable(getResources(), R.drawable.ic_toolbar_settings, null));
 
-//    new ItemTouchHelper(new ArchiveListenerCallback(getResources().getColor(R.color.conversation_list_archive_background_start),
-//            getResources().getColor(R.color.conversation_list_archive_background_end))).attachToRecyclerView(list);
+    new ItemTouchHelper(new ArchiveListenerCallback(getResources().getColor(R.color.conversation_list_archive_background_start),
+            getResources().getColor(R.color.conversation_list_archive_background_end))).attachToRecyclerView(recyclerView);
 
     fab.setOnClickListener(v -> startActivity(new Intent(getActivity(), NewConversationActivity.class)));
+    if (!isArchived()) {
+      getToolbar(view).findViewById(R.id.camera_action).setOnClickListener(v -> {
+        Permissions.with(this)
+                .request(Manifest.permission.CAMERA)
+                .ifNecessary()
+                .withRationaleDialog(getString(R.string.ConversationActivity_to_capture_photos_and_video_allow_signal_access_to_the_camera), R.drawable.ic_camera_24)
+                .withPermanentDenialDialog(getString(R.string.ConversationActivity_signal_needs_the_camera_permission_to_take_photos_or_video))
+                .onAllGranted(() -> startActivity(MediaSelectionActivity.camera(requireContext())))
+                .onAnyDenied(() -> Toast.makeText(requireContext(), R.string.ConversationActivity_signal_needs_camera_permissions_to_take_photos_or_video, Toast.LENGTH_LONG).show())
+                .execute();
+      });
+    }
 
     initializeViewModel();
     initializeListAdapters();
     initializeTypingObserver();
+    initializeVoiceNotePlayer();
 
     RatingManager.showRatingDialogIfNecessary(requireContext());
+    searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+      @Override
+      public boolean onQueryTextSubmit(String query) {
+        return false;
+      }
+
+      @Override
+      public boolean onQueryTextChange(String newText) {
+        String trimmed = newText.trim();
+
+        viewModel.onSearchQueryUpdated(trimmed);
+
+        if (trimmed.length() > 0) {
+          if (activeAdapter != searchAdapter) {
+            setAdapter(searchAdapter);
+            recyclerView.removeItemDecoration(searchAdapterDecoration);
+            recyclerView.addItemDecoration(searchAdapterDecoration);
+          }
+          return true;
+        } else {
+          if (activeAdapter != defaultAdapter) {
+            recyclerView.removeItemDecoration(searchAdapterDecoration);
+            setAdapter(defaultAdapter);
+          }
+          return false;
+        }
+      }
+    });
 
 //    TooltipCompat.setTooltipText(requireCallback().getSearchAction(), getText(R.string.SearchToolbar_search_for_conversations_contacts_and_messages));
 
@@ -317,6 +517,58 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     requireCallback().bindScrollHelper(recyclerView);
   }
 
+  private void initializeVoiceNotePlayer() {
+    mediaControllerOwner.getVoiceNoteMediaController().getVoiceNotePlayerViewState().observe(getViewLifecycleOwner(), state -> {
+      if (state.isPresent()) {
+        requireVoiceNotePlayerView().setState(state.get());
+        requireVoiceNotePlayerView().show();
+      } else if (voiceNotePlayerViewStub.resolved()) {
+        requireVoiceNotePlayerView().hide();
+      }
+    });
+  }
+
+  private @NonNull VoiceNotePlayerView requireVoiceNotePlayerView() {
+    if (voiceNotePlayerView == null) {
+      voiceNotePlayerView = voiceNotePlayerViewStub.get().findViewById(R.id.voice_note_player_view);
+      voiceNotePlayerView.setListener(new VoiceNotePlayerViewListener());
+    }
+
+    return voiceNotePlayerView;
+  }
+
+  private void updateReminders() {
+    Context context = requireContext();
+
+    SimpleTask.run(getViewLifecycleOwner().getLifecycle(), () -> {
+      if (UnauthorizedReminder.isEligible(context)) {
+        return Optional.of(new UnauthorizedReminder(context));
+      } else if (ExpiredBuildReminder.isEligible()) {
+        return Optional.of(new ExpiredBuildReminder(context));
+      } else if (ServiceOutageReminder.isEligible(context)) {
+        ApplicationDependencies.getJobManager().add(new ServiceOutageDetectionJob());
+        return Optional.of(new ServiceOutageReminder(context));
+      } else if (OutdatedBuildReminder.isEligible()) {
+        return Optional.of(new OutdatedBuildReminder(context));
+      } else if (PushRegistrationReminder.isEligible(context)) {
+        return Optional.of((new PushRegistrationReminder(context)));
+      } else if (DozeReminder.isEligible(context)) {
+        return Optional.of(new DozeReminder(context));
+      } else {
+        return Optional.<Reminder>empty();
+      }
+    }, reminder -> {
+      if (reminder.isPresent() && getActivity() != null && !isRemoving()) {
+        if (!reminderView.resolved()) {
+          initializeReminderView();
+        }
+        reminderView.get().showReminder(reminder.get());
+      } else if (reminderView.resolved() && !reminder.isPresent()) {
+        reminderView.get().hide();
+      }
+    });
+  }
+
   @SuppressWarnings("rawtypes")
   private void setAdapter(@NonNull RecyclerView.Adapter adapter) {
     RecyclerView.Adapter oldAdapter = activeAdapter;
@@ -347,9 +599,9 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     viewModel = new ViewModelProvider(this, (ViewModelProvider.Factory) viewModelFactory).get(ConversationListViewModel.class);
 
     viewModel.getSearchResult().observe(getViewLifecycleOwner(), this::onSearchResultChanged);
-//    viewModel.getMegaphone().observe(getViewLifecycleOwner(), this::onMegaphoneChanged);
+    viewModel.getMegaphone().observe(getViewLifecycleOwner(), this::onMegaphoneChanged);
     viewModel.getConversationList().observe(getViewLifecycleOwner(), this::onConversationListChanged);
-//    viewModel.hasNoConversations().observe(getViewLifecycleOwner(), this::updateEmptyState);
+    viewModel.hasNoConversations().observe(getViewLifecycleOwner(), this::updateEmptyState);
     viewModel.getNotificationProfiles().observe(getViewLifecycleOwner(), profiles -> requireCallback().updateNotificationProfileStatus(profiles));
     viewModel.getPipeState().observe(getViewLifecycleOwner(), pipeState -> requireCallback().updateProxyStatus(pipeState));
 
@@ -363,7 +615,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
       public void onBackground() {}
     };
 
-//    viewModel.getUnreadPaymentsLiveData().observe(getViewLifecycleOwner(), this::onUnreadPaymentsChanged);
+    viewModel.getUnreadPaymentsLiveData().observe(getViewLifecycleOwner(), this::onUnreadPaymentsChanged);
 
     viewModel.getSelectedConversations().observe(getViewLifecycleOwner(), conversations -> {
       defaultAdapter.setSelectedConversations(conversations);
@@ -407,6 +659,17 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     });
   }
 
+  @Subscribe(threadMode = ThreadMode.MAIN)
+  public void onEvent(ReminderUpdateEvent event) {
+    updateReminders();
+  }
+
+  @Subscribe(threadMode = ThreadMode.MAIN, sticky = true)
+  public void onEvent(MessageSender.MessageSentEvent event) {
+    EventBus.getDefault().removeStickyEvent(event);
+    closeSearchIfOpen();
+  }
+
   private void updateMultiSelectState() {
     int count = viewModel.currentSelectedConversations().size();
     boolean hasUnread = Stream.of(viewModel.currentSelectedConversations()).anyMatch(conversation -> !conversation.getThreadRecord().isRead());
@@ -414,9 +677,9 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     boolean hasUnmuted = Stream.of(viewModel.currentSelectedConversations()).anyMatch(conversation -> !conversation.getThreadRecord().getRecipient().live().get().isMuted());
     boolean canPin  = viewModel.getPinnedCount() < MAXIMUM_PINNED_CONVERSATIONS;
 
-//    if (actionMode != null) {
-//      actionMode.setTitle(requireContext().getResources().getQuantityString(R.plurals.ConversationListFragment_s_selected, count, count));
-//    }
+    if (actionMode != null) {
+      actionMode.setTitle(requireContext().getResources().getQuantityString(R.plurals.ConversationListFragment_s_selected, count, count));
+    }
 
     List<ActionItem> items = new ArrayList<>();
 
@@ -456,7 +719,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     bottomActionBar.setItems(items);
   }
 
-  private boolean isArchived() {
+  protected boolean isArchived() {
     return false;
   }
 
@@ -476,48 +739,71 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     });
   }
 
+  private void onUnreadPaymentsChanged(@NonNull Optional<UnreadPayments> unreadPayments) {
+    if (unreadPayments.isPresent()) {
+      paymentNotificationView.get().setListener(new PaymentNotificationListener(unreadPayments.get()));
+      paymentNotificationView.get().setUnreadPayments(unreadPayments.get());
+      animatePaymentUnreadStatusIn();
+    } else {
+      animatePaymentUnreadStatusOut();
+    }
+  }
+
+  private void animatePaymentUnreadStatusIn() {
+    paymentNotificationView.get().setVisibility(View.VISIBLE);
+    requireCallback().getUnreadPaymentsDot().animate().alpha(1);
+  }
+
+  private void animatePaymentUnreadStatusOut() {
+    if (paymentNotificationView.resolved()) {
+      paymentNotificationView.get().setVisibility(View.GONE);
+    }
+
+    requireCallback().getUnreadPaymentsDot().animate().alpha(0);
+  }
+
   private void onSearchResultChanged(@Nullable SearchResult result) {
     result = result != null ? result : SearchResult.EMPTY;
     searchAdapter.updateResults(result);
 
     if (result.isEmpty() && activeAdapter == searchAdapter) {
-//      searchEmptyState.setText(getString(R.string.SearchFragment_no_results, result.getQuery()));
-//      searchEmptyState.setVisibility(View.VISIBLE);
+      searchEmptyState.setText(getString(R.string.SearchFragment_no_results, result.getQuery()));
+      searchEmptyState.setVisibility(View.VISIBLE);
     } else {
-//      searchEmptyState.setVisibility(View.GONE);
+      searchEmptyState.setVisibility(View.GONE);
     }
   }
 
-//  private void onMegaphoneChanged(@Nullable Megaphone megaphone) {
-//    if (megaphone == null || isArchived()) {
-//      if (megaphoneContainer.resolved()) {
-//        megaphoneContainer.get().setVisibility(View.GONE);
-//        megaphoneContainer.get().removeAllViews();
-//      }
-//      return;
-//    }
-//
-//    View view = MegaphoneViewBuilder.build(requireContext(), megaphone, this);
-//
-//    megaphoneContainer.get().removeAllViews();
-//
-//    if (view != null) {
-//      megaphoneContainer.get().addView(view);
-//      if (isSearchOpen() || actionMode != null) {
-//        megaphoneContainer.get().setVisibility(View.GONE);
-//      } else {
-//        megaphoneContainer.get().setVisibility(View.VISIBLE);
-//      }
-//    } else {
-//      megaphoneContainer.get().setVisibility(View.GONE);
-//
-//      if (megaphone.getOnVisibleListener() != null) {
-//        megaphone.getOnVisibleListener().onEvent(megaphone, this);
-//      }
-//    }
-//
-//    viewModel.onMegaphoneVisible(megaphone);
-//  }
+  private void onMegaphoneChanged(@Nullable Megaphone megaphone) {
+    if (megaphone == null || isArchived()) {
+      if (megaphoneContainer.resolved()) {
+        megaphoneContainer.get().setVisibility(View.GONE);
+        megaphoneContainer.get().removeAllViews();
+      }
+      return;
+    }
+
+    View view = MegaphoneViewBuilder.build(requireContext(), megaphone, this);
+
+    megaphoneContainer.get().removeAllViews();
+
+    if (view != null) {
+      megaphoneContainer.get().addView(view);
+      if (isSearchOpen() || actionMode != null) {
+        megaphoneContainer.get().setVisibility(View.GONE);
+      } else {
+        megaphoneContainer.get().setVisibility(View.VISIBLE);
+      }
+    } else {
+      megaphoneContainer.get().setVisibility(View.GONE);
+
+      if (megaphone.getOnVisibleListener() != null) {
+        megaphone.getOnVisibleListener().onEvent(megaphone, this);
+      }
+    }
+
+    viewModel.onMegaphoneVisible(megaphone);
+  }
 
   protected void onPostSubmitList(int conversationCount) {
     if (conversationCount >= 6 && (SignalStore.onboarding().shouldShowInviteFriends() || SignalStore.onboarding().shouldShowNewGroup())) {
@@ -712,9 +998,9 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     ViewUtil.animateOut(bottomActionBar, bottomActionBar.getExitAnimation());
     ViewUtil.fadeIn(fab, 250);
 //    ViewUtil.fadeIn(cameraFab, 250);
-//    if (megaphoneContainer.resolved()) {
-//      ViewUtil.fadeIn(megaphoneContainer.get(), 250);
-//    }
+    if (megaphoneContainer.resolved()) {
+      ViewUtil.fadeIn(megaphoneContainer.get(), 250);
+    }
     requireCallback().onMultiSelectFinished();
   }
 
@@ -740,8 +1026,8 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     if (isSearchOpen()) {
       recyclerView.removeItemDecoration(searchAdapterDecoration);
       setAdapter(defaultAdapter);
-      requireCallback().getSearchToolbar().get().collapse();
-      requireCallback().onSearchClosed();
+//      requireCallback().getSearchToolbar().get().collapse();
+//      requireCallback().onSearchClosed();
       return true;
     }
 
@@ -753,7 +1039,8 @@ public class ConversationListFragment extends MainFragment implements ActionMode
   }
 
   private boolean isSearchVisible() {
-    return (requireCallback().getSearchToolbar().resolved() && requireCallback().getSearchToolbar().get().getVisibility() == View.VISIBLE);
+    return false;
+//    return (requireCallback().getSearchToolbar().resolved() && requireCallback().getSearchToolbar().get().getVisibility() == View.VISIBLE);
   }
 
   private void handleCreateConversation(long threadId, Recipient recipient, int distributionType) {
@@ -777,13 +1064,149 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     actionMode = ((AppCompatActivity) getActivity()).startSupportActionMode(ConversationListFragment.this);
     ViewUtil.animateIn(bottomActionBar, bottomActionBar.getEnterAnimation());
     ViewUtil.fadeOut(fab, 250);
+    if (megaphoneContainer.resolved()) {
+      ViewUtil.fadeOut(megaphoneContainer.get(), 250);
+    }
     requireCallback().onMultiSelectStarted();
+  }
+
+  private void openArchiveFragment() {
+    if (viewModel.currentSelectedConversations().isEmpty()) {
+      NavHostFragment.findNavController(this)
+              .navigate(ConversationListFragmentDirections.actionGlobalConversationListArchiveFragment());
+    }
+  }
+
+  private void handleCreateGroup() {
+    getNavigator().goToGroupCreation();
+  }
+
+  private void handleDisplaySettings() {
+    getNavigator().goToAppSettings();
+  }
+
+  private void handleClearPassphrase() {
+    Intent intent = new Intent(requireActivity(), KeyCachingService.class);
+    intent.setAction(KeyCachingService.CLEAR_KEY_ACTION);
+    requireActivity().startService(intent);
+  }
+
+  private void handleMarkAllRead() {
+    Context context = requireContext();
+
+    SignalExecutors.BOUNDED.execute(() -> {
+      List<MarkedMessageInfo> messageIds = SignalDatabase.threads().setAllThreadsRead();
+
+      ApplicationDependencies.getMessageNotifier().updateNotification(context);
+      MarkReadReceiver.process(context, messageIds);
+    });
+  }
+
+  private void handleInvite() {
+    getNavigator().goToInvite();
+  }
+
+  private void handleInsights() {
+    getNavigator().goToInsights();
+  }
+
+  private void handleNotificationProfile() {
+    NotificationProfileSelectionFragment.show(getParentFragmentManager());
+  }
+
+  private void initializeReminderView() {
+    reminderView.get().setOnDismissListener(this::updateReminders);
+    reminderView.get().setOnActionClickListener(this::onReminderAction);
+  }
+
+  private void onReminderAction(@IdRes int reminderActionId) {
+    if (reminderActionId == R.id.reminder_action_update_now) {
+      PlayStoreUtil.openPlayStoreOrOurApkDownloadPage(requireContext());
+    }
+  }
+
+  @SuppressLint("StaticFieldLeak")
+  protected void onItemSwiped(long threadId, int unreadCount) {
+    archiveDecoration.onArchiveStarted();
+    itemAnimator.enable();
+
+    new SnackbarAsyncTask<Long>(getViewLifecycleOwner().getLifecycle(),
+            coordinator,
+            getResources().getQuantityString(R.plurals.ConversationListFragment_conversations_archived, 1, 1),
+            getString(R.string.ConversationListFragment_undo),
+            getResources().getColor(R.color.amber_500),
+            Snackbar.LENGTH_LONG,
+            false)
+    {
+      private final ThreadDatabase threadDatabase = SignalDatabase.threads();
+
+      private List<Long> pinnedThreadIds;
+
+      @Override
+      protected void executeAction(@Nullable Long parameter) {
+        Context context = requireActivity();
+
+        pinnedThreadIds = threadDatabase.getPinnedThreadIds();
+        threadDatabase.archiveConversation(threadId);
+
+        if (unreadCount > 0) {
+          List<MarkedMessageInfo> messageIds = threadDatabase.setRead(threadId, false);
+          ApplicationDependencies.getMessageNotifier().updateNotification(context);
+          MarkReadReceiver.process(context, messageIds);
+        }
+
+        ConversationUtil.refreshRecipientShortcuts();
+      }
+
+      @Override
+      protected void reverseAction(@Nullable Long parameter) {
+        Context context = requireActivity();
+
+        threadDatabase.unarchiveConversation(threadId);
+        threadDatabase.restorePins(pinnedThreadIds);
+
+        if (unreadCount > 0) {
+          threadDatabase.incrementUnread(threadId, unreadCount);
+          ApplicationDependencies.getMessageNotifier().updateNotification(context);
+        }
+
+        ConversationUtil.refreshRecipientShortcuts();
+      }
+    }.executeOnExecutor(SignalExecutors.BOUNDED, threadId);
+  }
+
+  protected @DrawableRes int getArchiveIconRes() {
+    return R.drawable.ic_archive_24;
+  }
+
+  protected Toolbar getToolbar(@NonNull View rootView) {
+    return requireCallback().getToolbar();
+  }
+
+  void updateEmptyState(boolean isConversationEmpty) {
+    if (isConversationEmpty) {
+      Log.i(TAG, "Received an empty data set.");
+      recyclerView.setVisibility(View.INVISIBLE);
+      emptyState.get().setVisibility(View.VISIBLE);
+//      fab.startPulse(3 * 1000);
+//      cameraFab.startPulse(3 * 1000);
+
+      SignalStore.onboarding().setShowNewGroup(true);
+      SignalStore.onboarding().setShowInviteFriends(true);
+    } else {
+      recyclerView.setVisibility(View.VISIBLE);
+//      fab.stopPulse();
+//      cameraFab.stopPulse();
+
+      if (emptyState.resolved()) {
+        emptyState.get().setVisibility(View.GONE);
+      }
+    }
   }
 
   @Override
   public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-//    mode.setTitle(0);
-//    mode.setTitle(requireContext().getResources().getQuantityString(R.plurals.ConversationListFragment_s_selected, 1, 1));
+    mode.setTitle(requireContext().getResources().getQuantityString(R.plurals.ConversationListFragment_s_selected, 1, 1));
     return true;
   }
 
@@ -905,7 +1328,29 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
   @Override
   public void onShowArchiveClick() {
+    openArchiveFragment();
+  }
 
+  @Override
+  public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+    Permissions.onRequestPermissionsResult(this, requestCode, permissions, grantResults);
+  }
+
+  @Override
+  public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    if (requestCode == SmsExportMegaphoneActivity.REQUEST_CODE && SignalStore.misc().getSmsExportPhase().isFullscreen()) {
+      ApplicationDependencies.getMegaphoneRepository().markSeen(Megaphones.Event.SMS_EXPORT);
+      if (resultCode == RESULT_CANCELED) {
+        Snackbar.make(fab, R.string.ConversationActivity__you_will_be_reminded_again_soon, Snackbar.LENGTH_LONG).show();
+      } else {
+        SmsExportDialogs.showSmsRemovalDialog(requireContext(), fab);
+      }
+    }
+
+    if (resultCode == RESULT_OK && requestCode == CreateKbsPinActivity.REQUEST_NEW_PIN) {
+      Snackbar.make(fab, R.string.ConfirmKbsPinFragment__pin_created, Snackbar.LENGTH_LONG).show();
+      viewModel.onMegaphoneCompleted(Megaphones.Event.PINS_FOR_ALL);
+    }
   }
 
   @Override
@@ -919,51 +1364,68 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
   @Override
   public void onContactClicked(@NonNull Recipient contact) {
-
+    SimpleTask.run(getViewLifecycleOwner().getLifecycle(), () -> {
+      return SignalDatabase.threads().getThreadIdIfExistsFor(contact.getId());
+    }, threadId -> {
+      hideKeyboard();
+      getNavigator().goToConversation(contact.getId(),
+              threadId,
+              ThreadDatabase.DistributionTypes.DEFAULT,
+              -1);
+    });
   }
 
   @Override
   public void onMessageClicked(@NonNull MessageResult message) {
-
+    SimpleTask.run(getViewLifecycleOwner().getLifecycle(), () -> {
+      int startingPosition = SignalDatabase.mmsSms().getMessagePositionInConversation(message.getThreadId(), message.getReceivedTimestampMs());
+      return Math.max(0, startingPosition);
+    }, startingPosition -> {
+      hideKeyboard();
+      getNavigator().goToConversation(message.getConversationRecipient().getId(),
+              message.getThreadId(),
+              ThreadDatabase.DistributionTypes.DEFAULT,
+              startingPosition);
+    });
   }
 
   @Override
   public void onMegaphoneNavigationRequested(@NonNull Intent intent) {
-
+    startActivity(intent);
   }
 
   @Override
   public void onMegaphoneNavigationRequested(@NonNull Intent intent, int requestCode) {
-
+    startActivityForResult(intent, requestCode);
   }
 
   @Override
   public void onMegaphoneToastRequested(@NonNull String string) {
-
+    Snackbar.make(fab, string, Snackbar.LENGTH_LONG).show();
   }
 
   @NonNull
   @Override
   public Activity getMegaphoneActivity() {
-    return null;
+    return requireActivity();
   }
 
   @Override
   public void onMegaphoneSnooze(@NonNull Megaphones.Event event) {
-
+    viewModel.onMegaphoneSnoozed(event);
   }
 
   @Override
   public void onMegaphoneCompleted(@NonNull Megaphones.Event event) {
-
+    viewModel.onMegaphoneCompleted(event);
   }
 
   @Override
   public void onMegaphoneDialogFragmentRequested(@NonNull DialogFragment dialogFragment) {
-
+    dialogFragment.show(getChildFragmentManager(), "megaphone_dialog");
   }
 
-  public interface Callback extends Material3OnScrollHelperBinder, SearchBinder {
+  public interface Callback extends Material3OnScrollHelperBinder {
     @NonNull Toolbar getToolbar();
 
     @NonNull View getUnreadPaymentsDot();
@@ -977,6 +1439,241 @@ public class ConversationListFragment extends MainFragment implements ActionMode
     void onMultiSelectStarted();
 
     void onMultiSelectFinished();
+  }
+
+  private class ArchiveListenerCallback extends ItemTouchHelper.SimpleCallback {
+
+    private static final long SWIPE_ANIMATION_DURATION = 175;
+
+    private static final float MIN_ICON_SCALE = 0.85f;
+    private static final float MAX_ICON_SCALE = 1f;
+
+    private final int archiveColorStart;
+    private final int archiveColorEnd;
+
+    private final float ESCAPE_VELOCITY    = ViewUtil.dpToPx(1000);
+    private final float VELOCITY_THRESHOLD = ViewUtil.dpToPx(1000);
+
+    private WeakReference<RecyclerView.ViewHolder> lastTouched;
+
+    ArchiveListenerCallback(@ColorInt int archiveColorStart, @ColorInt int archiveColorEnd) {
+      super(0, ItemTouchHelper.END);
+      this.archiveColorStart = archiveColorStart;
+      this.archiveColorEnd   = archiveColorEnd;
+    }
+
+    @Override
+    public boolean onMove(@NonNull RecyclerView recyclerView,
+                          @NonNull RecyclerView.ViewHolder viewHolder,
+                          @NonNull RecyclerView.ViewHolder target)
+    {
+      return false;
+    }
+
+    @Override
+    public float getSwipeEscapeVelocity(float defaultValue) {
+      return Math.min(ESCAPE_VELOCITY, VELOCITY_THRESHOLD);
+    }
+
+    @Override
+    public float getSwipeVelocityThreshold(float defaultValue) {
+      return VELOCITY_THRESHOLD;
+    }
+
+    @Override
+    public int getSwipeDirs(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+      if (viewHolder.itemView instanceof ConversationListItemAction ||
+              viewHolder instanceof ConversationListAdapter.HeaderViewHolder ||
+              actionMode != null ||
+              viewHolder.itemView.isSelected() ||
+              activeAdapter == searchAdapter)
+      {
+        return 0;
+      }
+
+      lastTouched = new WeakReference<>(viewHolder);
+
+      return super.getSwipeDirs(recyclerView, viewHolder);
+    }
+
+    @Override
+    public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+      if (lastTouched != null) {
+        Log.w(TAG, "Falling back to slower onSwiped() event.");
+        onTrueSwipe(viewHolder);
+        lastTouched = null;
+      }
+    }
+
+    @Override
+    public long getAnimationDuration(@NonNull RecyclerView recyclerView, int animationType, float animateDx, float animateDy) {
+      if (animationType == ItemTouchHelper.ANIMATION_TYPE_SWIPE_SUCCESS && lastTouched != null && lastTouched.get() != null) {
+        onTrueSwipe(lastTouched.get());
+        lastTouched = null;
+      } else if (animationType == ItemTouchHelper.ANIMATION_TYPE_SWIPE_CANCEL) {
+        lastTouched = null;
+      }
+
+      return SWIPE_ANIMATION_DURATION;
+    }
+
+    private void onTrueSwipe(RecyclerView.ViewHolder viewHolder) {
+      final long threadId    = ((ConversationListItem) viewHolder.itemView).getThreadId();
+      final int  unreadCount = ((ConversationListItem) viewHolder.itemView).getUnreadCount();
+
+      onItemSwiped(threadId, unreadCount);
+    }
+
+    @Override
+    public void onChildDraw(@NonNull Canvas canvas, @NonNull RecyclerView recyclerView,
+                            @NonNull RecyclerView.ViewHolder viewHolder,
+                            float dX, float dY, int actionState,
+                            boolean isCurrentlyActive)
+    {
+      float absoluteDx = Math.abs(dX);
+
+      if (actionState == ItemTouchHelper.ACTION_STATE_SWIPE) {
+        Resources resources       = getResources();
+        View      itemView        = viewHolder.itemView;
+        float     percentDx       = absoluteDx / viewHolder.itemView.getWidth();
+        int       color           = ArgbEvaluatorCompat.getInstance().evaluate(Math.min(1f, percentDx * (1 / 0.25f)), archiveColorStart, archiveColorEnd);
+        float     scaleStartPoint = DimensionUnit.DP.toPixels(48f);
+        float     scaleEndPoint   = DimensionUnit.DP.toPixels(96f);
+
+        float scale;
+        if (absoluteDx < scaleStartPoint) {
+          scale = MIN_ICON_SCALE;
+        } else if (absoluteDx > scaleEndPoint) {
+          scale = MAX_ICON_SCALE;
+        } else {
+          scale = Math.min(MAX_ICON_SCALE, MIN_ICON_SCALE + ((absoluteDx - scaleStartPoint) / (scaleEndPoint - scaleStartPoint)) * (MAX_ICON_SCALE - MIN_ICON_SCALE));
+        }
+
+        if (absoluteDx > 0) {
+          if (archiveDrawable == null) {
+            archiveDrawable = Objects.requireNonNull(AppCompatResources.getDrawable(requireContext(), getArchiveIconRes()));
+            archiveDrawable.setColorFilter(new SimpleColorFilter(ContextCompat.getColor(requireContext(), R.color.signal_colorOnPrimary)));
+            archiveDrawable.setBounds(0, 0, archiveDrawable.getIntrinsicWidth(), archiveDrawable.getIntrinsicHeight());
+          }
+
+          canvas.save();
+          canvas.clipRect(itemView.getLeft(), itemView.getTop(), itemView.getRight(), itemView.getBottom());
+
+          canvas.drawColor(color);
+
+          float gutter = resources.getDimension(R.dimen.dsl_settings_gutter);
+          float extra  = resources.getDimension(R.dimen.conversation_list_fragment_archive_padding);
+
+          if (ViewUtil.isLtr(requireContext())) {
+            canvas.translate(itemView.getLeft() + gutter + extra,
+                    itemView.getTop() + (itemView.getBottom() - itemView.getTop() - archiveDrawable.getIntrinsicHeight()) / 2f);
+          } else {
+            canvas.translate(itemView.getRight() - gutter - extra,
+                    itemView.getTop() + (itemView.getBottom() - itemView.getTop() - archiveDrawable.getIntrinsicHeight()) / 2f);
+          }
+
+          canvas.scale(scale, scale, archiveDrawable.getIntrinsicWidth() / 2f, archiveDrawable.getIntrinsicHeight() / 2f);
+
+          archiveDrawable.draw(canvas);
+          canvas.restore();
+
+          ViewCompat.setElevation(viewHolder.itemView, DimensionUnit.DP.toPixels(4f));
+        } else if (absoluteDx == 0) {
+          ViewCompat.setElevation(viewHolder.itemView, DimensionUnit.DP.toPixels(0f));
+        }
+
+        viewHolder.itemView.setTranslationX(dX);
+      } else {
+        super.onChildDraw(canvas, recyclerView, viewHolder, dX, dY, actionState, isCurrentlyActive);
+      }
+    }
+
+    @Override
+    public void clearView(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder) {
+      super.clearView(recyclerView, viewHolder);
+
+      if (itemAnimator == null) {
+        return;
+      }
+
+      ViewCompat.setElevation(viewHolder.itemView, 0);
+      lastTouched = null;
+
+      View view = getView();
+      if (view != null) {
+        itemAnimator.postDisable(view.getHandler());
+      } else {
+        itemAnimator.disable();
+      }
+    }
+  }
+
+  private final class VoiceNotePlayerViewListener implements VoiceNotePlayerView.Listener {
+
+    @Override
+    public void onCloseRequested(@NonNull Uri uri) {
+      if (voiceNotePlayerViewStub.resolved()) {
+        mediaControllerOwner.getVoiceNoteMediaController().stopPlaybackAndReset(uri);
+      }
+    }
+
+    @Override
+    public void onSpeedChangeRequested(@NonNull Uri uri, float speed) {
+      mediaControllerOwner.getVoiceNoteMediaController().setPlaybackSpeed(uri, speed);
+    }
+
+    @Override
+    public void onPlay(@NonNull Uri uri, long messageId, double position) {
+      mediaControllerOwner.getVoiceNoteMediaController().startSinglePlayback(uri, messageId, position);
+    }
+
+    @Override
+    public void onPause(@NonNull Uri uri) {
+      mediaControllerOwner.getVoiceNoteMediaController().pausePlayback(uri);
+    }
+
+    @Override
+    public void onNavigateToMessage(long threadId, @NonNull RecipientId threadRecipientId, @NonNull RecipientId senderId, long messageSentAt, long messagePositionInThread) {
+      MainNavigator.get(requireActivity()).goToConversation(threadRecipientId, threadId, ThreadDatabase.DistributionTypes.DEFAULT, (int) messagePositionInThread);
+    }
+  }
+
+  private class PaymentNotificationListener implements UnreadPaymentsView.Listener {
+
+    private final UnreadPayments unreadPayments;
+
+    private PaymentNotificationListener(@NonNull UnreadPayments unreadPayments) {
+      this.unreadPayments = unreadPayments;
+    }
+
+    @Override
+    public void onOpenPaymentsNotificationClicked() {
+      UUID paymentId = unreadPayments.getPaymentUuid();
+
+      if (paymentId == null) {
+        goToPaymentsHome();
+      } else {
+        goToSinglePayment(paymentId);
+      }
+    }
+
+    @Override
+    public void onClosePaymentsNotificationClicked() {
+      viewModel.onUnreadPaymentsClosed();
+    }
+
+    private void goToPaymentsHome() {
+      startActivity(new Intent(requireContext(), PaymentsActivity.class));
+    }
+
+    private void goToSinglePayment(@NonNull UUID paymentId) {
+      Intent intent = new Intent(requireContext(), PaymentsActivity.class);
+
+      intent.putExtra(PaymentsActivity.EXTRA_PAYMENTS_STARTING_ACTION, R.id.action_directly_to_paymentDetails);
+      intent.putExtra(PaymentsActivity.EXTRA_STARTING_ARGUMENTS, new PaymentDetailsFragmentArgs.Builder(PaymentDetailsParcelable.forUuid(paymentId)).build().toBundle());
+
+      startActivity(intent);
+    }
   }
 
 

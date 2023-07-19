@@ -1,15 +1,20 @@
 package org.thoughtcrime.securesms.main
 
+import android.Manifest
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.ActionMenuView
+import androidx.appcompat.widget.AppCompatImageButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -34,8 +39,10 @@ import org.thoughtcrime.securesms.components.settings.app.AppSettingsActivity
 import org.thoughtcrime.securesms.components.settings.app.notifications.manual.NotificationProfileSelectionFragment
 import org.thoughtcrime.securesms.conversationlist.ConversationListFragment
 import org.thoughtcrime.securesms.keyvalue.SignalStore
+import org.thoughtcrime.securesms.mediasend.v2.MediaSelectionActivity
 import org.thoughtcrime.securesms.notifications.profiles.NotificationProfile
 import org.thoughtcrime.securesms.notifications.profiles.NotificationProfiles
+import org.thoughtcrime.securesms.permissions.Permissions
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTab
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTabsState
@@ -56,14 +63,14 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 
   private lateinit var _toolbarBackground: View
   private lateinit var _toolbar: Toolbar
-//  private lateinit var _toolbarSettings: Toolbar
+  private lateinit var _toolbarSettings: Toolbar
   private lateinit var _basicToolbar: Stub<Toolbar>
 //  private lateinit var notificationProfileStatus: ImageView
 //  private lateinit var proxyStatus: ImageView
-  private lateinit var _searchToolbar: Stub<Material3SearchToolbar>
-//  private lateinit var _searchAction: ImageView
+//  private lateinit var _searchToolbar: Stub<Material3SearchToolbar>
+  private lateinit var _cameraAction: AppCompatImageView
 //  private lateinit var _unreadPaymentsDot: View
-  private lateinit var _chatToolbar: Toolbar
+//  private lateinit var _chatToolbar: Toolbar
   private var previousTopToastPopup: TopToastPopup? = null
   private var _isComingFromSettings = false
 
@@ -78,19 +85,19 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     _toolbarBackground = view.findViewById(R.id.toolbar_background)
     _toolbar = view.findViewById(R.id.toolbar)
-    _chatToolbar = view.findViewById(R.id.chat_toolbar)
-//    _toolbarSettings = view.findViewById(R.id.settings_tool_bar)
+//    _chatToolbar = view.findViewById(R.id.toolbar)
+    _toolbarSettings = view.findViewById(R.id.settings_tool_bar)
     _basicToolbar = Stub(view.findViewById(R.id.toolbar_basic_stub))
 //    notificationProfileStatus = view.findViewById(R.id.conversation_list_notification_profile_status)
 //    proxyStatus = view.findViewById(R.id.conversation_list_proxy_status)
-//    _searchAction = view.findViewById(R.id.search_action)
-    _searchToolbar = Stub(view.findViewById(R.id.search_toolbar))
+    _cameraAction = view.findViewById(R.id.camera_action)
+//    _searchToolbar = Stub(view.findViewById(R.id.search_toolbar))
 //    _unreadPaymentsDot = view.findViewById(R.id.unread_payments_indicator)
 //    notificationProfileStatus.setOnClickListener { handleNotificationProfile() }
 //    proxyStatus.setOnClickListener { onProxyStatusClicked() }
 
-//    (requireActivity() as AppCompatActivity).setSupportActionBar(_toolbar)
-
+    (requireActivity() as AppCompatActivity).setSupportActionBar(_toolbar)
+//    _toolbar.overflowIcon = ResourcesCompat.getDrawable(resources, R.drawable.ic_toolbar_settings, null)
     conversationListTabsViewModel.state.observe(viewLifecycleOwner) { state ->
       val controller: NavController = requireView().findViewById<View>(R.id.fragment_container).findNavController()
       println(controller.currentDestination)
@@ -340,13 +347,13 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   }
 
   private fun showChatToolbar() {
-    _toolbar.visibility = View.GONE
-    _chatToolbar.visibility = View.VISIBLE
+//    _toolbar.visibility = View.GONE
+//    _chatToolbar.visibility = View.VISIBLE
   }
 
   private fun showDefaultToolbar() {
-    _chatToolbar.visibility = View.GONE
-    _toolbar.visibility = View.VISIBLE
+//    _chatToolbar.visibility = View.GONE
+//    _toolbar.visibility = View.VISIBLE
   }
 
   private fun presentToolbarForConversationListFragment() {
@@ -356,11 +363,11 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 
     if (_isComingFromSettings){
       _isComingFromSettings = false
-//      _toolbarSettings.visible = false
+      _toolbarSettings.visible = false
       _toolbar.runRevealAnimation(R.anim.slide_from_end)
     }
     _toolbar.visible = true
-//    _searchAction.visible = true
+    _cameraAction.visible = true
 
     if (_basicToolbar.resolved() && _basicToolbar.get().visible) {
       _basicToolbar.get().runHideAnimation(R.anim.slide_to_end)
@@ -374,15 +381,15 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 
   private fun presentToolbarForNewSettingsFragment() {
     _toolbar.visible = false
-//    _toolbarSettings.runRevealAnimation(R.anim.slide_from_end)
+    _toolbarSettings.runRevealAnimation(R.anim.slide_from_end)
   }
 
   private fun presentToolbarForStoriesLandingFragment() {
     _toolbar.visible = true
-//    _searchAction.visible = false
+    _cameraAction.visible = false
     if (_isComingFromSettings){
       _isComingFromSettings = false
-//      _toolbarSettings.visible = false
+      _toolbarSettings.visible = false
       _toolbar.runRevealAnimation(R.anim.slide_from_end)
     }
     if (_basicToolbar.resolved()) {
@@ -406,28 +413,12 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     return _toolbar
   }
 
-  override fun getSearchAction(): ImageView {
-    return ImageView(context)
-  }
-
-  override fun getSearchToolbar(): Stub<Material3SearchToolbar> {
-    return _searchToolbar
-  }
-
   override fun getUnreadPaymentsDot(): View {
     return View(context)
   }
 
   override fun getBasicToolbar(): Stub<Toolbar> {
     return _basicToolbar
-  }
-
-  override fun onSearchOpened() {
-    conversationListTabsViewModel.onSearchOpened()
-  }
-
-  override fun onSearchClosed() {
-    conversationListTabsViewModel.onSearchClosed()
   }
 
   override fun onMultiSelectStarted() {
@@ -527,28 +518,23 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 
   private fun presentToolbarForDestination(destination: NavDestination) {
     when (destination.id) {
-      R.id.homeLandingFragment -> showDefaultToolbar()
-      R.id.storiesLandingFragment -> showDefaultToolbar()
-      R.id.conversationListFragment -> showChatToolbar()
-      R.id.prayersLandingFragment -> showDefaultToolbar()
-      R.id.newSettingsFragment -> showDefaultToolbar()
-//      R.id.conversationListFragment -> {
-//        conversationListTabsViewModel.isShowingArchived(false)
-//        presentToolbarForConversationListFragment()
-//      }
-//      R.id.conversationListArchiveFragment -> {
-//        conversationListTabsViewModel.isShowingArchived(true)
-//        presentToolbarForConversationListArchiveFragment()
-//      }
-//      R.id.storiesLandingFragment -> {
-//        conversationListTabsViewModel.isShowingArchived(false)
-//        presentToolbarForStoriesLandingFragment()
-//      }
-//      R.id.newSettingsFragment -> {
-//        _isComingFromSettings = true
-//        conversationListTabsViewModel.isShowingArchived(false)
-//        presentToolbarForNewSettingsFragment()
-//      }
+      R.id.conversationListFragment -> {
+        conversationListTabsViewModel.isShowingArchived(false)
+        presentToolbarForConversationListFragment()
+      }
+      R.id.conversationListArchiveFragment -> {
+        conversationListTabsViewModel.isShowingArchived(true)
+        presentToolbarForConversationListArchiveFragment()
+      }
+      R.id.storiesLandingFragment -> {
+        conversationListTabsViewModel.isShowingArchived(false)
+        presentToolbarForStoriesLandingFragment()
+      }
+      R.id.newSettingsFragment -> {
+        _isComingFromSettings = true
+        conversationListTabsViewModel.isShowingArchived(false)
+        presentToolbarForNewSettingsFragment()
+      }
     }
   }
 
@@ -562,7 +548,6 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     Material3OnScrollHelper(
       requireActivity(),
       listOf(_toolbarBackground),
-      listOf(_searchToolbar)
     ).attach(recyclerView)
   }
 }
