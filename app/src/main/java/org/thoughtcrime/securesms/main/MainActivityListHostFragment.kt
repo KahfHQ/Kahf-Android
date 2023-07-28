@@ -33,6 +33,7 @@ import org.signal.core.util.logging.Log
 import org.thoughtcrime.securesms.MainActivity
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.badges.BadgeImageView
+import org.thoughtcrime.securesms.components.AvatarImageView
 import org.thoughtcrime.securesms.components.Material3SearchToolbar
 import org.thoughtcrime.securesms.components.TooltipPopup
 import org.thoughtcrime.securesms.components.settings.app.AppSettingsActivity
@@ -69,10 +70,12 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 //  private lateinit var proxyStatus: ImageView
 //  private lateinit var _searchToolbar: Stub<Material3SearchToolbar>
   private lateinit var _cameraAction: AppCompatImageView
+  private lateinit var _toolbarAvatar: AppCompatImageView
 //  private lateinit var _unreadPaymentsDot: View
 //  private lateinit var _chatToolbar: Toolbar
   private var previousTopToastPopup: TopToastPopup? = null
   private var _isComingFromSettings = false
+
 
   private val destinationChangedListener = DestinationChangedListener()
 
@@ -91,6 +94,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 //    notificationProfileStatus = view.findViewById(R.id.conversation_list_notification_profile_status)
 //    proxyStatus = view.findViewById(R.id.conversation_list_proxy_status)
     _cameraAction = view.findViewById(R.id.camera_action)
+    _toolbarAvatar = view.findViewById(R.id.toolbar_avatar)
 //    _searchToolbar = Stub(view.findViewById(R.id.search_toolbar))
 //    _unreadPaymentsDot = view.findViewById(R.id.unread_payments_indicator)
 //    notificationProfileStatus.setOnClickListener { handleNotificationProfile() }
@@ -368,6 +372,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     }
     _toolbar.visible = true
     _cameraAction.visible = true
+    _toolbarAvatar.visible = false
 
     if (_basicToolbar.resolved() && _basicToolbar.get().visible) {
       _basicToolbar.get().runHideAnimation(R.anim.slide_to_end)
@@ -387,6 +392,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   private fun presentToolbarForStoriesLandingFragment() {
     _toolbar.visible = true
     _cameraAction.visible = false
+    _toolbarAvatar.visible = true
     if (_isComingFromSettings){
       _isComingFromSettings = false
       _toolbarSettings.visible = false
@@ -526,7 +532,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         conversationListTabsViewModel.isShowingArchived(true)
         presentToolbarForConversationListArchiveFragment()
       }
-      R.id.storiesLandingFragment -> {
+      R.id.storiesLandingFragment, R.id.homeLandingFragment, R.id.prayersLandingFragment -> {
         conversationListTabsViewModel.isShowingArchived(false)
         presentToolbarForStoriesLandingFragment()
       }

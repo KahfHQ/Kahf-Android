@@ -1085,7 +1085,7 @@ public class ConversationParentFragment extends Fragment
 
     super.onCreateOptionsMenu(menu, inflater);
 
-    int toolbarTextAndIconColor = getResources().getColor(wallpaper.getDrawable() != null ? R.color.signal_colorNeutralInverse : R.color.signal_colorOnSurface);
+    int toolbarTextAndIconColor = getResources().getColor(wallpaper.getDrawable() != null ? R.color.signal_colorNeutralInverse : R.color.grey_400);
     setToolbarActionItemTint(toolbar, toolbarTextAndIconColor);
   }
 
@@ -2130,6 +2130,9 @@ public class ConversationParentFragment extends Fragment
         return new ColorSet(getInactiveToolbarColor(wallpaper.getDrawable() != null));
       }
     };
+
+    toolbar.setOverflowIcon(ContextCompat.getDrawable(requireContext(), R.drawable.ic_chat_settings));
+    toolbar.setNavigationIcon(ContextCompat.getDrawable(requireContext(), R.drawable.ic_chat_back_button));
   }
 
   private void updateSendButtonColor(MessageSendType newMessageSendType) {
@@ -2167,7 +2170,7 @@ public class ConversationParentFragment extends Fragment
       }
 
       material3OnScrollHelper.setColorImmediate();
-      int toolbarTextAndIconColor = getResources().getColor(R.color.signal_colorNeutralInverse);
+      int toolbarTextAndIconColor = getResources().getColor(R.color.grey_400);
       toolbar.setTitleTextColor(toolbarTextAndIconColor);
       setToolbarActionItemTint(toolbar, toolbarTextAndIconColor);
       if (!smsExportStub.resolved()) {
@@ -2182,7 +2185,7 @@ public class ConversationParentFragment extends Fragment
       }
 
       material3OnScrollHelper.setColorImmediate();
-      int toolbarTextAndIconColor = getResources().getColor(R.color.signal_colorOnSurface);
+      int toolbarTextAndIconColor = getResources().getColor(R.color.grey_400);
       toolbar.setTitleTextColor(toolbarTextAndIconColor);
       setToolbarActionItemTint(toolbar, toolbarTextAndIconColor);
       if (!releaseChannelUnmute.resolved() && !smsExportStub.resolved()) {
@@ -2195,7 +2198,7 @@ public class ConversationParentFragment extends Fragment
 
   private static @ColorRes int getActiveToolbarColor(boolean hasWallpaper) {
     return hasWallpaper ? R.color.conversation_toolbar_color_wallpaper_scrolled
-                        : R.color.signal_colorSurface2;
+                        : R.color.signal_colorOnPrimary;
   }
 
   private static @ColorRes int getInactiveToolbarColor(boolean hasWallpaper) {

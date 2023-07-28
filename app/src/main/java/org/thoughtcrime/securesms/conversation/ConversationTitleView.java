@@ -39,9 +39,9 @@ public class ConversationTitleView extends RelativeLayout {
   private BadgeImageView  badge;
   private TextView        title;
   private TextView        subtitle;
-  private ImageView       verified;
+//  private ImageView       verified;
   private View            subtitleContainer;
-  private View            verifiedSubtitle;
+//  private View            verifiedSubtitle;
   private View            expirationBadgeContainer;
   private TextView        expirationBadgeTime;
   private boolean         isSelf;
@@ -61,9 +61,9 @@ public class ConversationTitleView extends RelativeLayout {
     this.title                    = findViewById(R.id.title);
     this.badge                    = findViewById(R.id.badge);
     this.subtitle                 = findViewById(R.id.subtitle);
-    this.verified                 = findViewById(R.id.verified_indicator);
+//    this.verified                 = findViewById(R.id.verified_indicator);
     this.subtitleContainer        = findViewById(R.id.subtitle_container);
-    this.verifiedSubtitle         = findViewById(R.id.verified_subtitle);
+//    this.verifiedSubtitle         = findViewById(R.id.verified_subtitle);
     this.avatar                   = findViewById(R.id.contact_photo_image);
     this.expirationBadgeContainer = findViewById(R.id.expiration_badge_container);
     this.expirationBadgeTime      = findViewById(R.id.expiration_badge);
@@ -173,7 +173,7 @@ public class ConversationTitleView extends RelativeLayout {
   }
 
   public void setVerified(boolean verified) {
-    this.verified.setVisibility(verified ? View.VISIBLE : View.GONE);
+//    this.verified.setVisibility(verified ? View.VISIBLE : View.GONE);
 
     updateVerifiedSubtitleVisibility();
   }
@@ -216,7 +216,7 @@ public class ConversationTitleView extends RelativeLayout {
   }
 
   private void updateVerifiedSubtitleVisibility() {
-    verifiedSubtitle.setVisibility(!isSelf && subtitle.getVisibility() != VISIBLE && verified.getVisibility() == VISIBLE ? VISIBLE : GONE);
+//    verifiedSubtitle.setVisibility(!isSelf && subtitle.getVisibility() != VISIBLE && verified.getVisibility() == VISIBLE ? VISIBLE : GONE);
   }
 
   private void updateSubtitleVisibility() {

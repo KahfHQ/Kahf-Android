@@ -510,6 +510,7 @@
 
     <!-- ConversationTitleView -->
     <string name="ConversationTitleView_verified">Verified</string>
+    <string name="ConversationTitleView_online">Online Now</string>
     <string name="ConversationTitleView_you">You</string>
 
     <!-- ConversationTypingView -->

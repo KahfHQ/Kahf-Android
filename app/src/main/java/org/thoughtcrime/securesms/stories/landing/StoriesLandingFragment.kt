@@ -6,9 +6,6 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.transition.TransitionInflater
-import android.view.Menu
-import android.view.MenuInflater
-import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -25,6 +22,7 @@ import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.kotlin.subscribeBy
 import org.thoughtcrime.securesms.R
+import org.thoughtcrime.securesms.components.AvatarImageView
 import org.thoughtcrime.securesms.components.settings.DSLConfiguration
 import org.thoughtcrime.securesms.components.settings.DSLSettingsFragment
 import org.thoughtcrime.securesms.components.settings.DSLSettingsText
@@ -37,6 +35,7 @@ import org.thoughtcrime.securesms.database.model.MmsMessageRecord
 import org.thoughtcrime.securesms.database.model.StoryViewState
 import org.thoughtcrime.securesms.main.Material3OnScrollHelperBinder
 import org.thoughtcrime.securesms.mediasend.v2.MediaSelectionActivity
+import org.thoughtcrime.securesms.mediasend.v2.MediaSelectionActivity.Companion.camera
 import org.thoughtcrime.securesms.permissions.Permissions
 import org.thoughtcrime.securesms.safety.SafetyNumberBottomSheet
 import org.thoughtcrime.securesms.stories.StoryTextPostModel
@@ -44,7 +43,6 @@ import org.thoughtcrime.securesms.stories.StoryViewerArgs
 import org.thoughtcrime.securesms.stories.dialogs.StoryContextMenu
 import org.thoughtcrime.securesms.stories.dialogs.StoryDialogs
 import org.thoughtcrime.securesms.stories.my.MyStoriesActivity
-import org.thoughtcrime.securesms.stories.settings.StorySettingsActivity
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTab
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTabsViewModel
 import org.thoughtcrime.securesms.stories.viewer.StoryViewerActivity
@@ -65,6 +63,7 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
 
   private lateinit var emptyNotice: View
   private lateinit var cameraFab: FloatingActionButton
+  private var toolbarAvatar: AvatarImageView? = null
 
   private val lifecycleDisposable = LifecycleDisposable()
 
@@ -80,13 +79,13 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setHasOptionsMenu(true)
+//    setHasOptionsMenu(true)
   }
 
-  override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-    menu.clear()
-    inflater.inflate(R.menu.story_landing_menu, menu)
-  }
+//  override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+//    menu.clear()
+//    inflater.inflate(R.menu.story_landing_menu, menu)
+//  }
 
   override fun onResume() {
     super.onResume()
@@ -304,14 +303,14 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
       .show()
   }
 
-  override fun onOptionsItemSelected(item: MenuItem): Boolean {
-    return if (item.itemId == R.id.action_settings) {
-      startActivityIfAble(StorySettingsActivity.getIntent(requireContext()))
-      true
-    } else {
-      false
-    }
-  }
+//  override fun onOptionsItemSelected(item: MenuItem): Boolean {
+//    return if (item.itemId == R.id.action_settings) {
+//      startActivityIfAble(StorySettingsActivity.getIntent(requireContext()))
+//      true
+//    } else {
+//      false
+//    }
+//  }
 
   override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
     Permissions.onRequestPermissionsResult(this, requestCode, permissions, grantResults)

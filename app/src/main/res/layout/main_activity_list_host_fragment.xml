@@ -50,6 +50,19 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:srcCompat="@drawable/ic_toolbar_camera" />
 
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/toolbar_avatar"
+                android:layout_width="@dimen/toolbar_avatar_size"
+                android:layout_height="@dimen/toolbar_avatar_size"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:contentDescription="@string/conversation_list_settings_shortcut"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_contact_picture"
+                android:visibility="invisible"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </org.thoughtcrime.securesms.util.views.DarkOverflowToolbar>
@@ -189,7 +202,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="bottom"
-        app:constraint_referenced_ids="toolbar,toolbar_basic,toolbar_background" />
+        app:constraint_referenced_ids="toolbar,toolbar_basic_stub,toolbar_background" />
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragment_container"

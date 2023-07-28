@@ -250,12 +250,12 @@ public final class ConversationListItem extends ConstraintLayout implements Bind
   }
 
   private void setBadgeFromRecipient(Recipient recipient) {
-    if (!recipient.isSelf()) {
-      badge.setBadgeFromRecipient(recipient);
-      badge.setClickable(false);
-    } else {
-      badge.setBadge(null);
-    }
+//    if (!recipient.isSelf()) {
+//      badge.setBadgeFromRecipient(recipient);
+//      badge.setClickable(false);
+//    } else {
+//      badge.setBadge(null);
+//    }
   }
 
   public void bindContact(@NonNull LifecycleOwner lifecycleOwner,

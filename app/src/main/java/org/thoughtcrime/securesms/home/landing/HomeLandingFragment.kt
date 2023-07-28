@@ -31,7 +31,7 @@ class HomeLandingFragment : Fragment() {
 
     private fun initViews() {
         binding.apply {
-            homeLandingFragmentCenterText.text = getString(R.string.ConversationListTabs__home)
+
         }
     }
 }
