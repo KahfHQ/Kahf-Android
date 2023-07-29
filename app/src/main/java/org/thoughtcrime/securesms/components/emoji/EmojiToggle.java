@@ -48,7 +48,7 @@ public class EmojiToggle extends AppCompatImageButton implements MediaKeyboard.M
   }
 
   private void initialize() {
-    this.emojiToggle   = ContextUtil.requireDrawable(getContext(), R.drawable.ic_emoji);
+    this.emojiToggle   = ContextUtil.requireDrawable(getContext(), R.drawable.ic_emoji_toggle);
     this.stickerToggle = ContextUtil.requireDrawable(getContext(), R.drawable.ic_sticker_24);
     this.gifToggle     = ContextUtil.requireDrawable(getContext(), R.drawable.ic_gif_24);
     this.imeToggle     = ContextUtil.requireDrawable(getContext(), R.drawable.ic_keyboard_24);

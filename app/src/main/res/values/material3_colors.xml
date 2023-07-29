@@ -63,5 +63,6 @@
 
     <color name="kahf_bottomNavBar_selectedItemColor">#3E8DFF</color>
     <color name="kahf_unread_message_count_background">#EB5757</color>
+    <color name="kahf_send_message_background">#F2F2F2</color>
 
 </resources>
