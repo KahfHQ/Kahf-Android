@@ -4,9 +4,8 @@
     tools:viewBindingIgnore="true"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/quote_container"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="3dp"
     android:visibility="gone"
     tools:parentTag="android.widget.FrameLayout"
     tools:visibility="visible">
@@ -17,22 +16,25 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
 
-        <View
-            android:id="@+id/quote_bar"
-            android:layout_width="@dimen/quote_corner_radius_bottom"
-            android:layout_height="match_parent"
-            tools:background="@color/purple_400" />
+<!--        <View-->
+<!--            android:id="@+id/quote_bar"-->
+<!--            android:layout_width="@dimen/quote_corner_radius_bottom"-->
+<!--            android:layout_height="match_parent"-->
+<!--            tools:background="@color/transparent" />-->
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/chat_quote_view_background"
+            android:paddingVertical="10dp"
+            android:paddingHorizontal="20dp">
 
             <LinearLayout
                 android:id="@+id/quote_main"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal" >
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -122,7 +124,7 @@
                 <FrameLayout
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:background="@color/white">
+                    android:background="@color/transparent">
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/quote_thumbnail"
@@ -199,11 +201,10 @@
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/quote_dismiss"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_gravity="top|end"
-        android:background="@drawable/dismiss_background"
-        app:srcCompat="@drawable/ic_x_20"
-        app:tint="@color/signal_colorOnSurface" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|end"
+        app:srcCompat="@drawable/ic_chat_quote_view_close"
+        android:layout_marginEnd="20dp"/>
 
 </merge>
