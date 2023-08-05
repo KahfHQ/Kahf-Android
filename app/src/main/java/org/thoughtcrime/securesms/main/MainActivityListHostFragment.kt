@@ -70,7 +70,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 //  private lateinit var proxyStatus: ImageView
 //  private lateinit var _searchToolbar: Stub<Material3SearchToolbar>
   private lateinit var _cameraAction: AppCompatImageView
-  private lateinit var _toolbarAvatar: AppCompatImageView
+  private lateinit var _toolbarAvatar: AvatarImageView
 //  private lateinit var _unreadPaymentsDot: View
 //  private lateinit var _chatToolbar: Toolbar
   private var previousTopToastPopup: TopToastPopup? = null
@@ -95,6 +95,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 //    proxyStatus = view.findViewById(R.id.conversation_list_proxy_status)
     _cameraAction = view.findViewById(R.id.camera_action)
     _toolbarAvatar = view.findViewById(R.id.toolbar_avatar)
+    _toolbarAvatar.setRecipient(Recipient.self())
 //    _searchToolbar = Stub(view.findViewById(R.id.search_toolbar))
 //    _unreadPaymentsDot = view.findViewById(R.id.unread_payments_indicator)
 //    notificationProfileStatus.setOnClickListener { handleNotificationProfile() }

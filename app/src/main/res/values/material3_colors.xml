@@ -65,5 +65,6 @@
     <color name="kahf_unread_message_count_background">#EB5757</color>
     <color name="kahf_send_message_background">#F2F2F2</color>
     <color name="kahf_send_message_quote_background">#E6EAF2</color>
+    <color name="kahf_root_container_gradient_end_color">#F1F2F4</color>
 
 </resources>

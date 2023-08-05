@@ -410,7 +410,7 @@ public class QuoteView extends FrameLayout implements RecipientForeverObserver {
     } else if (imageVideoSlide != null && imageVideoSlide.getUri() != null) {
       thumbnailView.setVisibility(VISIBLE);
       attachmentContainerView.setVisibility(GONE);
-      dismissView.setBackgroundResource(R.drawable.dismiss_background);
+//      dismissView.setBackgroundResource(R.drawable.dismiss_background);
       if (imageVideoSlide.hasVideo() && !imageVideoSlide.isVideoGif()) {
         attachmentVideoOverlayView.setVisibility(VISIBLE);
       }

@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/signal_colorSurface2"
+    android:background="@color/signal_colorOnPrimary"
     android:minHeight="60dp"
     android:paddingHorizontal="@dimen/dsl_settings_gutter">
 
