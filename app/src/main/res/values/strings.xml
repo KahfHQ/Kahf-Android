@@ -2408,6 +2408,7 @@
     <!-- profile_create_activity -->
     <string name="CreateProfileActivity_first_name_required">First name (required)</string>
     <string name="CreateProfileActivity_last_name_optional">Last name (optional)</string>
+    <string name="CreateProfileActivity_gender_required">Gender (required)</string>
     <string name="CreateProfileActivity_next">Next</string>
     <string name="CreateProfileActivity__username">Username</string>
     <string name="CreateProfileActivity__create_a_username">Create a username</string>
@@ -2451,7 +2452,7 @@
     <string name="verify_display_fragment__successful_match">Successful match</string>
     <string name="verify_display_fragment__failed_to_verify_safety_number">Failed to verify safety number</string>
     <string name="verify_display_fragment__loading">Loading…</string>
-    <string name="verify_display_fragment__mark_as_verified">Mark as verified</string>
+    <string name="verify_display_fragment__mark_as_verified">Mark as Mahram</string>
     <string name="verify_display_fragment__clear_verification">Clear verification</string>
 
     <!-- verify_identity -->
@@ -2489,7 +2490,7 @@
     <string name="AndroidManifest__create_passphrase">Create passphrase</string>
     <string name="AndroidManifest__select_contacts">Select contacts</string>
     <string name="AndroidManifest__change_passphrase">Change passphrase</string>
-    <string name="AndroidManifest__verify_safety_number">Verify safety number</string>
+    <string name="AndroidManifest__verify_safety_number">Mark as Mahram</string>
     <string name="AndroidManifest__log_submit">Submit debug log</string>
     <string name="AndroidManifest__media_preview">Media preview</string>
     <string name="AndroidManifest__message_details">Message details</string>
@@ -3608,7 +3609,7 @@
     <string name="RecipientBottomSheet_unable_to_open_contacts">Can\'t find an app able to open contacts.</string>
     <string name="RecipientBottomSheet_add_to_a_group">Add to a group</string>
     <string name="RecipientBottomSheet_add_to_another_group">Add to another group</string>
-    <string name="RecipientBottomSheet_view_safety_number">View safety number</string>
+    <string name="RecipientBottomSheet_view_safety_number">Mark as Mahram</string>
     <string name="RecipientBottomSheet_make_admin">Make admin</string>
     <string name="RecipientBottomSheet_remove_as_admin">Remove as admin</string>
     <string name="RecipientBottomSheet_remove_from_group">Remove from group</string>
@@ -4212,7 +4213,7 @@
     <string name="ConversationSettingsFragment__sounds_and_notifications">Sounds &amp; notifications</string>
     <string name="ConversationSettingsFragment__internal_details" translatable="false">Internal details</string>
     <string name="ConversationSettingsFragment__contact_details">Contact details</string>
-    <string name="ConversationSettingsFragment__view_safety_number">View safety number</string>
+    <string name="ConversationSettingsFragment__view_safety_number">Mark as Mahram</string>
     <string name="ConversationSettingsFragment__block">Block</string>
     <string name="ConversationSettingsFragment__block_group">Block group</string>
     <string name="ConversationSettingsFragment__unblock">Unblock</string>

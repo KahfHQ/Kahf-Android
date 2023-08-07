@@ -316,6 +316,7 @@ import org.whispersystems.signalservice.api.util.ExpiringProfileCredentialUtil;
 import java.io.IOException;
 import java.security.SecureRandom;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Locale;
@@ -1479,8 +1480,17 @@ public class ConversationParentFragment extends Fragment
                                           .setPositiveButton(android.R.string.ok, (d, w) -> d.dismiss())
                                           .show();
     } else {
-      CommunicationActions.startVideoCall(this, recipient);
+      if (checkVideoCallEnabled(recipient)) {
+        CommunicationActions.startVideoCall(this, recipient);
+      }
     }
+  }
+
+  private boolean checkVideoCallEnabled(final Recipient recipient) {
+    List<String> allowedFamilyNames = new ArrayList<>(Arrays.asList("Male", "Female"));
+    String selfFamilyName = allowedFamilyNames.contains(Recipient.self().getProfileName().getFamilyName()) ? Recipient.self().getProfileName().getFamilyName() : "Male";
+    String recipientFamilyName = allowedFamilyNames.contains(recipient.getProfileName().getFamilyName()) ? recipient.getProfileName().getFamilyName() : "Male";
+    return identityRecords.getIdentityRecords().get(0).getVerifiedStatus() == VerifiedStatus.VERIFIED || selfFamilyName.equals(recipientFamilyName);
   }
 
   private void handleDisplayGroupRecipients() {

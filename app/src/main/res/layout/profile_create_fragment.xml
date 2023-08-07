@@ -166,27 +166,61 @@
                         android:visibility="gone"
                         tools:visibility="visible" />
 
-                    <com.google.android.material.textfield.TextInputLayout
-                        android:id="@+id/family_name_wrapper"
-                        style="@style/Widget.Signal.TextInputLayout.FilledBox.ContactNameEditor"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="13dp"
-                        android:hint="@string/CreateProfileActivity_last_name_optional">
+                        android:orientation="horizontal">
 
-                        <org.thoughtcrime.securesms.components.emoji.EmojiEditText
-                            android:id="@+id/family_name"
-                            style="@style/Signal.Text.Body"
-                            android:layout_width="match_parent"
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/gender_wrapper"
+                            style="@style/Widget.Signal.TextInputLayout.FilledBox.ContactNameEditor"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
+                            android:layout_marginTop="13dp"
                             android:layout_weight="1"
-                            android:autofillHints="personFamilyName"
-                            android:inputType="textPersonName"
-                            android:singleLine="true" />
+                            android:hint="@string/CreateProfileActivity_gender_required"
+                            android:focusable="false">
 
-                    </com.google.android.material.textfield.TextInputLayout>
+                            <org.thoughtcrime.securesms.components.emoji.EmojiEditText
+                                android:id="@+id/gender"
+                                style="@style/Signal.Text.Body"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:autofillHints="personFamilyName"
+                                android:inputType="textPersonName"
+                                android:singleLine="true"
+                                android:focusable="false" />
+
+                        </com.google.android.material.textfield.TextInputLayout>
+                    </LinearLayout>
+
+                    <!--                    <com.google.android.material.textfield.TextInputLayout-->
+<!--                        android:id="@+id/family_name_wrapper"-->
+<!--                        style="@style/Widget.Signal.TextInputLayout.FilledBox.ContactNameEditor"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:layout_marginTop="13dp"-->
+<!--                        android:hint="@string/CreateProfileActivity_last_name_optional">-->
+
+<!--                        <org.thoughtcrime.securesms.components.emoji.EmojiEditText-->
+<!--                            android:id="@+id/family_name"-->
+<!--                            style="@style/Signal.Text.Body"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:layout_gravity="center_vertical"-->
+<!--                            android:layout_weight="1"-->
+<!--                            android:autofillHints="personFamilyName"-->
+<!--                            android:inputType="textPersonName"-->
+<!--                            android:singleLine="true" />-->
+
+<!--                    </com.google.android.material.textfield.TextInputLayout>-->
+
+
                 </LinearLayout>
+
+
 
                 <org.thoughtcrime.securesms.util.views.LearnMoreTextView
                     android:id="@+id/group_description_text"

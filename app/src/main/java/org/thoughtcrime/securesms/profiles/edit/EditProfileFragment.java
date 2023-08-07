@@ -8,10 +8,13 @@ import android.os.Bundle;
 import android.os.Parcelable;
 import android.text.InputType;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -177,34 +180,48 @@ public class EditProfileFragment extends LoggingFragment {
       binding.namePreview.setVisibility(View.GONE);
 
       if (groupId.isV2()) {
-        EditTextUtil.addGraphemeClusterLimitFilter(binding.familyName, MAX_DESCRIPTION_GLYPHS);
-        binding.familyName.addTextChangedListener(new AfterTextChanged(s -> {
+        EditTextUtil.addGraphemeClusterLimitFilter(binding.gender, MAX_DESCRIPTION_GLYPHS);
+        binding.gender.addTextChangedListener(new AfterTextChanged(s -> {
           EditProfileNameFragment.trimFieldToMaxByteLength(s, MAX_DESCRIPTION_BYTES);
           viewModel.setFamilyName(s.toString());
         }));
-        binding.familyNameWrapper.setHint(R.string.EditProfileFragment__group_description);
-        binding.familyName.setSingleLine(false);
-        binding.familyName.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        binding.genderWrapper.setHint(R.string.EditProfileFragment__group_description);
+        binding.gender.setSingleLine(false);
+        binding.gender.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_FLAG_MULTI_LINE | InputType.TYPE_TEXT_FLAG_CAP_SENTENCES);
+        binding.gender.setEnabled(true);
+        binding.gender.setFocusable(true);
 
         binding.groupDescriptionText.setLearnMoreVisible(false);
         binding.groupDescriptionText.setText(R.string.CreateProfileActivity_group_descriptions_will_be_visible_to_members_of_this_group_and_people_who_have_been_invited);
       } else {
-        binding.familyNameWrapper.setVisibility(View.GONE);
-        binding.familyName.setEnabled(false);
+        binding.genderWrapper.setVisibility(View.GONE);
+        binding.gender.setEnabled(false);
+        binding.gender.setFocusable(false);
         binding.groupDescriptionText.setVisibility(View.GONE);
       }
       binding.avatarPlaceholder.setImageResource(R.drawable.ic_group_outline_40);
     } else {
       EditTextUtil.addGraphemeClusterLimitFilter(binding.givenName, EditProfileNameFragment.NAME_MAX_GLYPHS);
-      EditTextUtil.addGraphemeClusterLimitFilter(binding.familyName, EditProfileNameFragment.NAME_MAX_GLYPHS);
+      EditTextUtil.addGraphemeClusterLimitFilter(binding.gender, EditProfileNameFragment.NAME_MAX_GLYPHS);
       binding.givenName.addTextChangedListener(new AfterTextChanged(s -> {
                                                                         EditProfileNameFragment.trimFieldToMaxByteLength(s);
                                                                         viewModel.setGivenName(s.toString());
                                                                       }));
-      binding.familyName.addTextChangedListener(new AfterTextChanged(s -> {
+      binding.gender.addTextChangedListener(new AfterTextChanged(s -> {
                                                                          EditProfileNameFragment.trimFieldToMaxByteLength(s);
                                                                          viewModel.setFamilyName(s.toString());
                                                                        }));
+      binding.gender.setOnClickListener(v -> {
+          PopupMenu popupMenu = new PopupMenu(requireContext(), binding.gender);
+          popupMenu.getMenu().add(Menu.NONE, 0, Menu.NONE, "Male");
+          popupMenu.getMenu().add(Menu.NONE, 1, Menu.NONE, "Female");
+
+          popupMenu.setOnMenuItemClickListener(item -> {
+            binding.gender.setText(item.getTitle());
+            return true;
+          });
+          popupMenu.show();
+      });
       binding.groupDescriptionText.setVisibility(View.GONE);
       binding.profileDescriptionText.setLearnMoreVisible(true);
       binding.profileDescriptionText.setLinkColor(ContextCompat.getColor(requireContext(), R.color.signal_colorPrimary));
@@ -245,7 +262,7 @@ public class EditProfileFragment extends LoggingFragment {
 
     viewModel.givenName().observe(getViewLifecycleOwner(), givenName -> updateFieldIfNeeded(binding.givenName, givenName));
 
-    viewModel.familyName().observe(getViewLifecycleOwner(), familyName -> updateFieldIfNeeded(binding.familyName, familyName));
+    viewModel.familyName().observe(getViewLifecycleOwner(), familyName -> updateFieldIfNeeded(binding.gender, familyName));
 
     viewModel.profileName().observe(getViewLifecycleOwner(), profileName -> binding.namePreview.setText(profileName.toString()));
   }
