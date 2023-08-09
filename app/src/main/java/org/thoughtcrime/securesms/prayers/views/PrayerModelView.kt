@@ -10,11 +10,14 @@ import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.widget.ImageViewCompat
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.databinding.PrayerModelViewBinding
 import org.thoughtcrime.securesms.prayers.constants.PrayersConstants
+import org.thoughtcrime.securesms.prayers.fragments.AdhanAndNotificationBottomSheetFragment
+import org.thoughtcrime.securesms.prayers.landing.PrayersLandingFragment
 
-class PrayerModelView constructor(context: Context, private val prayerModel: PrayerModel) : ConstraintLayout(context) {
+class PrayerModelView constructor(context: Context, private val prayerModel: PrayerModel, private val fragment: PrayersLandingFragment) : ConstraintLayout(context) {
 
     private var binding: PrayerModelViewBinding
 
@@ -36,6 +39,10 @@ class PrayerModelView constructor(context: Context, private val prayerModel: Pra
                     else -> ContextCompat.getDrawable(context, R.drawable.ic_prayer_voice_enabled)
                 }
             )
+            notificationTypeImage.setOnClickListener {
+                val bottomSheetFragment = AdhanAndNotificationBottomSheetFragment()
+                bottomSheetFragment.show(fragment.parentFragmentManager, bottomSheetFragment.tag)
+            }
         }
     }
 

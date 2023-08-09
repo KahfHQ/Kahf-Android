@@ -56,7 +56,7 @@ class PrayersLandingFragment : Fragment() {
     private fun initViews() {
         binding.apply {
             prayerModels?.forEach {
-                val prayerModelView = PrayerModelView(requireContext(), it)
+                val prayerModelView = PrayerModelView(requireContext(), it, this@PrayersLandingFragment)
                 prayersLinearLayout.addView(prayerModelView)
             }
 
