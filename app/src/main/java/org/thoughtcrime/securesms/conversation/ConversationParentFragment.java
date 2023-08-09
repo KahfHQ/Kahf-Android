@@ -24,6 +24,7 @@ import android.app.PendingIntent;
 import android.content.ActivityNotFoundException;
 import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
@@ -1482,6 +1483,11 @@ public class ConversationParentFragment extends Fragment
     } else {
       if (checkVideoCallEnabled(recipient)) {
         CommunicationActions.startVideoCall(this, recipient);
+      } else {
+        new MaterialAlertDialogBuilder(requireContext()).setTitle("Alert")
+                .setMessage(String.format(getString(R.string.MessageRecord_video_call_unable_pop_up_message), recipient.getProfileName()))
+                .setPositiveButton(android.R.string.ok, (d, w) -> d.dismiss())
+                .show();
       }
     }
   }

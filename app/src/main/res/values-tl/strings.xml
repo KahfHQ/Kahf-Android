@@ -2441,7 +2441,7 @@
     <string name="verify_display_fragment__failed_to_verify_safety_number">Failed to verify safety number</string>
     <string name="verify_display_fragment__loading">Naglo-load…</string>
     <string name="verify_display_fragment__mark_as_verified">Mark as verified</string>
-    <string name="verify_display_fragment__clear_verification">Clear verification</string>
+    <string name="verify_display_fragment__clear_verification">Remove from Mahram</string>
 
     <!-- verify_identity -->
     <string name="verify_identity__share_safety_number">Ibahagi ang numerong pangkaligtasan</string>
