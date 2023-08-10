@@ -16,6 +16,7 @@ import org.thoughtcrime.securesms.databinding.PrayerModelViewBinding
 import org.thoughtcrime.securesms.prayers.constants.PrayersConstants
 import org.thoughtcrime.securesms.prayers.fragments.AdhanAndNotificationBottomSheetFragment
 import org.thoughtcrime.securesms.prayers.landing.PrayersLandingFragment
+import org.thoughtcrime.securesms.prayers.listeners.OnNotificationTypeSelectedListener
 
 class PrayerModelView constructor(context: Context, private val prayerModel: PrayerModel, private val fragment: PrayersLandingFragment) : ConstraintLayout(context) {
 
@@ -40,7 +41,7 @@ class PrayerModelView constructor(context: Context, private val prayerModel: Pra
                 }
             )
             notificationTypeImage.setOnClickListener {
-                val bottomSheetFragment = AdhanAndNotificationBottomSheetFragment()
+                val bottomSheetFragment = AdhanAndNotificationBottomSheetFragment(prayerModel.notificationType, prepareOnNotificationSelectedListener())
                 bottomSheetFragment.show(fragment.parentFragmentManager, bottomSheetFragment.tag)
             }
         }
@@ -52,6 +53,7 @@ class PrayerModelView constructor(context: Context, private val prayerModel: Pra
             containerView.background = ContextCompat.getDrawable(context, R.drawable.disabled_prayer_rounded_background)
             timeNameLabel.setTextColor(Color.parseColor("#CCCCCC"))
             timeLabel.setTextColor(Color.parseColor("#CCCCCC"))
+            notificationTypeImage.isEnabled = false
         }
     }
 
@@ -61,6 +63,22 @@ class PrayerModelView constructor(context: Context, private val prayerModel: Pra
             containerView.background = ContextCompat.getDrawable(context, R.drawable.common_rounded_background)
             timeNameLabel.setTextColor(Color.parseColor("#333333"))
             timeLabel.setTextColor(Color.parseColor("#4F4F4F"))
+            notificationTypeImage.isEnabled = true
+        }
+    }
+
+    private fun prepareOnNotificationSelectedListener(): OnNotificationTypeSelectedListener {
+        return object : OnNotificationTypeSelectedListener {
+            override fun onNotificationTypeSelected(notificationType: String) {
+                binding.notificationTypeImage.setImageDrawable(
+                        when(notificationType) {
+                            PrayersConstants.NotificationTypes.MUTED -> ContextCompat.getDrawable(context, R.drawable.ic_prayer_muted)
+                            PrayersConstants.NotificationTypes.UNMUTED -> ContextCompat.getDrawable(context, R.drawable.ic_prayer_unmuted)
+                            else -> ContextCompat.getDrawable(context, R.drawable.ic_prayer_voice_enabled)
+                        }
+                )
+                prayerModel.notificationType = notificationType
+            }
         }
     }
 }
@@ -68,5 +86,5 @@ class PrayerModelView constructor(context: Context, private val prayerModel: Pra
 data class PrayerModel(
     val label: String?,
     val time: String?,
-    val notificationType: String?
+    var notificationType: String
 )
