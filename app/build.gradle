@@ -469,6 +469,8 @@ dependencies {
 
     implementation libs.google.play.services.maps
     implementation libs.google.play.services.auth
+    implementation libs.google.play.services.gcm
+    implementation libs.google.play.services.location
 
     implementation libs.bundles.exoplayer
 
@@ -488,6 +490,8 @@ dependencies {
 
     implementation libs.libsignal.android
     implementation libs.google.protobuf.javalite
+    implementation libs.adhan
+    implementation libs.smart.location
 
     implementation(libs.mobilecoin) {
         exclude group: 'com.google.protobuf'

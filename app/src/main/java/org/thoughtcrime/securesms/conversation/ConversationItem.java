@@ -1533,6 +1533,8 @@ public final class ConversationItem extends RelativeLayout implements BindableCo
         quoteView.setMessageType(current.isOutgoing() ? QuoteView.MessageType.OUTGOING : QuoteView.MessageType.INCOMING);
       }
 
+      quoteView.findViewById(R.id.quote_view_background).setBackgroundColor(ContextCompat.getColor(context, R.color.transparent));
+
       //noinspection ConstantConditions
       quoteView.setQuote(glideRequests,
                          quote.getId(),
