@@ -18,7 +18,7 @@ import org.thoughtcrime.securesms.prayers.fragments.AdhanAndNotificationBottomSh
 import org.thoughtcrime.securesms.prayers.landing.PrayersLandingFragment
 import org.thoughtcrime.securesms.prayers.listeners.OnNotificationTypeSelectedListener
 
-class PrayerModelView constructor(context: Context, private val prayerModel: PrayerModel, private val fragment: PrayersLandingFragment) : ConstraintLayout(context) {
+class PrayerModelView constructor(context: Context, val prayerModel: PrayerModel, private val fragment: PrayersLandingFragment) : ConstraintLayout(context) {
 
     private var binding: PrayerModelViewBinding
 
@@ -67,6 +67,10 @@ class PrayerModelView constructor(context: Context, private val prayerModel: Pra
         }
     }
 
+    fun changeTimeString(text: String) {
+        binding.timeLabel.text = text
+    }
+
     private fun prepareOnNotificationSelectedListener(): OnNotificationTypeSelectedListener {
         return object : OnNotificationTypeSelectedListener {
             override fun onNotificationTypeSelected(notificationType: String) {
@@ -84,6 +88,7 @@ class PrayerModelView constructor(context: Context, private val prayerModel: Pra
 }
 
 data class PrayerModel(
+    val type: PrayersConstants.PrayerTime,
     val label: String?,
     val time: String?,
     var notificationType: String

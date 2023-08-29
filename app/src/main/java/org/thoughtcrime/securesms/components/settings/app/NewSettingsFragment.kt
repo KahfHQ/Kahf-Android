@@ -293,7 +293,7 @@ class NewSettingsFragment : Fragment() {
 
             itemView.setOnClickListener { model.onClick() }
 
-            titleView.text = model.recipient.profileName.toString()
+            titleView.text = model.recipient.profileName.toString().split(" ")[0]
             summaryView.text = PhoneNumberFormatter.prettyPrint(model.recipient.requireE164())
             avatarView.setRecipient(Recipient.self())
             badgeView.setBadgeFromRecipient(Recipient.self())

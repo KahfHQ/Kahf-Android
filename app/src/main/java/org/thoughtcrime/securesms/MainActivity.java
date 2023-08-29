@@ -9,6 +9,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -87,6 +88,7 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
 
   @Override
   protected void onPreCreate() {
+    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     super.onPreCreate();
     dynamicTheme.onCreate(this);
   }

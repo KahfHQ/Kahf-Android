@@ -880,7 +880,7 @@ public class ConversationListFragment extends MainFragment implements ActionMode
       if (isSearchOpen() || actionMode != null) {
         megaphoneContainer.get().setVisibility(View.GONE);
       } else {
-        megaphoneContainer.get().setVisibility(View.VISIBLE);
+//        megaphoneContainer.get().setVisibility(View.VISIBLE);
       }
     } else {
       megaphoneContainer.get().setVisibility(View.GONE);
