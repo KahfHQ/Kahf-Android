@@ -44,7 +44,7 @@ public class FromTextView extends SimpleEmojiTextView {
   }
 
   public void setText(Recipient recipient, boolean read, @Nullable String suffix) {
-    setText(recipient, recipient.getDisplayNameOrUsername(getContext()), read, suffix);
+    setText(recipient, recipient.getShortDisplayName(getContext()), read, suffix);
   }
 
   public void setText(Recipient recipient, @Nullable CharSequence fromString, boolean read, @Nullable String suffix) {
