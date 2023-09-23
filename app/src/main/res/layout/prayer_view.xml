@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/common_rounded_background"
+    android:layout_margin="20dp"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal">
+        
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Dua"
+                android:textSize="24sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Before Sleeping"
+                android:textSize="14sp"
+                android:textColor="#333333"
+                android:textStyle="bold" />
+            
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dua is essentially an expression of submission of faith to God and of one's neediness. Type I: Du'ā al-mas'alah (دُعَاءُ الْمَسْأَلَة du'ā'u 'l-mas' ..."
+                android:textSize="14sp"
+                android:textColor="#000000"
+                android:layout_marginTop="27dp" />
+            
+        </LinearLayout>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_mosque_nearby_more"
+            android:layout_gravity="top"
+            android:layout_marginTop="20dp"/>
+        
+        
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
