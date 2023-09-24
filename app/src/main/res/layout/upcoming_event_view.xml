@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container_view">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+       <LinearLayout
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:orientation="vertical"
+           android:gravity="center_horizontal">
+
+           <TextView
+               android:id="@+id/day"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#333333"
+               android:textSize="24sp"
+               android:textStyle="bold"
+               android:text="27" />
+
+           <TextView
+               android:id="@+id/month"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:textColor="#333333"
+               android:textSize="12sp"
+               android:text="JUNE"
+               android:layout_marginTop="-5dp"/>
+
+       </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#333333"
+            android:layout_marginStart="22dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="22dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/event_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:text="Hajj Starting Day" />
+
+            <TextView
+                android:id="@+id/remaining_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#4F4F4F"
+                android:textSize="14sp"
+                android:text="12 Days left - 8th Dhul-Hijjah"
+                android:layout_marginTop="5dp"
+                android:maxLines="1"
+                android:ellipsize="end" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
