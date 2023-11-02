@@ -47,39 +47,7 @@ public final class RegistrationCompleteFragment extends LoggingFragment {
     FragmentActivity      activity  = requireActivity();
     RegistrationViewModel viewModel = new ViewModelProvider(activity).get(RegistrationViewModel.class);
 
-    if (SignalStore.storageService().needsAccountRestore()) {
-      Log.i(TAG, "Performing pin restore");
-      activity.startActivity(new Intent(activity, PinRestoreActivity.class));
-    } else if (!viewModel.isReregister()) {
-      boolean needsProfile = Recipient.self().getProfileName().isEmpty() || !AvatarHelper.hasAvatar(activity, Recipient.self().getId());
-      boolean needsPin     = !SignalStore.kbsValues().hasPin();
-
-      Log.i(TAG, "Pin restore flow not required." +
-                 " profile name: "   + Recipient.self().getProfileName().isEmpty() +
-                 " profile avatar: " + !AvatarHelper.hasAvatar(activity, Recipient.self().getId()) +
-                 " needsPin:"        + needsPin);
-
-      Intent startIntent = MainActivity.clearTop(activity);
-
-      if (needsPin) {
-        startIntent = chainIntents(CreateKbsPinActivity.getIntentForPinCreate(requireContext()), startIntent);
-      }
-
-      if (needsProfile) {
-        startIntent = chainIntents(EditProfileActivity.getIntentForUserProfile(activity), startIntent);
-      }
-
-      if (!needsProfile && !needsPin) {
-        ApplicationDependencies.getJobManager()
-                               .startChain(new ProfileUploadJob())
-                               .then(Arrays.asList(new MultiDeviceProfileKeyUpdateJob(), new MultiDeviceProfileContentUpdateJob()))
-                               .enqueue();
-
-        RegistrationUtil.maybeMarkRegistrationComplete(requireContext());
-      }
-
-      activity.startActivity(startIntent);
-    }
+    activity.startActivity(new Intent(activity, MainActivity.class));
 
     activity.finish();
     ActivityNavigator.applyPopAnimationsToPendingTransition(activity);
