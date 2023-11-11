@@ -5,6 +5,7 @@ import android.content.res.ColorStateList
 import android.graphics.Color
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -40,10 +41,11 @@ class PrayerModelView constructor(context: Context, val prayerModel: PrayerModel
                     else -> ContextCompat.getDrawable(context, R.drawable.ic_prayer_voice_enabled)
                 }
             )
-            notificationTypeImage.setOnClickListener {
+            //TODO: Egecan this will be set with implementation of notifications
+            /*notificationTypeImage.setOnClickListener {
                 val bottomSheetFragment = AdhanAndNotificationBottomSheetFragment(prayerModel.notificationType, prepareOnNotificationSelectedListener())
                 bottomSheetFragment.show(fragment.parentFragmentManager, bottomSheetFragment.tag)
-            }
+            }*/
         }
     }
 

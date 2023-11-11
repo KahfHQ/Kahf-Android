@@ -1481,15 +1481,26 @@ public class ConversationParentFragment extends Fragment
                                           .setPositiveButton(android.R.string.ok, (d, w) -> d.dismiss())
                                           .show();
     } else {
-      if (checkVideoCallEnabled(recipient)) {
-        CommunicationActions.startVideoCall(this, recipient);
+      if (checkVideoCallPossible()) {
+        if (checkVideoCallEnabled(recipient)) {
+          CommunicationActions.startVideoCall(this, recipient);
+        } else {
+          new MaterialAlertDialogBuilder(requireContext()).setTitle("Alert")
+                  .setMessage(String.format(getString(R.string.MessageRecord_video_call_unable_pop_up_message), recipient.getShortDisplayName(requireContext())))
+                  .setPositiveButton(android.R.string.ok, (d, w) -> d.dismiss())
+                  .show();
+        }
       } else {
         new MaterialAlertDialogBuilder(requireContext()).setTitle("Alert")
-                .setMessage(String.format(getString(R.string.MessageRecord_video_call_unable_pop_up_message), recipient.getProfileName()))
+                .setMessage(String.format(getString(R.string.MessageRecord_video_call_cant_be_made)))
                 .setPositiveButton(android.R.string.ok, (d, w) -> d.dismiss())
                 .show();
       }
     }
+  }
+
+  private boolean checkVideoCallPossible() {
+      return !identityRecords.getIdentityRecords().isEmpty();
   }
 
   private boolean checkVideoCallEnabled(final Recipient recipient) {

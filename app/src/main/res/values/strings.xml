@@ -1365,6 +1365,7 @@
     <string name="MessageRecord_your_safety_number_with_s_has_changed">Your safety number with %s has changed.</string>
     <string name="MessageRecord_you_marked_your_safety_number_with_s_verified">You marked %s as Mahram</string>
     <string name="MessageRecord_video_call_unable_pop_up_message">You need to mark %s as Mahram in order to make a video call.</string>
+    <string name="MessageRecord_video_call_cant_be_made">You can not make video call at this moment. Try to send a message first.</string>
     <string name="MessageRecord_you_marked_your_safety_number_with_s_verified_from_another_device">You marked your safety number with %s verified from another device</string>
     <string name="MessageRecord_you_marked_your_safety_number_with_s_unverified">You removed %s from Mahram</string>
     <string name="MessageRecord_you_marked_your_safety_number_with_s_unverified_from_another_device">You marked your safety number with %s unverified from another device</string>
@@ -5525,6 +5526,10 @@
     <string name="ExportSmsFullError__error_exporting_sms_messages">Error exporting SMS messages</string>
     <!-- Helper text shown when all sms messages failed to export -->
     <string name="ExportSmsFullError__please_try_again_if_the_problem_persists">Please try again. If the problem persists, </string>
+
+    <!-- Prayers Page -->
+    <string name="PrayersFragment__location_could_not_get">We couldn\'t retrieve your location information. Please make sure that your phone\'s location features are turned on.</string>
+    <string name="PrayersFragment__location_could_not_get_app_level">You must grant location permission in your device\'s settings to view this page. Please go to location permission on redirected page and grant permission.</string>
 
 
     <!-- EOF -->

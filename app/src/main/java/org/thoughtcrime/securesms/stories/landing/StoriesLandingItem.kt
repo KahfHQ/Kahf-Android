@@ -39,7 +39,7 @@ object StoriesLandingItem {
   private const val STATUS_CHANGE = 0
 
   fun register(mappingAdapter: MappingAdapter) {
-    mappingAdapter.registerFactory(Model::class.java, LayoutFactory(::ViewHolder, R.layout.stories_landing_item))
+    mappingAdapter.registerFactory(Model::class.java, LayoutFactory(::ViewHolder, R.layout.new_stories_landing_item))
   }
 
   class Model(
@@ -112,23 +112,23 @@ object StoriesLandingItem {
       private val TAG = Log.tag(ViewHolder::class.java)
     }
 
-    private val avatarView: AvatarView = itemView.findViewById(R.id.avatar)
-    private val badgeView: BadgeImageView = itemView.findViewById(R.id.badge)
+    private val avatarView: AvatarView = itemView.findViewById(R.id.story_sender_avatar)
     private val storyPreview: ImageView = itemView.findViewById<ImageView>(R.id.story).apply {
       isClickable = false
     }
     private val storyBlur: ImageView = itemView.findViewById<ImageView>(R.id.story_blur).apply {
       isClickable = false
     }
-    private val storyOutline: ImageView = itemView.findViewById(R.id.story_outline)
-    private val storyMulti: ImageView = itemView.findViewById<ImageView>(R.id.story_multi).apply {
-      isClickable = false
-    }
-    private val sender: TextView = itemView.findViewById(R.id.sender)
-    private val date: TextView = itemView.findViewById(R.id.date)
-    private val icon: ImageView = itemView.findViewById(R.id.icon)
-    private val errorIndicator: View = itemView.findViewById(R.id.error_indicator)
-    private val addToStoriesView: View = itemView.findViewById(R.id.add_to_story)
+    private val sender: TextView = itemView.findViewById(R.id.story_sender_name)
+//    private val storyOutline: ImageView = itemView.findViewById(R.id.story_outline)
+//    private val storyMulti: ImageView = itemView.findViewById<ImageView>(R.id.story_multi).apply {
+//      isClickable = false
+//    }
+//    private val badgeView: BadgeImageView = itemView.findViewById(R.id.badge)
+//    private val date: TextView = itemView.findViewById(R.id.date)
+//    private val icon: ImageView = itemView.findViewById(R.id.icon)
+//    private val errorIndicator: View = itemView.findViewById(R.id.error_indicator)
+//    private val addToStoriesView: View = itemView.findViewById(R.id.add_to_story)
 
     override fun bind(model: Model) {
 
@@ -141,10 +141,10 @@ object StoriesLandingItem {
 
       if (model.data.storyRecipient.isMyStory) {
         avatarView.displayProfileAvatar(Recipient.self())
-        badgeView.setBadgeFromRecipient(null)
+//        badgeView.setBadgeFromRecipient(null)
       } else {
         avatarView.displayProfileAvatar(model.data.storyRecipient)
-        badgeView.setBadgeFromRecipient(model.data.storyRecipient)
+//        badgeView.setBadgeFromRecipient(model.data.storyRecipient)
       }
 
       val record = model.data.primaryStory.messageRecord as MediaMmsMessageRecord
@@ -187,34 +187,34 @@ object StoriesLandingItem {
       if (model.data.secondaryStory != null) {
         val secondaryRecord = model.data.secondaryStory.messageRecord as MediaMmsMessageRecord
         val secondaryThumb = secondaryRecord.slideDeck.thumbnailSlide?.uri
-        storyOutline.setBackgroundColor(ContextCompat.getColor(context, R.color.signal_background_primary))
+//        storyOutline.setBackgroundColor(ContextCompat.getColor(context, R.color.signal_background_primary))
 
         @Suppress("CascadeIf")
         if (secondaryRecord.storyType.isTextStory) {
-          val storyTextPostModel = StoryTextPostModel.parseFrom(secondaryRecord)
-          GlideApp.with(storyMulti)
-            .load(storyTextPostModel)
-            .placeholder(storyTextPostModel.getPlaceholder())
-            .centerCrop()
-            .dontAnimate()
-            .into(storyMulti)
-          storyMulti.visible = true
+//          val storyTextPostModel = StoryTextPostModel.parseFrom(secondaryRecord)
+//          GlideApp.with(storyMulti)
+//            .load(storyTextPostModel)
+//            .placeholder(storyTextPostModel.getPlaceholder())
+//            .centerCrop()
+//            .dontAnimate()
+//            .into(storyMulti)
+//          storyMulti.visible = true
         } else if (secondaryThumb != null) {
-          GlideApp.with(storyMulti)
-            .load(DecryptableStreamUriLoader.DecryptableUri(secondaryThumb))
-            .centerCrop()
-            .dontAnimate()
-            .into(storyMulti)
-          storyMulti.visible = true
+//          GlideApp.with(storyMulti)
+//            .load(DecryptableStreamUriLoader.DecryptableUri(secondaryThumb))
+//            .centerCrop()
+//            .dontAnimate()
+//            .into(storyMulti)
+//          storyMulti.visible = true
         } else {
-          storyOutline.setBackgroundColor(Color.TRANSPARENT)
-          GlideApp.with(storyMulti).clear(storyMulti)
-          storyMulti.visible = false
+//          storyOutline.setBackgroundColor(Color.TRANSPARENT)
+//          GlideApp.with(storyMulti).clear(storyMulti)
+//          storyMulti.visible = false
         }
       } else {
-        storyOutline.setBackgroundColor(Color.TRANSPARENT)
-        GlideApp.with(storyMulti).clear(storyMulti)
-        storyMulti.visible = false
+//        storyOutline.setBackgroundColor(Color.TRANSPARENT)
+//        GlideApp.with(storyMulti).clear(storyMulti)
+//        storyMulti.visible = false
       }
 
       sender.text = when {
@@ -224,34 +224,34 @@ object StoriesLandingItem {
         else -> model.data.storyRecipient.getDisplayName(context)
       }
 
-      icon.visible = (model.data.hasReplies || model.data.hasRepliesFromSelf) && !model.data.storyRecipient.isMyStory
-      icon.setImageResource(
-        when {
-          model.data.hasReplies -> R.drawable.ic_messages_solid_20
-          else -> R.drawable.ic_reply_24_solid_tinted
-        }
-      )
+//      icon.visible = (model.data.hasReplies || model.data.hasRepliesFromSelf) && !model.data.storyRecipient.isMyStory
+//      icon.setImageResource(
+//        when {
+//          model.data.hasReplies -> R.drawable.ic_messages_solid_20
+//          else -> R.drawable.ic_reply_24_solid_tinted
+//        }
+//      )
 
-      listOf(avatarView, storyPreview, storyMulti, sender, date, icon).forEach {
-        it.alpha = if (model.data.isHidden) 0.5f else 1f
-      }
+//      listOf(avatarView, storyPreview, storyMulti, sender, date, icon).forEach {
+//        it.alpha = if (model.data.isHidden) 0.5f else 1f
+//      }
     }
 
     private fun presentDateOrStatus(model: Model) {
       if (model.data.sendingCount > 0 || (model.data.primaryStory.messageRecord.isOutgoing && (model.data.primaryStory.messageRecord.isPending || model.data.primaryStory.messageRecord.isMediaPending))) {
-        errorIndicator.visible = model.data.failureCount > 0L
+//        errorIndicator.visible = model.data.failureCount > 0L
         if (model.data.sendingCount > 1) {
-          date.text = context.getString(R.string.StoriesLandingItem__sending_d, model.data.sendingCount)
+//          date.text = context.getString(R.string.StoriesLandingItem__sending_d, model.data.sendingCount)
         } else {
-          date.setText(R.string.StoriesLandingItem__sending)
+//          date.setText(R.string.StoriesLandingItem__sending)
         }
       } else if (model.data.failureCount > 0 || (model.data.primaryStory.messageRecord.isOutgoing && model.data.primaryStory.messageRecord.isFailed)) {
-        errorIndicator.visible = true
+//        errorIndicator.visible = true
         val message = if (model.data.primaryStory.messageRecord.isIdentityMismatchFailure) R.string.StoriesLandingItem__partially_sent else R.string.StoriesLandingItem__send_failed
-        date.text = SpanUtil.color(ContextCompat.getColor(context, R.color.signal_alert_primary), context.getString(message))
+//        date.text = SpanUtil.color(ContextCompat.getColor(context, R.color.signal_alert_primary), context.getString(message))
       } else {
-        errorIndicator.visible = false
-        date.text = DateUtils.getBriefRelativeTimeSpanString(context, Locale.getDefault(), model.data.dateInMilliseconds)
+//        errorIndicator.visible = false
+//        date.text = DateUtils.getBriefRelativeTimeSpanString(context, Locale.getDefault(), model.data.dateInMilliseconds)
       }
     }
 
@@ -265,7 +265,7 @@ object StoriesLandingItem {
         avatarView.setOnClickListener {
           model.onAvatarClick()
         }
-        addToStoriesView.visible = true
+//        addToStoriesView.visible = true
       } else {
         itemView.setOnLongClickListener {
           displayContext(model)
@@ -273,7 +273,7 @@ object StoriesLandingItem {
         }
         avatarView.setOnClickListener(null)
         avatarView.isClickable = false
-        addToStoriesView.visible = false
+//        addToStoriesView.visible = false
       }
     }
 

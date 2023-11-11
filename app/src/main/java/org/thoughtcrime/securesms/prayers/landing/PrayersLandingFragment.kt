@@ -1,16 +1,23 @@
 package org.thoughtcrime.securesms.prayers.landing
 
 import android.Manifest
+import android.content.Context.LOCATION_SERVICE
+import android.content.DialogInterface
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Address
 import android.location.Geocoder
 import android.location.Location
+import android.location.LocationListener
+import android.location.LocationManager
+import android.net.Uri
 import android.os.Bundle
+import android.provider.Settings
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
@@ -20,15 +27,16 @@ import com.batoulapps.adhan.Coordinates
 import com.batoulapps.adhan.Madhab
 import com.batoulapps.adhan.PrayerTimes
 import com.batoulapps.adhan.data.DateComponents
+import com.google.android.gms.location.FusedLocationProviderClient
+import com.google.android.gms.location.LocationCallback
+import com.google.android.gms.location.LocationRequest
 import com.google.android.gms.location.LocationServices
-import io.nlopez.smartlocation.SmartLocation
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.databinding.PrayersLandingFragmentBinding
 import org.thoughtcrime.securesms.prayers.constants.PrayersConstants
 import org.thoughtcrime.securesms.prayers.views.PrayerModel
 import org.thoughtcrime.securesms.prayers.views.PrayerModelView
-import java.io.IOException
-import java.lang.Exception
 import java.util.Calendar
 import java.util.Date
 import java.util.Locale
@@ -46,13 +54,30 @@ class PrayersLandingFragment : Fragment() {
         }
 
     private var dateIndex = 1
-    private val REQUEST_CODE = 1
     private lateinit var prayerTimes: PrayerTimes
     private lateinit var params: CalculationParameters
     private lateinit var coordinates: Coordinates
     private var monthNames = listOf("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December")
-    private lateinit var fullAddress: String
-    private lateinit var cityName: String
+    private var fullAddress: String? = null
+    private var cityName: String? = null
+    private var fusedLocationClient: FusedLocationProviderClient? = null
+
+    private var settingsActivityResult: ActivityResultLauncher<Intent>? = null
+    private var requestPermissionLauncher: ActivityResultLauncher<String>? = null
+
+    private var locationRequest: LocationRequest? = null
+    private var locationCallback: LocationCallback? = null
+    private var isLocationUpdatesRunning: Boolean = false
+
+    private lateinit var locationManager: LocationManager
+
+    private val locationListener = object : LocationListener {
+        override fun onLocationChanged(location: Location) {
+            prepareLocationInformation(location)
+            isLocationUpdatesRunning = false
+            locationManager.removeUpdates(this)
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -66,25 +91,90 @@ class PrayersLandingFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        settingsActivityResult = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { _ ->
+            requestLocationPermission()
+        }
+
+        requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
+            when (it) {
+                true -> {
+                    checkIfLocationServicesEnabled()
+                }
+                else -> {
+                    if (!shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION)) {
+                        showAppLocationPermissionNotGranted()
+                    } else {
+                        requestLocationPermission()
+                    }
+                }
+            }
+        }
+
+        locationManager = requireContext().getSystemService(LOCATION_SERVICE) as LocationManager
+        fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
+
         requestLocationPermission()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        locationManager.removeUpdates(locationListener)
     }
 
     private fun requestLocationPermission() {
         if (ContextCompat.checkSelfPermission(requireContext(), Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            // Permission is already granted
-            // Proceed with location retrieval
-            getUsersLocation()
+            checkIfLocationServicesEnabled()
         } else {
-            // Request permission
-            val requestPermissionLauncher = registerForActivityResult(ActivityResultContracts.RequestPermission()) {
-                when (it) {
-                    true -> getUsersLocation()
-                    else -> {}
+            requestPermissionLauncher?.launch(Manifest.permission.ACCESS_FINE_LOCATION)
+        }
+    }
+
+    private fun checkIfLocationServicesEnabled() {
+        if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)?.let {
+                prepareLocationInformation(it)
+            } ?: run {
+                binding.progressBar.visibility = View.VISIBLE
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0f, locationListener)
+            }
+        } else {
+            showLocationServicesDisabledPopUp()
+        }
+    }
+
+    private fun showLocationServicesDisabledPopUp() {
+        MaterialAlertDialogBuilder(requireContext()).setTitle("Alert")
+            .setMessage(getString(R.string.PrayersFragment__location_could_not_get))
+            .setPositiveButton(
+                R.string.ok
+            ) { d: DialogInterface, w: Int ->
+                val packageManager = context?.packageManager
+                if (packageManager != null) {
+                    val locationSettingsIntent = Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS)
+                    if (locationSettingsIntent.resolveActivity(packageManager) != null) {
+                        settingsActivityResult?.launch(locationSettingsIntent)
+                    }
                 }
             }
-            requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
-//            requestPermissions(arrayOf(Manifest.permission.ACCESS_FINE_LOCATION), REQUEST_CODE)
-        }
+            .show()
+    }
+
+    private fun showAppLocationPermissionNotGranted() {
+        MaterialAlertDialogBuilder(requireContext()).setTitle("Alert")
+            .setMessage(getString(R.string.PrayersFragment__location_could_not_get_app_level))
+            .setPositiveButton(
+                R.string.ok
+            ) { d: DialogInterface, w: Int ->
+                val packageManager = context?.packageManager
+                if (packageManager != null) {
+                    val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    intent.data = Uri.parse("package:${requireContext().packageName}")
+                    if (intent.resolveActivity(packageManager) != null) {
+                        settingsActivityResult?.launch(intent)
+                    }
+                }
+            }
+            .show()
     }
 
     private fun prepareData() {
@@ -207,38 +297,40 @@ class PrayersLandingFragment : Fragment() {
         }
     }
 
-    private fun getUsersLocation() {
-        val fusedLocationClient = LocationServices.getFusedLocationProviderClient(requireContext())
-        fusedLocationClient.lastLocation.addOnSuccessListener { location ->
-            location?.let {
-                try {
-                    coordinates = Coordinates(it.latitude, it.longitude)
+    private fun prepareLocationInformation(location: Location) {
+        try {
+            binding.progressBar.visibility = View.GONE
+            coordinates = Coordinates(location.latitude, location.longitude)
 
-                    val geocoder = Geocoder(requireContext(), Locale.getDefault())
-                    val addresses: List<Address> = geocoder.getFromLocation(it.latitude, it.longitude, 1)
+            val geocoder = Geocoder(requireContext(), Locale.getDefault())
+            val addresses: List<Address> = geocoder.getFromLocation(location.latitude, location.longitude, 1)
 
-                    if (addresses.isNotEmpty()) {
-                        val address: Address = addresses[0]
+            if (addresses.isNotEmpty()) {
+                val address: Address = addresses[0]
 
-                        cityName = address.adminArea
-                        this@PrayersLandingFragment.fullAddress = "${address.subLocality}, ${address.thoroughfare}, ${address.postalCode}"
+                cityName = address.adminArea
+                val sb = StringBuilder()
+                sb.apply {
+                    address.subLocality?.let {
+                        append(it)
+                        append(", ")
                     }
-
-                    prepareData()
-                } catch (error: Exception) {
-                    println("geocoder error " + error.message)
+                    address.thoroughfare?.let {
+                        append(it)
+                        append(", ")
+                    }
+                    address.postalCode?.let {
+                        append(it)
+                    }
                 }
+                this@PrayersLandingFragment.fullAddress = sb.toString()
             }
+
+            prepareData()
+        } catch (error: Exception) {
+            prepareData()
+            println("geocoder error " + error.message)
         }
-//        SmartLocation.with(context).location()
-//                .oneFix()
-//                .start{location ->
-//                    location?.let {
-////                        coordinates = Coordinates(38.470982, 27.087806)
-//                        coordinates = Coordinates(it.latitude, it.longitude)
-//                        prepareData()
-//                    }
-//                }
     }
 
     private fun getTimeString(calendar: Calendar): String {

@@ -2,10 +2,13 @@ package org.thoughtcrime.securesms.stories.landing
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
+import android.graphics.Rect
 import android.net.Uri
 import android.os.Bundle
 import android.transition.TransitionInflater
+import android.util.DisplayMetrics
 import android.view.View
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -14,6 +17,7 @@ import androidx.core.app.SharedElementCallback
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.BaseTransientBottomBar
@@ -99,6 +103,7 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
     MyStoriesItem.register(adapter)
     ExpandHeader.register(adapter)
 
+    recyclerView?.addItemDecoration(ItemOffsetDecoration(requireContext()))
     requireListener<Material3OnScrollHelperBinder>().bindScrollHelper(recyclerView!!)
 
     lifecycleDisposable.bindTo(viewLifecycleOwner)
@@ -323,5 +328,34 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
 
     viewModel.isTransitioningToAnotherScreen = true
     startActivity(intent, options)
+  }
+
+  private fun realValuedDPToPixelConversion(context: Context, dp: Float) : Float {
+    val displayMetrics = context.resources.displayMetrics
+    return dp * (displayMetrics.densityDpi.toFloat() / DisplayMetrics.DENSITY_DEFAULT)
+  }
+
+
+  inner class ItemOffsetDecoration(var context: Context) : RecyclerView.ItemDecoration() {
+    private val spacing = realValuedDPToPixelConversion(context, 10f).toInt()
+    private val spanCount = 2
+
+    override fun getItemOffsets(
+      outRect: Rect,
+      view: View,
+      parent: RecyclerView,
+      state: RecyclerView.State
+    ) {
+      val position = parent.getChildAdapterPosition(view)
+      val column = position % spanCount
+
+      outRect.left = spacing - column * spacing / spanCount
+      outRect.right = (column + 1) * spacing / spanCount
+
+      if (position < spanCount) {
+        outRect.top = spacing
+      }
+      outRect.bottom =  spacing
+    }
   }
 }

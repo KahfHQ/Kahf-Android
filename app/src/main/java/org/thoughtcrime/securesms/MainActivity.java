@@ -88,7 +88,7 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
 
   @Override
   protected void onPreCreate() {
-    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+//    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     super.onPreCreate();
     dynamicTheme.onCreate(this);
   }
