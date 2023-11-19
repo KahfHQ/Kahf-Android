@@ -4,18 +4,26 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
+import android.content.res.ColorStateList
+import android.graphics.Color
 import android.graphics.Rect
 import android.net.Uri
+import android.os.Build
 import android.os.Bundle
 import android.transition.TransitionInflater
 import android.util.DisplayMetrics
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
+import androidx.appcompat.widget.Toolbar
 import androidx.core.app.ActivityOptionsCompat
 import androidx.core.app.SharedElementCallback
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
+import androidx.core.widget.ImageViewCompat
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
@@ -67,6 +75,7 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
 
   private lateinit var emptyNotice: View
   private lateinit var cameraFab: FloatingActionButton
+  private lateinit var addStoryBtn: TextView
   private var toolbarAvatar: AvatarImageView? = null
 
   private val lifecycleDisposable = LifecycleDisposable()
@@ -103,12 +112,14 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
     MyStoriesItem.register(adapter)
     ExpandHeader.register(adapter)
 
+    recyclerView?.layoutManager = GridLayoutManager(requireContext(), 2)
     recyclerView?.addItemDecoration(ItemOffsetDecoration(requireContext()))
     requireListener<Material3OnScrollHelperBinder>().bindScrollHelper(recyclerView!!)
 
     lifecycleDisposable.bindTo(viewLifecycleOwner)
     emptyNotice = requireView().findViewById(R.id.empty_notice)
     cameraFab = requireView().findViewById(R.id.camera_fab)
+    addStoryBtn = requireView().findViewById(R.id.add_story)
 
     sharedElementEnterTransition = TransitionInflater.from(requireContext()).inflateTransition(R.transition.change_transform_fabs)
     setEnterSharedElementCallback(object : SharedElementCallback() {
@@ -118,13 +129,34 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
           lifecycleDisposable += Single.timer(200, TimeUnit.MILLISECONDS)
             .observeOn(AndroidSchedulers.mainThread())
             .subscribeBy {
-              cameraFab.setImageResource(R.drawable.ic_camera_outline_24)
+              cameraFab.setImageResource(R.drawable.ic_add_story_fab)
             }
         }
       }
     })
 
+    val backgroundTintList = ColorStateList.valueOf(ContextCompat.getColor(requireContext(), R.color.kahf_selected_icon_blue))
+    val imageTintList = ColorStateList.valueOf(Color.WHITE)
+    cameraFab.backgroundTintList = backgroundTintList
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      cameraFab.imageTintList = imageTintList
+    } else {
+      ImageViewCompat.setImageTintList(cameraFab, imageTintList)
+    }
     cameraFab.setOnClickListener {
+      Permissions.with(this)
+        .request(Manifest.permission.CAMERA)
+        .ifNecessary()
+        .withRationaleDialog(getString(R.string.ConversationActivity_to_capture_photos_and_video_allow_signal_access_to_the_camera), R.drawable.ic_camera_24)
+        .withPermanentDenialDialog(getString(R.string.ConversationActivity_signal_needs_the_camera_permission_to_take_photos_or_video))
+        .onAllGranted {
+          startActivityIfAble(MediaSelectionActivity.camera(requireContext(), isStory = true))
+        }
+        .onAnyDenied { Toast.makeText(requireContext(), R.string.ConversationActivity_signal_needs_camera_permissions_to_take_photos_or_video, Toast.LENGTH_LONG).show() }
+        .execute()
+    }
+
+    addStoryBtn.setOnClickListener {
       Permissions.with(this)
         .request(Manifest.permission.CAMERA)
         .ifNecessary()

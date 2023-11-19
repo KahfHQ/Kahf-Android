@@ -13,10 +13,12 @@ import androidx.appcompat.widget.ActionMenuView
 import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -66,6 +68,9 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   private lateinit var _toolbar: Toolbar
   private lateinit var _toolbarSettings: Toolbar
   private lateinit var _basicToolbar: Stub<Toolbar>
+  private lateinit var _fragmentContainer: FragmentContainerView
+  private lateinit var _fragmentContainerParent: ConstraintLayout
+  private lateinit var _toolbarBarrier: View
 //  private lateinit var notificationProfileStatus: ImageView
 //  private lateinit var proxyStatus: ImageView
 //  private lateinit var _searchToolbar: Stub<Material3SearchToolbar>
@@ -96,6 +101,9 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     _cameraAction = view.findViewById(R.id.camera_action)
     _toolbarAvatar = view.findViewById(R.id.toolbar_avatar)
     _toolbarAvatar.setRecipient(Recipient.self())
+    _fragmentContainer = view.findViewById(R.id.fragment_container)
+    _toolbarBarrier = view.findViewById(R.id.toolbar_barrier)
+    _fragmentContainerParent = view.findViewById(R.id.fragment_container_parent)
 //    _searchToolbar = Stub(view.findViewById(R.id.search_toolbar))
 //    _unreadPaymentsDot = view.findViewById(R.id.unread_payments_indicator)
 //    notificationProfileStatus.setOnClickListener { handleNotificationProfile() }
@@ -362,6 +370,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   }
 
   private fun presentToolbarForConversationListFragment() {
+    attachToBarrier()
     if (_basicToolbar.resolved() && _basicToolbar.get().visible) {
       _toolbar.runRevealAnimation(R.anim.slide_from_start)
     }
@@ -391,17 +400,18 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   }
 
   private fun presentToolbarForStoriesLandingFragment() {
-    _toolbar.visible = true
-    _cameraAction.visible = false
-    _toolbarAvatar.visible = true
-    if (_isComingFromSettings){
-      _isComingFromSettings = false
-      _toolbarSettings.visible = false
-      _toolbar.runRevealAnimation(R.anim.slide_from_end)
-    }
-    if (_basicToolbar.resolved()) {
-      _basicToolbar.get().visible = false
-    }
+    attachToTop()
+    _toolbar.visible = false
+//    _cameraAction.visible = false
+//    _toolbarAvatar.visible = true
+//    if (_isComingFromSettings){
+//      _isComingFromSettings = false
+//      _toolbarSettings.visible = false
+//      _toolbar.runRevealAnimation(R.anim.slide_from_end)
+//    }
+//    if (_basicToolbar.resolved()) {
+//      _basicToolbar.get().visible = false
+//    }
   }
 
   private fun presentToolbarForMultiselect() {
@@ -543,6 +553,20 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         presentToolbarForNewSettingsFragment()
       }
     }
+  }
+
+  private fun attachToBarrier() {
+    val params = _fragmentContainer.layoutParams as ConstraintLayout.LayoutParams
+    params.topToBottom = _toolbarBarrier.id
+    params.topToTop = ConstraintLayout.LayoutParams.UNSET
+    _fragmentContainer.layoutParams = params
+  }
+
+  private fun attachToTop() {
+    val params = _fragmentContainer.layoutParams as ConstraintLayout.LayoutParams
+    params.topToTop = _fragmentContainerParent.id
+    params.topToBottom = ConstraintLayout.LayoutParams.UNSET
+    _fragmentContainer.layoutParams = params
   }
 
   private inner class DestinationChangedListener : NavController.OnDestinationChangedListener {

@@ -7,8 +7,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/story"
-        android:layout_width="@dimen/stories_landing_item_thumb_width"
-        android:layout_height="@dimen/stories_landing_item_thumb_height"
+        android:layout_width="@dimen/new_stories_landing_item_thumb_width"
+        android:layout_height="@dimen/new_stories_landing_item_thumb_height"
         android:background="@color/signal_background_primary"
         android:transitionName="story"
         app:layout_constraintTop_toTopOf="parent"
@@ -20,8 +20,8 @@
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/story_blur"
-        android:layout_width="@dimen/stories_landing_item_thumb_width"
-        android:layout_height="@dimen/stories_landing_item_thumb_height"
+        android:layout_width="@dimen/new_stories_landing_item_thumb_width"
+        android:layout_height="@dimen/new_stories_landing_item_thumb_height"
         android:background="@color/signal_background_primary"
         android:transitionName="story"
         app:layout_constraintTop_toTopOf="parent"
