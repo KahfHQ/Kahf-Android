@@ -5,6 +5,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.widget.EdgeEffect
+import android.widget.Toast
 import androidx.annotation.CallSuper
 import androidx.annotation.LayoutRes
 import androidx.annotation.MenuRes
@@ -12,6 +13,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -84,7 +86,11 @@ abstract class DSLSettingsFragment(
   }
 
   open fun onToolbarNavigationClicked() {
-    findNavController().popBackStack()
+    try {
+      findNavController().popBackStack()
+    } catch (e: Exception) {
+      requireActivity().finish()
+    }
   }
 
   override fun onDestroyView() {

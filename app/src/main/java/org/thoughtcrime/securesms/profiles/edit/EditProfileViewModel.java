@@ -1,8 +1,11 @@
 package org.thoughtcrime.securesms.profiles.edit;
 
+import android.text.TextUtils;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MediatorLiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.Transformations;
 import androidx.lifecycle.ViewModel;
@@ -41,8 +44,20 @@ class EditProfileViewModel extends ViewModel {
   private EditProfileViewModel(@NonNull EditProfileRepository repository, boolean hasInstanceState, @Nullable GroupId groupId) {
     this.repository  = repository;
     this.groupId     = groupId;
+
+    MediatorLiveData<Boolean> combinedLiveData = new MediatorLiveData<>();
+    combinedLiveData.addSource(trimmedGivenName, value1 -> {
+      String value2 = trimmedFamilyName.getValue();
+      combinedLiveData.setValue(isBothNonEmpty(value1, value2));
+    });
+
+    combinedLiveData.addSource(trimmedFamilyName, value2 -> {
+      String value1 = trimmedGivenName.getValue();
+      combinedLiveData.setValue(isBothNonEmpty(value1, value2));
+    });
+
     this.isFormValid = groupId != null && groupId.isMms() ? LiveDataUtil.just(true)
-                                                          : Transformations.map(trimmedGivenName, s -> s.length() > 0);
+                                                          : combinedLiveData;
 
     if (!hasInstanceState) {
       if (groupId != null) {
@@ -66,6 +81,10 @@ class EditProfileViewModel extends ViewModel {
 
       repository.getCurrentAvatarColor(avatarColor::setValue);
     }
+  }
+
+  private Boolean isBothNonEmpty(@Nullable String str1, @Nullable String str2) {
+    return !TextUtils.isEmpty(str1) && !TextUtils.isEmpty(str2);
   }
 
   public LiveData<AvatarColor> avatarColor() {

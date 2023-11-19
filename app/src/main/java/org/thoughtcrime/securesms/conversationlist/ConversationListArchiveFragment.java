@@ -49,7 +49,7 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
   private RecyclerView                list;
   private Stub<View>                  emptyState;
   private PulsingFloatingActionButton fab;
-  private PulsingFloatingActionButton cameraFab;
+//  private PulsingFloatingActionButton cameraFab;
   private Stub<Toolbar>               toolbar;
 
   public static ConversationListArchiveFragment newInstance() {
@@ -72,13 +72,13 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
     list        = view.findViewById(R.id.list);
     emptyState  = new Stub<>(view.findViewById(R.id.empty_state));
     fab         = view.findViewById(R.id.fab);
-    cameraFab   = view.findViewById(R.id.camera_fab);
+//    cameraFab   = view.findViewById(R.id.camera_fab);
 
     toolbar.get().setNavigationOnClickListener(v -> NavHostFragment.findNavController(this).popBackStack());
     toolbar.get().setTitle(R.string.AndroidManifest_archived_conversations);
 
     fab.hide();
-    cameraFab.hide();
+//    cameraFab.hide();
   }
 
   @Override
@@ -129,12 +129,12 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
     itemAnimator.enable();
 
     new SnackbarAsyncTask<Long>(getViewLifecycleOwner().getLifecycle(),
-                                coordinator,
-                                getResources().getQuantityString(R.plurals.ConversationListFragment_moved_conversations_to_inbox, 1, 1),
-                                getString(R.string.ConversationListFragment_undo),
-                                getResources().getColor(R.color.amber_500),
-                                Snackbar.LENGTH_LONG,
-                                false)
+            coordinator,
+            getResources().getQuantityString(R.plurals.ConversationListFragment_moved_conversations_to_inbox, 1, 1),
+            getString(R.string.ConversationListFragment_undo),
+            getResources().getColor(R.color.amber_500),
+            Snackbar.LENGTH_LONG,
+            false)
     {
       @Override
       protected void executeAction(@Nullable Long parameter) {
@@ -155,5 +155,4 @@ public class ConversationListArchiveFragment extends ConversationListFragment im
     // Do nothing
   }
 }
-
 

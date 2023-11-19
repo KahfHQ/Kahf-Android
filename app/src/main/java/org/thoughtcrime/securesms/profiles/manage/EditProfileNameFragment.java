@@ -3,10 +3,12 @@ package org.thoughtcrime.securesms.profiles.manage;
 import android.os.Bundle;
 import android.text.Editable;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
+import android.widget.PopupMenu;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -67,6 +69,17 @@ public class EditProfileNameFragment extends Fragment {
       viewModel.onGivenNameChanged(s.toString());
     }));
     this.familyName.addTextChangedListener(new AfterTextChanged(EditProfileNameFragment::trimFieldToMaxByteLength));
+    this.familyName.setOnClickListener(l -> {
+      PopupMenu popupMenu = new PopupMenu(requireContext(), this.familyName);
+      popupMenu.getMenu().add(Menu.NONE, 0, Menu.NONE, "Male");
+      popupMenu.getMenu().add(Menu.NONE, 1, Menu.NONE, "Female");
+
+      popupMenu.setOnMenuItemClickListener(item -> {
+        this.familyName.setText(item.getTitle());
+        return true;
+      });
+      popupMenu.show();
+    });
 
     saveButton.setOnClickListener(v -> viewModel.onSaveClicked(requireContext(),
                                                                givenName.getText().toString(),

@@ -103,6 +103,6 @@ public class DeliveryStatusView extends FrameLayout {
     pendingIndicator.setColorFilter(color);
     deliveredIndicator.setColorFilter(color);
     sentIndicator.setColorFilter(color);
-    readIndicator.setColorFilter(color);
+//    readIndicator.setColorFilter(color);
   }
 }

@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:id="@+id/container_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:divider="@drawable/divider_20dp"
+        android:showDividers="beginning|end|middle">
+
+        <LinearLayout
+            android:id="@+id/home_landing_fragment_date_info_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="30dp"
+            android:layout_marginTop="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Today"
+                android:textStyle="bold"
+                android:textSize="24sp"
+                android:textColor="#333333" />
+
+            <TextView
+                android:id="@+id/home_landing_fragment_date_info_layout_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="14 June 2023; 17:30"
+                android:textSize="12sp"
+                android:textColor="#828282"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:id="@+id/home_landing_fragment_date_info_layout_time"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="17:30"
+                android:textSize="12sp"
+                android:textColor="#828282"
+                android:layout_marginStart="10dp"
+                android:textAlignment="textEnd"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/home_landing_mosque_nearby_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="20dp"
+            android:background="@drawable/common_rounded_background">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.66"
+                android:orientation="vertical"
+                android:layout_gravity="start"
+                android:padding="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mosque Nearby"
+                    android:textSize="14sp"
+                    android:textColor="#333333" />
+
+                <TextView
+                    android:id="@+id/home_landing_fragment_mosque_nearby_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Masjid al-Fatah"
+                    android:textStyle="bold"
+                    android:textSize="24sp"
+                    android:textColor="#3E8DFF" />
+
+                <TextView
+                    android:id="@+id/home_landing_fragment_mosque_nearby_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.25 KM from your location"
+                    android:textSize="14sp"
+                    android:textColor="#828282" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.33"
+                android:orientation="vertical"
+                android:padding="20dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/home_landing_fragment_mosque_nearby_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_mosque_nearby_more"
+                    android:layout_gravity="end" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/home_landing_fragment_mosque_nearby_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_mosque_nearby_location"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20dp"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

@@ -382,4 +382,6 @@
     <declare-styleable name="CircularProgressMaterialButton">
         <attr name="circularProgressMaterialButton__label" format="string" />
     </declare-styleable>
+
+    <attr name="divider_10dp" format="reference" />
 </resources>

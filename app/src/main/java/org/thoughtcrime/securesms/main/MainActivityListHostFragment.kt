@@ -1,17 +1,24 @@
 package org.thoughtcrime.securesms.main
 
+import android.Manifest
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.ActionMenuView
+import androidx.appcompat.widget.AppCompatImageButton
+import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.Toolbar
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
+import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -28,14 +35,17 @@ import org.signal.core.util.logging.Log
 import org.thoughtcrime.securesms.MainActivity
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.badges.BadgeImageView
+import org.thoughtcrime.securesms.components.AvatarImageView
 import org.thoughtcrime.securesms.components.Material3SearchToolbar
 import org.thoughtcrime.securesms.components.TooltipPopup
 import org.thoughtcrime.securesms.components.settings.app.AppSettingsActivity
 import org.thoughtcrime.securesms.components.settings.app.notifications.manual.NotificationProfileSelectionFragment
 import org.thoughtcrime.securesms.conversationlist.ConversationListFragment
 import org.thoughtcrime.securesms.keyvalue.SignalStore
+import org.thoughtcrime.securesms.mediasend.v2.MediaSelectionActivity
 import org.thoughtcrime.securesms.notifications.profiles.NotificationProfile
 import org.thoughtcrime.securesms.notifications.profiles.NotificationProfiles
+import org.thoughtcrime.securesms.permissions.Permissions
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTab
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTabsState
@@ -58,13 +68,19 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   private lateinit var _toolbar: Toolbar
   private lateinit var _toolbarSettings: Toolbar
   private lateinit var _basicToolbar: Stub<Toolbar>
-  private lateinit var notificationProfileStatus: ImageView
-  private lateinit var proxyStatus: ImageView
-  private lateinit var _searchToolbar: Stub<Material3SearchToolbar>
-  private lateinit var _searchAction: ImageView
-  private lateinit var _unreadPaymentsDot: View
+  private lateinit var _fragmentContainer: FragmentContainerView
+  private lateinit var _fragmentContainerParent: ConstraintLayout
+  private lateinit var _toolbarBarrier: View
+//  private lateinit var notificationProfileStatus: ImageView
+//  private lateinit var proxyStatus: ImageView
+//  private lateinit var _searchToolbar: Stub<Material3SearchToolbar>
+  private lateinit var _cameraAction: AppCompatImageView
+  private lateinit var _toolbarAvatar: AvatarImageView
+//  private lateinit var _unreadPaymentsDot: View
+//  private lateinit var _chatToolbar: Toolbar
   private var previousTopToastPopup: TopToastPopup? = null
   private var _isComingFromSettings = false
+
 
   private val destinationChangedListener = DestinationChangedListener()
 
@@ -77,25 +93,33 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     _toolbarBackground = view.findViewById(R.id.toolbar_background)
     _toolbar = view.findViewById(R.id.toolbar)
+//    _chatToolbar = view.findViewById(R.id.toolbar)
     _toolbarSettings = view.findViewById(R.id.settings_tool_bar)
     _basicToolbar = Stub(view.findViewById(R.id.toolbar_basic_stub))
-    notificationProfileStatus = view.findViewById(R.id.conversation_list_notification_profile_status)
-    proxyStatus = view.findViewById(R.id.conversation_list_proxy_status)
-    _searchAction = view.findViewById(R.id.search_action)
-    _searchToolbar = Stub(view.findViewById(R.id.search_toolbar))
-    _unreadPaymentsDot = view.findViewById(R.id.unread_payments_indicator)
-    notificationProfileStatus.setOnClickListener { handleNotificationProfile() }
-    proxyStatus.setOnClickListener { onProxyStatusClicked() }
+//    notificationProfileStatus = view.findViewById(R.id.conversation_list_notification_profile_status)
+//    proxyStatus = view.findViewById(R.id.conversation_list_proxy_status)
+    _cameraAction = view.findViewById(R.id.camera_action)
+    _toolbarAvatar = view.findViewById(R.id.toolbar_avatar)
+    _toolbarAvatar.setRecipient(Recipient.self())
+    _fragmentContainer = view.findViewById(R.id.fragment_container)
+    _toolbarBarrier = view.findViewById(R.id.toolbar_barrier)
+    _fragmentContainerParent = view.findViewById(R.id.fragment_container_parent)
+//    _searchToolbar = Stub(view.findViewById(R.id.search_toolbar))
+//    _unreadPaymentsDot = view.findViewById(R.id.unread_payments_indicator)
+//    notificationProfileStatus.setOnClickListener { handleNotificationProfile() }
+//    proxyStatus.setOnClickListener { onProxyStatusClicked() }
 
     (requireActivity() as AppCompatActivity).setSupportActionBar(_toolbar)
-
+//    _toolbar.overflowIcon = ResourcesCompat.getDrawable(resources, R.drawable.ic_toolbar_settings, null)
     conversationListTabsViewModel.state.observe(viewLifecycleOwner) { state ->
       val controller: NavController = requireView().findViewById<View>(R.id.fragment_container).findNavController()
       println(controller.currentDestination)
       when (controller.currentDestination?.id) {
+        R.id.homeLandingFragment -> goToStateFromHomeFragment(state, controller)
         R.id.conversationListFragment -> goToStateFromConversationList(state, controller)
         R.id.conversationListArchiveFragment -> Unit
         R.id.storiesLandingFragment -> goToStateFromStories(state, controller)
+        R.id.prayersLandingFragment -> goToStateFromPrayersFragment(state, controller)
         R.id.newSettingsFragment -> goToStateFromSettingFragment(state ,controller)
         else -> {
           changeView(state, controller)
@@ -106,11 +130,17 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 
   private fun changeView(state: ConversationListTabsState, navController: NavController) {
     when(state.tab){
+      ConversationListTab.HOME -> {
+        navController.navigate(R.id.action_global_homeFragment)
+      }
       ConversationListTab.SETTINGS -> {
         navController.navigate(R.id.action_global_newSettingsFragment)
       }
       ConversationListTab.CHATS -> {
         navController.navigate(R.id.action_global_conversationListFragment)
+      }
+      ConversationListTab.PRAYERS -> {
+        navController.navigate(R.id.action_global_prayersFragment)
       }
       ConversationListTab.STORIES -> {
         navController.navigate(R.id.action_global_storiesLandingFragment)
@@ -118,15 +148,65 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     }
   }
 
+  private fun goToStateFromHomeFragment(state: ConversationListTabsState, navController: NavController) {
+    when(state.tab){
+      ConversationListTab.HOME -> {
+        return
+      }
+      ConversationListTab.SETTINGS -> {
+        navController.navigate(
+          R.id.action_global_newSettingsFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.STORIES -> {
+        navController.navigate(
+          R.id.action_global_storiesLandingFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.PRAYERS -> {
+        navController.navigate(
+          R.id.action_global_prayersFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.CHATS -> {
+        navController.navigate(
+          R.id.action_global_conversationListFragment,
+          null,
+          null
+        )
+      }
+    }
+  }
+
 
   private fun goToStateFromSettingFragment(state: ConversationListTabsState, navController: NavController) {
     when(state.tab){
+      ConversationListTab.HOME -> {
+        navController.navigate(
+          R.id.action_global_homeFragment,
+          null,
+          null
+        )
+      }
       ConversationListTab.SETTINGS -> {
         return
       }
       ConversationListTab.STORIES -> {
         navController.navigate(
           R.id.action_global_storiesLandingFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.PRAYERS -> {
+        navController.navigate(
+          R.id.action_global_prayersFragment,
           null,
           null
         )
@@ -143,6 +223,13 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 
   private fun goToStateFromConversationList(state: ConversationListTabsState, navController: NavController) {
     when (state.tab) {
+      ConversationListTab.HOME -> {
+        navController.navigate(
+          R.id.action_global_homeFragment,
+          null,
+          null
+        )
+      }
       ConversationListTab.CHATS -> {
         return
       }
@@ -165,6 +252,13 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
           extras
         )
       }
+      ConversationListTab.PRAYERS -> {
+        navController.navigate(
+          R.id.action_global_prayersFragment,
+          null,
+          null
+        )
+      }
       else -> {
         navController.navigate(
           R.id.action_global_newSettingsFragment,
@@ -175,14 +269,64 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     }
   }
 
+  private fun goToStateFromPrayersFragment(state: ConversationListTabsState, navController: NavController) {
+    when(state.tab){
+      ConversationListTab.HOME -> {
+        navController.navigate(
+          R.id.action_global_homeFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.SETTINGS -> {
+        navController.navigate(
+          R.id.action_global_newSettingsFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.STORIES -> {
+        navController.navigate(
+          R.id.action_global_storiesLandingFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.PRAYERS -> {
+        return
+      }
+      ConversationListTab.CHATS -> {
+        navController.navigate(
+          R.id.action_global_conversationListFragment,
+          null,
+          null
+        )
+      }
+    }
+  }
+
   private fun goToStateFromStories(state: ConversationListTabsState, navController: NavController) {
     when(state.tab){
+      ConversationListTab.HOME -> {
+        navController.navigate(
+          R.id.action_global_homeFragment,
+          null,
+          null
+        )
+      }
       ConversationListTab.STORIES -> {
         return
       }
       ConversationListTab.SETTINGS -> {
         navController.navigate(
           R.id.action_global_newSettingsFragment,
+          null,
+          null
+        )
+      }
+      ConversationListTab.PRAYERS -> {
+        navController.navigate(
+          R.id.action_global_prayersFragment,
           null,
           null
         )
@@ -215,7 +359,18 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
       .removeOnDestinationChangedListener(destinationChangedListener)
   }
 
+  private fun showChatToolbar() {
+//    _toolbar.visibility = View.GONE
+//    _chatToolbar.visibility = View.VISIBLE
+  }
+
+  private fun showDefaultToolbar() {
+//    _chatToolbar.visibility = View.GONE
+//    _toolbar.visibility = View.VISIBLE
+  }
+
   private fun presentToolbarForConversationListFragment() {
+    attachToBarrier()
     if (_basicToolbar.resolved() && _basicToolbar.get().visible) {
       _toolbar.runRevealAnimation(R.anim.slide_from_start)
     }
@@ -226,7 +381,8 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
       _toolbar.runRevealAnimation(R.anim.slide_from_end)
     }
     _toolbar.visible = true
-    _searchAction.visible = true
+    _cameraAction.visible = true
+    _toolbarAvatar.visible = false
 
     if (_basicToolbar.resolved() && _basicToolbar.get().visible) {
       _basicToolbar.get().runHideAnimation(R.anim.slide_to_end)
@@ -244,16 +400,18 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   }
 
   private fun presentToolbarForStoriesLandingFragment() {
-    _toolbar.visible = true
-    _searchAction.visible = false
-    if (_isComingFromSettings){
-      _isComingFromSettings = false
-      _toolbarSettings.visible = false
-      _toolbar.runRevealAnimation(R.anim.slide_from_end)
-    }
-    if (_basicToolbar.resolved()) {
-      _basicToolbar.get().visible = false
-    }
+    attachToTop()
+    _toolbar.visible = false
+//    _cameraAction.visible = false
+//    _toolbarAvatar.visible = true
+//    if (_isComingFromSettings){
+//      _isComingFromSettings = false
+//      _toolbarSettings.visible = false
+//      _toolbar.runRevealAnimation(R.anim.slide_from_end)
+//    }
+//    if (_basicToolbar.resolved()) {
+//      _basicToolbar.get().visible = false
+//    }
   }
 
   private fun presentToolbarForMultiselect() {
@@ -272,28 +430,12 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     return _toolbar
   }
 
-  override fun getSearchAction(): ImageView {
-    return _searchAction
-  }
-
-  override fun getSearchToolbar(): Stub<Material3SearchToolbar> {
-    return _searchToolbar
-  }
-
   override fun getUnreadPaymentsDot(): View {
-    return _unreadPaymentsDot
+    return View(context)
   }
 
   override fun getBasicToolbar(): Stub<Toolbar> {
     return _basicToolbar
-  }
-
-  override fun onSearchOpened() {
-    conversationListTabsViewModel.onSearchOpened()
-  }
-
-  override fun onSearchClosed() {
-    conversationListTabsViewModel.onSearchClosed()
   }
 
   override fun onMultiSelectStarted() {
@@ -313,14 +455,14 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   private fun initializeProfileIcon(recipient: Recipient) {
     Log.d(TAG, "Initializing profile icon")
     val icon = requireView().findViewById<ImageView>(R.id.toolbar_icon)
-    val imageView: BadgeImageView = requireView().findViewById(R.id.toolbar_badge)
-    imageView.setBadgeFromRecipient(recipient)
+//    val imageView: BadgeImageView = requireView().findViewById(R.id.toolbar_badge)
+//    imageView.setBadgeFromRecipient(recipient)
     AvatarUtil.loadIconIntoImageView(recipient, icon, resources.getDimensionPixelSize(R.dimen.toolbar_avatar_size))
   }
 
   private fun initializeSettingsTouchTarget() {
-    val touchArea = requireView().findViewById<View>(R.id.toolbar_settings_touch_area)
-    touchArea.setOnClickListener { openSettings.launch(AppSettingsActivity.home(requireContext())) }
+//    val touchArea = requireView().findViewById<View>(R.id.toolbar_settings_touch_area)
+//    touchArea.setOnClickListener { openSettings.launch(AppSettingsActivity.home(requireContext())) }
   }
 
   private fun handleNotificationProfile() {
@@ -332,17 +474,18 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   }
 
   override fun updateProxyStatus(state: WebSocketConnectionState) {
-    if (SignalStore.proxy().isProxyEnabled) {
-      proxyStatus.visibility = View.VISIBLE
-      when (state) {
-        WebSocketConnectionState.CONNECTING, WebSocketConnectionState.DISCONNECTING, WebSocketConnectionState.DISCONNECTED -> proxyStatus.setImageResource(R.drawable.ic_proxy_connecting_24)
-        WebSocketConnectionState.CONNECTED -> proxyStatus.setImageResource(R.drawable.ic_proxy_connected_24)
-        WebSocketConnectionState.AUTHENTICATION_FAILED, WebSocketConnectionState.FAILED -> proxyStatus.setImageResource(R.drawable.ic_proxy_failed_24)
-        else -> proxyStatus.visibility = View.GONE
-      }
-    } else {
-      proxyStatus.visibility = View.GONE
-    }
+//    if (SignalStore.proxy().isProxyEnabled) {
+//      proxyStatus.visibility = View.VISIBLE
+//      when (state) {
+//        WebSocketConnectionState.CONNECTING, WebSocketConnectionState.DISCONNECTING, WebSocketConnectionState.DISCONNECTED -> proxyStatus.setImageResource(R.drawable.ic_proxy_connecting_24)
+//        WebSocketConnectionState.CONNECTED -> proxyStatus.setImageResource(R.drawable.ic_proxy_connected_24)
+//        WebSocketConnectionState.AUTHENTICATION_FAILED, WebSocketConnectionState.FAILED -> proxyStatus.setImageResource(R.drawable.ic_proxy_failed_24)
+//        else -> proxyStatus.visibility = View.GONE
+//        else -> {}
+//      }
+//    } else {
+//      proxyStatus.visibility = View.GONE
+//    }
   }
 
   override fun updateNotificationProfileStatus(notificationProfiles: List<NotificationProfile>) {
@@ -367,9 +510,9 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
           }
         }, 500L)
       }
-      notificationProfileStatus.visibility = View.VISIBLE
+//      notificationProfileStatus.visibility = View.VISIBLE
     } else {
-      notificationProfileStatus.visibility = View.GONE
+//      notificationProfileStatus.visibility = View.GONE
     }
     if (!SignalStore.notificationProfileValues().hasSeenTooltip && Util.hasItems(notificationProfiles)) {
       val target: View? = findOverflowMenuButton(_toolbar)
@@ -400,7 +543,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         conversationListTabsViewModel.isShowingArchived(true)
         presentToolbarForConversationListArchiveFragment()
       }
-      R.id.storiesLandingFragment -> {
+      R.id.storiesLandingFragment, R.id.homeLandingFragment, R.id.prayersLandingFragment -> {
         conversationListTabsViewModel.isShowingArchived(false)
         presentToolbarForStoriesLandingFragment()
       }
@@ -410,6 +553,20 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         presentToolbarForNewSettingsFragment()
       }
     }
+  }
+
+  private fun attachToBarrier() {
+    val params = _fragmentContainer.layoutParams as ConstraintLayout.LayoutParams
+    params.topToBottom = _toolbarBarrier.id
+    params.topToTop = ConstraintLayout.LayoutParams.UNSET
+    _fragmentContainer.layoutParams = params
+  }
+
+  private fun attachToTop() {
+    val params = _fragmentContainer.layoutParams as ConstraintLayout.LayoutParams
+    params.topToTop = _fragmentContainerParent.id
+    params.topToBottom = ConstraintLayout.LayoutParams.UNSET
+    _fragmentContainer.layoutParams = params
   }
 
   private inner class DestinationChangedListener : NavController.OnDestinationChangedListener {
@@ -422,7 +579,6 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     Material3OnScrollHelper(
       requireActivity(),
       listOf(_toolbarBackground),
-      listOf(_searchToolbar)
     ).attach(recyclerView)
   }
 }

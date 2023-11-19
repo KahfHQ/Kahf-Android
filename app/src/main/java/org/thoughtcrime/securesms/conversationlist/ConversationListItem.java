@@ -214,7 +214,7 @@ public final class ConversationListItem extends ConstraintLayout implements Bind
     observeDisplayBody(null, null);
 
     if (highlightSubstring != null) {
-      String name = recipient.get().isSelf() ? getContext().getString(R.string.note_to_self) : recipient.get().getDisplayName(getContext());
+      String name = recipient.get().isSelf() ? getContext().getString(R.string.note_to_self) : recipient.get().getShortDisplayName(getContext());
 
       this.fromView.setText(recipient.get(), SearchUtil.getHighlightedSpan(locale, SpanUtil::getMediumBoldSpan, name, highlightSubstring, SearchUtil.MATCH_ALL), true, null);
     } else {
@@ -250,12 +250,12 @@ public final class ConversationListItem extends ConstraintLayout implements Bind
   }
 
   private void setBadgeFromRecipient(Recipient recipient) {
-    if (!recipient.isSelf()) {
-      badge.setBadgeFromRecipient(recipient);
-      badge.setClickable(false);
-    } else {
-      badge.setBadge(null);
-    }
+//    if (!recipient.isSelf()) {
+//      badge.setBadgeFromRecipient(recipient);
+//      badge.setClickable(false);
+//    } else {
+//      badge.setBadge(null);
+//    }
   }
 
   public void bindContact(@NonNull LifecycleOwner lifecycleOwner,
@@ -272,7 +272,7 @@ public final class ConversationListItem extends ConstraintLayout implements Bind
     observeDisplayBody(null, null);
     setSubjectViewText(null);
 
-    fromView.setText(contact, SearchUtil.getHighlightedSpan(locale, SpanUtil::getMediumBoldSpan, new SpannableString(contact.getDisplayName(getContext())), highlightSubstring, SearchUtil.MATCH_ALL), true, null);
+    fromView.setText(contact, SearchUtil.getHighlightedSpan(locale, SpanUtil::getMediumBoldSpan, new SpannableString(contact.getShortDisplayName(getContext())), highlightSubstring, SearchUtil.MATCH_ALL), true, null);
     setSubjectViewText(SearchUtil.getHighlightedSpan(locale, SpanUtil::getBoldSpan, contact.getE164().orElse(""), highlightSubstring, SearchUtil.MATCH_ALL));
     dateView.setText("");
     archivedView.setVisibility(GONE);
@@ -478,7 +478,7 @@ public final class ConversationListItem extends ConstraintLayout implements Bind
     }
 
     if (highlightSubstring != null) {
-      String name = recipient.isSelf() ? getContext().getString(R.string.note_to_self) : recipient.getDisplayName(getContext());
+      String name = recipient.isSelf() ? getContext().getString(R.string.note_to_self) : recipient.getShortDisplayName(getContext());
       fromView.setText(recipient, SearchUtil.getHighlightedSpan(locale, SpanUtil::getMediumBoldSpan, new SpannableString(name), highlightSubstring, SearchUtil.MATCH_ALL), true, null);
     } else {
       fromView.setText(recipient, false);

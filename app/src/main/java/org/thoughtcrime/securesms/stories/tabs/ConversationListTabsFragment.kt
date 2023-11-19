@@ -28,26 +28,49 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
 
   private lateinit var chatsUnreadIndicator: TextView
   private lateinit var storiesUnreadIndicator: TextView
+  private lateinit var homeIcon: LottieAnimationView
   private lateinit var chatsIcon: LottieAnimationView
   private lateinit var settingsIcon: LottieAnimationView
+  private lateinit var prayersIcon: LottieAnimationView
   private lateinit var storiesIcon: LottieAnimationView
+  private lateinit var homePill: ImageView
   private lateinit var chatsPill: ImageView
   private lateinit var storiesPill: ImageView
+  private lateinit var prayersPill: ImageView
   private lateinit var settingsPill: ImageView
+  private lateinit var homeLabel: TextView
+  private lateinit var chatsLabel: TextView
+  private lateinit var storiesLabel: TextView
+  private lateinit var prayersLabel: TextView
+  private lateinit var settingsLabel: TextView
 
   private var pillAnimator: Animator? = null
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     chatsUnreadIndicator = view.findViewById(R.id.chats_unread_indicator)
     storiesUnreadIndicator = view.findViewById(R.id.stories_unread_indicator)
+    homeIcon = view.findViewById(R.id.home_tab_icon)
     chatsIcon = view.findViewById(R.id.chats_tab_icon)
     storiesIcon = view.findViewById(R.id.stories_tab_icon)
+    prayersIcon = view.findViewById(R.id.prayers_tab_icon)
     settingsIcon = view.findViewById(R.id.settings_tab_icon)
+    homePill = view.findViewById(R.id.home_pill)
     chatsPill = view.findViewById(R.id.chats_pill)
     storiesPill = view.findViewById(R.id.stories_pill)
+    prayersPill = view.findViewById(R.id.prayers_pill)
     settingsPill = view.findViewById(R.id.settings_pill)
+    homeLabel = view.findViewById(R.id.home_tab_label)
+    chatsLabel = view.findViewById(R.id.chats_tab_label)
+    storiesLabel = view.findViewById(R.id.stories_tab_label)
+    prayersLabel = view.findViewById(R.id.prayers_tab_label)
+    settingsLabel = view.findViewById(R.id.settings_tab_label)
 
     val iconTint = ContextCompat.getColor(requireContext(), R.color.signal_colorOnSecondaryContainer)
+
+    homeIcon.addValueCallback(
+      KeyPath("**"),
+      LottieProperty.COLOR
+    ) { iconTint }
 
     chatsIcon.addValueCallback(
       KeyPath("**"),
@@ -59,10 +82,19 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
       LottieProperty.COLOR
     ) { iconTint }
 
+    prayersIcon.addValueCallback(
+      KeyPath("**"),
+      LottieProperty.COLOR
+    ) { iconTint }
+
     settingsIcon.addValueCallback(
       KeyPath("**"),
       LottieProperty.COLOR
     ) { iconTint }
+
+    view.findViewById<View>(R.id.home_tab_touch_point).setOnClickListener {
+      viewModel.onHomeSelected()
+    }
 
     view.findViewById<View>(R.id.chats_tab_touch_point).setOnClickListener {
       viewModel.onChatsSelected()
@@ -70,6 +102,10 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
 
     view.findViewById<View>(R.id.settings_tab_touch_point).setOnClickListener {
       viewModel.onSettingsSelected()
+    }
+
+    view.findViewById<View>(R.id.prayers_tab_touch_point).setOnClickListener {
+      viewModel.onPrayersSelected()
     }
 
     view.findViewById<View>(R.id.stories_tab_touch_point).setOnClickListener {
@@ -85,28 +121,46 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
   }
 
   private fun update(state: ConversationListTabsState, immediate: Boolean) {
+    homeIcon.isSelected = state.tab == ConversationListTab.HOME
     chatsIcon.isSelected = state.tab == ConversationListTab.CHATS
     storiesIcon.isSelected = state.tab == ConversationListTab.STORIES
+    prayersIcon.isSelected = state.tab == ConversationListTab.PRAYERS
     settingsIcon.isSelected = state.tab == ConversationListTab.SETTINGS
 
+    homePill.isSelected = homeIcon.isSelected
     chatsPill.isSelected = chatsIcon.isSelected
     storiesPill.isSelected = storiesIcon.isSelected
+    prayersPill.isSelected = prayersIcon.isSelected
     settingsPill.isSelected = settingsIcon.isSelected
 
-    val hasStateChange = chatsIcon.isSelected or settingsIcon.isSelected or storiesIcon.isSelected
+    homeLabel.isSelected = homeIcon.isSelected
+    chatsLabel.isSelected = chatsIcon.isSelected
+    storiesLabel.isSelected = storiesIcon.isSelected
+    prayersLabel.isSelected = prayersIcon.isSelected
+    settingsLabel.isSelected = settingsIcon.isSelected
+
+    val hasStateChange = homeIcon.isSelected or chatsIcon.isSelected or settingsIcon.isSelected or
+            storiesIcon.isSelected or prayersIcon.isSelected
     if (immediate) {
       chatsIcon.pauseAnimation()
       storiesIcon.pauseAnimation()
       /*settingsIcon.pauseAnimation()*/
 
+      homeIcon.progress = if (homeIcon.isSelected) 1f else 0f
       chatsIcon.progress = if (chatsIcon.isSelected) 1f else 0f
       storiesIcon.progress = if (storiesIcon.isSelected) 1f else 0f
+      prayersIcon.progress = if (prayersIcon.isSelected) 1f else 0f
       settingsIcon.progress = if (settingsIcon.isSelected) 1f else 0f
 
-      runPillAnimation(0, chatsPill, storiesPill, settingsPill)
+      changeIcon()
+      showLabel(homeLabel, chatsLabel, storiesLabel, prayersLabel, settingsLabel)
+
+//      runPillAnimation(0, homePill, chatsPill, storiesPill, prayersPill, settingsPill)
     } else if (hasStateChange) {
-      runLottieAnimations(chatsIcon, storiesIcon, /*settingsIcon*/)
-      runPillAnimation(150, chatsPill, storiesPill, /*settingsIcon*/)
+      changeIcon()
+      showLabel(homeLabel, chatsLabel, storiesLabel, prayersLabel, settingsLabel)
+//      runLottieAnimations(/*homeIcon,*/ chatsIcon, storiesIcon, /*prayersIcon,*/ /*settingsIcon*/)
+//      runPillAnimation(150, /*homePill,*/ chatsPill, storiesPill, /*prayersPill,*/ /*settingsIcon*/)
     }
 
     chatsUnreadIndicator.visible = state.unreadChatsCount > 0
@@ -116,6 +170,38 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
     storiesUnreadIndicator.text = formatCount(state.unreadStoriesCount)
 
     requireView().visible = state.visibilityState.isVisible()
+  }
+
+  private fun changeIcon() {
+    homeIcon.setImageResource(when (homeIcon.isSelected) {
+      true -> R.drawable.ic_home_selected
+      else -> R.drawable.ic_home_deselected
+    })
+    storiesIcon.setImageResource(when (storiesIcon.isSelected) {
+      true -> R.drawable.ic_stories_selected
+      else -> R.drawable.ic_stories_deselected
+    })
+    chatsIcon.setImageResource(when (chatsIcon.isSelected) {
+      true -> R.drawable.ic_chat_selected
+      else -> R.drawable.ic_chat_deselected
+    })
+    prayersIcon.setImageResource(when (prayersIcon.isSelected) {
+      true -> R.drawable.ic_prayers_selected
+      else -> R.drawable.ic_prayers_deselected
+    })
+    settingsIcon.setImageResource(when (settingsIcon.isSelected) {
+      true -> R.drawable.ic_settings_selected
+      else -> R.drawable.ic_settings_deselected
+    })
+  }
+
+  private fun showLabel(vararg labels: TextView) {
+    labels.forEach {
+      it.visibility = when (it.isSelected) {
+        true -> View.VISIBLE
+        else -> View.GONE
+      }
+    }
   }
 
   private fun runLottieAnimations(vararg toAnimate: LottieAnimationView) {

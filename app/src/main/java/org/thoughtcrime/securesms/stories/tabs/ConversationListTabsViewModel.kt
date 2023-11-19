@@ -35,6 +35,11 @@ class ConversationListTabsViewModel(repository: ConversationListTabRepository) :
     disposables.clear()
   }
 
+  fun onHomeSelected() {
+    internalTabClickEvents.onNext(ConversationListTab.HOME)
+    store.update { it.copy(tab = ConversationListTab.HOME) }
+  }
+
   fun onChatsSelected() {
     internalTabClickEvents.onNext(ConversationListTab.CHATS)
     store.update { it.copy(tab = ConversationListTab.CHATS) }
@@ -43,6 +48,11 @@ class ConversationListTabsViewModel(repository: ConversationListTabRepository) :
   fun onSettingsSelected(){
     internalTabClickEvents.onNext(ConversationListTab.SETTINGS)
     store.update{it.copy(tab = ConversationListTab.SETTINGS)}
+  }
+
+  fun onPrayersSelected() {
+    internalTabClickEvents.onNext(ConversationListTab.PRAYERS)
+    store.update { it.copy(tab = ConversationListTab.PRAYERS) }
   }
 
   fun onStoriesSelected() {

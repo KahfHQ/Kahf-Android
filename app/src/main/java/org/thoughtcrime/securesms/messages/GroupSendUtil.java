@@ -376,24 +376,28 @@ public final class GroupSendUtil {
       final AtomicLong             entryId             = new AtomicLong(-1);
       final boolean                includeInMessageLog = sendOperation.shouldIncludeInMessageLog();
 
-      List<SendMessageResult> results = sendOperation.sendLegacy(messageSender, targets, legacyTargets, access, recipientUpdate, result -> {
-        if (!includeInMessageLog) {
-          return;
-        }
-
-        synchronized (entryId) {
-          if (entryId.get() == -1) {
-            entryId.set(messageLogDatabase.insertIfPossible(recipients.requireRecipientId(result.getAddress()), sendOperation.getSentTimestamp(), result, sendOperation.getContentHint(), sendOperation.getRelatedMessageId(), sendOperation.isUrgent()));
-          } else {
-            entryId.set(messageLogDatabase.addRecipientToExistingEntryIfPossible(entryId.get(), recipients.requireRecipientId(result.getAddress()), sendOperation.getSentTimestamp(), result, sendOperation.getContentHint(), sendOperation.getRelatedMessageId(), sendOperation.isUrgent()));
+      try {
+        List<SendMessageResult> results = sendOperation.sendLegacy(messageSender, targets, legacyTargets, access, recipientUpdate, result -> {
+          if (!includeInMessageLog) {
+            return;
           }
-        }
-      }, cancelationSignal);
 
-      allResults.addAll(results);
+          synchronized (entryId) {
+            if (entryId.get() == -1) {
+              entryId.set(messageLogDatabase.insertIfPossible(recipients.requireRecipientId(result.getAddress()), sendOperation.getSentTimestamp(), result, sendOperation.getContentHint(), sendOperation.getRelatedMessageId(), sendOperation.isUrgent()));
+            } else {
+              entryId.set(messageLogDatabase.addRecipientToExistingEntryIfPossible(entryId.get(), recipients.requireRecipientId(result.getAddress()), sendOperation.getSentTimestamp(), result, sendOperation.getContentHint(), sendOperation.getRelatedMessageId(), sendOperation.isUrgent()));
+            }
+          }
+        }, cancelationSignal);
 
-      int successCount = (int) results.stream().filter(SendMessageResult::isSuccess).count();
-      Log.d(TAG, "Successfully sent using 1:1 to " + successCount + "/" + targets.size() + " legacy targets.");
+        allResults.addAll(results);
+
+        int successCount = (int) results.stream().filter(SendMessageResult::isSuccess).count();
+        Log.d(TAG, "Successfully sent using 1:1 to " + successCount + "/" + targets.size() + " legacy targets.");
+      } catch(Exception e) {
+        Log.e(TAG, e.getLocalizedMessage());
+      }
     } else if (relatedMessageId != null) {
       SignalLocalMetrics.GroupMessageSend.onLegacyMessageSent(relatedMessageId.getId());
       SignalLocalMetrics.GroupMessageSend.onLegacySyncFinished(relatedMessageId.getId());

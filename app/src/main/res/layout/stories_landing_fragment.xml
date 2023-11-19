@@ -16,6 +16,43 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/add_story_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="30dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Kahf Story"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="#333333" />
+
+        <TextView
+            android:id="@+id/add_story"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="+Add Story"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:textColor="#3e8dff"
+            android:layout_marginEnd="17dp"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/add_story_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_more_horiz_24"
+            app:tint="#BDBDBD" />
+
+    </LinearLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
@@ -26,7 +63,11 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/add_story_header"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:listitem="@layout/new_stories_landing_item"
+        android:paddingHorizontal="15dp"/>
 
     <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:id="@+id/coordinator"
@@ -34,8 +75,10 @@
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -54,12 +97,11 @@
                 android:layout_marginEnd="16dp"
                 android:layout_marginBottom="16dp"
                 android:focusable="true"
-                android:theme="@style/Widget.Material3.FloatingActionButton.Secondary"
+                android:theme="@style/Widget.Material3.FloatingActionButton.Primary"
                 android:transitionName="camera_fab"
-                app:backgroundTint="@color/signal_colorSurfaceVariant"
                 app:elevation="0dp"
-                app:srcCompat="@drawable/ic_camera_outline_24"
-                app:tint="@color/signal_colorOnSurface" />
+                app:srcCompat="@drawable/ic_add_story_fab"
+                app:shapeAppearanceOverlay="@style/FabCircle"/>
 
             <org.thoughtcrime.securesms.components.registration.PulsingFloatingActionButton
                 android:id="@+id/camera_fab"
@@ -73,9 +115,8 @@
                 android:focusable="true"
                 android:theme="@style/Widget.Material3.FloatingActionButton.Primary"
                 android:transitionName="new_convo_fab"
-                app:backgroundTint="@color/signal_colorPrimaryContainer"
-                app:srcCompat="@drawable/ic_camera_outline_24"
-                app:tint="@color/signal_colorOnSurface" />
+                app:srcCompat="@drawable/ic_add_story_fab"
+                app:shapeAppearanceOverlay="@style/FabCircle"/>
 
         </FrameLayout>
 

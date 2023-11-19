@@ -81,7 +81,7 @@ public class QuoteView extends FrameLayout implements RecipientForeverObserver {
   private ViewGroup          footerView;
   private TextView           authorView;
   private TextView           bodyView;
-  private View               quoteBarView;
+//  private View               quoteBarView;
   private ShapeableImageView thumbnailView;
   private View               attachmentVideoOverlayView;
   private ViewGroup          attachmentContainerView;
@@ -135,7 +135,7 @@ public class QuoteView extends FrameLayout implements RecipientForeverObserver {
     this.footerView                   = findViewById(R.id.quote_missing_footer);
     this.authorView                   = findViewById(R.id.quote_author);
     this.bodyView                     = findViewById(R.id.quote_text);
-    this.quoteBarView                 = findViewById(R.id.quote_bar);
+//    this.quoteBarView                 = findViewById(R.id.quote_bar);
     this.thumbnailView                = findViewById(R.id.quote_thumbnail);
     this.attachmentVideoOverlayView   = findViewById(R.id.quote_video_overlay);
     this.attachmentContainerView      = findViewById(R.id.quote_attachment_container);
@@ -261,13 +261,16 @@ public class QuoteView extends FrameLayout implements RecipientForeverObserver {
   }
 
   private void setQuoteAuthor(@NonNull Recipient author) {
+    String toWho;
     if (isStoryReply()) {
-      authorView.setText(author.isSelf() ? getContext().getString(R.string.QuoteView_your_story)
-                                         : getContext().getString(R.string.QuoteView_s_story, author.getDisplayName(getContext())));
+      toWho = author.isSelf() ? getContext().getString(R.string.QuoteView_your_story)
+                                         : getContext().getString(R.string.QuoteView_s_story, author.getDisplayName(getContext()));
     } else {
-      authorView.setText(author.isSelf() ? getContext().getString(R.string.QuoteView_you)
-                                         : author.getDisplayName(getContext()));
+      toWho = author.isSelf() ? getContext().getString(R.string.QuoteView_you)
+                                         : author.getDisplayName(getContext());
     }
+
+    authorView.setText(String.format(getContext().getString(R.string.QuoteView_replying_to), toWho));
   }
 
   private boolean isStoryReply() {
@@ -407,7 +410,7 @@ public class QuoteView extends FrameLayout implements RecipientForeverObserver {
     } else if (imageVideoSlide != null && imageVideoSlide.getUri() != null) {
       thumbnailView.setVisibility(VISIBLE);
       attachmentContainerView.setVisibility(GONE);
-      dismissView.setBackgroundResource(R.drawable.dismiss_background);
+//      dismissView.setBackgroundResource(R.drawable.dismiss_background);
       if (imageVideoSlide.hasVideo() && !imageVideoSlide.isVideoGif()) {
         attachmentVideoOverlayView.setVisibility(VISIBLE);
       }
@@ -492,7 +495,7 @@ public class QuoteView extends FrameLayout implements RecipientForeverObserver {
 
     QuoteViewColorTheme quoteViewColorTheme = QuoteViewColorTheme.resolveTheme(isOutgoing, isPreview, isWallpaperEnabled);
 
-    quoteBarView.setBackgroundColor(quoteViewColorTheme.getBarColor(getContext()));
+//    quoteBarView.setBackgroundColor(quoteViewColorTheme.getBarColor(getContext()));
     background.setBackgroundColor(quoteViewColorTheme.getBackgroundColor(getContext()));
     authorView.setTextColor(quoteViewColorTheme.getForegroundColor(getContext()));
     bodyView.setTextColor(quoteViewColorTheme.getForegroundColor(getContext()));

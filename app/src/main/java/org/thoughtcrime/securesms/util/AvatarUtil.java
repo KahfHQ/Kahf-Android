@@ -167,7 +167,7 @@ public final class AvatarUtil {
   }
 
   private static Drawable getFallback(@NonNull Context context, @NonNull Recipient recipient, int targetSize) {
-    String name = Optional.ofNullable(recipient.getDisplayName(context)).orElse("");
+    String name = Optional.ofNullable(recipient.getShortDisplayName(context)).orElse("");
 
     return new GeneratedContactPhoto(name, R.drawable.ic_profile_outline_40, targetSize).asDrawable(context, recipient.getAvatarColor());
   }

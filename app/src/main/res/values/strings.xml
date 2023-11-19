@@ -510,6 +510,7 @@
 
     <!-- ConversationTitleView -->
     <string name="ConversationTitleView_verified">Verified</string>
+    <string name="ConversationTitleView_online">Online Now</string>
     <string name="ConversationTitleView_you">You</string>
 
     <!-- ConversationTypingView -->
@@ -1362,9 +1363,11 @@
     <!-- End of GV2 specific update messages -->
 
     <string name="MessageRecord_your_safety_number_with_s_has_changed">Your safety number with %s has changed.</string>
-    <string name="MessageRecord_you_marked_your_safety_number_with_s_verified">You marked your safety number with %s verified</string>
+    <string name="MessageRecord_you_marked_your_safety_number_with_s_verified">You marked %s as Mahram</string>
+    <string name="MessageRecord_video_call_unable_pop_up_message">You need to mark %s as Mahram in order to make a video call.</string>
+    <string name="MessageRecord_video_call_cant_be_made">You can not make video call at this moment. Try to send a message first.</string>
     <string name="MessageRecord_you_marked_your_safety_number_with_s_verified_from_another_device">You marked your safety number with %s verified from another device</string>
-    <string name="MessageRecord_you_marked_your_safety_number_with_s_unverified">You marked your safety number with %s unverified</string>
+    <string name="MessageRecord_you_marked_your_safety_number_with_s_unverified">You removed %s from Mahram</string>
     <string name="MessageRecord_you_marked_your_safety_number_with_s_unverified_from_another_device">You marked your safety number with %s unverified from another device</string>
     <string name="MessageRecord_a_message_from_s_couldnt_be_delivered">A message from %s couldn\'t be delivered</string>
     <string name="MessageRecord_s_changed_their_phone_number">%1$s changed their phone number.</string>
@@ -1872,8 +1875,8 @@
     <string name="ThreadRecord_disappearing_message_time_updated_to_s">Disappearing message time set to %s</string>
     <string name="ThreadRecord_safety_number_changed">Safety number changed</string>
     <string name="ThreadRecord_your_safety_number_with_s_has_changed">Your safety number with %s has changed.</string>
-    <string name="ThreadRecord_you_marked_verified">You marked verified</string>
-    <string name="ThreadRecord_you_marked_unverified">You marked unverified</string>
+    <string name="ThreadRecord_you_marked_verified">You marked as Mahram</string>
+    <string name="ThreadRecord_you_marked_unverified">You removed from Mahram</string>
     <string name="ThreadRecord_message_could_not_be_processed">Message could not be processed</string>
     <string name="ThreadRecord_delivery_issue">Delivery issue</string>
     <string name="ThreadRecord_message_request">Message Request</string>
@@ -2173,7 +2176,7 @@
     </plurals>
 
     <!-- conversation_activity -->
-    <string name="conversation_activity__type_message_push">Kahf message</string>
+    <string name="conversation_activity__type_message_push">Message</string>
     <string name="conversation_activity__type_message_sms_insecure">Unsecured SMS</string>
     <string name="conversation_activity__type_message_mms_insecure">Unsecured MMS</string>
     <string name="conversation_activity__from_sim_name">From %1$s</string>
@@ -2240,6 +2243,7 @@
     <string name="QuoteView_s_story">%1$s · Story</string>
     <!-- Label indicating that a quote is for a reply to a story you created -->
     <string name="QuoteView_your_story">You · Story</string>
+    <string name="QuoteView_replying_to">Replying to %s</string>
     <!-- Label indicating that the story being replied to no longer exists -->
     <string name="QuoteView_no_longer_available">No longer available</string>
     <!-- Label for quoted gift -->
@@ -2406,6 +2410,7 @@
     <!-- profile_create_activity -->
     <string name="CreateProfileActivity_first_name_required">First name (required)</string>
     <string name="CreateProfileActivity_last_name_optional">Last name (optional)</string>
+    <string name="CreateProfileActivity_gender_required">Gender (required)</string>
     <string name="CreateProfileActivity_next">Next</string>
     <string name="CreateProfileActivity__username">Username</string>
     <string name="CreateProfileActivity__create_a_username">Create a username</string>
@@ -2433,7 +2438,7 @@
     <!-- EditProfileNameFragment -->
     <string name="EditProfileNameFragment_your_name">Your name</string>
     <string name="EditProfileNameFragment_first_name">First name</string>
-    <string name="EditProfileNameFragment_last_name_optional">Last name (optional)</string>
+    <string name="EditProfileNameFragment_last_name_optional">Gender</string>
     <string name="EditProfileNameFragment_save">Save</string>
     <string name="EditProfileNameFragment_failed_to_save_due_to_network_issues_try_again_later">Failed to save due to network issues. Try again later.</string>
 
@@ -2449,8 +2454,8 @@
     <string name="verify_display_fragment__successful_match">Successful match</string>
     <string name="verify_display_fragment__failed_to_verify_safety_number">Failed to verify safety number</string>
     <string name="verify_display_fragment__loading">Loading…</string>
-    <string name="verify_display_fragment__mark_as_verified">Mark as verified</string>
-    <string name="verify_display_fragment__clear_verification">Clear verification</string>
+    <string name="verify_display_fragment__mark_as_verified">Mark as Mahram</string>
+    <string name="verify_display_fragment__clear_verification">Remove from Mahram</string>
 
     <!-- verify_identity -->
     <string name="verify_identity__share_safety_number">Share safety number</string>
@@ -2487,7 +2492,7 @@
     <string name="AndroidManifest__create_passphrase">Create passphrase</string>
     <string name="AndroidManifest__select_contacts">Select contacts</string>
     <string name="AndroidManifest__change_passphrase">Change passphrase</string>
-    <string name="AndroidManifest__verify_safety_number">Verify safety number</string>
+    <string name="AndroidManifest__verify_safety_number">Mark as Mahram</string>
     <string name="AndroidManifest__log_submit">Submit debug log</string>
     <string name="AndroidManifest__media_preview">Media preview</string>
     <string name="AndroidManifest__message_details">Message details</string>
@@ -3606,7 +3611,7 @@
     <string name="RecipientBottomSheet_unable_to_open_contacts">Can\'t find an app able to open contacts.</string>
     <string name="RecipientBottomSheet_add_to_a_group">Add to a group</string>
     <string name="RecipientBottomSheet_add_to_another_group">Add to another group</string>
-    <string name="RecipientBottomSheet_view_safety_number">View safety number</string>
+    <string name="RecipientBottomSheet_view_safety_number">Mark as Mahram</string>
     <string name="RecipientBottomSheet_make_admin">Make admin</string>
     <string name="RecipientBottomSheet_remove_as_admin">Remove as admin</string>
     <string name="RecipientBottomSheet_remove_from_group">Remove from group</string>
@@ -4210,7 +4215,7 @@
     <string name="ConversationSettingsFragment__sounds_and_notifications">Sounds &amp; notifications</string>
     <string name="ConversationSettingsFragment__internal_details" translatable="false">Internal details</string>
     <string name="ConversationSettingsFragment__contact_details">Contact details</string>
-    <string name="ConversationSettingsFragment__view_safety_number">View safety number</string>
+    <string name="ConversationSettingsFragment__view_safety_number">Mark as Mahram</string>
     <string name="ConversationSettingsFragment__block">Block</string>
     <string name="ConversationSettingsFragment__block_group">Block group</string>
     <string name="ConversationSettingsFragment__unblock">Unblock</string>
@@ -4782,6 +4787,10 @@
     <string name="ConversationListTabs__chats">Chats</string>
     <!-- Label for Stories tab in home app screen -->
     <string name="ConversationListTabs__stories">Stories</string>
+    <!-- Label for Home tab in home app screen -->
+    <string name="ConversationListTabs__home">Home</string>
+    <!-- Label for Home tab in home app screen -->
+    <string name="ConversationListTabs__prayers">Prayers</string>
     <!-- String for counts above 99 in conversation list tabs -->
     <string name="ConversationListTabs__99p">99+</string>
     <!-- Menu item on stories landing page -->
@@ -5517,6 +5526,10 @@
     <string name="ExportSmsFullError__error_exporting_sms_messages">Error exporting SMS messages</string>
     <!-- Helper text shown when all sms messages failed to export -->
     <string name="ExportSmsFullError__please_try_again_if_the_problem_persists">Please try again. If the problem persists, </string>
+
+    <!-- Prayers Page -->
+    <string name="PrayersFragment__location_could_not_get">We couldn\'t retrieve your location information. Please make sure that your phone\'s location features are turned on.</string>
+    <string name="PrayersFragment__location_could_not_get_app_level">You must grant location permission in your device\'s settings to view this page. Please go to location permission on redirected page and grant permission.</string>
 
 
     <!-- EOF -->

@@ -230,6 +230,8 @@
 
     <dimen name="stories_landing_item_thumb_width">48dp</dimen>
     <dimen name="stories_landing_item_thumb_height">72dp</dimen>
+    <dimen name="new_stories_landing_item_thumb_width">165dp</dimen>
+    <dimen name="new_stories_landing_item_thumb_height">216dp</dimen>
     <dimen name="stories_landing_item_thumb_secondary_width">36dp</dimen>
     <dimen name="stories_landing_item_thumb_secondary_height">64dp</dimen>
     <dimen name="stories_landing_item_thumb_outline_width">52dp</dimen>

@@ -344,8 +344,8 @@ public class InputPanel extends LinearLayout
 
       setBackground(null);
       composeContainer.setBackground(Objects.requireNonNull(ContextCompat.getDrawable(getContext(), R.drawable.compose_background_wallpaper)));
-      quickAudioToggle.setColorFilter(iconTint);
-      quickCameraToggle.setColorFilter(iconTint);
+//      quickAudioToggle.setColorFilter(iconTint);
+//      quickCameraToggle.setColorFilter(iconTint);
     } else {
       iconTint = getContext().getResources().getColor(R.color.signal_colorOnSurface);
       textColor = getContext().getResources().getColor(R.color.signal_colorOnSurface);
@@ -355,9 +355,9 @@ public class InputPanel extends LinearLayout
       composeContainer.setBackground(Objects.requireNonNull(ContextCompat.getDrawable(getContext(), R.drawable.compose_background)));
     }
 
-    mediaKeyboard.setColorFilter(iconTint);
-    quickAudioToggle.setColorFilter(iconTint);
-    quickCameraToggle.setColorFilter(iconTint);
+//    mediaKeyboard.setColorFilter(iconTint);
+//    quickAudioToggle.setColorFilter(iconTint);
+//    quickCameraToggle.setColorFilter(iconTint);
     composeText.setTextColor(textColor);
     composeText.setHintTextColor(textHintColor);
     quoteView.setWallpaperEnabled(enabled);

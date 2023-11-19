@@ -9,6 +9,7 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
@@ -87,6 +88,7 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
 
   @Override
   protected void onPreCreate() {
+//    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
     super.onPreCreate();
     dynamicTheme.onCreate(this);
   }
@@ -126,10 +128,10 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
   private void updateTabVisibility() {
     if (Stories.isFeatureEnabled()) {
       findViewById(R.id.conversation_list_tabs).setVisibility(View.VISIBLE);
-      WindowUtil.setNavigationBarColor(this, ContextCompat.getColor(this, R.color.signal_colorSurface2));
+      WindowUtil.setNavigationBarColor(this, ContextCompat.getColor(this, R.color.signal_colorOnPrimary));
     } else {
       findViewById(R.id.conversation_list_tabs).setVisibility(View.GONE);
-      WindowUtil.setNavigationBarColor(this, ContextCompat.getColor(this, R.color.signal_colorBackground));
+      WindowUtil.setNavigationBarColor(this, ContextCompat.getColor(this, R.color.signal_colorOnPrimary));
       conversationListTabsViewModel.onChatsSelected();
     }
   }

@@ -255,6 +255,11 @@
     <style name="Signal.Text.Title.SettingsBio">
     </style>
 
+    <style name="Kahf.TextAppearance.Light.11" parent="">
+        <item name="android:textSize">11dp</item>
+        <item name="fontFamily">sans-serif</item>
+    </style>
+
     <!-- endregion -->
 
 </resources>

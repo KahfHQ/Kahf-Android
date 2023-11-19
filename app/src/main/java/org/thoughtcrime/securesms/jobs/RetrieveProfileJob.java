@@ -383,8 +383,7 @@ public class RetrieveProfileJob extends BaseJob {
   }
 
   private static SignalServiceProfile.RequestType getRequestType(@NonNull Recipient recipient) {
-    return ExpiringProfileCredentialUtil.isValid(recipient.getExpiringProfileKeyCredential()) ? SignalServiceProfile.RequestType.PROFILE
-                                                                                              : SignalServiceProfile.RequestType.PROFILE_AND_CREDENTIAL;
+    return SignalServiceProfile.RequestType.PROFILE;
   }
 
   private void setIdentityKey(Recipient recipient, String identityKeyValue) {

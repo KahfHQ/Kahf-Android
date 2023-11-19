@@ -976,6 +976,10 @@
         app:popUpTo="@id/app_settings"
         app:popUpToInclusive="true" />
     <fragment
+        android:id="@+id/homeLandingFragment"
+        android:name="org.thoughtcrime.securesms.home.landing.HomeLandingFragment"
+        android:label="home_fragment"/>
+    <fragment
         android:id="@+id/storiesLandingFragment"
         android:name="org.thoughtcrime.securesms.stories.landing.StoriesLandingFragment"
         android:label="stories_landing_fragment"/>
@@ -984,12 +988,18 @@
         android:name="org.thoughtcrime.securesms.conversationlist.ConversationListFragment"
         android:label="conversation_list_fragment"/>
     <fragment
+        android:id="@+id/prayersLandingFragment"
+        android:name="org.thoughtcrime.securesms.prayers.landing.PrayersLandingFragment"
+        android:label="prayers_fragment"/>
+    <fragment
         android:id="@+id/conversationListArchiveFragment"
         android:name="org.thoughtcrime.securesms.conversationlist.ConversationListArchiveFragment"
         android:label="conversation_list_archive_fragment" />
 
+    <action android:id="@+id/action_global_homeFragment" app:destination="@id/homeLandingFragment" />
     <action android:id="@+id/action_global_conversationListFragment" app:destination="@id/conversationListFragment" />
     <action android:id="@+id/action_global_storiesLandingFragment" app:destination="@id/storiesLandingFragment" />
     <action android:id="@+id/action_global_conversationListArchiveFragment" app:destination="@id/conversationListArchiveFragment" />
+    <action android:id="@+id/action_global_prayersFragment" app:destination="@id/prayersLandingFragment" />
     <action android:id="@+id/action_global_newSettingsFragment" app:destination="@id/newSettingsFragment" />
 </navigation>

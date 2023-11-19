@@ -34,14 +34,14 @@ class AppearanceSettingsFragment : DSLSettingsFragment(R.string.preferences__app
 
   private fun getConfiguration(state: AppearanceSettingsState): DSLConfiguration {
     return configure {
-      radioListPref(
-        title = DSLSettingsText.from(R.string.preferences__theme),
-        listItems = themeLabels,
-        selected = themeValues.indexOf(state.theme.serialize()),
-        onSelected = {
-          viewModel.setTheme(activity, SettingsValues.Theme.deserialize(themeValues[it]))
-        }
-      )
+//      radioListPref(
+//        title = DSLSettingsText.from(R.string.preferences__theme),
+//        listItems = themeLabels,
+//        selected = themeValues.indexOf(state.theme.serialize()),
+//        onSelected = {
+//          viewModel.setTheme(activity, SettingsValues.Theme.deserialize(themeValues[it]))
+//        }
+//      )
 
       clickPref(
         title = DSLSettingsText.from(R.string.preferences__chat_color_and_wallpaper),
