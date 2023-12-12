@@ -16,7 +16,7 @@ public final class SecondInviteReminder extends Reminder {
                               final int percent)
   {
     super(context.getString(R.string.SecondInviteReminder__title),
-          context.getString(R.string.SecondInviteReminder__description, recipient.getDisplayName(context)));
+          context.getString(R.string.SecondInviteReminder__description, recipient.getShortDisplayName(context)));
 
     this.progress  = percent;
 

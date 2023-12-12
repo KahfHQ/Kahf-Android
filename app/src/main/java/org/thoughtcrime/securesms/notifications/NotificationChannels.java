@@ -172,7 +172,7 @@ public class NotificationChannels {
     VibrateState vibrateState     = recipient.getMessageVibrate();
     boolean      vibrationEnabled = vibrateState == VibrateState.DEFAULT ? SignalStore.settings().isMessageVibrateEnabled() : vibrateState == VibrateState.ENABLED;
     Uri          messageRingtone  = recipient.getMessageRingtone() != null ? recipient.getMessageRingtone() : getMessageRingtone(context);
-    String       displayName      = recipient.getDisplayName(context);
+    String       displayName      = recipient.getShortDisplayName(context);
 
     return createChannelFor(context, generateChannelIdFor(recipient), displayName, messageRingtone, vibrationEnabled, ConversationUtil.getShortcutId(recipient));
   }
@@ -527,7 +527,7 @@ public class NotificationChannels {
     }
 
     NotificationChannel channel = new NotificationChannel(recipient.getNotificationChannel(),
-                                                          recipient.getDisplayName(context),
+                                                          recipient.getShortDisplayName(context),
                                                           NotificationManager.IMPORTANCE_HIGH);
     channel.setGroup(CATEGORY_MESSAGES);
     notificationManager.createNotificationChannel(channel);

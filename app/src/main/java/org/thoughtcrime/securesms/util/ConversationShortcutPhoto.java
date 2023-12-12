@@ -55,7 +55,7 @@ public final class ConversationShortcutPhoto implements Key {
 
   @Override
   public void updateDiskCacheKey(@NonNull MessageDigest messageDigest) {
-    messageDigest.update(recipient.getDisplayName(ApplicationDependencies.getApplication()).getBytes());
+    messageDigest.update(recipient.getShortDisplayName(ApplicationDependencies.getApplication()).getBytes());
     messageDigest.update(avatarObject.getBytes());
     messageDigest.update(isSystemContactPhoto() ? (byte) 1 : (byte) 0);
     messageDigest.update(profileAvatarFileDetails.getDiskCacheKeyBytes());
@@ -180,7 +180,7 @@ public final class ConversationShortcutPhoto implements Key {
       }
 
       FallbackContactPhoto photo   = recipient.isSelf() || recipient.isGroup() ? new FallbackPhoto80dp(photoSource, recipient.getAvatarColor())
-                                                                               : new ShortcutGeneratedContactPhoto(recipient.getDisplayName(context), photoSource, ViewUtil.dpToPx(80), recipient.getAvatarColor());
+                                                                               : new ShortcutGeneratedContactPhoto(recipient.getShortDisplayName(context), photoSource, ViewUtil.dpToPx(80), recipient.getAvatarColor());
       Bitmap               toWrap  = DrawableUtil.toBitmap(photo.asCallCard(context), ViewUtil.dpToPx(80), ViewUtil.dpToPx(80));
       Bitmap               wrapped = DrawableUtil.wrapBitmapForShortcutInfo(toWrap);
 

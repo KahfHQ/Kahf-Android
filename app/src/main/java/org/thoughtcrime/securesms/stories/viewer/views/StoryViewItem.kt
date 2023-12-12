@@ -50,7 +50,7 @@ object StoryViewItem {
 
     override fun bind(model: Model) {
       avatarView.setAvatar(model.storyViewItemData.recipient)
-      nameView.text = model.storyViewItemData.recipient.getDisplayName(context)
+      nameView.text = model.storyViewItemData.recipient.getShortDisplayName(context)
       viewedAtView.text = formatDate(model.storyViewItemData.timeViewedInMillis)
 
       itemView.setOnClickListener {

@@ -530,7 +530,7 @@ public class WebRtcCallView extends ConstraintLayout {
       foldParticipantCountWrapper.setOnClickListener(unused -> showParticipantsList());
     }
 
-    recipientName.setText(recipient.getDisplayName(getContext()));
+    recipientName.setText(recipient.getShortDisplayName(getContext()));
   }
 
   public void setStatus(@NonNull String status) {

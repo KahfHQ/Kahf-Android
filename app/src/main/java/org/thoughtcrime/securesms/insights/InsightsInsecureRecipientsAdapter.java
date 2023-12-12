@@ -78,7 +78,7 @@ final class InsightsInsecureRecipientsAdapter extends RecyclerView.Adapter<Insig
     }
 
     private void bind(@NonNull Recipient recipient) {
-      displayName.setText(recipient.getDisplayName(itemView.getContext()));
+      displayName.setText(recipient.getShortDisplayName(itemView.getContext()));
       avatarImageView.setAvatar(GlideApp.with(itemView), recipient, false);
     }
   }

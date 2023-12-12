@@ -179,7 +179,7 @@ class ViewReceivedGiftBottomSheet : DSLSettingsBottomSheetFragment() {
   private fun DSLConfiguration.presentSubheading(recipient: Recipient) {
     noPadTextPref(
       title = DSLSettingsText.from(
-        charSequence = requireContext().getString(R.string.ViewReceivedGiftBottomSheet__youve_received_a_gift_badge, recipient.getDisplayName(requireContext())),
+        charSequence = requireContext().getString(R.string.ViewReceivedGiftBottomSheet__youve_received_a_gift_badge, recipient.getShortDisplayName(requireContext())),
         DSLSettingsText.CenterModifier
       )
     )

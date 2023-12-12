@@ -51,7 +51,7 @@ class MyStoriesRepository(context: Context) {
 
   private fun createDistributionSet(recipient: Recipient, messageRecords: List<MessageRecord>): MyStoriesState.DistributionSet {
     return MyStoriesState.DistributionSet(
-      label = recipient.getDisplayName(context),
+      label = recipient.getShortDisplayName(context),
       stories = messageRecords.map {
         ConversationMessage.ConversationMessageFactory.createWithUnresolvedData(context, it)
       }

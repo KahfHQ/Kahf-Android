@@ -220,7 +220,7 @@ public class AddGroupDetailsFragment extends LoggingFragment {
 
   private void handleRecipientClick(@NonNull Recipient recipient) {
     new MaterialAlertDialogBuilder(requireContext())
-        .setMessage(getString(R.string.AddGroupDetailsFragment__remove_s_from_this_group, recipient.getDisplayName(requireContext())))
+        .setMessage(getString(R.string.AddGroupDetailsFragment__remove_s_from_this_group, recipient.getShortDisplayName(requireContext())))
         .setCancelable(true)
         .setNegativeButton(android.R.string.cancel, (dialog, which) -> dialog.cancel())
         .setPositiveButton(R.string.AddGroupDetailsFragment__remove, (dialog, which) -> {

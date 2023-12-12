@@ -132,7 +132,7 @@ public final class AvatarPreviewActivity extends PassphraseRequiredActivity {
                 }
               });
 
-      title.setText(recipient.getDisplayName(context));
+      title.setText(recipient.getShortDisplayName(context));
     });
 
     FullscreenHelper fullscreenHelper = new FullscreenHelper(this);

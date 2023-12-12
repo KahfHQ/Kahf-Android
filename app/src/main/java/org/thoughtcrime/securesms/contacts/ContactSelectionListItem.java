@@ -264,7 +264,7 @@ public class ContactSelectionListItem extends ConstraintLayout implements Recipi
   @Override
   public void onRecipientChanged(@NonNull Recipient recipient) {
     if (this.recipient != null && this.recipient.getId().equals(recipient.getId())) {
-      contactName   = recipient.getDisplayName(getContext());
+      contactName   = recipient.getShortDisplayName(getContext());
       contactAbout  = recipient.getCombinedAboutAndEmoji();
 
       if (recipient.isGroup() && recipient.getGroupId().isPresent()) {

@@ -253,7 +253,7 @@ public final class ConversationUtil {
   public static @NonNull Person buildPersonWithoutIcon(@NonNull Context context, @NonNull Recipient recipient) {
     return new Person.Builder()
                      .setKey(getShortcutId(recipient.getId()))
-                     .setName(recipient.getDisplayName(context))
+                     .setName(recipient.getShortDisplayName(context))
                      .setUri(recipient.isSystemContact() ? recipient.getContactUri().toString() : null)
                      .build();
   }
@@ -265,7 +265,7 @@ public final class ConversationUtil {
   public static @NonNull Person buildPerson(@NonNull Context context, @NonNull Recipient recipient) {
     return new Person.Builder()
                      .setKey(getShortcutId(recipient.getId()))
-                     .setName(recipient.getDisplayName(context))
+                     .setName(recipient.getShortDisplayName(context))
                      .setIcon(AvatarUtil.getIconForNotification(context, recipient))
                      .setUri(recipient.isSystemContact() ? recipient.getContactUri().toString() : null)
                      .build();

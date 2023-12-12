@@ -51,7 +51,7 @@ object SafetyNumberRecipientRowItem {
 
     override fun bind(model: Model) {
       avatar.setRecipient(model.recipient)
-      name.text = model.recipient.getDisplayName(context)
+      name.text = model.recipient.getShortDisplayName(context)
 
       val identifierText = model.recipient.e164.or(model.recipient.username).orElse(null)
       val subLineText = when {

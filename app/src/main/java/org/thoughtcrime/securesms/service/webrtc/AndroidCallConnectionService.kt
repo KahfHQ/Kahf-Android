@@ -30,7 +30,7 @@ class AndroidCallConnectionService : ConnectionService() {
 
     Log.i(TAG, "onCreateIncomingConnection($recipientId)")
     val recipient = Recipient.resolved(recipientId)
-    val displayName = recipient.getDisplayName(this)
+    val displayName = recipient.getShortDisplayName(this)
     val connection = AndroidCallConnection(
       context = applicationContext,
       recipientId = recipientId,

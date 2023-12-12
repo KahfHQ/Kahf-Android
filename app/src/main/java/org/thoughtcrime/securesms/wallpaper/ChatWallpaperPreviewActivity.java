@@ -100,7 +100,7 @@ public class ChatWallpaperPreviewActivity extends PassphraseRequiredActivity {
                .observe(this, recipient -> {
                  bubble2Text.setText(getString(R.string.ChatWallpaperPreviewActivity__set_wallpaper_for_s,
                                                recipient.isSelf() ? getString(R.string.note_to_self)
-                                                                  : recipient.getDisplayName(this)));
+                                                                  : recipient.getShortDisplayName(this)));
                  addUpdateBubbleColorListeners(recipient.getChatColors(), selected.getAutoChatColors());
                });
     } else {

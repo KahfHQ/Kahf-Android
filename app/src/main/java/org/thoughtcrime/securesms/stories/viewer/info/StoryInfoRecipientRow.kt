@@ -41,7 +41,7 @@ object StoryInfoRecipientRow {
 
     override fun bind(model: Model) {
       avatarView.setRecipient(model.recipientDeliveryStatus.recipient)
-      nameView.text = model.recipientDeliveryStatus.recipient.getDisplayName(context)
+      nameView.text = model.recipientDeliveryStatus.recipient.getShortDisplayName(context)
       timestampView.text = DateUtils.getTimeString(context, Locale.getDefault(), model.recipientDeliveryStatus.timestamp)
     }
   }

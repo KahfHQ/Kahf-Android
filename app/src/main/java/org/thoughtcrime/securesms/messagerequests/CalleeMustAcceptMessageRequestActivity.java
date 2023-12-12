@@ -69,7 +69,7 @@ public class CalleeMustAcceptMessageRequestActivity extends BaseActivity {
     CalleeMustAcceptMessageRequestViewModel         viewModel   = new ViewModelProvider(this, factory).get(CalleeMustAcceptMessageRequestViewModel.class);
 
     viewModel.getRecipient().observe(this, recipient -> {
-      description.setText(getString(R.string.CalleeMustAcceptMessageRequestDialogFragment__s_will_get_a_message_request_from_you, recipient.getDisplayName(this)));
+      description.setText(getString(R.string.CalleeMustAcceptMessageRequestDialogFragment__s_will_get_a_message_request_from_you, recipient.getShortDisplayName(this)));
       avatar.setAvatar(GlideApp.with(this), recipient, false);
     });
   }

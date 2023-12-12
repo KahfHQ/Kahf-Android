@@ -191,7 +191,7 @@ public class ConversationTitleView extends RelativeLayout {
   }
 
   private void setGroupRecipientTitle(@NonNull Recipient recipient) {
-    this.title.setText(recipient.getDisplayName(getContext()));
+    this.title.setText(recipient.getShortDisplayName(getContext()));
     this.subtitle.setText(Stream.of(recipient.getParticipantIds())
                                 .limit(10)
                                 .map(Recipient::resolved)

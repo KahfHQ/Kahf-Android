@@ -155,7 +155,7 @@ public class MultiDeviceContactUpdateJob extends BaseJob {
       Set<RecipientId>          archived        = SignalDatabase.threads().getArchivedRecipients();
 
       out.write(new DeviceContact(RecipientUtil.toSignalServiceAddress(context, recipient),
-                                  Optional.ofNullable(recipient.isGroup() || recipient.isSystemContact() ? recipient.getDisplayName(context) : null),
+                                  Optional.ofNullable(recipient.isGroup() || recipient.isSystemContact() ? recipient.getShortDisplayName(context) : null),
                                   getSystemAvatar(recipient.getContactUri()),
                                   Optional.of(ChatColorsMapper.getMaterialColor(recipient.getChatColors()).serialize()),
                                   verifiedMessage,
@@ -210,7 +210,7 @@ public class MultiDeviceContactUpdateJob extends BaseJob {
       for (Recipient recipient : recipients) {
         Optional<IdentityRecord>  identity      = ApplicationDependencies.getProtocolStore().aci().identities().getIdentityRecord(recipient.getId());
         Optional<VerifiedMessage> verified      = getVerifiedMessage(recipient, identity);
-        Optional<String>          name          = Optional.ofNullable(recipient.isSystemContact() ? recipient.getDisplayName(context) : recipient.getGroupName(context));
+        Optional<String>          name          = Optional.ofNullable(recipient.isSystemContact() ? recipient.getShortDisplayName(context) : recipient.getGroupName(context));
         Optional<ProfileKey>      profileKey    = ProfileKeyUtil.profileKeyOptional(recipient.getProfileKey());
         boolean                   blocked       = recipient.isBlocked();
         Optional<Integer>         expireTimer   = recipient.getExpiresInSeconds() > 0 ? Optional.of(recipient.getExpiresInSeconds()) : Optional.empty();

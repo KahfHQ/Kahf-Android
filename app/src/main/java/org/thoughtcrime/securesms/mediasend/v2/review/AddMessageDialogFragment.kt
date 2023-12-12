@@ -223,7 +223,7 @@ class AddMessageDialogFragment : KeyboardEntryDialogFragment(R.layout.v2_media_a
     }
 
     mentionsViewModel.selectedRecipient.observe(viewLifecycleOwner) { recipient ->
-      binding.content.addAMessageInput.replaceTextWithMention(recipient.getDisplayName(requireContext()), recipient.id)
+      binding.content.addAMessageInput.replaceTextWithMention(recipient.getShortDisplayName(requireContext()), recipient.id)
     }
   }
 

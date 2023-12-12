@@ -62,7 +62,7 @@ final class BlockedUsersAdapter extends ListAdapter<Recipient, BlockedUsersAdapt
 
     public void bind(@NonNull Recipient recipient) {
       avatar.setAvatar(recipient);
-      displayName.setText(recipient.getDisplayName(itemView.getContext()));
+      displayName.setText(recipient.getShortDisplayName(itemView.getContext()));
 
       if (recipient.hasAUserSetDisplayName(itemView.getContext())) {
         String identifier = OptionalUtil.or(recipient.getE164().map(PhoneNumberFormatter::prettyPrint),

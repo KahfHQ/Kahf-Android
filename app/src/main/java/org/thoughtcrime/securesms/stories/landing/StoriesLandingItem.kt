@@ -221,7 +221,7 @@ object StoriesLandingItem {
         model.data.storyRecipient.isMyStory -> context.getText(R.string.StoriesLandingFragment__my_stories)
         model.data.storyRecipient.isGroup -> getGroupPresentation(model)
         model.data.storyRecipient.isReleaseNotes -> getReleaseNotesPresentation(model)
-        else -> model.data.storyRecipient.getDisplayName(context)
+        else -> model.data.storyRecipient.getShortDisplayName(context)
       }
 
 //      icon.visible = (model.data.hasReplies || model.data.hasRepliesFromSelf) && !model.data.storyRecipient.isMyStory
@@ -278,13 +278,13 @@ object StoriesLandingItem {
     }
 
     private fun getGroupPresentation(model: Model): String {
-      return model.data.storyRecipient.getDisplayName(context)
+      return model.data.storyRecipient.getShortDisplayName(context)
     }
 
     private fun getReleaseNotesPresentation(model: Model): CharSequence {
       val official = ContextUtil.requireDrawable(context, R.drawable.ic_official_20)
 
-      val name = SpannableStringBuilder(model.data.storyRecipient.getDisplayName(context))
+      val name = SpannableStringBuilder(model.data.storyRecipient.getShortDisplayName(context))
       SpanUtil.appendCenteredImageSpan(name, official, 20, 20)
 
       return name

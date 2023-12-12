@@ -118,7 +118,7 @@ class PrivateStorySettingsFragment : DSLSettingsFragment(
 
   private fun handleRemoveRecipient(recipient: Recipient) {
     MaterialAlertDialogBuilder(requireContext())
-      .setTitle(getString(R.string.PrivateStorySettingsFragment__remove_s, recipient.getDisplayName(requireContext())))
+      .setTitle(getString(R.string.PrivateStorySettingsFragment__remove_s, recipient.getShortDisplayName(requireContext())))
       .setMessage(R.string.PrivateStorySettingsFragment__this_person_will_no_longer)
       .setPositiveButton(R.string.PrivateStorySettingsFragment__remove) { _, _ -> viewModel.remove(recipient) }
       .setNegativeButton(android.R.string.cancel) { _, _ -> }

@@ -182,7 +182,7 @@ public final class PaymentDetailsFragment extends LoggingFragment {
 
   private @NonNull CharSequence describe(@NonNull Payee payee, @NonNull Recipient recipient) {
     if (payee.hasRecipientId()) {
-      return recipient.getDisplayName(requireContext());
+      return recipient.getShortDisplayName(requireContext());
     } else if (payee.hasPublicAddress()) {
       return mono(requireContext(), Objects.requireNonNull(StringUtil.abbreviateInMiddle(payee.requirePublicAddress().getPaymentAddressBase58(), 17)));
     } else {

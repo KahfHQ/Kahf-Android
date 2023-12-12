@@ -74,7 +74,7 @@ data class NotificationConversation(
     val stringBuilder = SpannableStringBuilder()
 
     if (privacy.isDisplayContact && recipient.isGroup) {
-      stringBuilder.append(Util.getBoldedString(mostRecentNotification.individualRecipient.getDisplayName(context) + ": "))
+      stringBuilder.append(Util.getBoldedString(mostRecentNotification.individualRecipient.getShortDisplayName(context) + ": "))
     }
 
     return if (privacy.isDisplayMessage) {
@@ -206,9 +206,9 @@ data class NotificationConversation(
 
   private fun getDisplayName(context: Context): String {
     return if (thread.groupStoryId != null) {
-      context.getString(R.string.SingleRecipientNotificationBuilder__s_dot_story, recipient.getDisplayName(context))
+      context.getString(R.string.SingleRecipientNotificationBuilder__s_dot_story, recipient.getShortDisplayName(context))
     } else {
-      recipient.getDisplayName(context)
+      recipient.getShortDisplayName(context)
     }
   }
 

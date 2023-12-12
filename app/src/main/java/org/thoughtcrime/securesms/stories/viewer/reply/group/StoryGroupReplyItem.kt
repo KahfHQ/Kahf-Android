@@ -283,7 +283,7 @@ object StoryGroupReplyItem {
     return if (recipient.isSelf) {
       context.getString(R.string.StoryViewerPageFragment__you)
     } else {
-      recipient.getDisplayName(context)
+      recipient.getShortDisplayName(context)
     }
   }
 }

@@ -123,7 +123,7 @@ public final class LiveGroup {
       if (!TextUtils.isEmpty(title)) {
         return title;
       }
-      return recipient.getDisplayName(ApplicationDependencies.getApplication());
+      return recipient.getShortDisplayName(ApplicationDependencies.getApplication());
     });
   }
 

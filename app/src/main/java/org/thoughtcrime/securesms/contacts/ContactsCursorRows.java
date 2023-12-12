@@ -50,7 +50,7 @@ public final class ContactsCursorRows {
                                           : OptionalUtil.or(recipient.getE164().map(PhoneNumberFormatter::prettyPrint), recipient.getEmail()).orElse("");
 
     return new Object[]{recipient.getId().serialize(),
-                        recipient.getDisplayName(context),
+                        recipient.getShortDisplayName(context),
                         stringId,
                         ContactsContract.CommonDataKinds.Phone.TYPE_MOBILE,
                         "",

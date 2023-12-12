@@ -56,7 +56,7 @@ object RecipientPreference {
       name.text = if (model.recipient.isSelf) {
         context.getString(R.string.Recipient_you)
       } else {
-        model.recipient.getDisplayName(context)
+        model.recipient.getShortDisplayName(context)
       }
 
       val aboutText = model.recipient.combinedAboutAndEmoji

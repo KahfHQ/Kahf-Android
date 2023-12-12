@@ -111,7 +111,7 @@ open class ContactSearchPagedDataSourceRepository(
   }
 
   open fun recipientNameContainsQuery(recipient: Recipient, query: String?): Boolean {
-    return query.isNullOrBlank() || recipient.getDisplayName(context).contains(query, ignoreCase = true)
+    return query.isNullOrBlank() || recipient.getShortDisplayName(context).contains(query, ignoreCase = true)
   }
 
   open fun myStoryContainsQuery(query: String): Boolean {

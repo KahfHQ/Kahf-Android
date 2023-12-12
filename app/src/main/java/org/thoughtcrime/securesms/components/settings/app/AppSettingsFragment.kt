@@ -212,7 +212,7 @@ class AppSettingsFragment : DSLSettingsFragment(R.string.text_secure_normal__men
 
       itemView.setOnClickListener { model.onClick() }
 
-      titleView.text = model.recipient.profileName.toString()
+      titleView.text = model.recipient.getShortDisplayName(context)
       summaryView.text = PhoneNumberFormatter.prettyPrint(model.recipient.requireE164())
       avatarView.setRecipient(Recipient.self())
       badgeView.setBadgeFromRecipient(Recipient.self())

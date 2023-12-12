@@ -153,7 +153,7 @@ sealed class NotificationBuilder(protected val context: Context) {
 
   fun setSummaryContentText(recipient: Recipient?) {
     if (privacy.isDisplayContact && recipient != null) {
-      setContentText(context.getString(R.string.MessageNotifier_most_recent_from_s, recipient.getDisplayName(context)))
+      setContentText(context.getString(R.string.MessageNotifier_most_recent_from_s, recipient.getShortDisplayName(context)))
     }
 
     recipient?.notificationChannel?.let { channel -> setChannelId(channel) }

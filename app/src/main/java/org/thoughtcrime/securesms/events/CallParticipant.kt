@@ -41,9 +41,9 @@ data class CallParticipant constructor(
     } else if (recipient.isSelf) {
       context.getString(R.string.CallParticipant__you_on_another_device)
     } else if (isPrimary) {
-      recipient.getDisplayName(context)
+      recipient.getShortDisplayName(context)
     } else {
-      context.getString(R.string.CallParticipant__s_on_another_device, recipient.getDisplayName(context))
+      context.getString(R.string.CallParticipant__s_on_another_device, recipient.getShortDisplayName(context))
     }
   }
 

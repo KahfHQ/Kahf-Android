@@ -103,7 +103,7 @@ public class LongMessageFragment extends FullScreenDialogFragment {
         toolbar.setTitle(getString(R.string.LongMessageActivity_your_message));
       } else {
         Recipient recipient = message.get().getMessageRecord().getRecipient();
-        String    name      = recipient.getDisplayName(requireContext());
+        String    name      = recipient.getShortDisplayName(requireContext());
 
         toolbar.setTitle(getString(R.string.LongMessageActivity_message_from_s, name));
       }

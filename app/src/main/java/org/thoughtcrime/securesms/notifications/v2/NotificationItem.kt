@@ -90,7 +90,7 @@ sealed class NotificationItem(val threadRecipient: Recipient, protected val reco
       SpannableStringBuilder().apply {
         append(Util.getBoldedString(individualRecipient.getShortDisplayNameIncludingUsername(context)))
         if (threadRecipient != individualRecipient) {
-          append(Util.getBoldedString("@${threadRecipient.getDisplayName(context)}"))
+          append(Util.getBoldedString("@${threadRecipient.getShortDisplayName(context)}"))
         }
         append(": ")
         append(getPrimaryText(context).apply { if (trimmed) trimToDisplayLength() })
@@ -100,7 +100,7 @@ sealed class NotificationItem(val threadRecipient: Recipient, protected val reco
 
   fun getPersonName(context: Context): CharSequence {
     return if (SignalStore.settings().messageNotificationsPrivacy.isDisplayContact) {
-      individualRecipient.getDisplayName(context)
+      individualRecipient.getShortDisplayName(context)
     } else {
       context.getString(R.string.SingleRecipientNotificationBuilder_signal)
     }

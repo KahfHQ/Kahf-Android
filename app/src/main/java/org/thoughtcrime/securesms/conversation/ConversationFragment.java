@@ -663,7 +663,7 @@ public class ConversationFragment extends LoggingFragment implements Multiselect
                                      recipientInfo.getGroupDescription(),
                                      linkifyWebLinks,
                                      () -> GroupDescriptionDialog.show(getChildFragmentManager(),
-                                                                       recipient.getDisplayName(context),
+                                                                       recipient.getShortDisplayName(context),
                                                                        recipientInfo.getGroupDescription(),
                                                                        linkifyWebLinks));
       }
@@ -1992,8 +1992,8 @@ public class ConversationFragment extends LoggingFragment implements Multiselect
         TextView title = Objects.requireNonNull(dialog.findViewById(R.id.safety_number_learn_more_title));
         TextView body  = Objects.requireNonNull(dialog.findViewById(R.id.safety_number_learn_more_body));
 
-        title.setText(getString(R.string.ConversationFragment_your_safety_number_with_s_changed, recipient.getDisplayName(requireContext())));
-        body.setText(getString(R.string.ConversationFragment_your_safety_number_with_s_changed_likey_because_they_reinstalled_signal, recipient.getDisplayName(requireContext())));
+        title.setText(getString(R.string.ConversationFragment_your_safety_number_with_s_changed, recipient.getShortDisplayName(requireContext())));
+        body.setText(getString(R.string.ConversationFragment_your_safety_number_with_s_changed_likey_because_they_reinstalled_signal, recipient.getShortDisplayName(requireContext())));
       });
 
       dialog.show();
@@ -2068,7 +2068,7 @@ public class ConversationFragment extends LoggingFragment implements Multiselect
     @Override
     public void onBlockJoinRequest(@NonNull Recipient recipient) {
       new MaterialAlertDialogBuilder(requireContext()).setTitle(R.string.ConversationFragment__block_request)
-                                                      .setMessage(getString(R.string.ConversationFragment__s_will_not_be_able_to_join_or_request_to_join_this_group_via_the_group_link, recipient.getDisplayName(requireContext())))
+                                                      .setMessage(getString(R.string.ConversationFragment__s_will_not_be_able_to_join_or_request_to_join_this_group_via_the_group_link, recipient.getShortDisplayName(requireContext())))
                                                       .setNegativeButton(R.string.ConversationFragment__cancel, null)
                                                       .setPositiveButton(R.string.ConversationFragment__block_request_button, (d, w) -> handleBlockJoinRequest(recipient))
                                                       .show();

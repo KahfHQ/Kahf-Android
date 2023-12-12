@@ -173,7 +173,7 @@ class VoiceNoteMediaItemFactory {
     if (preference.isDisplayContact() && threadRecipient.isGroup()) {
       return context.getString(R.string.VoiceNoteMediaItemFactory__s_to_s,
                                sender.getDisplayName(context),
-                               threadRecipient.getDisplayName(context));
+                               threadRecipient.getShortDisplayName(context));
     } else if (preference.isDisplayContact()) {
       return sender.isSelf() && threadRecipient.isSelf() ? context.getString(R.string.note_to_self)
                                                          : sender.getDisplayName(context);

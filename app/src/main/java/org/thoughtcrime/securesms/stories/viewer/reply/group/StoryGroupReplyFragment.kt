@@ -504,7 +504,7 @@ class StoryGroupReplyFragment :
     }
 
     mentionsViewModel.selectedRecipient.observe(viewLifecycleOwner) { recipient ->
-      composer.input.replaceTextWithMention(recipient.getDisplayName(requireContext()), recipient.id)
+      composer.input.replaceTextWithMention(recipient.getShortDisplayName(requireContext()), recipient.id)
     }
 
     lifecycleDisposable += inlineQueryViewModel

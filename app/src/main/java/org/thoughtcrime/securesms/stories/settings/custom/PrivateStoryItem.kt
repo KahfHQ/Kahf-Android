@@ -86,7 +86,7 @@ object PrivateStoryItem {
       if (model.recipient.isSelf) {
         name.setText(R.string.MyStorySettingsFragment__my_story)
       } else {
-        name.text = model.recipient.getDisplayName(context)
+        name.text = model.recipient.getShortDisplayName(context)
       }
     }
   }

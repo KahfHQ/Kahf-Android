@@ -246,7 +246,7 @@ final class GroupMemberListAdapter extends RecyclerView.Adapter<GroupMemberListA
 
     void bindRecipient(@NonNull Recipient recipient) {
       String displayName = recipient.isSelf() ? context.getString(R.string.GroupMembersDialog_you)
-                                              : recipient.getDisplayName(itemView.getContext());
+                                              : recipient.getShortDisplayName(itemView.getContext());
       bindImageAndText(recipient, displayName, recipient.getCombinedAboutAndEmoji());
     }
 

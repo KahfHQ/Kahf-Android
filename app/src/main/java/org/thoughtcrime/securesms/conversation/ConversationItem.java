@@ -1736,7 +1736,7 @@ public final class ConversationItem extends RelativeLayout implements BindableCo
   @SuppressLint("SetTextI18n")
   private void setGroupMessageStatus(MessageRecord messageRecord, Recipient recipient) {
     if (groupThread && !messageRecord.isOutgoing() && groupSender != null) {
-      groupSender.setText(recipient.getDisplayName(getContext()));
+      groupSender.setText(recipient.getShortDisplayName(getContext()));
     }
   }
 

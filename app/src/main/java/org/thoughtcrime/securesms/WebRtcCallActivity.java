@@ -431,7 +431,7 @@ public class WebRtcCallActivity extends BaseActivity implements SafetyNumberChan
     Recipient recipient = viewModel.getRecipient().get();
 
     if (!recipient.equals(Recipient.UNKNOWN)) {
-      String recipientDisplayName = recipient.getDisplayName(this);
+      String recipientDisplayName = recipient.getShortDisplayName(this);
 
       Permissions.with(this)
                  .request(Manifest.permission.CAMERA)
@@ -470,7 +470,7 @@ public class WebRtcCallActivity extends BaseActivity implements SafetyNumberChan
       Permissions.with(this)
                  .request(Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA)
                  .ifNecessary()
-                 .withRationaleDialog(getString(R.string.WebRtcCallActivity_to_answer_the_call_from_s_give_signal_access_to_your_microphone, recipient.getDisplayName(this)),
+                 .withRationaleDialog(getString(R.string.WebRtcCallActivity_to_answer_the_call_from_s_give_signal_access_to_your_microphone, recipient.getShortDisplayName(this)),
                                       R.drawable.ic_mic_solid_24, R.drawable.ic_video_solid_24_tinted)
                  .withPermanentDenialDialog(getString(R.string.WebRtcCallActivity_signal_requires_microphone_and_camera_permissions_in_order_to_make_or_receive_calls))
                  .onAllGranted(() -> {

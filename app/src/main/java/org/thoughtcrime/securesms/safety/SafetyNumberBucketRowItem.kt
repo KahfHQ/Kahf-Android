@@ -82,7 +82,7 @@ object SafetyNumberBucketRowItem {
 
   private class GroupViewHolder(itemView: View) : BaseViewHolder<GroupModel>(itemView) {
     override fun getTitle(model: GroupModel): String {
-      return model.groupBucket.recipient.getDisplayName(context)
+      return model.groupBucket.recipient.getShortDisplayName(context)
     }
 
     override fun bindMenuListener(model: GroupModel, menuView: View) {

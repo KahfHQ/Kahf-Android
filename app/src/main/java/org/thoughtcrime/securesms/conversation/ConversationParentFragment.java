@@ -1393,7 +1393,7 @@ public class ConversationParentFragment extends Fragment
   {
     IconCompat icon = IconCompat.createWithAdaptiveBitmap(bitmap);
     String     name = recipient.isSelf() ? context.getString(R.string.note_to_self)
-                                                  : recipient.getDisplayName(context);
+                                                  : recipient.getShortDisplayName(context);
 
     ShortcutInfoCompat shortcutInfoCompat = new ShortcutInfoCompat.Builder(context, recipient.getId().serialize() + '-' + System.currentTimeMillis())
                                                                   .setShortLabel(name)
@@ -2433,7 +2433,7 @@ public class ConversationParentFragment extends Fragment
     });
 
     mentionsViewModel.getSelectedRecipient().observe(getViewLifecycleOwner(), recipient -> {
-      composeText.replaceTextWithMention(recipient.getDisplayName(requireContext()), recipient.getId());
+      composeText.replaceTextWithMention(recipient.getShortDisplayName(requireContext()), recipient.getId());
     });
 
     Disposable disposable = inlineQueryViewModel
@@ -2774,7 +2774,7 @@ public class ConversationParentFragment extends Fragment
       boolean        isPhase1     = SignalStore.misc().getSmsExportPhase() == SmsExportPhase.PHASE_1;
 
       if (SignalStore.misc().getSmsExportPhase() == SmsExportPhase.PHASE_0) {
-        message.setText(getString(R.string.NewConversationActivity__s_is_not_a_signal_user, recipient.getDisplayName(requireContext())));
+        message.setText(getString(R.string.NewConversationActivity__s_is_not_a_signal_user, recipient.getShortDisplayName(requireContext())));
         actionButton.setText(R.string.conversation_activity__enable_signal_for_sms);
         actionButton.setOnClickListener(v -> {
           handleMakeDefaultSms();
@@ -2787,7 +2787,7 @@ public class ConversationParentFragment extends Fragment
       } else {
         message.setText(requireContext().getString(isPhase1 ? R.string.ConversationActivity__sms_messaging_is_currently_disabled_invite_s_to_to_signal_to_keep_the_conversation_here
                                                             : R.string.ConversationActivity__sms_messaging_is_no_longer_supported_in_signal_invite_s_to_to_signal_to_keep_the_conversation_here,
-                                                   recipient.getDisplayName(requireContext())));
+                                                   recipient.getShortDisplayName(requireContext())));
         actionButton.setText(R.string.ConversationActivity__invite_to_signal);
         actionButton.setOnClickListener(v -> handleInviteLink());
       }

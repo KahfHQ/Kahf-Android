@@ -202,7 +202,7 @@ public final class MediaOverviewActivity extends PassphraseRequiredActivity {
       SimpleTask.run(() -> SignalDatabase.threads().getRecipientForThreadId(threadId),
         (recipient) -> {
           if (recipient != null) {
-            getSupportActionBar().setTitle(recipient.getDisplayName(this));
+            getSupportActionBar().setTitle(recipient.getShortDisplayName(this));
             recipient.live().observe(this, r -> getSupportActionBar().setTitle(r.getDisplayName(this)));
           }
         }

@@ -335,9 +335,9 @@ public class CommunicationActions {
     callContext.getPermissionsBuilder()
                .request(Manifest.permission.RECORD_AUDIO)
                .ifNecessary()
-               .withRationaleDialog(callContext.getContext().getString(R.string.ConversationActivity__to_call_s_signal_needs_access_to_your_microphone, recipient.getDisplayName(callContext.getContext())),
+               .withRationaleDialog(callContext.getContext().getString(R.string.ConversationActivity__to_call_s_signal_needs_access_to_your_microphone, recipient.getShortDisplayName(callContext.getContext())),
                    R.drawable.ic_mic_solid_24)
-               .withPermanentDenialDialog(callContext.getContext().getString(R.string.ConversationActivity__to_call_s_signal_needs_access_to_your_microphone, recipient.getDisplayName(callContext.getContext())))
+               .withPermanentDenialDialog(callContext.getContext().getString(R.string.ConversationActivity__to_call_s_signal_needs_access_to_your_microphone, recipient.getShortDisplayName(callContext.getContext())))
                .onAllGranted(() -> {
                  ApplicationDependencies.getSignalCallManager().startOutgoingAudioCall(recipient);
 
@@ -356,10 +356,10 @@ public class CommunicationActions {
     callContext.getPermissionsBuilder()
                .request(Manifest.permission.RECORD_AUDIO, Manifest.permission.CAMERA)
                .ifNecessary()
-               .withRationaleDialog(callContext.getContext().getString(R.string.ConversationActivity_signal_needs_the_microphone_and_camera_permissions_in_order_to_call_s, recipient.getDisplayName(callContext.getContext())),
+               .withRationaleDialog(callContext.getContext().getString(R.string.ConversationActivity_signal_needs_the_microphone_and_camera_permissions_in_order_to_call_s, recipient.getShortDisplayName(callContext.getContext())),
                                     R.drawable.ic_mic_solid_24,
                                     R.drawable.ic_video_solid_24_tinted)
-               .withPermanentDenialDialog(callContext.getContext().getString(R.string.ConversationActivity_signal_needs_the_microphone_and_camera_permissions_in_order_to_call_s, recipient.getDisplayName(callContext.getContext())))
+               .withPermanentDenialDialog(callContext.getContext().getString(R.string.ConversationActivity_signal_needs_the_microphone_and_camera_permissions_in_order_to_call_s, recipient.getShortDisplayName(callContext.getContext())))
                .onAllGranted(() -> {
                  ApplicationDependencies.getSignalCallManager().startPreJoinCall(recipient);
 

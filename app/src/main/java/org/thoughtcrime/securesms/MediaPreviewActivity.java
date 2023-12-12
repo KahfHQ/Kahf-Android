@@ -197,7 +197,7 @@ public final class MediaPreviewActivity extends PassphraseRequiredActivity
   private @NonNull String getTitleText(@NonNull MediaItem mediaItem) {
     String from;
     if      (mediaItem.outgoing)          from = getString(R.string.MediaPreviewActivity_you);
-    else if (mediaItem.recipient != null) from = mediaItem.recipient.getDisplayName(this);
+    else if (mediaItem.recipient != null) from = mediaItem.recipient.getShortDisplayName(this);
     else                                  from = "";
 
     if (showThread) {
@@ -209,11 +209,11 @@ public final class MediaPreviewActivity extends PassphraseRequiredActivity
           if (threadRecipient.isSelf()) {
             titleText = getString(R.string.note_to_self);
           } else {
-            titleText = getString(R.string.MediaPreviewActivity_you_to_s, threadRecipient.getDisplayName(this));
+            titleText = getString(R.string.MediaPreviewActivity_you_to_s, threadRecipient.getShortDisplayName(this));
           }
         } else {
           if (threadRecipient.isGroup()) {
-            titleText = getString(R.string.MediaPreviewActivity_s_to_s, from, threadRecipient.getDisplayName(this));
+            titleText = getString(R.string.MediaPreviewActivity_s_to_s, from, threadRecipient.getShortDisplayName(this));
           } else {
             titleText = getString(R.string.MediaPreviewActivity_s_to_you, from);
           }

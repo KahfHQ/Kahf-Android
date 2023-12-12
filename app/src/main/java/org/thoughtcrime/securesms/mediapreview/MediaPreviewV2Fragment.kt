@@ -216,7 +216,7 @@ class MediaPreviewV2Fragment : Fragment(R.layout.fragment_media_preview_v2), Med
     val defaultFromString: String = if (mediaRecord.isOutgoing) {
       getString(R.string.MediaPreviewActivity_you)
     } else {
-      recipient.getDisplayName(requireContext())
+      recipient.getShortDisplayName(requireContext())
     }
     if (!showThread) {
       return defaultFromString
@@ -227,11 +227,11 @@ class MediaPreviewV2Fragment : Fragment(R.layout.fragment_media_preview_v2), Med
       if (threadRecipient.isSelf) {
         getString(R.string.note_to_self)
       } else {
-        getString(R.string.MediaPreviewActivity_you_to_s, threadRecipient.getDisplayName(requireContext()))
+        getString(R.string.MediaPreviewActivity_you_to_s, threadRecipient.getShortDisplayName(requireContext()))
       }
     } else {
       if (threadRecipient.isGroup) {
-        getString(R.string.MediaPreviewActivity_s_to_s, defaultFromString, threadRecipient.getDisplayName(requireContext()))
+        getString(R.string.MediaPreviewActivity_s_to_s, defaultFromString, threadRecipient.getShortDisplayName(requireContext()))
       } else {
         getString(R.string.MediaPreviewActivity_s_to_you, defaultFromString)
       }

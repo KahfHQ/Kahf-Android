@@ -33,7 +33,7 @@ public final class GroupCallSafetyNumberChangeNotificationUtil {
 
     Notification safetyNumberChangeNotification = new NotificationCompat.Builder(context, NotificationChannels.CALLS)
                                                                         .setSmallIcon(R.drawable.ic_notification)
-                                                                        .setContentTitle(recipient.getDisplayName(context))
+                                                                        .setContentTitle(recipient.getShortDisplayName(context))
                                                                         .setContentText(context.getString(R.string.GroupCallSafetyNumberChangeNotification__someone_has_joined_this_call_with_a_safety_number_that_has_changed))
                                                                         .setStyle(new NotificationCompat.BigTextStyle().bigText(context.getString(R.string.GroupCallSafetyNumberChangeNotification__someone_has_joined_this_call_with_a_safety_number_that_has_changed)))
                                                                         .setContentIntent(pendingIntent)

@@ -114,7 +114,7 @@ class StoryReplyComposer @JvmOverloads constructor(
   }
 
   fun displayPrivacyChrome(recipient: Recipient) {
-    privacyChrome.text = context.getString(R.string.StoryReplyComposer__replying_privately_to_s, recipient.getDisplayName(context))
+    privacyChrome.text = context.getString(R.string.StoryReplyComposer__replying_privately_to_s, recipient.getShortDisplayName(context))
     privacyChrome.visible = true
   }
 
