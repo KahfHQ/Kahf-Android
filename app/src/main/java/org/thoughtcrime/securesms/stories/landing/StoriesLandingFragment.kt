@@ -13,6 +13,7 @@ import android.os.Bundle
 import android.transition.TransitionInflater
 import android.util.DisplayMetrics
 import android.view.View
+import android.widget.LinearLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.OnBackPressedCallback
@@ -33,6 +34,7 @@ import com.google.android.material.snackbar.Snackbar
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import io.reactivex.rxjava3.core.Single
 import io.reactivex.rxjava3.kotlin.subscribeBy
+import org.thoughtcrime.securesms.MainActivity
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.components.AvatarImageView
 import org.thoughtcrime.securesms.components.settings.DSLConfiguration
@@ -42,6 +44,7 @@ import org.thoughtcrime.securesms.components.settings.configure
 import org.thoughtcrime.securesms.conversation.ConversationIntents
 import org.thoughtcrime.securesms.conversation.mutiselect.forward.MultiselectForwardFragment
 import org.thoughtcrime.securesms.conversation.mutiselect.forward.MultiselectForwardFragmentArgs
+import org.thoughtcrime.securesms.conversationlist.ConversationListFragment.Callback
 import org.thoughtcrime.securesms.database.model.MediaMmsMessageRecord
 import org.thoughtcrime.securesms.database.model.MmsMessageRecord
 import org.thoughtcrime.securesms.database.model.StoryViewState
@@ -61,6 +64,7 @@ import org.thoughtcrime.securesms.stories.viewer.StoryViewerActivity
 import org.thoughtcrime.securesms.util.LifecycleDisposable
 import org.thoughtcrime.securesms.util.adapter.mapping.MappingAdapter
 import org.thoughtcrime.securesms.util.fragments.requireListener
+import org.thoughtcrime.securesms.util.runHideAnimation
 import org.thoughtcrime.securesms.util.visible
 import java.util.concurrent.TimeUnit
 
@@ -77,6 +81,7 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
   private lateinit var cameraFab: FloatingActionButton
   private lateinit var addStoryBtn: TextView
   private var toolbarAvatar: AvatarImageView? = null
+  private var toolbar: Toolbar? = null
 
   private val lifecycleDisposable = LifecycleDisposable()
 
@@ -95,6 +100,20 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
 //    setHasOptionsMenu(true)
   }
 
+  override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    super.onViewCreated(view, savedInstanceState)
+    toolbar = (parentFragment?.parentFragment as? Callback)?.storiesToolbar
+    toolbar?.findViewById<View>(R.id.add_story)?.setOnClickListener {
+      cameraFab.performClick()
+    }
+  }
+
+  override fun onDestroyView() {
+    super.onDestroyView()
+    (requireActivity() as? MainActivity)?.showBottomTabBar()
+    toolbar?.visible = false
+  }
+
 //  override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
 //    menu.clear()
 //    inflater.inflate(R.menu.story_landing_menu, menu)
@@ -103,13 +122,14 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
   override fun onResume() {
     super.onResume()
     viewModel.isTransitioningToAnotherScreen = false
+    (requireActivity() as? MainActivity)?.hideBottomTabBar()
   }
 
   override fun bindAdapter(adapter: MappingAdapter) {
     this.adapter = adapter
 
     StoriesLandingItem.register(adapter)
-    MyStoriesItem.register(adapter)
+//    MyStoriesItem.register(adapter)
     ExpandHeader.register(adapter)
 
     recyclerView?.layoutManager = GridLayoutManager(requireContext(), 2)
@@ -119,7 +139,7 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
     lifecycleDisposable.bindTo(viewLifecycleOwner)
     emptyNotice = requireView().findViewById(R.id.empty_notice)
     cameraFab = requireView().findViewById(R.id.camera_fab)
-    addStoryBtn = requireView().findViewById(R.id.add_story)
+//    addStoryBtn = requireView().findViewById(R.id.add_story)
 
     sharedElementEnterTransition = TransitionInflater.from(requireContext()).inflateTransition(R.transition.change_transform_fabs)
     setEnterSharedElementCallback(object : SharedElementCallback() {
@@ -156,18 +176,9 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
         .execute()
     }
 
-    addStoryBtn.setOnClickListener {
-      Permissions.with(this)
-        .request(Manifest.permission.CAMERA)
-        .ifNecessary()
-        .withRationaleDialog(getString(R.string.ConversationActivity_to_capture_photos_and_video_allow_signal_access_to_the_camera), R.drawable.ic_camera_24)
-        .withPermanentDenialDialog(getString(R.string.ConversationActivity_signal_needs_the_camera_permission_to_take_photos_or_video))
-        .onAllGranted {
-          startActivityIfAble(MediaSelectionActivity.camera(requireContext(), isStory = true))
-        }
-        .onAnyDenied { Toast.makeText(requireContext(), R.string.ConversationActivity_signal_needs_camera_permissions_to_take_photos_or_video, Toast.LENGTH_LONG).show() }
-        .execute()
-    }
+//    addStoryBtn.setOnClickListener {
+//      cameraFab.performClick()
+//    }
 
     viewModel.state.observe(viewLifecycleOwner) {
       if (it.loadingState == StoriesLandingState.LoadingState.LOADED) {
@@ -185,16 +196,16 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
       }
     )
 
-    lifecycleDisposable += tabsViewModel.tabClickEvents
-      .filter { it == ConversationListTab.STORIES }
-      .subscribeBy(onNext = {
-        val layoutManager = recyclerView?.layoutManager as? LinearLayoutManager ?: return@subscribeBy
-        if (layoutManager.findFirstVisibleItemPosition() <= LIST_SMOOTH_SCROLL_TO_TOP_THRESHOLD) {
-          recyclerView?.smoothScrollToPosition(0)
-        } else {
-          recyclerView?.scrollToPosition(0)
-        }
-      })
+//    lifecycleDisposable += tabsViewModel.tabClickEvents
+//      .filter { it == ConversationListTab.STORIES }
+//      .subscribeBy(onNext = {
+//        val layoutManager = recyclerView?.layoutManager as? LinearLayoutManager ?: return@subscribeBy
+//        if (layoutManager.findFirstVisibleItemPosition() <= LIST_SMOOTH_SCROLL_TO_TOP_THRESHOLD) {
+//          recyclerView?.smoothScrollToPosition(0)
+//        } else {
+//          recyclerView?.scrollToPosition(0)
+//        }
+//      })
   }
 
   private fun getConfiguration(state: StoriesLandingState): DSLConfiguration {
@@ -205,15 +216,15 @@ class StoriesLandingFragment : DSLSettingsFragment(layoutId = R.layout.stories_l
         !it.data.isHidden
       }
 
-      if (state.displayMyStoryItem) {
-        customPref(
-          MyStoriesItem.Model(
-            onClick = {
-              cameraFab.performClick()
-            }
-          )
-        )
-      }
+//      if (state.displayMyStoryItem) {
+//        customPref(
+//          MyStoriesItem.Model(
+//            onClick = {
+//              cameraFab.performClick()
+//            }
+//          )
+//        )
+//      }
 
       stories.forEach { item ->
         customPref(item)

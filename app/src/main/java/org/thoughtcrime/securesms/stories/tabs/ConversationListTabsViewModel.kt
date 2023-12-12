@@ -55,9 +55,9 @@ class ConversationListTabsViewModel(repository: ConversationListTabRepository) :
     store.update { it.copy(tab = ConversationListTab.PRAYERS) }
   }
 
-  fun onStoriesSelected() {
-    internalTabClickEvents.onNext(ConversationListTab.STORIES)
-    store.update { it.copy(tab = ConversationListTab.STORIES) }
+  fun onChatAppsSelected() {
+    internalTabClickEvents.onNext(ConversationListTab.CHATAPPS)
+    store.update { it.copy(tab = ConversationListTab.CHATAPPS) }
   }
 
   fun onSearchOpened() {

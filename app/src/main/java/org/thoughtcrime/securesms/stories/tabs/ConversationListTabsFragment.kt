@@ -27,20 +27,20 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
   private val viewModel: ConversationListTabsViewModel by viewModels(ownerProducer = { requireActivity() })
 
   private lateinit var chatsUnreadIndicator: TextView
-  private lateinit var storiesUnreadIndicator: TextView
+//  private lateinit var storiesUnreadIndicator: TextView
   private lateinit var homeIcon: LottieAnimationView
   private lateinit var chatsIcon: LottieAnimationView
   private lateinit var settingsIcon: LottieAnimationView
   private lateinit var prayersIcon: LottieAnimationView
-  private lateinit var storiesIcon: LottieAnimationView
+  private lateinit var chatAppsIcon: LottieAnimationView
   private lateinit var homePill: ImageView
   private lateinit var chatsPill: ImageView
-  private lateinit var storiesPill: ImageView
+  private lateinit var chatAppsPill: ImageView
   private lateinit var prayersPill: ImageView
   private lateinit var settingsPill: ImageView
   private lateinit var homeLabel: TextView
   private lateinit var chatsLabel: TextView
-  private lateinit var storiesLabel: TextView
+  private lateinit var chatAppsLabel: TextView
   private lateinit var prayersLabel: TextView
   private lateinit var settingsLabel: TextView
 
@@ -48,20 +48,20 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
 
   override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
     chatsUnreadIndicator = view.findViewById(R.id.chats_unread_indicator)
-    storiesUnreadIndicator = view.findViewById(R.id.stories_unread_indicator)
+//    storiesUnreadIndicator = view.findViewById(R.id.stories_unread_indicator)
     homeIcon = view.findViewById(R.id.home_tab_icon)
     chatsIcon = view.findViewById(R.id.chats_tab_icon)
-    storiesIcon = view.findViewById(R.id.stories_tab_icon)
+    chatAppsIcon = view.findViewById(R.id.chat_apps_tab_icon)
     prayersIcon = view.findViewById(R.id.prayers_tab_icon)
     settingsIcon = view.findViewById(R.id.settings_tab_icon)
     homePill = view.findViewById(R.id.home_pill)
     chatsPill = view.findViewById(R.id.chats_pill)
-    storiesPill = view.findViewById(R.id.stories_pill)
+    chatAppsPill = view.findViewById(R.id.chat_apps_pill)
     prayersPill = view.findViewById(R.id.prayers_pill)
     settingsPill = view.findViewById(R.id.settings_pill)
     homeLabel = view.findViewById(R.id.home_tab_label)
     chatsLabel = view.findViewById(R.id.chats_tab_label)
-    storiesLabel = view.findViewById(R.id.stories_tab_label)
+    chatAppsLabel = view.findViewById(R.id.chat_apps_tab_label)
     prayersLabel = view.findViewById(R.id.prayers_tab_label)
     settingsLabel = view.findViewById(R.id.settings_tab_label)
 
@@ -77,7 +77,7 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
       LottieProperty.COLOR
     ) { iconTint }
 
-    storiesIcon.addValueCallback(
+    chatAppsIcon.addValueCallback(
       KeyPath("**"),
       LottieProperty.COLOR
     ) { iconTint }
@@ -109,7 +109,7 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
     }
 
     view.findViewById<View>(R.id.stories_tab_touch_point).setOnClickListener {
-      viewModel.onStoriesSelected()
+      viewModel.onChatAppsSelected()
     }
 
     update(viewModel.stateSnapshot, true)
@@ -123,51 +123,46 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
   private fun update(state: ConversationListTabsState, immediate: Boolean) {
     homeIcon.isSelected = state.tab == ConversationListTab.HOME
     chatsIcon.isSelected = state.tab == ConversationListTab.CHATS
-    storiesIcon.isSelected = state.tab == ConversationListTab.STORIES
+    chatAppsIcon.isSelected = state.tab == ConversationListTab.CHATAPPS
     prayersIcon.isSelected = state.tab == ConversationListTab.PRAYERS
-    settingsIcon.isSelected = state.tab == ConversationListTab.SETTINGS
+//    settingsIcon.isSelected = state.tab == ConversationListTab.SETTINGS
 
     homePill.isSelected = homeIcon.isSelected
     chatsPill.isSelected = chatsIcon.isSelected
-    storiesPill.isSelected = storiesIcon.isSelected
+    chatAppsPill.isSelected = chatAppsIcon.isSelected
     prayersPill.isSelected = prayersIcon.isSelected
-    settingsPill.isSelected = settingsIcon.isSelected
 
     homeLabel.isSelected = homeIcon.isSelected
     chatsLabel.isSelected = chatsIcon.isSelected
-    storiesLabel.isSelected = storiesIcon.isSelected
+    chatAppsLabel.isSelected = chatAppsIcon.isSelected
     prayersLabel.isSelected = prayersIcon.isSelected
-    settingsLabel.isSelected = settingsIcon.isSelected
 
-    val hasStateChange = homeIcon.isSelected or chatsIcon.isSelected or settingsIcon.isSelected or
-            storiesIcon.isSelected or prayersIcon.isSelected
+    val hasStateChange = homeIcon.isSelected or chatsIcon.isSelected or
+            chatAppsIcon.isSelected or prayersIcon.isSelected
     if (immediate) {
       chatsIcon.pauseAnimation()
-      storiesIcon.pauseAnimation()
-      /*settingsIcon.pauseAnimation()*/
+      chatAppsIcon.pauseAnimation()
 
       homeIcon.progress = if (homeIcon.isSelected) 1f else 0f
       chatsIcon.progress = if (chatsIcon.isSelected) 1f else 0f
-      storiesIcon.progress = if (storiesIcon.isSelected) 1f else 0f
+      chatAppsIcon.progress = if (chatAppsIcon.isSelected) 1f else 0f
       prayersIcon.progress = if (prayersIcon.isSelected) 1f else 0f
-      settingsIcon.progress = if (settingsIcon.isSelected) 1f else 0f
 
       changeIcon()
-      showLabel(homeLabel, chatsLabel, storiesLabel, prayersLabel, settingsLabel)
+      showLabel(homeLabel, chatsLabel, chatAppsLabel, prayersLabel, settingsLabel)
 
-//      runPillAnimation(0, homePill, chatsPill, storiesPill, prayersPill, settingsPill)
     } else if (hasStateChange) {
       changeIcon()
-      showLabel(homeLabel, chatsLabel, storiesLabel, prayersLabel, settingsLabel)
-//      runLottieAnimations(/*homeIcon,*/ chatsIcon, storiesIcon, /*prayersIcon,*/ /*settingsIcon*/)
-//      runPillAnimation(150, /*homePill,*/ chatsPill, storiesPill, /*prayersPill,*/ /*settingsIcon*/)
+      showLabel(homeLabel, chatsLabel, chatAppsLabel, prayersLabel, settingsLabel)
+//      runLottieAnimations(/*homeIcon,*/ chatsIcon, chatAppsIcon, /*prayersIcon,*/ /*settingsIcon*/)
+//      runPillAnimation(150, /*homePill,*/ chatsPill, chatAppsPill, /*prayersPill,*/ /*settingsIcon*/)
     }
 
     chatsUnreadIndicator.visible = state.unreadChatsCount > 0
     chatsUnreadIndicator.text = formatCount(state.unreadChatsCount)
 
-    storiesUnreadIndicator.visible = state.unreadStoriesCount > 0
-    storiesUnreadIndicator.text = formatCount(state.unreadStoriesCount)
+//    storiesUnreadIndicator.visible = state.unreadStoriesCount > 0
+//    storiesUnreadIndicator.text = formatCount(state.unreadStoriesCount)
 
     requireView().visible = state.visibilityState.isVisible()
   }
@@ -177,9 +172,9 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
       true -> R.drawable.ic_home_selected
       else -> R.drawable.ic_home_deselected
     })
-    storiesIcon.setImageResource(when (storiesIcon.isSelected) {
-      true -> R.drawable.ic_stories_selected
-      else -> R.drawable.ic_stories_deselected
+    chatAppsIcon.setImageResource(when (chatAppsIcon.isSelected) {
+      true -> R.drawable.ic_chat_apps_selected
+      else -> R.drawable.ic_chat_apps_deselected
     })
     chatsIcon.setImageResource(when (chatsIcon.isSelected) {
       true -> R.drawable.ic_chat_selected
@@ -189,10 +184,10 @@ class ConversationListTabsFragment : Fragment(R.layout.conversation_list_tabs) {
       true -> R.drawable.ic_prayers_selected
       else -> R.drawable.ic_prayers_deselected
     })
-    settingsIcon.setImageResource(when (settingsIcon.isSelected) {
-      true -> R.drawable.ic_settings_selected
-      else -> R.drawable.ic_settings_deselected
-    })
+//    settingsIcon.setImageResource(when (settingsIcon.isSelected) {
+//      true -> R.drawable.ic_settings_selected
+//      else -> R.drawable.ic_settings_deselected
+//    })
   }
 
   private fun showLabel(vararg labels: TextView) {

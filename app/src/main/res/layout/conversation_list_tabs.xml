@@ -68,12 +68,12 @@
         android:layout_height="0dp"
         android:background="?selectableItemBackgroundBorderless"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/stories_tab_icon"
-        app:layout_constraintStart_toStartOf="@id/stories_tab_icon"
+        app:layout_constraintEnd_toEndOf="@id/chat_apps_tab_icon"
+        app:layout_constraintStart_toStartOf="@id/chat_apps_tab_icon"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/stories_tab_icon"
+        android:id="@+id/chat_apps_tab_icon"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:importantForAccessibility="no"
@@ -83,32 +83,32 @@
         app:layout_constraintStart_toEndOf="@id/tabs_first_guide"
         app:layout_constraintEnd_toStartOf="@id/tabs_second_guide"
         app:layout_constraintVertical_chainStyle="packed"
-        android:src="@drawable/ic_stories_deselected"/>
+        android:src="@drawable/ic_chat_apps_deselected"/>
 
     <TextView
-        android:id="@+id/stories_tab_label"
+        android:id="@+id/chat_apps_tab_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/ConversationListTabs__stories"
         android:textAppearance="@style/Kahf.TextAppearance.Light.11"
         android:textColor="@color/kahf_bottomNavBar_selectedItemColor"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/stories_tab_icon"
-        app:layout_constraintStart_toStartOf="@id/stories_tab_icon"
-        app:layout_constraintTop_toBottomOf="@id/stories_tab_icon"
+        app:layout_constraintEnd_toEndOf="@id/chat_apps_tab_icon"
+        app:layout_constraintStart_toStartOf="@id/chat_apps_tab_icon"
+        app:layout_constraintTop_toBottomOf="@id/chat_apps_tab_icon"
         android:visibility="gone"/>
 
     <ImageView
-        android:id="@+id/stories_pill"
+        android:id="@+id/chat_apps_pill"
         android:layout_width="64dp"
         android:layout_height="32dp"
         android:importantForAccessibility="no"
         android:paddingHorizontal="16dp"
         android:src="@drawable/conversation_tab_icon_background"
-        app:layout_constraintBottom_toBottomOf="@id/stories_tab_icon"
-        app:layout_constraintEnd_toEndOf="@id/stories_tab_icon"
-        app:layout_constraintStart_toStartOf="@id/stories_tab_icon"
-        app:layout_constraintTop_toTopOf="@id/stories_tab_icon"
+        app:layout_constraintBottom_toBottomOf="@id/chat_apps_tab_icon"
+        app:layout_constraintEnd_toEndOf="@id/chat_apps_tab_icon"
+        app:layout_constraintStart_toStartOf="@id/chat_apps_tab_icon"
+        app:layout_constraintTop_toTopOf="@id/chat_apps_tab_icon"
         android:visibility="gone"/>
 
     <!-- Chat -->
@@ -310,7 +310,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:text="3" />
 
-    <TextView
+    <!--<TextView
         android:id="@+id/stories_unread_indicator"
         android:layout_width="wrap_content"
         android:layout_height="16sp"
@@ -326,6 +326,6 @@
         android:textSize="11sp"
         app:layout_constraintStart_toStartOf="@id/stories_tab_icon"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="99+" />
+        tools:text="99+" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

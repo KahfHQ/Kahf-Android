@@ -2,7 +2,7 @@ package org.thoughtcrime.securesms.stories.tabs
 
 data class ConversationListTabsState(
   val tab: ConversationListTab = ConversationListTab.CHATS,
-  val prevTab: ConversationListTab = ConversationListTab.STORIES,
+  val prevTab: ConversationListTab = ConversationListTab.CHATAPPS,
   val unreadChatsCount: Long = 0L,
   val unreadStoriesCount: Long = 0L,
   val visibilityState: VisibilityState = VisibilityState()

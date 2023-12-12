@@ -138,7 +138,7 @@ public class SubmitDebugLogActivity extends BaseActivity implements SubmitDebugL
       Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
       intent.addCategory(Intent.CATEGORY_OPENABLE);
       intent.setType("application/zip");
-      intent.putExtra(Intent.EXTRA_TITLE, "signal-log-" + System.currentTimeMillis() + ".zip");
+      intent.putExtra(Intent.EXTRA_TITLE, "kahf-log-" + System.currentTimeMillis() + ".zip");
 
       startActivityForResult(intent, CODE_SAVE);
     }

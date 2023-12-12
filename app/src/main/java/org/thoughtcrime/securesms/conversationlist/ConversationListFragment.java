@@ -1721,6 +1721,8 @@ public class ConversationListFragment extends MainFragment implements ActionMode
 
     @NonNull Stub<Toolbar> getBasicToolbar();
 
+    @NonNull Toolbar getStoriesToolbar();
+
     void updateNotificationProfileStatus(@NonNull List<NotificationProfile> notificationProfiles);
 
     void updateProxyStatus(@NonNull WebSocketConnectionState state);

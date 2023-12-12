@@ -13,7 +13,7 @@ class PrayersConstants {
         SUNRISE("SUNRISE"),
         DHUHR("DHUHR"),
         ASR("ASR"),
-        MAGRIB("MAGRIB"),
+        MAGHRIB("MAGHRIB"),
         ISHA("ISHA")
     }
 }

@@ -423,6 +423,7 @@ dependencies {
     implementation libs.google.jsr305
 
     api libs.rxjava3.rxjava
+    implementation 'androidx.work:work-runtime-ktx:2.7.0'
     lintChecks project(':lintchecks')
 
     coreLibraryDesugaring libs.android.tools.desugar

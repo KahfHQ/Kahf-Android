@@ -1,21 +1,16 @@
 package org.thoughtcrime.securesms.main
 
-import android.Manifest
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.ActionMenuView
-import androidx.appcompat.widget.AppCompatImageButton
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.Toolbar
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.content.ContextCompat
-import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
@@ -26,32 +21,27 @@ import androidx.navigation.Navigator
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.recyclerview.widget.RecyclerView
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import org.signal.core.util.concurrent.SimpleTask
 import org.signal.core.util.logging.Log
 import org.thoughtcrime.securesms.MainActivity
 import org.thoughtcrime.securesms.R
-import org.thoughtcrime.securesms.badges.BadgeImageView
 import org.thoughtcrime.securesms.components.AvatarImageView
-import org.thoughtcrime.securesms.components.Material3SearchToolbar
 import org.thoughtcrime.securesms.components.TooltipPopup
 import org.thoughtcrime.securesms.components.settings.app.AppSettingsActivity
 import org.thoughtcrime.securesms.components.settings.app.notifications.manual.NotificationProfileSelectionFragment
 import org.thoughtcrime.securesms.conversationlist.ConversationListFragment
 import org.thoughtcrime.securesms.keyvalue.SignalStore
-import org.thoughtcrime.securesms.mediasend.v2.MediaSelectionActivity
+import org.thoughtcrime.securesms.main.views.MoreAppsBottomSheet
 import org.thoughtcrime.securesms.notifications.profiles.NotificationProfile
 import org.thoughtcrime.securesms.notifications.profiles.NotificationProfiles
-import org.thoughtcrime.securesms.permissions.Permissions
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTab
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTabsState
 import org.thoughtcrime.securesms.stories.tabs.ConversationListTabsViewModel
 import org.thoughtcrime.securesms.util.*
 import org.thoughtcrime.securesms.util.TopToastPopup.Companion.show
+import org.thoughtcrime.securesms.util.navigation.safeNavigate
 import org.thoughtcrime.securesms.util.views.Stub
 import org.whispersystems.signalservice.api.websocket.WebSocketConnectionState
 
@@ -68,6 +58,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   private lateinit var _toolbar: Toolbar
   private lateinit var _toolbarSettings: Toolbar
   private lateinit var _basicToolbar: Stub<Toolbar>
+  private lateinit var _storiesToolbar: Toolbar
   private lateinit var _fragmentContainer: FragmentContainerView
   private lateinit var _fragmentContainerParent: ConstraintLayout
   private lateinit var _toolbarBarrier: View
@@ -75,7 +66,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 //  private lateinit var proxyStatus: ImageView
 //  private lateinit var _searchToolbar: Stub<Material3SearchToolbar>
   private lateinit var _cameraAction: AppCompatImageView
-  private lateinit var _toolbarAvatar: AvatarImageView
+  private lateinit var _prayerSettingsAction: AppCompatImageView
 //  private lateinit var _unreadPaymentsDot: View
 //  private lateinit var _chatToolbar: Toolbar
   private var previousTopToastPopup: TopToastPopup? = null
@@ -95,12 +86,12 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     _toolbar = view.findViewById(R.id.toolbar)
 //    _chatToolbar = view.findViewById(R.id.toolbar)
     _toolbarSettings = view.findViewById(R.id.settings_tool_bar)
+    _storiesToolbar = view.findViewById(R.id.stories_toolbar)
     _basicToolbar = Stub(view.findViewById(R.id.toolbar_basic_stub))
 //    notificationProfileStatus = view.findViewById(R.id.conversation_list_notification_profile_status)
 //    proxyStatus = view.findViewById(R.id.conversation_list_proxy_status)
     _cameraAction = view.findViewById(R.id.camera_action)
-    _toolbarAvatar = view.findViewById(R.id.toolbar_avatar)
-    _toolbarAvatar.setRecipient(Recipient.self())
+    _prayerSettingsAction = view.findViewById(R.id.prayer_settings_action)
     _fragmentContainer = view.findViewById(R.id.fragment_container)
     _toolbarBarrier = view.findViewById(R.id.toolbar_barrier)
     _fragmentContainerParent = view.findViewById(R.id.fragment_container_parent)
@@ -118,9 +109,9 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         R.id.homeLandingFragment -> goToStateFromHomeFragment(state, controller)
         R.id.conversationListFragment -> goToStateFromConversationList(state, controller)
         R.id.conversationListArchiveFragment -> Unit
-        R.id.storiesLandingFragment -> goToStateFromStories(state, controller)
+        R.id.linkChatAppsFragment -> goToStateFromChatApps(state, controller)
         R.id.prayersLandingFragment -> goToStateFromPrayersFragment(state, controller)
-        R.id.newSettingsFragment -> goToStateFromSettingFragment(state ,controller)
+//        R.id.newSettingsFragment -> goToStateFromSettingFragment(state ,controller)
         else -> {
           changeView(state, controller)
         }
@@ -133,18 +124,16 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
       ConversationListTab.HOME -> {
         navController.navigate(R.id.action_global_homeFragment)
       }
-      ConversationListTab.SETTINGS -> {
-        navController.navigate(R.id.action_global_newSettingsFragment)
-      }
       ConversationListTab.CHATS -> {
         navController.navigate(R.id.action_global_conversationListFragment)
       }
       ConversationListTab.PRAYERS -> {
         navController.navigate(R.id.action_global_prayersFragment)
       }
-      ConversationListTab.STORIES -> {
-        navController.navigate(R.id.action_global_storiesLandingFragment)
+      ConversationListTab.CHATAPPS -> {
+        navController.navigate(R.id.action_global_linkChatAppsFragment)
       }
+      else -> {}
     }
   }
 
@@ -154,15 +143,11 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         return
       }
       ConversationListTab.SETTINGS -> {
-        navController.navigate(
-          R.id.action_global_newSettingsFragment,
-          null,
-          null
-        )
+        presentMoreAppsBottomSheet(navController)
       }
-      ConversationListTab.STORIES -> {
+      ConversationListTab.CHATAPPS -> {
         navController.navigate(
-          R.id.action_global_storiesLandingFragment,
+          R.id.action_global_linkChatAppsFragment,
           null,
           null
         )
@@ -197,9 +182,9 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
       ConversationListTab.SETTINGS -> {
         return
       }
-      ConversationListTab.STORIES -> {
+      ConversationListTab.CHATAPPS -> {
         navController.navigate(
-          R.id.action_global_storiesLandingFragment,
+          R.id.action_global_linkChatAppsFragment,
           null,
           null
         )
@@ -233,7 +218,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
       ConversationListTab.CHATS -> {
         return
       }
-      ConversationListTab.STORIES -> {
+      ConversationListTab.CHATAPPS -> {
         val cameraFab = requireView().findViewById<View>(R.id.camera_fab)
         val newConvoFab = requireView().findViewById<View>(R.id.fab)
 
@@ -246,7 +231,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
           )
         }
         navController.navigate(
-          R.id.action_global_storiesLandingFragment,
+          R.id.action_global_linkChatAppsFragment,
           null,
           null,
           extras
@@ -260,11 +245,12 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         )
       }
       else -> {
-        navController.navigate(
-          R.id.action_global_newSettingsFragment,
-          null,
-          null
-        )
+        presentMoreAppsBottomSheet(navController)
+//        navController.navigate(
+//          R.id.action_global_moreAppsBottomSheetFragment,
+//          nu        presentMoreAppsBottomSheet(navController)ll,
+//          null
+//        )
       }
     }
   }
@@ -279,15 +265,11 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         )
       }
       ConversationListTab.SETTINGS -> {
-        navController.navigate(
-          R.id.action_global_newSettingsFragment,
-          null,
-          null
-        )
+        presentMoreAppsBottomSheet(navController)
       }
-      ConversationListTab.STORIES -> {
+      ConversationListTab.CHATAPPS -> {
         navController.navigate(
-          R.id.action_global_storiesLandingFragment,
+          R.id.action_global_linkChatAppsFragment,
           null,
           null
         )
@@ -305,7 +287,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     }
   }
 
-  private fun goToStateFromStories(state: ConversationListTabsState, navController: NavController) {
+  private fun goToStateFromChatApps(state: ConversationListTabsState, navController: NavController) {
     when(state.tab){
       ConversationListTab.HOME -> {
         navController.navigate(
@@ -314,15 +296,11 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
           null
         )
       }
-      ConversationListTab.STORIES -> {
+      ConversationListTab.CHATAPPS -> {
         return
       }
       ConversationListTab.SETTINGS -> {
-        navController.navigate(
-          R.id.action_global_newSettingsFragment,
-          null,
-          null
-        )
+
       }
       ConversationListTab.PRAYERS -> {
         navController.navigate(
@@ -370,7 +348,6 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   }
 
   private fun presentToolbarForConversationListFragment() {
-    attachToBarrier()
     if (_basicToolbar.resolved() && _basicToolbar.get().visible) {
       _toolbar.runRevealAnimation(R.anim.slide_from_start)
     }
@@ -382,7 +359,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
     }
     _toolbar.visible = true
     _cameraAction.visible = true
-    _toolbarAvatar.visible = false
+    _prayerSettingsAction.visible = false
 
     if (_basicToolbar.resolved() && _basicToolbar.get().visible) {
       _basicToolbar.get().runHideAnimation(R.anim.slide_to_end)
@@ -400,18 +377,34 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
   }
 
   private fun presentToolbarForStoriesLandingFragment() {
-    attachToTop()
-    _toolbar.visible = false
-//    _cameraAction.visible = false
-//    _toolbarAvatar.visible = true
-//    if (_isComingFromSettings){
-//      _isComingFromSettings = false
-//      _toolbarSettings.visible = false
-//      _toolbar.runRevealAnimation(R.anim.slide_from_end)
-//    }
-//    if (_basicToolbar.resolved()) {
-//      _basicToolbar.get().visible = false
-//    }
+    _toolbar.runHideAnimation(R.anim.slide_to_start)
+    _storiesToolbar.runRevealAnimation(R.anim.slide_from_end)
+  }
+
+  private fun presentToolbarForPrayersLandingFragment() {
+    _cameraAction.visible = false
+    _prayerSettingsAction.visible = true
+    if (_isComingFromSettings){
+      _isComingFromSettings = false
+      _toolbarSettings.visible = false
+      _toolbar.runRevealAnimation(R.anim.slide_from_end)
+    }
+    if (_basicToolbar.resolved()) {
+      _basicToolbar.get().visible = false
+    }
+  }
+
+  private fun presentToolbarForHomeLandingFragment() {
+    _cameraAction.visible = false
+    _prayerSettingsAction.visible = false
+    if (_isComingFromSettings){
+      _isComingFromSettings = false
+      _toolbarSettings.visible = false
+      _toolbar.runRevealAnimation(R.anim.slide_from_end)
+    }
+    if (_basicToolbar.resolved()) {
+      _basicToolbar.get().visible = false
+    }
   }
 
   private fun presentToolbarForMultiselect() {
@@ -436,6 +429,10 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
 
   override fun getBasicToolbar(): Stub<Toolbar> {
     return _basicToolbar
+  }
+
+  override fun getStoriesToolbar(): Toolbar {
+    return _storiesToolbar
   }
 
   override fun onMultiSelectStarted() {
@@ -543,16 +540,32 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         conversationListTabsViewModel.isShowingArchived(true)
         presentToolbarForConversationListArchiveFragment()
       }
-      R.id.storiesLandingFragment, R.id.homeLandingFragment, R.id.prayersLandingFragment -> {
+      R.id.linkChatAppsFragment, R.id.homeLandingFragment -> {
+        conversationListTabsViewModel.isShowingArchived(false)
+        presentToolbarForHomeLandingFragment()
+      }
+      R.id.prayersLandingFragment -> {
+        conversationListTabsViewModel.isShowingArchived(false)
+        presentToolbarForPrayersLandingFragment()
+      }
+      R.id.storiesLandingFragment -> {
         conversationListTabsViewModel.isShowingArchived(false)
         presentToolbarForStoriesLandingFragment()
       }
+//      R.id.prayersLandingFragment -> {
+//        conversationListTabsViewModel.isShowingArchived(false)
+//        presentToolbarForPrayersLandingFragment()
+//      }
       R.id.newSettingsFragment -> {
-        _isComingFromSettings = true
-        conversationListTabsViewModel.isShowingArchived(false)
         presentToolbarForNewSettingsFragment()
+//        presentMoreAppsBottomSheet()
       }
     }
+  }
+
+  private fun presentMoreAppsBottomSheet(navController: NavController) {
+    val moreAppsBottomSheet = MoreAppsBottomSheet(this, navController)
+    moreAppsBottomSheet.show(parentFragmentManager, moreAppsBottomSheet.tag)
   }
 
   private fun attachToBarrier() {

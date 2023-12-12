@@ -13,6 +13,7 @@ import androidx.annotation.StringRes
 import androidx.appcompat.widget.Toolbar
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
@@ -87,7 +88,9 @@ abstract class DSLSettingsFragment(
 
   open fun onToolbarNavigationClicked() {
     try {
-      findNavController().popBackStack()
+      if (!findNavController().popBackStack()) {
+        requireActivity().finish()
+      }
     } catch (e: Exception) {
       requireActivity().finish()
     }

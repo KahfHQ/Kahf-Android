@@ -995,11 +995,16 @@
         android:id="@+id/conversationListArchiveFragment"
         android:name="org.thoughtcrime.securesms.conversationlist.ConversationListArchiveFragment"
         android:label="conversation_list_archive_fragment" />
+    <fragment
+        android:id="@+id/linkChatAppsFragment"
+        android:name="org.thoughtcrime.securesms.whatsappandtelegram.fragments.LinkChatAppsFragment"
+        android:label="link_chat_apps_fragment" />
 
     <action android:id="@+id/action_global_homeFragment" app:destination="@id/homeLandingFragment" />
     <action android:id="@+id/action_global_conversationListFragment" app:destination="@id/conversationListFragment" />
-    <action android:id="@+id/action_global_storiesLandingFragment" app:destination="@id/storiesLandingFragment" />
+    <action android:id="@+id/action_global_storiesLandingFragment" app:destination="@id/storiesLandingFragment"/>
     <action android:id="@+id/action_global_conversationListArchiveFragment" app:destination="@id/conversationListArchiveFragment" />
-    <action android:id="@+id/action_global_prayersFragment" app:destination="@id/prayersLandingFragment" />
+    <action android:id="@+id/action_global_prayersFragment" app:destination="@id/prayersLandingFragment"/>
     <action android:id="@+id/action_global_newSettingsFragment" app:destination="@id/newSettingsFragment" />
+    <action android:id="@+id/action_global_linkChatAppsFragment" app:destination="@id/linkChatAppsFragment" />
 </navigation>

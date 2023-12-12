@@ -16,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.ConcatAdapter
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import org.thoughtcrime.securesms.MainActivity
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.badges.BadgeImageView
 import org.thoughtcrime.securesms.components.AvatarImageView
@@ -43,7 +44,7 @@ class NewSettingsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentNewSettingsBinding.inflate(inflater, container, false)
-
+        (requireActivity() as? MainActivity)?.hideBottomTabBar()
         return binding.root
     }
 
@@ -68,6 +69,11 @@ class NewSettingsFragment : Fragment() {
             else -> error("Illegal adapter subtype: ${settingsAdapter.javaClass.simpleName}")
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        (requireActivity() as? MainActivity)?.showBottomTabBar()
     }
 
     private fun getConfiguration(state: AppSettingsState): DSLConfiguration {
