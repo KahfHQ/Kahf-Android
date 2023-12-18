@@ -13,7 +13,7 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.content.ContextCompat;
 import androidx.lifecycle.ViewModelProvider;
 
-import org.thoughtcrime.securesms.components.settings.app.AppSettingsActivity;
+import com.google.firebase.crashlytics.FirebaseCrashlytics;
 import org.thoughtcrime.securesms.components.voice.VoiceNoteMediaController;
 import org.thoughtcrime.securesms.components.voice.VoiceNoteMediaControllerOwner;
 import org.thoughtcrime.securesms.devicetransfer.olddevice.OldDeviceTransferLockedDialog;
@@ -53,6 +53,8 @@ public class MainActivity extends PassphraseRequiredActivity implements VoiceNot
   protected void onCreate(Bundle savedInstanceState, boolean ready) {
     AppStartup.getInstance().onCriticalRenderEventStart();
     super.onCreate(savedInstanceState, ready);
+
+    FirebaseCrashlytics.getInstance().setCrashlyticsCollectionEnabled(true);
 
     setContentView(R.layout.main_activity);
 
