@@ -8,6 +8,8 @@ apply plugin: 'org.jetbrains.kotlin.android'
 apply plugin: 'app.cash.exhaustive'
 apply plugin: 'kotlin-parcelize'
 apply from: 'static-ips.gradle'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 
 repositories {
     maven {
@@ -272,6 +274,7 @@ android {
                     'proguard/proguard.cfg'
 
             manifestPlaceholders = [mapsKey:getMapsKey()]
+            applicationIdSuffix = ".debug"
 
             buildConfigField "String", "BUILD_VARIANT_TYPE", "\"Debug\""
         }
@@ -587,6 +590,10 @@ dependencies {
     implementation libs.rxjava3.rxandroid
     implementation libs.rxjava3.rxkotlin
     implementation libs.rxdogtag
+
+    implementation platform('com.google.firebase:firebase-bom:31.0.0')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
 
     androidTestUtil testLibs.androidx.test.orchestrator
 }
