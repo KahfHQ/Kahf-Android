@@ -43,14 +43,7 @@ class NearbyMosqueView(context: Context,
                 val uri = "http://maps.google.com/maps?daddr=${model.latitude},${model.longitude}"
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(uri))
                 intent.setPackage("com.google.android.apps.maps")
-
-                // Verify if there's an activity to handle this intent
-                if (intent.resolveActivity(context.packageManager) != null) {
-                    context.startActivity(intent)
-                } else {
-                    // Handle if Google Maps is not installed on the device
-                    // Show a message or prompt the user to install Google Maps
-                }
+                context.startActivity(intent)
             }
         }
     }

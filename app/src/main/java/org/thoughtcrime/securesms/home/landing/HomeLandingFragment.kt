@@ -289,15 +289,8 @@ class HomeLandingFragment : Fragment() {
     private fun initViews() {
         updateDateAndTime()
 
-        val crashButton = Button(context)
-        crashButton.text = "Test Crash"
-        crashButton.setOnClickListener {
-            throw RuntimeException("Test Crash") // Force a crash
-        }
-
-
         binding.apply {
-            containerLayout.addView(crashButton)
+
         }
     }
 
