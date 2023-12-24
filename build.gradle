@@ -17,7 +17,7 @@ buildscript {
         }
     }
     dependencies {
-        classpath 'com.android.tools:r8:3.3.75'
+        classpath 'com.android.tools:r8:8.2.33'
         classpath 'com.android.tools.build:gradle:7.2.2'
         classpath 'androidx.navigation:navigation-safe-args-gradle-plugin:2.5.2'
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.8.17'
@@ -30,10 +30,10 @@ buildscript {
 }
 
 ext {
-    BUILD_TOOL_VERSION = '32.0.0'
+    BUILD_TOOL_VERSION = '33.0.0'
 
-    COMPILE_SDK = 32
-    TARGET_SDK  = 31
+    COMPILE_SDK = 33
+    TARGET_SDK  = 33
     MINIMUM_SDK = 19
 
     JAVA_VERSION = JavaVersion.VERSION_1_8

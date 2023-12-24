@@ -253,31 +253,35 @@ class HomeLandingFragment : Fragment() {
         NearbyMosqueApi.initialize()
         NearbyMosqueApi.getNearbyMosque(location.latitude.toFloat(), location.longitude.toFloat(), object : MosqueResponseListener {
             override fun onSuccess(responseData: String?) {
-                responseData?.let {
-                    val jsonResponse = JSONObject(it)
+                responseData?.let { response ->
+                    val jsonResponse = JSONObject(response)
                     val mosquesArray = jsonResponse.getJSONArray("mosques")
                     val mosqueObject = mosquesArray.getJSONObject(0)
                     val addressString = mosqueObject.getString("address")
 
-                    val geocoder = Geocoder(context)
-                    val addresses: List<Address> = geocoder.getFromLocationName(addressString, 1)
+                    val geocoder = Geocoder(requireContext())
+                    val addresses: MutableList<Address>? = geocoder.getFromLocationName(addressString, 1)
 
-                    if (addresses.isNotEmpty()) {
-                        val address = addresses[0]
-                        val mosqueLatitude = address.latitude
-                        val mosqueLongitude = address.longitude
+                    addresses?.let {
+                        if (it.isNotEmpty()) {
+                            val address = it[0]
+                            val mosqueLatitude = address.latitude
+                            val mosqueLongitude = address.longitude
 
-                        val model = NearbyMosqueModel(
-                            mosqueObject.getString("name"),
-                            mosqueLatitude,
-                            mosqueLongitude
-                        )
+                            val model = NearbyMosqueModel(
+                                mosqueObject.getString("name"),
+                                mosqueLatitude,
+                                mosqueLongitude
+                            )
 
-                        requireActivity().runOnUiThread {
-                            val nearbyMosqueView = NearbyMosqueView(requireContext(), model, location)
-                            binding.containerLayout.addView(nearbyMosqueView)
+                            requireActivity().runOnUiThread {
+                                val nearbyMosqueView = NearbyMosqueView(requireContext(), model, location)
+                                binding.containerLayout.addView(nearbyMosqueView)
+                            }
                         }
                     }
+
+
                 }
             }
 

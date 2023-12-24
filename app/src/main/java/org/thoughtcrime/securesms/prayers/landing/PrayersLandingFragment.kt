@@ -250,27 +250,29 @@ class PrayersLandingFragment : Fragment() {
             coordinates = Coordinates(location.latitude, location.longitude)
 
             val geocoder = Geocoder(requireContext(), Locale.getDefault())
-            val addresses: List<Address> = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+            val addresses: MutableList<Address>? = geocoder.getFromLocation(location.latitude, location.longitude, 1)
 
-            if (addresses.isNotEmpty()) {
-                val address: Address = addresses[0]
+            addresses?.let {
+                if (it.isNotEmpty()) {
+                    val address: Address = it[0]
 
-                cityName = address.adminArea
-                val sb = StringBuilder()
-                sb.apply {
-                    address.subLocality?.let {
-                        append(it)
-                        append(", ")
+                    cityName = address.adminArea
+                    val sb = StringBuilder()
+                    sb.apply {
+                        address.subLocality?.let { str ->
+                            append(str)
+                            append(", ")
+                        }
+                        address.thoroughfare?.let { str ->
+                            append(str)
+                            append(", ")
+                        }
+                        address.postalCode?.let { str ->
+                            append(str)
+                        }
                     }
-                    address.thoroughfare?.let {
-                        append(it)
-                        append(", ")
-                    }
-                    address.postalCode?.let {
-                        append(it)
-                    }
+                    this@PrayersLandingFragment.fullAddress = sb.toString()
                 }
-                this@PrayersLandingFragment.fullAddress = sb.toString()
             }
 
             prepareData(initialCall = true)

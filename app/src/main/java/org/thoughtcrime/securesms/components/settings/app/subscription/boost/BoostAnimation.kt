@@ -27,7 +27,7 @@ object BoostAnimation {
     override fun bind(model: Model) {
       lottie.playAnimation()
       lottie.addAnimatorListener(object : AnimationCompleteListener() {
-        override fun onAnimationEnd(animation: Animator?) {
+        override fun onAnimationEnd(animator: Animator) {
           lottie.removeAnimatorListener(this)
           lottie.setMinAndMaxFrame(30, 91)
           lottie.repeatMode = LottieDrawable.RESTART

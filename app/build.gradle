@@ -59,8 +59,8 @@ ktlint {
     version = "0.43.2"
 }
 
-def canonicalVersionCode = 1003
-def canonicalVersionName = "1.0.3"
+def canonicalVersionCode = 1101
+def canonicalVersionName = "1.1.0"
 
 def postFixSize = 100
 def abiPostFix = ['universal'   : 10,
@@ -596,7 +596,7 @@ dependencies {
     implementation libs.rxjava3.rxkotlin
     implementation libs.rxdogtag
 
-    implementation platform('com.google.firebase:firebase-bom:31.0.0')
+    implementation platform('com.google.firebase:firebase-bom:31.2.3')
     implementation 'com.google.firebase:firebase-crashlytics-ktx'
     implementation 'com.google.firebase:firebase-analytics-ktx'
 
