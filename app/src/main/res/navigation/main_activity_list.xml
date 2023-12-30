@@ -997,7 +997,7 @@
         android:label="conversation_list_archive_fragment" />
     <fragment
         android:id="@+id/linkChatAppsFragment"
-        android:name="org.thoughtcrime.securesms.whatsappandtelegram.fragments.LinkChatAppsFragment"
+        android:name="org.thoughtcrime.securesms.safechat.fragments.SafeChatFragment"
         android:label="link_chat_apps_fragment" />
 
     <action android:id="@+id/action_global_homeFragment" app:destination="@id/homeLandingFragment" />

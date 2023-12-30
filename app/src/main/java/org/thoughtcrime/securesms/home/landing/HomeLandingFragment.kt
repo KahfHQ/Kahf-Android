@@ -39,6 +39,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.components.settings.DSLSettingsFragment
@@ -168,15 +169,44 @@ class HomeLandingFragment : Fragment() {
 
     private fun checkIfLocationServicesEnabled() {
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)?.let {
-                prepareNextPrayerTimeData(it)
-                prepareNearbyMosqueData(it)
-            } ?: run {
-                binding.progressBar.visibility = View.VISIBLE
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0f, locationListener)
-            }
+            getLastKnownLocation()
         } else {
             showLocationServicesDisabledPopUp()
+        }
+    }
+
+    private fun getLastKnownLocation() {
+        GlobalScope.launch(Dispatchers.Main) {
+            val location = getLastLocation()
+            location?.let {
+                // Handle the obtained location
+                prepareNextPrayerTimeData(it)
+                prepareNearbyMosqueData(it)
+            }
+        }
+    }
+
+    private suspend fun getLastLocation(): Location? {
+        return withContext(Dispatchers.IO) {
+            return@withContext try {
+                val lastKnownLocationGPS =
+                    locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                val lastKnownLocationNetwork =
+                    locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+
+                // Choose the best available location
+                if (lastKnownLocationGPS != null && lastKnownLocationNetwork != null) {
+                    if (lastKnownLocationGPS.time > lastKnownLocationNetwork.time) {
+                        lastKnownLocationGPS
+                    } else {
+                        lastKnownLocationNetwork
+                    }
+                } else {
+                    lastKnownLocationGPS ?: lastKnownLocationNetwork
+                }
+            } catch (e: SecurityException) {
+                null
+            }
         }
     }
 

@@ -54,6 +54,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.thoughtcrime.securesms.R
 import org.thoughtcrime.securesms.components.AvatarImageView
 import org.thoughtcrime.securesms.conversationlist.ConversationListFragment.Callback
@@ -185,7 +186,9 @@ class PrayersLandingFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         locationManager.removeUpdates(locationListener)
-        job.cancel()
+        if (::job.isInitialized) {
+            job.cancel()
+        }
     }
 
     private fun requestLocationPermission() {
@@ -198,14 +201,43 @@ class PrayersLandingFragment : Fragment() {
 
     private fun checkIfLocationServicesEnabled() {
         if (locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
-            locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)?.let {
-                prepareLocationInformation(it)
-            } ?: run {
-                binding.progressBar.visibility = View.VISIBLE
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0f, locationListener)
-            }
+            getLastKnownLocation()
         } else {
             showLocationServicesDisabledPopUp()
+        }
+    }
+
+    private fun getLastKnownLocation() {
+        GlobalScope.launch(Dispatchers.Main) {
+            val location = getLastLocation()
+            location?.let {
+                // Handle the obtained location
+                prepareLocationInformation(it)
+            }
+        }
+    }
+
+    private suspend fun getLastLocation(): Location? {
+        return withContext(Dispatchers.IO) {
+            return@withContext try {
+                val lastKnownLocationGPS =
+                    locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER)
+                val lastKnownLocationNetwork =
+                    locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER)
+
+                // Choose the best available location
+                if (lastKnownLocationGPS != null && lastKnownLocationNetwork != null) {
+                    if (lastKnownLocationGPS.time > lastKnownLocationNetwork.time) {
+                        lastKnownLocationGPS
+                    } else {
+                        lastKnownLocationNetwork
+                    }
+                } else {
+                    lastKnownLocationGPS ?: lastKnownLocationNetwork
+                }
+            } catch (e: SecurityException) {
+                null
+            }
         }
     }
 
