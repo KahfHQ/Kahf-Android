@@ -11,6 +11,12 @@ import android.os.Build;
 import org.signal.core.util.PendingIntentFlags;
 import org.signal.core.util.logging.Log;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import org.signal.core.util.PendingIntentFlags;
+
 public abstract class PersistentAlarmManagerListener extends BroadcastReceiver {
 
   private static final String TAG = Log.tag(PersistentAlarmManagerListener.class);
@@ -18,6 +24,7 @@ public abstract class PersistentAlarmManagerListener extends BroadcastReceiver {
   protected abstract long getNextScheduledExecutionTime(Context context);
   protected abstract long onAlarm(Context context, long scheduledTime);
 
+  @RequiresApi(api = Build.VERSION_CODES.S)
   @Override
   public void onReceive(Context context, Intent intent) {
     Log.i(TAG, String.format("%s#onReceive(%s)", getClass().getSimpleName(), intent.getAction()));
@@ -25,7 +32,7 @@ public abstract class PersistentAlarmManagerListener extends BroadcastReceiver {
     long          scheduledTime = getNextScheduledExecutionTime(context);
     AlarmManager  alarmManager  = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
     Intent        alarmIntent   = new Intent(context, getClass());
-    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntentFlags.immutable());
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
 
 
     if (System.currentTimeMillis() >= scheduledTime) {

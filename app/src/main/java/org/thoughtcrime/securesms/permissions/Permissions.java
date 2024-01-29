@@ -35,6 +35,9 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import androidx.annotation.Nullable;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+
 public class Permissions {
 
   private static final String TAG = Log.tag(Permissions.class);
@@ -47,6 +50,10 @@ public class Permissions {
 
   public static PermissionsBuilder with(@NonNull Fragment fragment) {
     return new PermissionsBuilder(new FragmentPermissionObject(fragment));
+  }
+
+  public static boolean isRuntimePermissionsRequired() {
+    return Build.VERSION.SDK_INT >= 23;
   }
 
   public static class PermissionsBuilder {
@@ -239,15 +246,13 @@ public class Permissions {
   }
 
   public static boolean hasAny(@NonNull Context context, String... permissions) {
-    return Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
-        Stream.of(permissions).anyMatch(permission -> ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED);
-
+    return !isRuntimePermissionsRequired() ||
+            Stream.of(permissions).anyMatch(permission -> ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED);
   }
 
   public static boolean hasAll(@NonNull Context context, String... permissions) {
-    return Build.VERSION.SDK_INT < Build.VERSION_CODES.M ||
-        Stream.of(permissions).allMatch(permission -> ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED);
-
+    return !isRuntimePermissionsRequired() ||
+            Stream.of(permissions).allMatch(permission -> ContextCompat.checkSelfPermission(context, permission) == PackageManager.PERMISSION_GRANTED);
   }
 
   public static void onRequestPermissionsResult(Fragment fragment, int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -377,20 +382,19 @@ public class Permissions {
     @Override
     public void run() {
       Context context = this.context.get();
-
       if (context != null) {
-        new MaterialAlertDialogBuilder(context)
-            .setTitle(R.string.Permissions_permission_required)
-            .setMessage(message)
-            .setCancelable(false)
-            .setPositiveButton(R.string.Permissions_continue, (dialog, which) -> context.startActivity(getApplicationSettingsIntent(context)))
-            .setNegativeButton(android.R.string.cancel, null)
-            .setOnDismissListener(d -> {
-              if (onDialogDismissed != null) {
-                onDialogDismissed.run();
-              }
-            })
-            .show();
+              new MaterialAlertDialogBuilder(context)
+                .setTitle(R.string.Permissions_permission_required)
+                .setMessage(message)
+                .setCancelable(false)
+                .setPositiveButton(R.string.Permissions_continue, (dialog, which) -> context.startActivity(getApplicationSettingsIntent(context)))
+                .setNegativeButton(android.R.string.cancel, null)
+                .setOnDismissListener(d -> {
+                  if (onDialogDismissed != null) {
+                    onDialogDismissed.run();
+                  }
+                })
+                .show();
       }
     }
   }

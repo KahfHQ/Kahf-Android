@@ -27,6 +27,8 @@ import org.thoughtcrime.securesms.components.recyclerview.GridDividerDecoration
 import org.thoughtcrime.securesms.groups.ParcelableGroupId
 import org.thoughtcrime.securesms.mediasend.AvatarSelectionActivity
 import org.thoughtcrime.securesms.mediasend.Media
+import org.thoughtcrime.securesms.permissions.PermissionCompat
+import org.thoughtcrime.securesms.permissions.PermissionCompat.forImagesAndVideos
 import org.thoughtcrime.securesms.permissions.Permissions
 import org.thoughtcrime.securesms.util.ViewUtil
 import org.thoughtcrime.securesms.util.adapter.mapping.MappingAdapter
@@ -146,6 +148,7 @@ class AvatarPickerFragment : Fragment(R.layout.avatar_picker_fragment) {
     ViewUtil.hideKeyboard(requireContext(), requireView())
   }
 
+  @Deprecated("Deprecated in Java")
   @Suppress("DEPRECATION")
   override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
     if (requestCode == REQUEST_CODE_SELECT_IMAGE && resultCode == Activity.RESULT_OK && data != null) {
@@ -230,7 +233,7 @@ class AvatarPickerFragment : Fragment(R.layout.avatar_picker_fragment) {
   @Suppress("DEPRECATION")
   private fun openGallery() {
     Permissions.with(this)
-      .request(Manifest.permission.READ_EXTERNAL_STORAGE)
+      .request(*PermissionCompat.forImagesAndVideos())
       .ifNecessary()
       .onAllGranted {
         val intent = AvatarSelectionActivity.getIntentForGallery(requireContext())
@@ -243,6 +246,7 @@ class AvatarPickerFragment : Fragment(R.layout.avatar_picker_fragment) {
       .execute()
   }
 
+  @Deprecated("Deprecated in Java")
   override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
     Permissions.onRequestPermissionsResult(this, requestCode, permissions, grantResults)
   }
