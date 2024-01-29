@@ -249,6 +249,7 @@ import org.thoughtcrime.securesms.mms.StickerSlide;
 import org.thoughtcrime.securesms.mms.VideoSlide;
 import org.thoughtcrime.securesms.notifications.NotificationChannels;
 import org.thoughtcrime.securesms.notifications.v2.ConversationId;
+import org.thoughtcrime.securesms.permissions.PermissionCompat;
 import org.thoughtcrime.securesms.payments.CanNotSendPaymentDialog;
 import org.thoughtcrime.securesms.permissions.Permissions;
 import org.thoughtcrime.securesms.profiles.spoofing.ReviewBannerView;
@@ -1228,7 +1229,7 @@ public class ConversationParentFragment extends Fragment
   @Override
   public void onAttachmentPermissionsRequested() {
     Permissions.with(this)
-               .request(Manifest.permission.READ_EXTERNAL_STORAGE)
+               .request(PermissionCompat.forImagesAndVideos())
                .onAllGranted(() -> viewModel.onAttachmentKeyboardOpen())
                .withPermanentDenialDialog(getString(R.string.AttachmentManager_signal_requires_the_external_storage_permission_in_order_to_attach_photos_videos_or_audio))
                .execute();

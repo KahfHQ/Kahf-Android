@@ -12,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
 
+import android.text.method.ScrollingMovementMethod;
+
 import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.core.content.ContextCompat;
@@ -54,11 +56,12 @@ public class RationaleDialog {
     }
 
     text.setText(message);
+    text.setMovementMethod(new ScrollingMovementMethod());
 
     return new MaterialAlertDialogBuilder(context,
-                                          ThemeUtil.isDarkTheme(context) ? R.style.Theme_Signal_AlertDialog_Dark_Cornered
-                                                                         : R.style.Theme_Signal_AlertDialog_Light_Cornered)
-        .setView(view);
+            ThemeUtil.isDarkTheme(context) ? R.style.Theme_Signal_AlertDialog_Dark_Cornered
+                    : R.style.Theme_Signal_AlertDialog_Light_Cornered)
+            .setView(view);
   }
 
 }

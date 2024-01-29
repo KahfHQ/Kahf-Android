@@ -1151,7 +1151,7 @@ class StoryViewerPageFragment :
       return true
     }
 
-    override fun onScaleEnd(detector: ScaleGestureDetector) {
+    /*override fun onScaleEnd(detector: ScaleGestureDetector) {
       scaleFactor = 1f
       isPerformingEndAnimation = true
       card.animate().scaleX(1f).scaleY(1f).setListener(object : AnimationCompleteListener() {
@@ -1161,7 +1161,7 @@ class StoryViewerPageFragment :
           sharedViewModel.setIsChildScrolling(false)
         }
       })
-    }
+    }*/
   }
 
   private class StoryGestureListener(
@@ -1188,7 +1188,7 @@ class StoryViewerPageFragment :
       return true
     }
 
-    override fun onScroll(e1: MotionEvent, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
+    override fun onScroll(e1: MotionEvent?, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
       val isFirstStory = sharedViewModel.stateSnapshot.page == 0
       val isLastStory = sharedViewModel.stateSnapshot.pages.lastIndex == sharedViewModel.stateSnapshot.page
       val isXMagnitudeGreaterThanYMagnitude = abs(distanceX) > abs(distanceY) || viewToTranslate.translationX > 0f
@@ -1197,7 +1197,7 @@ class StoryViewerPageFragment :
 
       sharedViewModel.setIsChildScrolling(isXMagnitudeGreaterThanYMagnitude || isFirstAndHasYTranslationOrNegativeY || isLastAndHasYTranslationOrNegativeY)
       if (isFirstStory) {
-        val delta = max(0f, (e2.rawY - e1.rawY)) / 3f
+        val delta = max(0f, (e2.rawY - (e1?.rawY ?: 0f))) / 3f
         val percent = INTERPOLATOR.getInterpolation(delta / maxSlide)
         val distance = maxSlide * percent
 
@@ -1206,7 +1206,7 @@ class StoryViewerPageFragment :
       }
 
       if (isLastStory) {
-        val delta = max(0f, (e1.rawY - e2.rawY)) / 3f
+        val delta = max(0f, ((e1?.rawY ?: 0f) - e2.rawY)) / 3f
         val percent = -INTERPOLATOR.getInterpolation(delta / maxSlide)
         val distance = maxSlide * percent
 
@@ -1214,7 +1214,7 @@ class StoryViewerPageFragment :
         viewToTranslate.translationY = distance
       }
 
-      val delta = max(0f, (e2.rawX - e1.rawX)) / 3f
+      val delta = max(0f, (e2.rawX - (e1?.rawX ?: 0f))) / 3f
       val percent = INTERPOLATOR.getInterpolation(delta / maxSlide)
       val distance = maxSlide * percent
 
@@ -1226,7 +1226,7 @@ class StoryViewerPageFragment :
       return true
     }
 
-    override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
+    /*override fun onFling(e1: MotionEvent, e2: MotionEvent, velocityX: Float, velocityY: Float): Boolean {
       val isSideSwipe = abs(velocityX) > abs(velocityY)
       if (!isSideSwipe) {
         return false
@@ -1245,7 +1245,7 @@ class StoryViewerPageFragment :
       }
 
       return true
-    }
+    }*/
   }
 
   private class FallbackPhotoProvider : Recipient.FallbackPhotoProvider() {

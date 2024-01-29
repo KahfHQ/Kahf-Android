@@ -23,6 +23,10 @@ import org.thoughtcrime.securesms.util.FeatureFlags;
 import java.util.Locale;
 import java.util.Optional;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+import org.signal.core.util.PendingIntentFlags;
+
 /**
  * On received message, runs a job to poll for messages.
  */
@@ -67,12 +71,14 @@ public final class MessageProcessReceiver extends BroadcastReceiver {
     }
   }
 
+  @RequiresApi(api = Build.VERSION_CODES.S)
   public static void startOrUpdateAlarm(@NonNull Context context) {
     Intent alarmIntent = new Intent(context, MessageProcessReceiver.class);
 
     alarmIntent.setAction(MessageProcessReceiver.BROADCAST_ACTION);
 
-    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 123, alarmIntent, PendingIntentFlags.updateCurrent());
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 123, alarmIntent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
+
     AlarmManager  alarmManager  = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
 
     long interval = FeatureFlags.getBackgroundMessageProcessInterval();

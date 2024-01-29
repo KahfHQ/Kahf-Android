@@ -143,7 +143,7 @@ public final class WelcomeFragment extends LoggingFragment {
     boolean isUserSelectionRequired = BackupUtil.isUserSelectionRequired(requireContext());
 
     Permissions.with(this)
-               .request(getContinuePermissions(isUserSelectionRequired))
+               .request(WelcomePermissions.getWelcomePermissions(isUserSelectionRequired))
                .ifNecessary()
                .withRationaleDialog(getString(getContinueRationale(isUserSelectionRequired)), getContinueHeaders(isUserSelectionRequired))
                .onAnyResult(() -> gatherInformationAndContinue(continueButton))
@@ -154,7 +154,7 @@ public final class WelcomeFragment extends LoggingFragment {
     boolean isUserSelectionRequired = BackupUtil.isUserSelectionRequired(requireContext());
 
     Permissions.with(this)
-               .request(getContinuePermissions(isUserSelectionRequired))
+               .request(WelcomePermissions.getWelcomePermissions(isUserSelectionRequired))
                .ifNecessary()
                .withRationaleDialog(getString(getContinueRationale(isUserSelectionRequired)), getContinueHeaders(isUserSelectionRequired))
                .onAnyResult(() -> gatherInformationAndChooseBackup(continueButton))

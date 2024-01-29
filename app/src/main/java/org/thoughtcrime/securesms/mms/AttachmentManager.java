@@ -74,6 +74,8 @@ import org.thoughtcrime.securesms.util.concurrent.ListenableFuture.Listener;
 import org.thoughtcrime.securesms.util.concurrent.SettableFuture;
 import org.thoughtcrime.securesms.util.views.Stub;
 
+import org.thoughtcrime.securesms.permissions.PermissionCompat;
+
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Iterator;
@@ -382,7 +384,7 @@ public class AttachmentManager {
 
   public static void selectGallery(Fragment fragment, int requestCode, @NonNull Recipient recipient, @NonNull CharSequence body, @NonNull MessageSendType messageSendType, boolean hasQuote) {
     Permissions.with(fragment)
-               .request(Manifest.permission.READ_EXTERNAL_STORAGE)
+               .request(PermissionCompat.forImagesAndVideos())
                .ifNecessary()
                .withPermanentDenialDialog(fragment.getString(R.string.AttachmentManager_signal_requires_the_external_storage_permission_in_order_to_attach_photos_videos_or_audio))
                .onAllGranted(() -> fragment.startActivityForResult(MediaSelectionActivity.gallery(fragment.requireContext(), messageSendType, Collections.emptyList(), recipient.getId(), body, hasQuote), requestCode))

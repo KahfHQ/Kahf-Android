@@ -2,7 +2,6 @@ package org.thoughtcrime.securesms.util;
 
 import android.app.AlarmManager;
 import android.app.PendingIntent;
-import android.app.Service;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -10,22 +9,21 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.SystemClock;
 
-import androidx.core.app.AlarmManagerCompat;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.RequiresApi;
 
-import org.signal.core.util.PendingIntentFlags;
 import org.signal.core.util.logging.Log;
 import org.whispersystems.signalservice.api.util.SleepTimer;
 
 import java.util.concurrent.ConcurrentSkipListSet;
 
 /**
- * A sleep timer that is based on elapsed realtime, so that it works properly, even in low-power sleep modes.
+ * A sleep timer that is based on elapsed realtime, so
+ * that it works properly, even in low-power sleep modes.
+ *
  */
 public class AlarmSleepTimer implements SleepTimer {
   private static final String TAG = Log.tag(AlarmSleepTimer.class);
-
-  private static final ConcurrentSkipListSet<Integer> actionIdList = new ConcurrentSkipListSet<>();
+  private static ConcurrentSkipListSet<Integer> actionIdList = new ConcurrentSkipListSet<>();
 
   private final Context context;
 
@@ -34,25 +32,25 @@ public class AlarmSleepTimer implements SleepTimer {
   }
 
   @Override
-  public void sleep(long sleepDuration) {
-    AlarmReceiver alarmReceiver = new AlarmSleepTimer.AlarmReceiver();
-    int           actionId      = 0;
-
+  public void sleep(long millis) {
+    final AlarmReceiver alarmReceiver = new AlarmReceiver();
+    int actionId = 0;
     while (!actionIdList.add(actionId)){
       actionId++;
     }
-
     try {
-      String actionName = buildActionName(actionId);
-      context.registerReceiver(alarmReceiver, new IntentFilter(actionName));
+      context.registerReceiver(alarmReceiver,
+              new IntentFilter(AlarmReceiver.WAKE_UP_THREAD_ACTION + "." + actionId));
 
-      long startTime = System.currentTimeMillis();
-      alarmReceiver.setAlarm(sleepDuration, actionName);
+      final long startTime = System.currentTimeMillis();
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+        alarmReceiver.setAlarm(millis, AlarmReceiver.WAKE_UP_THREAD_ACTION + "." + actionId);
+      }
 
-      while (System.currentTimeMillis() - startTime < sleepDuration) {
+      while (System.currentTimeMillis() - startTime < millis) {
         try {
           synchronized (this) {
-            wait(sleepDuration - (System.currentTimeMillis() - startTime));
+            wait(millis - System.currentTimeMillis() + startTime);
           }
         } catch (InterruptedException e) {
           Log.w(TAG, e);
@@ -61,34 +59,34 @@ public class AlarmSleepTimer implements SleepTimer {
       context.unregisterReceiver(alarmReceiver);
     } catch(Exception e) {
       Log.w(TAG, "Exception during sleep ...",e);
-    } finally {
+    }finally {
       actionIdList.remove(actionId);
     }
-  }
-
-  private static String buildActionName(int actionId) {
-    return AlarmReceiver.WAKE_UP_THREAD_ACTION + "." + actionId;
   }
 
   private class AlarmReceiver extends BroadcastReceiver {
     private static final String WAKE_UP_THREAD_ACTION = "org.thoughtcrime.securesms.util.AlarmSleepTimer.AlarmReceiver.WAKE_UP_THREAD";
 
+    @RequiresApi(api = Build.VERSION_CODES.S)
     private void setAlarm(long millis, String action) {
       final Intent        intent        = new Intent(action);
-      final PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntentFlags.mutable());
-      final AlarmManager  alarmManager  = ServiceUtil.getAlarmManager(context);
+      final PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
+      final AlarmManager  alarmManager  = (AlarmManager)context.getSystemService(Context.ALARM_SERVICE);
 
-      if (Build.VERSION.SDK_INT < 31 || alarmManager.canScheduleExactAlarms()) {
-        Log.d(TAG, "Setting an exact alarm to wake up in " + millis + "ms.");
-        AlarmManagerCompat.setExactAndAllowWhileIdle(alarmManager,
-                                                     AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                                                     SystemClock.elapsedRealtime() + millis,
-                                                     pendingIntent);
+      Log.w(TAG, "Setting alarm to wake up in " + millis + "ms.");
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        alarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + millis,
+                pendingIntent);
+      } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        alarmManager.setExact(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + millis,
+                pendingIntent);
       } else {
-        Log.w(TAG, "Setting an inexact alarm to wake up in " + millis + "ms. CanScheduleAlarms: " + alarmManager.canScheduleExactAlarms());
-        alarmManager.setAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
-                                          SystemClock.elapsedRealtime() + millis,
-                                          pendingIntent);
+        alarmManager.set(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+                SystemClock.elapsedRealtime() + millis,
+                pendingIntent);
       }
     }
 
@@ -102,4 +100,3 @@ public class AlarmSleepTimer implements SleepTimer {
     }
   }
 }
-

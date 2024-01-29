@@ -16,6 +16,9 @@ import androidx.annotation.WorkerThread;
 import org.signal.core.util.PendingIntentFlags;
 import org.thoughtcrime.securesms.util.ServiceUtil;
 
+import android.os.Build;
+import androidx.annotation.RequiresApi;
+
 /**
  * Class to help manage scheduling events to happen in the future, whether the app is open or not.
  */
@@ -83,9 +86,10 @@ public abstract class TimedEventManager<E> {
   /**
    * Helper method to set an alarm.
    */
+  @RequiresApi(api = Build.VERSION_CODES.S)
   protected static void setAlarm(@NonNull Context context, long delay, @NonNull Class alarmClass) {
     Intent        intent        = new Intent(context, alarmClass);
-    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntentFlags.mutable());
+    PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
     AlarmManager  alarmManager  = ServiceUtil.getAlarmManager(context);
 
     alarmManager.cancel(pendingIntent);

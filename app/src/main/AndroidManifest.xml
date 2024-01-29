@@ -9,6 +9,9 @@
                 android:label="Access to TextSecure Secrets"
                 android:protectionLevel="signature" />
 
+    <uses-permission android:name="android.permission.HIGH_SAMPLING_RATE_SENSORS" tools:ignore="HighSamplingRate" />
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+
     <uses-feature android:name="android.hardware.camera" android:required="false" />
     <uses-feature android:name="android.hardware.bluetooth" android:required="false" />
     <uses-feature android:name="android.hardware.location" android:required="false"/>
@@ -18,6 +21,8 @@
     <uses-feature android:name="android.hardware.wifi" android:required="false"/>
     <uses-feature android:name="android.hardware.portrait" android:required="false"/>
     <uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
+
+    <uses-feature android:name="android.hardware.telephony" android:required="false" />
 
     <uses-permission android:name="android.permission.USE_FINGERPRINT"/>
     <uses-permission android:name="org.thoughtcrime.securesms.ACCESS_SECRETS"/>
@@ -93,6 +98,10 @@
 
     <uses-permission android:name="android.permission.MANAGE_OWN_CALLS"/>
 
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+
     <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
     <uses-permission android:name="com.google.android.gms.permission.AD_ID" tools:node="remove"/>
 
@@ -105,7 +114,8 @@
                  android:resizeableActivity="true"
                  android:allowBackup="false"
                  android:theme="@style/TextSecure.LightTheme"
-                 android:largeHeap="true">
+                 android:largeHeap="true"
+                 tools:targetApi="n">
 
     <meta-data
             android:name="com.google.android.gms.wallet.api.enabled"
@@ -121,8 +131,8 @@
     <meta-data android:name="com.google.android.gms.version"
                android:value="@integer/google_play_services_version" />
 
-    <meta-data android:name="com.google.android.gms.car.application"
-               android:resource="@xml/automotive_app_desc" />
+   <!-- <meta-data android:name="com.google.android.gms.car.application"
+               android:resource="@xml/automotive_app_desc" /> -->
 
     <meta-data android:name="firebase_analytics_collection_deactivated" android:value="true" />
     <meta-data android:name="google_analytics_adid_collection_enabled" android:value="false" />
@@ -159,8 +169,8 @@
               android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"/>
 
     <activity android:name=".DeviceProvisioningActivity"
-              android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"
-              android:exported="true">
+            android:configChanges="touchscreen|keyboard|keyboardHidden|orientation|screenLayout|screenSize"
+            android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.VIEW" />
             <category android:name="android.intent.category.DEFAULT" />
@@ -851,61 +861,61 @@
 
     </provider>
 
-    <receiver android:name=".service.BootReceiver" android:exported="false">
+    <receiver android:name=".service.BootReceiver" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.BOOT_COMPLETED"/>
             <action android:name="org.thoughtcrime.securesms.RESTART"/>
         </intent-filter>
     </receiver>
 
-    <receiver android:name=".service.DirectoryRefreshListener" android:exported="false">
+    <receiver android:name=".service.DirectoryRefreshListener" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.BOOT_COMPLETED" />
         </intent-filter>
     </receiver>
 
-    <receiver android:name=".service.RotateSignedPreKeyListener" android:exported="false">
+    <receiver android:name=".service.RotateSignedPreKeyListener" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.BOOT_COMPLETED" />
         </intent-filter>
     </receiver>
 
-    <receiver android:name=".service.RotateSenderCertificateListener" android:exported="false">
+    <receiver android:name=".service.RotateSenderCertificateListener" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.BOOT_COMPLETED" />
         </intent-filter>
     </receiver>
 
-    <receiver android:name=".messageprocessingalarm.MessageProcessReceiver" android:exported="false">
+    <receiver android:name=".messageprocessingalarm.MessageProcessReceiver" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.BOOT_COMPLETED" />
             <action android:name="org.thoughtcrime.securesms.action.PROCESS_MESSAGES" />
         </intent-filter>
     </receiver>
 
-    <receiver android:name=".service.LocalBackupListener" android:exported="false">
+    <receiver android:name=".service.LocalBackupListener" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.BOOT_COMPLETED" />
         </intent-filter>
     </receiver>
 
-    <receiver android:name="org.thoughtcrime.securesms.jobs.ForegroundUtil$Receiver" android:exported="false" />
+    <receiver android:name="org.thoughtcrime.securesms.jobs.ForegroundUtil$Receiver" android:exported="true" />
 
-    <receiver android:name=".service.PersistentConnectionBootListener" android:exported="false">
+    <receiver android:name=".service.PersistentConnectionBootListener" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.BOOT_COMPLETED"/>
         </intent-filter>
     </receiver>
 
-    <receiver android:name=".notifications.LocaleChangedReceiver" android:exported="false">
+    <receiver android:name=".notifications.LocaleChangedReceiver" android:exported="true">
         <intent-filter>
             <action android:name="android.intent.action.LOCALE_CHANGED"/>
         </intent-filter>
     </receiver>
 
-    <receiver android:name=".notifications.MessageNotifier$ReminderReceiver"/>
+    <receiver android:name=".notifications.MessageNotifier$ReminderReceiver" android:exported="true"/>
 
-    <receiver android:name=".notifications.DeleteNotificationReceiver" android:exported="false">
+    <receiver android:name=".notifications.DeleteNotificationReceiver" android:exported="true">
         <intent-filter>
             <action android:name="org.thoughtcrime.securesms.DELETE_NOTIFICATION"/>
         </intent-filter>

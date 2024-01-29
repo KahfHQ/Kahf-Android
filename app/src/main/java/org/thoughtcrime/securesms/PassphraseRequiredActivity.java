@@ -175,15 +175,15 @@ public abstract class PassphraseRequiredActivity extends BaseActivity implements
     } else if (!TextSecurePreferences.hasPromptedPushRegistration(this)) {
       return STATE_WELCOME_PUSH_SCREEN;
     } else if (SignalStore.storageService().needsAccountRestore()) {
-      return STATE_NORMAL;
+      return STATE_ENTER_SIGNAL_PIN;
     } else if (userHasSkippedOrForgottenPin()) {
-      return STATE_NORMAL;
+      return STATE_CREATE_SIGNAL_PIN;
     } else if (userMustSetProfileName()) {
       return STATE_CREATE_PROFILE_NAME;
     } else if (shouldAskUserToCreateUsername()) {
       return STATE_CREATE_USERNAME;
     } else if (userMustCreateSignalPin()) {
-      return STATE_NORMAL;
+      return STATE_CREATE_SIGNAL_PIN;
     } else if (EventBus.getDefault().getStickyEvent(TransferStatus.class) != null && getClass() != OldDeviceTransferActivity.class) {
       return STATE_TRANSFER_ONGOING;
     } else if (SignalStore.misc().isOldDeviceTransferLocked()) {
