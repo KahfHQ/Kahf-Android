@@ -23,9 +23,9 @@ import kotlin.math.floor
 import kotlin.math.roundToInt
 
 class RotationDialView @JvmOverloads constructor(
-  context: Context,
-  attrs: AttributeSet? = null,
-  defStyleAttr: Int = 0
+        context: Context,
+        attrs: AttributeSet? = null,
+        defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
   private val canvasBounds = Rect()
@@ -99,10 +99,10 @@ class RotationDialView @JvmOverloads constructor(
 
     val centerX = width / 2f
     centerMostIndicatorRect.set(
-      centerX - dimensions.angleIndicatorWidth / 2f,
-      bottom.toFloat() - dimensions.majorAngleIndicatorHeight,
-      centerX + dimensions.angleIndicatorWidth / 2f,
-      bottom.toFloat()
+            centerX - dimensions.angleIndicatorWidth / 2f,
+            bottom.toFloat() - dimensions.majorAngleIndicatorHeight,
+            centerX + dimensions.angleIndicatorWidth / 2f,
+            bottom.toFloat()
     )
     centerMostIndicatorRect.offset(-dialOffset, 0f)
 
@@ -145,10 +145,10 @@ class RotationDialView @JvmOverloads constructor(
   private fun drawText(canvas: Canvas) {
     val approximateDegrees = getDialDegrees(snapDegrees).roundToInt()
     canvas.drawText(
-      "$approximateDegrees",
-      width / 2f,
-      canvasBounds.bottom - textPaint.descent() - dimensions.majorAngleIndicatorHeight - dimensions.textPaddingBottom,
-      textPaint
+            "$approximateDegrees",
+            width / 2f,
+            canvasBounds.bottom - textPaint.descent() - dimensions.majorAngleIndicatorHeight - dimensions.textPaddingBottom,
+            textPaint
     )
   }
 
@@ -183,11 +183,11 @@ class RotationDialView @JvmOverloads constructor(
   }
 
   private inner class GestureListener : GestureDetector.SimpleOnGestureListener() {
-    override fun onDown(e: MotionEvent?): Boolean {
+    override fun onDown(e: MotionEvent): Boolean {
       return true
     }
 
-    override fun onScroll(e1: MotionEvent?, e2: MotionEvent?, distanceX: Float, distanceY: Float): Boolean {
+    override fun onScroll(e1: MotionEvent?, e2: MotionEvent, distanceX: Float, distanceY: Float): Boolean {
       val degreeIncrement: Float = distanceX / dimensions.spaceBetweenAngleIndicators
       val prevDialDegrees = getDialDegrees(degrees)
       val newDialDegrees = getDialDegrees(degrees + degreeIncrement)

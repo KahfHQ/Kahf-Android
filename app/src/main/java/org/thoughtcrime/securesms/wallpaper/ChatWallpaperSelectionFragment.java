@@ -21,6 +21,8 @@ import org.thoughtcrime.securesms.R;
 import org.thoughtcrime.securesms.permissions.Permissions;
 import org.thoughtcrime.securesms.wallpaper.crop.WallpaperImageSelectionActivity;
 
+import org.thoughtcrime.securesms.permissions.PermissionCompat;
+
 public class ChatWallpaperSelectionFragment extends Fragment {
 
   private static final short CHOOSE_WALLPAPER = 1;
@@ -76,7 +78,7 @@ public class ChatWallpaperSelectionFragment extends Fragment {
 
   private void askForPermissionIfNeededAndLaunchPhotoSelection() {
     Permissions.with(this)
-               .request(Manifest.permission.READ_EXTERNAL_STORAGE)
+               .request(PermissionCompat.forImagesAndVideos())
                .ifNecessary()
                .onAllGranted(() -> {
                  startActivityForResult(WallpaperImageSelectionActivity.getIntent(requireContext(), viewModel.getRecipientId()), CHOOSE_WALLPAPER);
