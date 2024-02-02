@@ -25,6 +25,7 @@ import org.thoughtcrime.securesms.keyvalue.SignalStore
 import org.thoughtcrime.securesms.phonenumbers.PhoneNumberFormatter
 import org.thoughtcrime.securesms.recipients.Recipient
 import org.thoughtcrime.securesms.util.FeatureFlags
+import org.thoughtcrime.securesms.util.PlayServicesUtil
 import org.thoughtcrime.securesms.util.Util
 import org.thoughtcrime.securesms.util.adapter.mapping.LayoutFactory
 import org.thoughtcrime.securesms.util.adapter.mapping.MappingAdapter
@@ -94,24 +95,24 @@ class NewSettingsFragment : Fragment() {
                 }
             )
 
-//            if (FeatureFlags.donorBadges() && PlayServicesUtil.getPlayServicesStatus(requireContext()) == PlayServicesUtil.PlayServicesStatus.SUCCESS) {
-//
-//                clickPref(
-//                    title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
-//                    icon = DSLSettingsIcon.from(R.drawable.ic_heart_24),
-//                    iconEnd = if (state.hasExpiredGiftBadge) DSLSettingsIcon.from(R.drawable.ic_info_solid_24, R.color.signal_accent_primary) else null,
-//                    onClick = {
-//                        findNavController().safeNavigate(AppSettingsFragmentDirections.actionAppSettingsFragmentToManageDonationsFragment())
-//                    },
-//                    onLongClick = this@NewSettingsFragment::copySubscriberIdToClipboard
-//                )
-//            } else {
-//                externalLinkPref(
-//                    title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
-//                    icon = DSLSettingsIcon.from(R.drawable.ic_heart_24),
-//                    linkId = R.string.donate_url
-//                )
-//            }
+            if (PlayServicesUtil.getPlayServicesStatus(requireContext()) == PlayServicesUtil.PlayServicesStatus.SUCCESS) {
+
+                clickPref(
+                    title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
+                    icon = DSLSettingsIcon.from(R.drawable.ic_heart_24),
+                    iconEnd = if (state.hasExpiredGiftBadge) DSLSettingsIcon.from(R.drawable.ic_info_solid_24, R.color.signal_accent_primary) else null,
+                    onClick = {
+                        findNavController().safeNavigate(AppSettingsFragmentDirections.actionAppSettingsFragmentToManageDonationsFragment())
+                    },
+                    onLongClick = this@NewSettingsFragment::copySubscriberIdToClipboard
+                )
+            } else {
+                externalLinkPref(
+                    title = DSLSettingsText.from(R.string.preferences__donate_to_signal),
+                    icon = DSLSettingsIcon.from(R.drawable.ic_heart_24),
+                    linkId = R.string.donate_url
+                )
+            }
 
             dividerPref()
 
