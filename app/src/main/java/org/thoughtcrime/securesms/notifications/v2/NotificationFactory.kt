@@ -183,7 +183,7 @@ object NotificationFactory {
     val builder: NotificationBuilder = NotificationBuilder.create(context)
 
     builder.apply {
-      setSmallIcon(R.drawable.ic_notification)
+      setSmallIcon(R.drawable.kahf_icon)
       setColor(ContextCompat.getColor(context, R.color.core_ultramarine))
       setCategory(NotificationCompat.CATEGORY_MESSAGE)
       setGroup(DefaultMessageNotifier.NOTIFICATION_GROUP)
@@ -232,7 +232,7 @@ object NotificationFactory {
     val builder: NotificationBuilder = NotificationBuilder.create(context)
 
     builder.apply {
-      setSmallIcon(R.drawable.ic_notification)
+      setSmallIcon(R.drawable.kahf_icon)
       setColor(ContextCompat.getColor(context, R.color.core_ultramarine))
       setCategory(NotificationCompat.CATEGORY_MESSAGE)
       setGroup(DefaultMessageNotifier.NOTIFICATION_GROUP)
@@ -315,7 +315,7 @@ object NotificationFactory {
     val builder: NotificationBuilder = NotificationBuilder.create(context)
 
     builder.apply {
-      setSmallIcon(R.drawable.ic_notification)
+      setSmallIcon(R.drawable.kahf_icon)
       setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_action_warning_red))
       setContentTitle(context.getString(R.string.MessageNotifier_message_delivery_failed))
       setContentText(context.getString(R.string.MessageNotifier_failed_to_deliver_message))
@@ -345,7 +345,7 @@ object NotificationFactory {
     val builder: NotificationBuilder = NotificationBuilder.create(context)
 
     builder.apply {
-      setSmallIcon(R.drawable.ic_notification)
+      setSmallIcon(R.drawable.kahf_icon)
       setLargeIcon(BitmapFactory.decodeResource(context.resources, R.drawable.ic_info_outline))
       setContentTitle(context.getString(R.string.MessageNotifier_message_delivery_paused))
       setContentText(context.getString(R.string.MessageNotifier_verify_to_continue_messaging_on_signal))
@@ -375,7 +375,7 @@ object NotificationFactory {
     )
 
     builder.apply {
-      setSmallIcon(R.drawable.ic_notification)
+      setSmallIcon(R.drawable.kahf_icon)
       setColor(ContextCompat.getColor(context, R.color.core_ultramarine))
       setCategory(NotificationCompat.CATEGORY_MESSAGE)
       setGroup(DefaultMessageNotifier.NOTIFICATION_GROUP)

@@ -76,7 +76,7 @@ public class AlarmSleepTimer implements SleepTimer {
       Log.w(TAG, "Setting alarm to wake up in " + millis + "ms.");
 
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        alarmManager.setExactAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
+        alarmManager.setAndAllowWhileIdle(AlarmManager.ELAPSED_REALTIME_WAKEUP,
                 SystemClock.elapsedRealtime() + millis,
                 pendingIntent);
       } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {

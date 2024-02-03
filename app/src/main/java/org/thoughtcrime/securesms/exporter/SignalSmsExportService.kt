@@ -72,7 +72,7 @@ class SignalSmsExportService : SmsExportService() {
     return ExportNotification(
       NotificationIds.SMS_EXPORT_COMPLETE,
       NotificationCompat.Builder(this, NotificationChannels.APP_ALERTS)
-        .setSmallIcon(R.drawable.ic_notification)
+        .setSmallIcon(R.drawable.kahf_icon)
         .setContentTitle(getString(R.string.SignalSmsExportService__signal_sms_export_complete))
         .setContentText(getString(R.string.SignalSmsExportService__tap_to_return_to_signal))
         .setContentIntent(pendingIntent)

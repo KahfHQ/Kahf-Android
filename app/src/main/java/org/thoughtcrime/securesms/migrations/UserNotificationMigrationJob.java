@@ -106,7 +106,7 @@ public class UserNotificationMigrationJob extends MigrationJob {
                                                           .getPendingIntent(0, 0);
 
     Notification notification = new NotificationCompat.Builder(context, NotificationChannels.getMessagesChannel(context))
-                                                      .setSmallIcon(R.drawable.ic_notification)
+                                                      .setSmallIcon(R.drawable.kahf_icon)
                                                       .setContentText(message)
                                                       .setContentIntent(pendingIntent)
                                                       .build();

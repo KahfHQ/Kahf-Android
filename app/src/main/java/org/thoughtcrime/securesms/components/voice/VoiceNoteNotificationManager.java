@@ -47,7 +47,7 @@ class VoiceNoteNotificationManager {
                                                        .build();
 
     notificationManager.setMediaSessionToken(token);
-    notificationManager.setSmallIcon(R.drawable.ic_notification);
+    notificationManager.setSmallIcon(R.drawable.kahf_icon);
     notificationManager.setColorized(true);
     notificationManager.setUseFastForwardAction(false);
     notificationManager.setUseRewindAction(false);
