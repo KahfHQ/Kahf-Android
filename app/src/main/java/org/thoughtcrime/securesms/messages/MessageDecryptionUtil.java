@@ -237,7 +237,7 @@ public final class MessageDecryptionUtil {
 
     NotificationManagerCompat.from(context).notify(NotificationIds.INTERNAL_ERROR,
                                                    new NotificationCompat.Builder(context, NotificationChannels.FAILURES)
-                                                                         .setSmallIcon(R.drawable.ic_notification)
+                                                                         .setSmallIcon(R.drawable.kahf_icon)
                                                                          .setContentTitle(context.getString(R.string.MessageDecryptionUtil_failed_to_decrypt_message))
                                                                          .setContentText(context.getString(R.string.MessageDecryptionUtil_tap_to_send_a_debug_log))
                                                                          .setContentIntent(PendingIntent.getActivity(context, 0, new Intent(context, SubmitDebugLogActivity.class), PendingIntentFlags.mutable()))

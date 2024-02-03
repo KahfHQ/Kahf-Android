@@ -39,7 +39,7 @@ class FcmFetchForegroundService : Service() {
     startForeground(
       NotificationIds.FCM_FETCH,
       NotificationCompat.Builder(this, NotificationChannels.OTHER)
-        .setSmallIcon(R.drawable.ic_notification)
+        .setSmallIcon(R.drawable.kahf_icon)
         .setContentTitle(getString(R.string.BackgroundMessageRetriever_checking_for_messages))
         .setCategory(NotificationCompat.CATEGORY_SERVICE)
         .setProgress(0, 0, true)

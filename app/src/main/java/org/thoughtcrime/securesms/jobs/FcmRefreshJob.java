@@ -124,7 +124,7 @@ public class FcmRefreshJob extends BaseJob {
     PendingIntent              pendingIntent = PendingIntent.getActivity(context, 1122, intent, PendingIntentFlags.cancelCurrent());
     NotificationCompat.Builder builder       = new NotificationCompat.Builder(context, NotificationChannels.FAILURES);
 
-    builder.setSmallIcon(R.drawable.ic_notification);
+    builder.setSmallIcon(R.drawable.kahf_icon);
     builder.setLargeIcon(BitmapFactory.decodeResource(context.getResources(),
                                                       R.drawable.ic_action_warning_red));
     builder.setContentTitle(context.getString(R.string.GcmRefreshJob_Permanent_Signal_communication_failure));

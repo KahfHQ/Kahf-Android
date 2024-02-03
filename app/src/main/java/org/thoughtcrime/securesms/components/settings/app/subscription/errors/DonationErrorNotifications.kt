@@ -21,7 +21,7 @@ object DonationErrorNotifications {
   fun displayErrorNotification(context: Context, donationError: DonationError) {
     val parameters = DonationErrorParams.create(context, donationError, NotificationCallback)
     val notification = NotificationCompat.Builder(context, NotificationChannels.FAILURES)
-      .setSmallIcon(R.drawable.ic_notification)
+      .setSmallIcon(R.drawable.kahf_icon)
       .setContentTitle(context.getString(parameters.title))
       .setContentText(context.getString(parameters.message)).apply {
         if (parameters.positiveAction != null) {

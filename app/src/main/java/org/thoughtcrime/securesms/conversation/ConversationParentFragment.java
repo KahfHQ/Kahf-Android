@@ -2224,7 +2224,7 @@ public class ConversationParentFragment extends Fragment
     toolbar.setOnMenuItemClickListener(this::onOptionsItemSelected);
 
     if (isInBubble()) {
-      toolbar.setNavigationIcon(DrawableUtil.tint(ContextUtil.requireDrawable(requireContext(), R.drawable.ic_notification),
+      toolbar.setNavigationIcon(DrawableUtil.tint(ContextUtil.requireDrawable(requireContext(), R.drawable.kahf_icon),
                                                   ContextCompat.getColor(requireContext(), R.color.signal_accent_primary)));
       toolbar.setNavigationOnClickListener(unused -> startActivity(MainActivity.clearTop(requireContext())));
     }

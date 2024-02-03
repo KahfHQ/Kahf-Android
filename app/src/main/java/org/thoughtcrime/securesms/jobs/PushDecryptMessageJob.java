@@ -213,7 +213,7 @@ public final class PushDecryptMessageJob extends BaseJob {
   private void postMigrationNotification() {
     NotificationManagerCompat.from(context).notify(NotificationIds.LEGACY_SQLCIPHER_MIGRATION,
                                                    new NotificationCompat.Builder(context, NotificationChannels.getMessagesChannel(context))
-                                                                         .setSmallIcon(R.drawable.ic_notification)
+                                                                         .setSmallIcon(R.drawable.kahf_icon)
                                                                          .setPriority(NotificationCompat.PRIORITY_HIGH)
                                                                          .setCategory(NotificationCompat.CATEGORY_MESSAGE)
                                                                          .setContentTitle(context.getString(R.string.PushDecryptJob_new_locked_message))

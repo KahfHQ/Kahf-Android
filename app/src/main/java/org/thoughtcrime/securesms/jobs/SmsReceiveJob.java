@@ -202,7 +202,7 @@ public class SmsReceiveJob extends BaseJob {
                                                                  .addMessage(new NotificationCompat.MessagingStyle.Message(message.getMessageBody(),
                                                                                                                            message.getSentTimestampMillis(),
                                                                                                                            (Person) null)))
-                                 .setSmallIcon(R.drawable.ic_notification)
+                                 .setSmallIcon(R.drawable.kahf_icon)
                                  .build();
   }
 
