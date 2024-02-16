@@ -96,14 +96,14 @@ class NextPrayerTimeView(context: Context,
                     ImageViewCompat.setImageTintList(notificationStatusIcon, ColorStateList.valueOf(
                         Color.parseColor("#3E8DFF")))
                     changeBackgroundColor(Color.parseColor("#FFFFFF"))
-                    notificationStatusText.text = "Unmute"
+                    notificationStatusText.text = context.getString(R.string.WebRtcCallView__unmute)
                 }
                 PrayersConstants.NotificationTypes.UNMUTED, PrayersConstants.NotificationTypes.VOICE_ENABLED -> {
                     notificationStatusIcon.setImageDrawable(ContextCompat.getDrawable(context, R.drawable.ic_prayer_unmuted))
                     ImageViewCompat.setImageTintList(notificationStatusIcon, ColorStateList.valueOf(
                         Color.parseColor("#FFFFFF")))
                     changeBackgroundColor(Color.parseColor("#3E8DFF"))
-                    notificationStatusText.text = "Mute"
+                    notificationStatusText.text = context.getString(R.string.WebRtcCallView__mute)
                 }
             }
         }
@@ -126,14 +126,14 @@ class NextPrayerTimeView(context: Context,
         return when(remainingHours > 0) {
             true -> {
                 when (remainingMinutes > 0) {
-                    true -> "$remainingHours Hours $remainingMinutes Minutes Left"
-                    else -> "$remainingHours Hours Left"
+                    true -> "$remainingHours ${context.getString(R.string.kahf_hours)} $remainingMinutes ${context.getString(R.string.kahf_minutes_left)}"
+                    else -> "$remainingHours ${context.getString(R.string.kahf_hours_left)}"
                 }
             }
             else -> {
                 when (remainingMinutes > 0) {
-                    true -> "$remainingMinutes Minutes Left"
-                    else -> "$remainingSecs Secs Left"
+                    true -> "$remainingMinutes ${context.getString(R.string.kahf_minutes_left)}"
+                    else -> "$remainingSecs ${context.getString(R.string.kahf_secs_left)}"
                 }
             }
         }
@@ -151,7 +151,16 @@ class NextPrayerTimeView(context: Context,
     }
 
     private fun getPrayerNameText(text: String): String {
-        return text.lowercase().replaceFirstChar { it.titlecase() }
+        return when (text.lowercase().replaceFirstChar { it.titlecase() }) {
+            "Fajr" -> context.getString(R.string.kahf_fajr)
+            "Sunrise" -> context.getString(R.string.kahf_sunrise)
+            "Dhuhr" -> context.getString(R.string.kahf_dhuhr)
+            "Asr" -> context.getString(R.string.kahf_asr)
+            "Maghrib" -> context.getString(R.string.kahf_magrib)
+            "Isha" -> context.getString(R.string.kahf_isha)
+            "None" -> context.getString(R.string.kahf_isha)
+            else -> ""
+        }
     }
 
     fun changeTexts(time: Date, type: Prayer) {

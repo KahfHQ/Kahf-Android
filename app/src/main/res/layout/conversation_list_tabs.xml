@@ -89,7 +89,7 @@
         android:id="@+id/chat_apps_tab_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Safe Chat"
+        android:text="@string/kahf_safe_chat"
         android:textAppearance="@style/Kahf.TextAppearance.Light.11"
         android:textColor="@color/kahf_bottomNavBar_selectedItemColor"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -108,7 +108,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Kahf Story"
+                    android:text="@string/kahf_story"
                     android:textStyle="bold"
                     android:textSize="16sp"
                     android:textColor="#333333" />
@@ -117,7 +117,7 @@
                     android:id="@+id/add_story"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="+Add Story"
+                    android:text="@string/kahf_add_story"
                     android:textSize="13sp"
                     android:textStyle="bold"
                     android:textColor="#3e8dff"

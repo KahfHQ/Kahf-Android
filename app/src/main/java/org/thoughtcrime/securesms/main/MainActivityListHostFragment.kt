@@ -300,7 +300,7 @@ class MainActivityListHostFragment : Fragment(R.layout.main_activity_list_host_f
         return
       }
       ConversationListTab.SETTINGS -> {
-
+        presentMoreAppsBottomSheet(navController)
       }
       ConversationListTab.PRAYERS -> {
         navController.navigate(

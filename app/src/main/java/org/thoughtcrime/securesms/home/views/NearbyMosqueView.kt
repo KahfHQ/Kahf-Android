@@ -1,5 +1,6 @@
 package org.thoughtcrime.securesms.home.views
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.Intent
 import android.location.Address
@@ -37,7 +38,7 @@ class NearbyMosqueView(context: Context,
         binding.apply {
             name.text = model.name
             val distanceValue = calculateDistanceInKm(myLocation.latitude, myLocation.longitude, model.latitude ?: 0.0, model.longitude ?: 0.0)
-            val distanceText = "${String.format("%.2f", distanceValue)} KM from your location"
+            val distanceText = context.getString(R.string.kahf_distance_from_location, distanceValue)
             distance.text = distanceText
             location.setOnClickListener {
                 val uri = "http://maps.google.com/maps?daddr=${model.latitude},${model.longitude}"

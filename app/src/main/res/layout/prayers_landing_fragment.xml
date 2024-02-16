@@ -39,7 +39,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Running Prayer"
+                    android:text="@string/kahf_running_prayer"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 

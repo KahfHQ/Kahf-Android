@@ -242,8 +242,8 @@ class PrayersLandingFragment : Fragment() {
     }
 
     private fun showLocationServicesDisabledPopUp() {
-        MaterialAlertDialogBuilder(requireContext()).setTitle("Alert")
-            .setMessage(getString(R.string.PrayersFragment__location_could_not_get))
+        MaterialAlertDialogBuilder(requireContext()).setTitle(getString(R.string.kahf_alert))
+            .setMessage(getString(R.string.kahf_location_could_not_get))
             .setPositiveButton(
                 R.string.ok
             ) { d: DialogInterface, w: Int ->
@@ -259,8 +259,8 @@ class PrayersLandingFragment : Fragment() {
     }
 
     private fun showAppLocationPermissionNotGranted() {
-        MaterialAlertDialogBuilder(requireContext()).setTitle("Alert")
-            .setMessage(getString(R.string.PrayersFragment__location_could_not_get_app_level))
+        MaterialAlertDialogBuilder(requireContext()).setTitle(getString(R.string.kahf_alert))
+            .setMessage(getString(R.string.kahf_location_could_not_get_app_level))
             .setPositiveButton(
                 R.string.ok
             ) { d: DialogInterface, w: Int ->
@@ -328,17 +328,17 @@ class PrayersLandingFragment : Fragment() {
 
         val calendar = Calendar.getInstance()
         calendar.time = prayerTimes.fajr
-        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.FAJR, "Fajr", getTimeString(calendar), getNotificationPreference(prayerTimes.fajr), prayerTimes.fajr), this@PrayersLandingFragment))
+        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.FAJR, convertToTitleText(PrayersConstants.PrayerTime.FAJR.name), getTimeString(calendar), getNotificationPreference(prayerTimes.fajr), prayerTimes.fajr), this@PrayersLandingFragment))
         calendar.time = prayerTimes.sunrise
-        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.SUNRISE, "Sunrise", getTimeString(calendar), getNotificationPreference(prayerTimes.sunrise), prayerTimes.sunrise), this@PrayersLandingFragment))
+        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.SUNRISE, convertToTitleText(PrayersConstants.PrayerTime.SUNRISE.name), getTimeString(calendar), getNotificationPreference(prayerTimes.sunrise), prayerTimes.sunrise), this@PrayersLandingFragment))
         calendar.time = prayerTimes.dhuhr
-        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.DHUHR, "Dhuhr", getTimeString(calendar), getNotificationPreference(prayerTimes.dhuhr), prayerTimes.dhuhr), this@PrayersLandingFragment))
+        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.DHUHR, convertToTitleText(PrayersConstants.PrayerTime.DHUHR.name), getTimeString(calendar), getNotificationPreference(prayerTimes.dhuhr), prayerTimes.dhuhr), this@PrayersLandingFragment))
         calendar.time = prayerTimes.asr
-        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.ASR, "Asr", getTimeString(calendar), getNotificationPreference(prayerTimes.asr), prayerTimes.asr), this@PrayersLandingFragment))
+        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.ASR, convertToTitleText(PrayersConstants.PrayerTime.ASR.name), getTimeString(calendar), getNotificationPreference(prayerTimes.asr), prayerTimes.asr), this@PrayersLandingFragment))
         calendar.time = prayerTimes.maghrib
-        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.MAGHRIB, "Maghrib", getTimeString(calendar), getNotificationPreference(prayerTimes.maghrib), prayerTimes.maghrib), this@PrayersLandingFragment))
+        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.MAGHRIB, convertToTitleText(PrayersConstants.PrayerTime.MAGHRIB.name), getTimeString(calendar), getNotificationPreference(prayerTimes.maghrib), prayerTimes.maghrib), this@PrayersLandingFragment))
         calendar.time = prayerTimes.isha
-        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.ISHA, "Isha", getTimeString(calendar), getNotificationPreference(prayerTimes.isha), prayerTimes.isha), this@PrayersLandingFragment))
+        prayers.add(PrayerModelView(requireContext(), PrayerModel(PrayersConstants.PrayerTime.ISHA, convertToTitleText(PrayersConstants.PrayerTime.ISHA.name), getTimeString(calendar), getNotificationPreference(prayerTimes.isha), prayerTimes.isha), this@PrayersLandingFragment))
 
         prayerModelViews = prayers.toList()
 
@@ -489,9 +489,9 @@ class PrayersLandingFragment : Fragment() {
 
     private fun changePrayerDayLabelText() {
         binding.prayerDayLabel.text = when (dateIndex) {
-            0 -> "Yesterday"
-            1 -> "Today"
-            2 -> "Tomorrow"
+            0 -> getString(R.string.kahf_yesterday)
+            1 -> getString(R.string.kahf_today)
+            2 -> getString(R.string.kahf_tomorrow)
             else -> ""
         }
 
@@ -530,14 +530,14 @@ class PrayersLandingFragment : Fragment() {
         return when(remainingHours > 0) {
             true -> {
                 when (remainingMinutes > 0) {
-                    true -> "$remainingHours hours $remainingMinutes minutes until $convertedName"
-                    else -> "$remainingHours hours until $convertedName"
+                    true -> "$remainingHours ${getString(R.string.kahf_hours)} $remainingMinutes ${getString(R.string.kahf_minutes_until)} $convertedName"
+                    else -> "$remainingHours ${getString(R.string.kahf_hours_until)} $convertedName"
                 }
             }
             else -> {
                 when (remainingMinutes > 0) {
-                    true -> "$remainingMinutes minutes until $convertedName"
-                    else -> "$remainingSecs secs until $convertedName"
+                    true -> "$remainingMinutes ${getString(R.string.kahf_minutes_until)} $convertedName"
+                    else -> "$remainingSecs ${getString(R.string.kahf_secs_until)} $convertedName"
                 }
             }
         }
@@ -608,7 +608,16 @@ class PrayersLandingFragment : Fragment() {
                 else it
             }
         }
-        return words.joinToString(" ")
+        return when (words.joinToString(" ")) {
+            "Fajr" -> getString(R.string.kahf_fajr)
+            "Sunrise" -> getString(R.string.kahf_sunrise)
+            "Dhuhr" -> getString(R.string.kahf_dhuhr)
+            "Asr" -> getString(R.string.kahf_asr)
+            "Maghrib" -> getString(R.string.kahf_magrib)
+            "Isha" -> getString(R.string.kahf_isha)
+            "None" -> getString(R.string.kahf_isha)
+            else -> ""
+        }
     }
 
     class ItemOffsetDecoration(private val context: Context) : RecyclerView.ItemDecoration() {

@@ -27,7 +27,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Upcoming Events"
+                android:text="@string/kahf_upcoming_events"
                 android:textStyle="bold"
                 android:textSize="24sp"
                 android:textColor="#333333" />

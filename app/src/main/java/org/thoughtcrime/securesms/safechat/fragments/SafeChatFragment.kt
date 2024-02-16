@@ -40,23 +40,23 @@ class SafeChatFragment: Fragment() {
 
     private fun initViews() {
         binding.apply {
-            tabLayout.setupWithViewPager(viewPager)
+//            tabLayout.setupWithViewPager(viewPager)
         }
     }
 
     private fun setupViewPager() {
-        val adapter = CustomViewPagerAdapter(childFragmentManager)
-        adapter.addFragment(SafeChatWhatsappFragment(), "WhatsApp")
-        adapter.addFragment(SafeChatTelegramFragment(), "Telegram")
-        setupTabIcons(adapter)
-        binding.viewPager.adapter = adapter
+//        val adapter = CustomViewPagerAdapter(childFragmentManager)
+//        adapter.addFragment(SafeChatWhatsappFragment(), "WhatsApp")
+//        adapter.addFragment(SafeChatTelegramFragment(), "Telegram")
+//        setupTabIcons(adapter)
+//        binding.viewPager.adapter = adapter
     }
 
     private fun setupTabIcons(adapter: CustomViewPagerAdapter) {
-        for (i in 0 until adapter.count) {
-            val tab = binding.tabLayout.getTabAt(i)
-            tab?.customView = adapter.getTabView(i)
-        }
+//        for (i in 0 until adapter.count) {
+//            val tab = binding.tabLayout.getTabAt(i)
+//            tab?.customView = adapter.getTabView(i)
+//        }
     }
 
     inner class CustomViewPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {

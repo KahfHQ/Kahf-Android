@@ -211,8 +211,8 @@ class HomeLandingFragment : Fragment() {
     }
 
     private fun showLocationServicesDisabledPopUp() {
-        MaterialAlertDialogBuilder(requireContext()).setTitle("Alert")
-            .setMessage(getString(R.string.PrayersFragment__location_could_not_get))
+        MaterialAlertDialogBuilder(requireContext()).setTitle(getString(R.string.kahf_alert))
+            .setMessage(getString(R.string.kahf_location_could_not_get))
             .setPositiveButton(
                 R.string.ok
             ) { d: DialogInterface, w: Int ->
@@ -228,8 +228,8 @@ class HomeLandingFragment : Fragment() {
     }
 
     private fun showAppLocationPermissionNotGranted() {
-        MaterialAlertDialogBuilder(requireContext()).setTitle("Alert")
-            .setMessage(getString(R.string.PrayersFragment__location_could_not_get_app_level))
+        MaterialAlertDialogBuilder(requireContext()).setTitle(getString(R.string.kahf_alert))
+            .setMessage(getString(R.string.kahf_location_could_not_get_app_level))
             .setPositiveButton(
                 R.string.ok
             ) { d: DialogInterface, w: Int ->

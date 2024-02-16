@@ -19,7 +19,7 @@
         android:layout_marginTop="10dp"
         android:background="@drawable/chats_search_bar_rounded_background"
         app:searchIcon="@drawable/ic_search_bar_left_icon"
-        app:queryHint="Search"
+        app:queryHint="@string/kahf_search"
         app:iconifiedByDefault="false"
         app:queryBackground="@color/transparent" />
 
@@ -140,9 +140,10 @@
                 android:transitionName="new_convo_fab"
                 android:visibility="gone"
                 app:backgroundTint="@color/signal_colorPrimaryContainer"
-                app:srcCompat="@drawable/ic_chat_fragment_fab"
+                app:srcCompat="@drawable/new_chat_icon"
                 tools:visibility="visible"
-                app:shapeAppearanceOverlay="@style/FabCircle"/>
+                app:shapeAppearanceOverlay="@style/FabCircle"
+                app:maxImageSize="56dp"/>
 
             <ViewStub
                 android:id="@+id/megaphone_container"

@@ -27,7 +27,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Mosque Nearby"
+                android:text="@string/kahf_mosque_nearby"
                 android:textSize="14sp"
                 android:textColor="#333333"
                 android:layout_marginTop="5dp"/>
