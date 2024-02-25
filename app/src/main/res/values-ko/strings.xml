@@ -5436,7 +5436,16 @@
     <string name="kahf_add_story">+ 이야기 추가</string>
     <string name="kahf_kahf_story">카프 이야기</string>
     <string name="kahf_safe_chat">안전한 채팅</string>
-
+    <string name="kahf_alert">알림</string>
+    <string name="kahf_hours">시간</string>
+    <string name="kahf_hours_left">남은 시간</string>
+    <string name="kahf_secs_left">남은 초</string>
+    <string name="kahf_hours_until">후에 시간</string>
+    <string name="kahf_minutes_until">후에 분</string>
+    <string name="kahf_secs_until">후에 초</string>
+    <string name="kahf_isha">이샤</string>
+    <string name="kahf_location_could_not_get">위치 정보를 가져올 수 없습니다. 휴대폰의 위치 기능이 켜져 있는지 확인하세요.</string>
+    <string name="kahf_location_could_not_get_app_level">이 페이지를 보려면 디바이스 설정에서 위치 권한을 부여해야 합니다. 리디렉트된 페이지의 위치 권한으로 이동하여 권한을 부여하세요.</string>
 
     <!-- EOF -->
 

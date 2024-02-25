@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+Lisa lugu</string>
     <string name="kahf_kahf_story">Kahfi lugu</string>
     <string name="kahf_safe_chat">Turvaline vestlus</string>
+    <string name="kahf_alert">Alerta</string>
+    <string name="kahf_hours">Orduak</string>
+    <string name="kahf_hours_left">Ordu gehiago</string>
+    <string name="kahf_secs_left">Segundu gehiago</string>
+    <string name="kahf_hours_until">ordu da</string>
+    <string name="kahf_minutes_until">minutu da</string>
+    <string name="kahf_secs_until">segundo dira</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Zure kokapenaren informazioa ezin izan dugu jaso. Ziurtatu zure telefonoaren kokapen-funtzioak gaituta daudela.</string>
+    <string name="kahf_location_could_not_get_app_level">Orrialde hau ikusi ahal izateko, kokapen baimena eman behar duzu zure gailuaren ezarpenetan. Joan kokapen baimena bideratzeko orrialdean eta eman baimena.</string>
 
     <!-- EOF -->
 

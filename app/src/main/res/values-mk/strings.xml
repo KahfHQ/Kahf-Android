@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">Додај приказна</string>
     <string name="kahf_kahf_story">Каф приказна</string>
     <string name="kahf_safe_chat">Сигурен разговор</string>
-
+    <string name="kahf_alert">Предупредување</string>
+    <string name="kahf_hours">Часови</string>
+    <string name="kahf_hours_left">Преостанати часови</string>
+    <string name="kahf_secs_left">Преостанати секунди</string>
+    <string name="kahf_hours_until">часа од сега</string>
+    <string name="kahf_minutes_until">минути од сега</string>
+    <string name="kahf_secs_until">секунди од сега</string>
+    <string name="kahf_isha">Иша</string>
+    <string name="kahf_location_could_not_get">Не можевме да добиеме информации за вашата локација. Ве молиме проверете дали функциите за локација на вашиот телефон се вклучени.</string>
+    <string name="kahf_location_could_not_get_app_level">Мора да дозволите пристап до локација во поставките на вашето уредување за да го видите овој страница. Ве молиме одете на дозвола за локација на пренасочената страница и дозволете ја.</string>
 
     <!-- EOF -->
 

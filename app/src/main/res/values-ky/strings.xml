@@ -5436,7 +5436,16 @@
     <string name="kahf_add_story">+ История кошуу</string>
     <string name="kahf_kahf_story">Кахф историясы</string>
     <string name="kahf_safe_chat">Кайчы сүйлөшүү</string>
-
+    <string name="kahf_alert">Эскертуү</string>
+    <string name="kahf_hours">Саат</string>
+    <string name="kahf_hours_left">Калган сааттар</string>
+    <string name="kahf_secs_left">Калган секундтар</string>
+    <string name="kahf_hours_until">Сонунда саат</string>
+    <string name="kahf_minutes_until">Сонунда минут</string>
+    <string name="kahf_secs_until">Сонунда секунд</string>
+    <string name="kahf_isha">Иша</string>
+    <string name="kahf_location_could_not_get">Сиздин орныңызды алууга болбойт. Учур телефондун орнотуунун ачык эмесин текшериңиз.</string>
+    <string name="kahf_location_could_not_get_app_level">Бул беттин көрүү үчүн аппараттынан орнулуу уруксатын бериңиз. Орнотуунун изинин берүү үчүн, багыттан орнулуу уруксатын ачыңыз жана изин бериңиз.</string>
 
     <!-- EOF -->
 

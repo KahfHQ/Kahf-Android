@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">+ കഥ ചേർക്കുക</string>
     <string name="kahf_kahf_story">കാഹ്ഫ് കഥ</string>
     <string name="kahf_safe_chat">സുരക്ഷിത ചാറ്റ്</string>
-
+    <string name="kahf_alert">മുന്നറിയിപ്പ്</string>
+    <string name="kahf_hours">മണിക്കൂറുകൾ</string>
+    <string name="kahf_hours_left">ഉള്ള മണിക്കൂറുകൾ</string>
+    <string name="kahf_secs_left">ശേഷിക്കുന്ന സെക്കൻഡുകൾ</string>
+    <string name="kahf_hours_until">ശേഷിക്കുന്ന മണിക്കൂറുകൾ</string>
+    <string name="kahf_minutes_until">ശേഷിക്കുന്ന മിനിറ്റുകൾ</string>
+    <string name="kahf_secs_until">ശേഷിക്കുന്ന സെക്കൻഡുകൾ</string>
+    <string name="kahf_isha">ഇഷ</string>
+    <string name="kahf_location_could_not_get">നിങ്ങളുടെ സ്ഥാനം നാം പുനഃപ്രാപ്തിചെയ്യാനായില്ല. ദയവായി നിങ്ങളുടെ ഫോൺന്റെ സ്ഥാനം സജ്ജമാണെന്ന് ഉറപ്പാക്കുക.</string>
+    <string name="kahf_location_could_not_get_app_level">ഈ പേജ് കാണാൻ നിങ്ങളുടെ ഉപകരണത്തിന്റെ സജ്ജമാക്കുന്നതിനായി സ്ഥാന അനുമതി നൽകണം. ദയവായി വഴികാട്ടിയിട്ടുള്ള പേജിൽ സ്ഥാന അനുമതിയെ തുറന്നുചെയ്യുക അപേക്ഷിക്കുക.</string>
 
     <!-- EOF -->
 

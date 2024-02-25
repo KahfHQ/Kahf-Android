@@ -5436,7 +5436,16 @@
     <string name="kahf_add_story">+ Thêm câu chuyện</string>
     <string name="kahf_kahf_story">Câu chuyện Kahf</string>
     <string name="kahf_safe_chat">Trò chuyện an toàn</string>
-
+    <string name="kahf_alert">Cảnh báo</string>
+    <string name="kahf_hours">Giờ</string>
+    <string name="kahf_hours_left">Còn lại giờ</string>
+    <string name="kahf_secs_left">Còn lại giây</string>
+    <string name="kahf_hours_until">giờ nữa là</string>
+    <string name="kahf_minutes_until">phút nữa là</string>
+    <string name="kahf_secs_until">giây nữa là</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Chúng tôi không thể lấy thông tin vị trí của bạn. Vui lòng đảm bảo rằng các tính năng vị trí của điện thoại của bạn đã được bật.</string>
+    <string name="kahf_location_could_not_get_app_level">Bạn phải cấp quyền vị trí trong cài đặt của thiết bị để xem trang này. Vui lòng chuyển đến quyền vị trí trên trang được chuyển hướng và cấp quyền.</string>
 
     <!-- EOF -->
 

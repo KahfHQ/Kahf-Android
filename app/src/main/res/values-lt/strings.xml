@@ -5802,6 +5802,16 @@
     <string name="kahf_add_story">Pievienot stāstu</string>
     <string name="kahf_kahf_story">Kahf stāsts</string>
     <string name="kahf_safe_chat">Droša čata saruna</string>
+    <string name="kahf_alert">Įspėjimas</string>
+    <string name="kahf_hours">Valandos</string>
+    <string name="kahf_hours_left">Valandos liko</string>
+    <string name="kahf_secs_left">Sekundės liko</string>
+    <string name="kahf_hours_until">valandos</string>
+    <string name="kahf_minutes_until">minutes iki</string>
+    <string name="kahf_secs_until">sekundžių iki</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Negalėjome gauti jūsų buvimo vietos informacijos. Įsitikinkite, kad jūsų telefono vietos funkcijos įjungtos.</string>
+    <string name="kahf_location_could_not_get_app_level">Norint peržiūrėti šį puslapį, jūs turite suteikti vietos leidimą savo įrenginyje. Prašome eiti į vietos leidimą nukreiptame puslapyje ir suteikti leidimą.</string>
 
     <!-- EOF -->
 

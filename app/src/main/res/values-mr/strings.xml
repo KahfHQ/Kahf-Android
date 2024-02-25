@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">कथा जोडा</string>
     <string name="kahf_kahf_story">काह्फ कथा</string>
     <string name="kahf_safe_chat">सुरक्षित चॅट</string>
-
+    <string name="kahf_alert">सावध</string>
+    <string name="kahf_hours">तास</string>
+    <string name="kahf_hours_left">तास शिल्लक आहेत</string>
+    <string name="kahf_secs_left">सेकंद शिल्लक आहेत</string>
+    <string name="kahf_hours_until">तासांपर्यंत</string>
+    <string name="kahf_minutes_until">मिनिटांपर्यंत</string>
+    <string name="kahf_secs_until">सेकंदांपर्यंत</string>
+    <string name="kahf_isha">ईशा</string>
+    <string name="kahf_location_could_not_get">आपली स्थान माहिती आम्ही मिळवू शकत नाही. कृपया आपल्या फ़ोनची स्थान सुविधा चालू आहे का हे किंवा तपासा.</string>
+    <string name="kahf_location_could_not_get_app_level">या पृष्ठाला पाहण्यासाठी आपल्या उपकरणाच्या सेटिंगमध्ये स्थान परवानगी द्यावी लागेल. कृपया पुन्हा निर्देशित पृष्ठावर स्थान परवानगी प्रदान करा आणि परवानगी द्या.</string>
 
     <!-- EOF -->
 

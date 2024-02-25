@@ -4423,6 +4423,16 @@ Sjekkar igjen no …</string>
   <string name="kahf_add_story">Legg til historie</string>
   <string name="kahf_kahf_story">Kahf-historie</string>
   <string name="kahf_safe_chat">Trygg chat</string>
+  <string name="kahf_alert">Åtvaring</string>
+  <string name="kahf_hours">Timar</string>
+  <string name="kahf_hours_left">Timar igjen</string>
+  <string name="kahf_secs_left">Sekund igjen</string>
+  <string name="kahf_hours_until">timar til</string>
+  <string name="kahf_minutes_until">minutt til</string>
+  <string name="kahf_secs_until">sekund til</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Vi klarte ikkje å hente posisjonsinformasjonen din. Ver venleg og sjå til at posisjonsfunksjonane på telefonen din er slått på.</string>
+  <string name="kahf_location_could_not_get_app_level">Du må gi tilgjeng til posisjonen i innstillingane til enheten din for å sjå denne sida. Ver venleg og gå til posisjonstillatingane på den omdirigerte sida og gi tilgjeng.</string>
 
   <!--EOF-->
 </resources>

@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">+Afegeix història</string>
     <string name="kahf_kahf_story">Història de la Cova</string>
     <string name="kahf_safe_chat">Xat Segur</string>
-
+    <string name="kahf_alert">Alerta</string>
+    <string name="kahf_hours">Hora</string>
+    <string name="kahf_hours_left">Hores restants</string>
+    <string name="kahf_secs_left">Segons restants</string>
+    <string name="kahf_hours_until">hora fins</string>
+    <string name="kahf_minutes_until">minut fins</string>
+    <string name="kahf_secs_until">segon fins</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">No hem pogut recuperar la informació de la vostra ubicació. Assegureu-vos que les característiques de ubicació del vostre telèfon estiguin activades.</string>
+    <string name="kahf_location_could_not_get_app_level">Heu de concedir el permís de ubicació a la configuració del dispositiu per veure aquesta pàgina. Anau al permís de ubicació a la pàgina redirigida i concediu el permís.</string>
 
     <!-- EOF -->
 

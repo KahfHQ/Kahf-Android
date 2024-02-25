@@ -5802,6 +5802,16 @@
     <string name="kahf_add_story">+Přidat příběh</string>
     <string name="kahf_kahf_story">Příběh o jeskyni</string>
     <string name="kahf_safe_chat">Bezpečný chat</string>
+    <string name="kahf_alert">Upozornění</string>
+    <string name="kahf_hours">Hodina</string>
+    <string name="kahf_hours_left">Zbývající hodiny</string>
+    <string name="kahf_secs_left">Zbývající sekundy</string>
+    <string name="kahf_hours_until">hodin do</string>
+    <string name="kahf_minutes_until">minut do</string>
+    <string name="kahf_secs_until">sekund do</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Nepodařilo se nám získat informace o vaší poloze. Ujistěte se, že jsou na vašem telefonu zapnuté funkce polohy.</string>
+    <string name="kahf_location_could_not_get_app_level">Pro zobrazení této stránky musíte udělit povolení k určení polohy v nastavení zařízení. Přejděte na povolení polohy na přesměrované stránce a udělte povolení.</string>
 
     <!-- EOF -->
 

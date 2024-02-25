@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">+ ਕਹਾਣੀ ਸ਼ਾਮਲ ਕਰੋ</string>
     <string name="kahf_kahf_story">ਕਹਫ ਕਹਾਣੀ</string>
     <string name="kahf_safe_chat">ਸੁਰੱਖਿਅਤ ਚੈਟ</string>
-
+    <string name="kahf_alert">ਚੇਤਾਵਨੀ</string>
+    <string name="kahf_hours">ਘੰਟੇ</string>
+    <string name="kahf_hours_left">ਘੰਟੇ ਬਾਕੀ</string>
+    <string name="kahf_secs_left">ਸਕਿੰਟ ਬਾਕੀ</string>
+    <string name="kahf_hours_until">ਘੰਟੇ ਬਾਅਦ</string>
+    <string name="kahf_minutes_until">ਮਿੰਟ ਬਾਅਦ</string>
+    <string name="kahf_secs_until">ਸਕਿੰਟ ਬਾਅਦ</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">ਅਸੀਂ ਤੁਹਾਡੇ ਸਥਾਨ ਜਾਣਕਾਰੀ ਨਹੀਂ ਲਿਆ ਸਕੇ. ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੇ ਫੋਨ ਦੇ ਸਥਾਨ ਫੀਚਰ ਨੂੰ ਚਾਲੂ ਕਰੋ.</string>
+    <string name="kahf_location_could_not_get_app_level">ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਸੈਟਿੰਗਾਂ ਵਿੱਚ ਇਸ ਪੰਨੇ ਨੂੰ ਵੇਖਣ ਲਈ ਸਥਾਨ ਅਨੁਮਤੀ ਦਿਓ. ਕਿਰਪਾ ਕਰਕੇ ਨਿਰਦੇਸ਼ਿਤ ਪੰਨੇ \'ਤੇ ਸਥਾਨ ਅਨੁਮਤੀ \'ਤੇ ਜਾਉ ਅਤੇ ਅਨੁਮਤੀ ਦਿਓ।</string>
 
     <!-- EOF -->
 

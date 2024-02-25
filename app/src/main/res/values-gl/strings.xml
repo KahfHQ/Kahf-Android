@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+Engadir historia</string>
     <string name="kahf_kahf_story">Historia da Cova</string>
     <string name="kahf_safe_chat">Conversa segura</string>
+    <string name="kahf_alert">Alerta</string>
+    <string name="kahf_hours">Horas</string>
+    <string name="kahf_hours_left">Horas Restantes</string>
+    <string name="kahf_secs_left">Segundos Restantes</string>
+    <string name="kahf_hours_until">horas ata</string>
+    <string name="kahf_minutes_until">minutos ata</string>
+    <string name="kahf_secs_until">segundos ata</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Non foi posible obter a súa información de localización. Asegúrese de que as funcións de localización do seu teléfono están activadas.</string>
+    <string name="kahf_location_could_not_get_app_level">Debe conceder permisos de localización na configuración do seu dispositivo para ver esta páxina. Vaia ao permiso de localización na páxina redirixida e conceda o permiso.</string>
 
     <!-- EOF -->
 

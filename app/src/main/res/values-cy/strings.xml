@@ -4636,6 +4636,16 @@ Anfon neges heb ei diogelu?</string>
   <string name="kahf_add_story">+Ychwanegu stori</string>
   <string name="kahf_kahf_story">Stori\'r Ogof</string>
   <string name="kahf_safe_chat">Sgwrs diogel</string>
+  <string name="kahf_alert">Rhybudd</string>
+  <string name="kahf_hours">Orau</string>
+  <string name="kahf_hours_left">Oriau sydd ar ôl</string>
+  <string name="kahf_secs_left">Eiliadau sydd ar ôl</string>
+  <string name="kahf_hours_until">awr tan</string>
+  <string name="kahf_minutes_until">munud tan</string>
+  <string name="kahf_secs_until">eiliad tan</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Ni allem ddod o hyd i\'ch lleoliad. Sicrhewch fod nodweddion lleoliad eich ffon wedi eu rhoi ar agor.</string>
+  <string name="kahf_location_could_not_get_app_level">Rhaid i chi roi caniatâd lleoliad yn nhrefn eich dyfais i weld y dudalen hon. Ewch i ganiatâd lleoliad ar y dudalen ailgyfeirio a rhoi caniatâd.</string>
 
   <!--EOF-->
 </resources>

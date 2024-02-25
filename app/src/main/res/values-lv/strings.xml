@@ -5680,7 +5680,16 @@
     <string name="kahf_add_story">Pievienot stāstu</string>
     <string name="kahf_kahf_story">Kahf stāsts</string>
     <string name="kahf_safe_chat">Droša čata saruna</string>
-
+    <string name="kahf_alert">Brīdinājums</string>
+    <string name="kahf_hours">Stundas</string>
+    <string name="kahf_hours_left">Atlikušas stundas</string>
+    <string name="kahf_secs_left">Atlikušas sekundes</string>
+    <string name="kahf_hours_until">stundas līdz</string>
+    <string name="kahf_minutes_until">minūtes līdz</string>
+    <string name="kahf_secs_until">sekundes līdz</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Mēs nevarējām iegūt jūsu atrašanās vietas informāciju. Lūdzu, pārliecinieties, vai jūsu telefona atrašanās vietas funkcijas ir ieslēgtas.</string>
+    <string name="kahf_location_could_not_get_app_level">Lai apskatītu šo lapu, jums jāpiešķir atrašanās vietas atļauja jūsu ierīcē. Lūdzu, dodieties uz vietnes atļauju novirzītajā lapā un piešķiriet atļauju.</string>
 
     <!-- EOF -->
 

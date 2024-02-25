@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">ಕಥೆ ಸೇರಿಸಿ</string>
     <string name="kahf_kahf_story">ಕಹ್ಫ್ ಕಥೆ</string>
     <string name="kahf_safe_chat">ಸುರಕ್ಷಿತ ಸಂಭಾಷಣೆ</string>
-
+    <string name="kahf_alert">ಎಚ್ಚರಿಕೆ</string>
+    <string name="kahf_hours">ಗಂಟೆಗಳು</string>
+    <string name="kahf_hours_left">ಉಳಿದ ಗಂಟೆಗಳು</string>
+    <string name="kahf_secs_left">ಉಳಿದ ಸೆಕೆಂಡುಗಳು</string>
+    <string name="kahf_hours_until">ಮುಂದಿನ ಗಂಟೆಗಳವರೆಗೆ</string>
+    <string name="kahf_minutes_until">ಮುಂದಿನ ನಿಮಿಷಗಳವರೆಗೆ</string>
+    <string name="kahf_secs_until">ಮುಂದಿನ ಸೆಕೆಂಡುಗಳವರೆಗೆ</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">ನಿಮ್ಮ ಸ್ಥಳವನ್ನು ಪಡೆಯಲಾಗಲಿಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ ಫೋನ್‌ನ ಸ್ಥಳ ವಿಶೇಷತೆಗಳು ಓಪನ್‌ಆಗಿರುವಂತೆ ಖಾತೆಗೆ ಖಾತೆಗೆ ಮಾಡಿ.</string>
+    <string name="kahf_location_could_not_get_app_level">ಈ ಪುಟವನ್ನು ನೋಡಲು ನಿಮ್ಮ ಸಾಧನದ ಸೆಟ್ಟಿಂಗ್‌ಗಳಲ್ಲಿ ಸ್ಥಳ ಅನುಮತಿಯನ್ನು ನೀಡಬೇಕು. ದಯವಿಟ್ಟು ಸ್ಥಳ ಅನುಮತಿಯನ್ನು ತೆರುವ ಪುಟದಲ್ಲಿ ಹೋಗಿ ಅನುಮತಿಯನ್ನು ನೀಡಿ.</string>
 
     <!-- EOF -->
 

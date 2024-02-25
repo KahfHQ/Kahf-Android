@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+ Heç olmasa Hikayə</string>
     <string name="kahf_kahf_story">Kahf Hikayəsi</string>
     <string name="kahf_safe_chat">Təhlükəsiz Sohbet</string>
+    <string name="kahf_alert">Xəbərdarlıq</string>
+    <string name="kahf_hours">Saat</string>
+    <string name="kahf_hours_left">Qalan saatlar</string>
+    <string name="kahf_secs_left">Qalan saniyələr</string>
+    <string name="kahf_hours_until">dəqiqədən sonra</string>
+    <string name="kahf_minutes_until">dəqiqədən sonra</string>
+    <string name="kahf_secs_until">saniyədən sonra</string>
+    <string name="kahf_isha">İşa</string>
+    <string name="kahf_location_could_not_get">Lokasiya məlumatlarını əldə edə bilmədik. Telefonunuzun lokasiya xüsusiyyətlərinin açıq olduğundan əmin olun.</string>
+    <string name="kahf_location_could_not_get_app_level">Bu səhifəni görmək üçün cihazınızın parametrlərində yer təminatı verin. Yönəldilmiş səhifədə yer icazəsinə keçin və icazəni verin.</string>
 
     <!-- EOF -->
 

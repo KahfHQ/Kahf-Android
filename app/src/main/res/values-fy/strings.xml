@@ -4327,6 +4327,16 @@
   <string name="kahf_add_story">+Foech ferhaal ta</string>
   <string name="kahf_kahf_story">It ferhaal fan de Grot</string>
   <string name="kahf_safe_chat">Feilige praat</string>
+  <string name="kahf_alert">Alert</string>
+  <string name="kahf_hours">Oeren</string>
+  <string name="kahf_hours_left">Oeren oer</string>
+  <string name="kahf_secs_left">Seconden oer</string>
+  <string name="kahf_hours_until">oer oant</string>
+  <string name="kahf_minutes_until">minuten oant</string>
+  <string name="kahf_secs_until">sekonden oant</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Wy koene jo lokaasjeadfettingen net ophelje. Kontrolearje oft jo telefoan syn lokaasjefunksjes oan stean.</string>
+  <string name="kahf_location_could_not_get_app_level">Jo moatte tastimming jaan foar lokaasje yn jo apparaatynstellings om dizze side te sjen. Giet nei de lokaasjetastimming op de werstjoerde side en jou tastimming.</string>
 
   <!--EOF-->
 </resources>

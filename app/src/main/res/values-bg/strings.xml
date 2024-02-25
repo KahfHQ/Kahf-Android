@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+Добави История</string>
     <string name="kahf_kahf_story">История на Кахф</string>
     <string name="kahf_safe_chat">Безопасен Чат</string>
+    <string name="kahf_alert">Предупреждение</string>
+    <string name="kahf_hours">Час</string>
+    <string name="kahf_hours_left">Оставащи часове</string>
+    <string name="kahf_secs_left">Оставащи секунди</string>
+    <string name="kahf_hours_until">часа до</string>
+    <string name="kahf_minutes_until">минута до</string>
+    <string name="kahf_secs_until">секунда до</string>
+    <string name="kahf_isha">Иша</string>
+    <string name="kahf_location_could_not_get">Не успяхме да възстановим информацията за вашето местоположение. Уверете се, че функциите за местоположение на телефона ви са активирани.</string>
+    <string name="kahf_location_could_not_get_app_level">Трябва да разрешите местоположението в настройките на вашето устройство, за да видите тази страница. Отидете на местоположителното разрешение на пренасочената страница и разрешете местоположението.</string>
 
     <!-- EOF -->
 

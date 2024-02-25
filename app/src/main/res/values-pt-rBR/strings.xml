@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">Adicionar história</string>
     <string name="kahf_kahf_story">História do Kahf</string>
     <string name="kahf_safe_chat">Chat seguro</string>
-
+    <string name="kahf_alert">Alerta</string>
+    <string name="kahf_hours">Horas</string>
+    <string name="kahf_hours_left">Horas Restantes</string>
+    <string name="kahf_secs_left">Segundos Restantes</string>
+    <string name="kahf_hours_until">horas até</string>
+    <string name="kahf_minutes_until">minutos até</string>
+    <string name="kahf_secs_until">segundos até</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Não foi possível obter suas informações de localização. Certifique-se de que os recursos de localização do seu telefone estão ativados.</string>
+    <string name="kahf_location_could_not_get_app_level">Você deve conceder permissão de localização nas configurações do seu dispositivo para visualizar esta página. Vá para permissão de localização na página redirecionada e conceda permissão.</string>
 
     <!-- EOF -->
 

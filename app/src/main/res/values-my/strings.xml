@@ -5436,7 +5436,16 @@
     <string name="kahf_add_story">+ သတင်းထည့်ရန်</string>
     <string name="kahf_kahf_story">Kahf သတင်း</string>
     <string name="kahf_safe_chat">လူမှုများ</string>
-
+    <string name="kahf_alert">သတိပေးချက်</string>
+    <string name="kahf_hours">နာရီ</string>
+    <string name="kahf_hours_left">နာရီ ကျန်ရှိသည်</string>
+    <string name="kahf_secs_left">စက္ကန့်ကျန်ရှိသည်</string>
+    <string name="kahf_hours_until">နာရီအတွင်း</string>
+    <string name="kahf_minutes_until">မိနစ်အတွင်း</string>
+    <string name="kahf_secs_until">စက္ကန့်အတွင်း</string>
+    <string name="kahf_isha">အစ္စာ</string>
+    <string name="kahf_location_could_not_get">သင့်ရဲ့လိုအပ်သည့်နေရာကိုကော်မာဖြစ်ပွားရန် ကျေးဇူးပြု၍ သင့်ဖုန်းနှင့်လွတ်တော်အားဖွင့်ထားရပါမည်။</string>
+    <string name="kahf_location_could_not_get_app_level">ဤစာမျက်နှာကိုကြည့်ရန် သင့်ကိရိယာသည်သင့်အားသက်ဆိုင်ရာ သတိပေးချက်ကိုခွင့်ပြုသည်။ သို့ဖြေရန်စနစ်ကိုသွားပါက သင့်ကိရိယာကိုခွင့်ပြုရန်အသိအမှတ်ပြုပါ။</string>
 
     <!-- EOF -->
 

@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">+ Ongeza Hadithi</string>
     <string name="kahf_kahf_story">Hadithi ya Kahf</string>
     <string name="kahf_safe_chat">Mazungumzo Salama</string>
-
+    <string name="kahf_alert">Onyo</string>
+    <string name="kahf_hours">Saa</string>
+    <string name="kahf_hours_left">Saa Zilizobaki</string>
+    <string name="kahf_secs_left">Sekunde Zilizobaki</string>
+    <string name="kahf_hours_until">masaa hadi</string>
+    <string name="kahf_minutes_until">dakika hadi</string>
+    <string name="kahf_secs_until">sekunde hadi</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Hatukuweza kupata habari za eneo lako. Hakikisha kwamba huduma za mahali pa simu yako zimeamilishwa.</string>
+    <string name="kahf_location_could_not_get_app_level">Unapaswa kutoa idhini ya mahali katika mipangilio ya kifaa chako ili uone ukurasa huu. Nenda kwa idhini ya mahali kwenye ukurasa ulionakiliwa na upitishe idhini.</string>
 
     <!-- EOF -->
 

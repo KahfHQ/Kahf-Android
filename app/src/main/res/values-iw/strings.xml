@@ -5802,6 +5802,16 @@
     <string name="kahf_add_story">+הוספת סיפור</string>
     <string name="kahf_kahf_story">סיפור קהפ</string>
     <string name="kahf_safe_chat">צ\'אט מאובטח</string>
+    <string name="kahf_alert">התראה</string>
+    <string name="kahf_hours">שעות</string>
+    <string name="kahf_hours_left">שעות שנותרו</string>
+    <string name="kahf_secs_left">שניות שנותרו</string>
+    <string name="kahf_hours_until">שעות עד</string>
+    <string name="kahf_minutes_until">דקות עד</string>
+    <string name="kahf_secs_until">שניות עד</string>
+    <string name="kahf_isha">אישא</string>
+    <string name="kahf_location_could_not_get">לא הצלחנו לקבל את פרטי המיקום שלך. וודא שפונקציות המיקום בטלפון שלך מופעלות.</string>
+    <string name="kahf_location_could_not_get_app_level">עליך להעניק הרשאת מיקום בהגדרות המכשיר שלך כדי להציג דף זה. עבור אל ההרשאה למיקום בדף המופנה והענק הרשאה.</string>
 
 
     <!-- EOF -->

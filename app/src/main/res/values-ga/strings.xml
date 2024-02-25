@@ -5924,6 +5924,16 @@
     <string name="kahf_add_story">+Cuir scéal leis</string>
     <string name="kahf_kahf_story">Scéal an Chabháin</string>
     <string name="kahf_safe_chat">Caint shábháilte</string>
+    <string name="kahf_alert">Folúis</string>
+    <string name="kahf_hours">Uaireanta</string>
+    <string name="kahf_hours_left">Uaireanta Fágtha</string>
+    <string name="kahf_secs_left">Soicindí Fágtha</string>
+    <string name="kahf_hours_until">uaireadóir go dtí</string>
+    <string name="kahf_minutes_until">nóiméad go dtí</string>
+    <string name="kahf_secs_until">soicind go dtí</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Níor fhéadamar do fhaisnéis láthair a bhailiú. Cinntigh go bhfuil gnéithe áiteachais do ghuthán ar siúl.</string>
+    <string name="kahf_location_could_not_get_app_level">Ní mór duit cead a thabhairt do sheoladh i shocruithe do mhíreanna chun an leathanach seo a fheiceáil. Téigh go dtí an ceadúnas d\'fhostaítear ar an leathanach a threorú agus tabhair ceadúnas.</string>
 
     <!-- EOF -->
 

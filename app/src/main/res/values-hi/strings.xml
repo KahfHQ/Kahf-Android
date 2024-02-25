@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+कहानी जोड़ें</string>
     <string name="kahf_kahf_story">गुफा की कहानी</string>
     <string name="kahf_safe_chat">सुरक्षित चैट</string>
+    <string name="kahf_alert">चेतावनी</string>
+    <string name="kahf_hours">घंटे</string>
+    <string name="kahf_hours_left">बचे हुए घंटे</string>
+    <string name="kahf_secs_left">बचे हुए सेकंड</string>
+    <string name="kahf_hours_until">घंटे बाद</string>
+    <string name="kahf_minutes_until">मिनट बाद</string>
+    <string name="kahf_secs_until">सेकंड बाद</string>
+    <string name="kahf_isha">ईशा</string>
+    <string name="kahf_location_could_not_get">हम आपके स्थान की जानकारी प्राप्त नहीं कर सके। कृपया सुनिश्चित करें कि आपके फोन के स्थान सुविधाएँ चालू हैं।</string>
+    <string name="kahf_location_could_not_get_app_level">आपको इस पृष्ठ को देखने के लिए अपने डिवाइस की सेटिंग्स में स्थान अनुमति देनी होगी। कृपया स्थान अनुमति पर रिडायरेक्ट किए गए पृष्ठ पर जाएं और अनुमति दें।</string>
 
     <!-- EOF -->
 

@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">+ Қысқаша қосу</string>
     <string name="kahf_kahf_story">Каф қысқашасы</string>
     <string name="kahf_safe_chat">Қауіпсіз сөйлеу</string>
-
+    <string name="kahf_alert">Хабарлама</string>
+    <string name="kahf_hours">Сағат</string>
+    <string name="kahf_hours_left">Қалған сағаттар</string>
+    <string name="kahf_secs_left">Қалған секундтар</string>
+    <string name="kahf_hours_until">сағаттан кейін</string>
+    <string name="kahf_minutes_until">минуттан кейін</string>
+    <string name="kahf_secs_until">секундтан кейін</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Мекенжайыңызды алу мүмкін болмады. Ұялы телефонңыздың орналасу мүмкіндіктерін бағдарлағын ашуларыңызды тексеріңіз.</string>
+    <string name="kahf_location_could_not_get_app_level">Бұл бетті көру үшін құрылғыңыздың параметрлерінде орналасу рұқсатын беруіңіз керек. Тіркелгінің орналасу рұқсатына өтуіңіз керек және рұқсат беріңіз.</string>
 
     <!-- EOF -->
 

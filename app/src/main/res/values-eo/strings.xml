@@ -4408,6 +4408,16 @@ Ricevis mesaĝon pri interŝanĝo de ŝlosiloj por nevalida protokola versio.
   <string name="kahf_add_story">+Aldoni rakonton</string>
   <string name="kahf_kahf_story">Kahf Rakonto</string>
   <string name="kahf_safe_chat">Sekura babilado</string>
+  <string name="kahf_alert">Averto</string>
+  <string name="kahf_hours">Horoj</string>
+  <string name="kahf_hours_left">Restantaj horoj</string>
+  <string name="kahf_secs_left">Restantaj sekundoj</string>
+  <string name="kahf_hours_until">horoj ĝis</string>
+  <string name="kahf_minutes_until">minutoj ĝis</string>
+  <string name="kahf_secs_until">sekundoj ĝis</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Ni ne povis akiri viajn lokajn informojn. Certiĝu, ke la lokaj funkcioj de via telefono estas ŝaltitaj.</string>
+  <string name="kahf_location_could_not_get_app_level">Vi devas doni lokpermeson en via aparato por vidi tiun ĉi paĝon. Iru al la loko-permeso sur la redirektita paĝo kaj donu la permeson.</string>
 
   <!--EOF-->
 </resources>

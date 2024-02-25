@@ -5802,6 +5802,16 @@
     <string name="kahf_add_story">+Dodaj priču</string>
     <string name="kahf_kahf_story">Priča o pećini</string>
     <string name="kahf_safe_chat">Siguran razgovor</string>
+    <string name="kahf_alert">Upozorenje</string>
+    <string name="kahf_hours">Sati</string>
+    <string name="kahf_hours_left">Preostali sati</string>
+    <string name="kahf_secs_left">Preostali sekundi</string>
+    <string name="kahf_hours_until">sati do</string>
+    <string name="kahf_minutes_until">minute do</string>
+    <string name="kahf_secs_until">sekunde do</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Nismo mogli dohvatiti vaše lokacijske informacije. Provjerite jesu li značajke lokacije na vašem telefonu uključene.</string>
+    <string name="kahf_location_could_not_get_app_level">Da biste vidjeli ovu stranicu, morate dodijeliti dozvolu za lokaciju u postavkama uređaja. Idite na dozvolu za lokaciju na preusmjerenom mjestu i dodijelite dozvolu.</string>
 
     <!-- EOF -->
 

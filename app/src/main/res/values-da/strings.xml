@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+Tilføj historie</string>
     <string name="kahf_kahf_story">Kahf Historie</string>
     <string name="kahf_safe_chat">Sikker chat</string>
+    <string name="kahf_alert">Advarsel</string>
+    <string name="kahf_hours">Timer</string>
+    <string name="kahf_hours_left">Timer tilbage</string>
+    <string name="kahf_secs_left">Sekunder tilbage</string>
+    <string name="kahf_hours_until">timer indtil</string>
+    <string name="kahf_minutes_until">minutter indtil</string>
+    <string name="kahf_secs_until">sekunder indtil</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Vi kunne ikke hente dine placeringsoplysninger. Sørg for, at din telefons placeringsfunktioner er aktiveret.</string>
+    <string name="kahf_location_could_not_get_app_level">Du skal give tilladelse til placering i din enhedsindstillinger for at se denne side. Gå til placeringstilladelsen på den omstyrede side og tildel tilladelsen.</string>
 
     <!-- EOF -->
 

@@ -1722,6 +1722,16 @@
   <string name="kahf_add_story">+Tambah Cerita</string>
   <string name="kahf_kahf_story">Cerita Kahf</string>
   <string name="kahf_safe_chat">Ngobrol Aman</string>
+  <string name="kahf_alert">Ingat</string>
+  <string name="kahf_hours">Jam</string>
+  <string name="kahf_hours_left">Jam sing Sisa</string>
+  <string name="kahf_secs_left">Detik sing Sisa</string>
+  <string name="kahf_hours_until">jam menyang</string>
+  <string name="kahf_minutes_until">menit menyang</string>
+  <string name="kahf_secs_until">detik menyang</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Kami ora bisa nggoleki informasi lokasi sampeyan. Pastikan fitur lokasi ponsel sampeyan wis diaktifake.</string>
+  <string name="kahf_location_could_not_get_app_level">Sampeyan kudu menehi ijin lokasi ing setelan piranti sampeyan kanggo ngelihat kaca iki. Mbeneri marang ijin lokasi ing kaca sing dialihaken lan menehi ijin.</string>
 
   <!--EOF-->
 </resources>

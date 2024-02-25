@@ -5802,7 +5802,16 @@
     <string name="kahf_add_story">Добавить историю</string>
     <string name="kahf_kahf_story">История Kahf</string>
     <string name="kahf_safe_chat">Безопасный чат</string>
-
+    <string name="kahf_alert">Предупреждение</string>
+    <string name="kahf_hours">Часы</string>
+    <string name="kahf_hours_left">Осталось часов</string>
+    <string name="kahf_secs_left">Осталось секунд</string>
+    <string name="kahf_hours_until">часов до</string>
+    <string name="kahf_minutes_until">минут до</string>
+    <string name="kahf_secs_until">секунд до</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Мы не смогли получить информацию о вашем местоположении. Убедитесь, что функции определения местоположения вашего телефона включены.</string>
+    <string name="kahf_location_could_not_get_app_level">Вы должны предоставить разрешение на местоположение в настройках вашего устройства, чтобы просмотреть эту страницу. Перейдите к разрешению на местоположение на перенаправленной странице и предоставьте разрешение.</string>
 
     <!-- EOF -->
 

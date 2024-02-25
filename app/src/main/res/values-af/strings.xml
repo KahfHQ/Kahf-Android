@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+Voeg Storie By</string>
     <string name="kahf_kahf_story">Kahf Storie</string>
     <string name="kahf_safe_chat">Veilige Geselskap</string>
+    <string name="kahf_alert">Waarskuwing</string>
+    <string name="kahf_hours">Uur</string>
+    <string name="kahf_hours_left">Oorblywende ure</string>
+    <string name="kahf_secs_left">Oorblywende sekondes</string>
+    <string name="kahf_hours_until">uur tot</string>
+    <string name="kahf_minutes_until">minuut tot</string>
+    <string name="kahf_secs_until">sekonde tot</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Ons kon nie jou ligginginligting herwin nie. Maak asseblief seker dat jou foon se liggingkenmerke aan is.</string>
+    <string name="kahf_location_could_not_get_app_level">Jy moet liggingtoestemming verleen in die toestelseinstellings om hierdie bladsy te vertoon. Gaan asseblief na die liggingtoestemming op die omgeleide bladsy en verleen toestemming.</string>
 
     <!-- EOF -->
 

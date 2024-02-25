@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">Verhaal Toevoegen</string>
     <string name="kahf_kahf_story">Kahf Verhaal</string>
     <string name="kahf_safe_chat">Veilig Gesprek</string>
-
+    <string name="kahf_alert">Waarschuwing</string>
+    <string name="kahf_hours">Uren</string>
+    <string name="kahf_hours_left">Uren over</string>
+    <string name="kahf_secs_left">Seconden over</string>
+    <string name="kahf_hours_until">uren tot</string>
+    <string name="kahf_minutes_until">minuten tot</string>
+    <string name="kahf_secs_until">seconden tot</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">We konden uw locatiegegevens niet ophalen. Zorg ervoor dat de locatiefuncties van uw telefoon zijn ingeschakeld.</string>
+    <string name="kahf_location_could_not_get_app_level">U moet toestemming geven voor locatie in de instellingen van uw apparaat om deze pagina te bekijken. Ga naar locatietoestemming op de doorgestuurde pagina en geef toestemming.</string>
 
     <!-- EOF -->
 

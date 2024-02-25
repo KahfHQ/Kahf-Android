@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">+ Додај причу</string>
     <string name="kahf_kahf_story">Кахф прича</string>
     <string name="kahf_safe_chat">Сигуран чет</string>
-
+    <string name="kahf_alert">Упозорење</string>
+    <string name="kahf_hours">Сати</string>
+    <string name="kahf_hours_left">Остало сати</string>
+    <string name="kahf_secs_left">Преостали секунди</string>
+    <string name="kahf_hours_until">сати до</string>
+    <string name="kahf_minutes_until">минута до</string>
+    <string name="kahf_secs_until">секунди до</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Нисмо могли добити информације о вашој локацији. Проверите да ли су функције локације вашег телефона укључене.</string>
+    <string name="kahf_location_could_not_get_app_level">Морате дозволити дозволу за локацију у подешавањима вашег уређаја да бисте видели ову страницу. Идите на дозволу за локацију на преусмереној страници и дозволите дозволу.</string>
 
     <!-- EOF -->
 

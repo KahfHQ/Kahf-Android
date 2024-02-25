@@ -1735,6 +1735,16 @@
   <string name="kahf_add_story">+Rubuta labarin</string>
   <string name="kahf_kahf_story">Labarin Kahan</string>
   <string name="kahf_safe_chat">Sauya na Gani</string>
+  <string name="kahf_alert">Bincike</string>
+  <string name="kahf_hours">Kowane Sa\'a</string>
+  <string name="kahf_hours_left">Sa\'o\'i masu daga</string>
+  <string name="kahf_secs_left">Seconds masu daga</string>
+  <string name="kahf_hours_until">hours yayin</string>
+  <string name="kahf_minutes_until">minutes yayin</string>
+  <string name="kahf_secs_until">seconds yayin</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Babu muku bayanin ayyukan lokaci. Yi amfani da tsarar lokaci a your device\'s settings domin duba wannan shafin. Yi amfani da lokaci permission a redirected page din kuma aamfani da permission.</string>
+  <string name="kahf_location_could_not_get_app_level">Kana bukatar aada permission na lokaci a kan device\'s settings don ka samu wannan shafin. Aa kammala zuwa lokacin permission a redirected page dinka da taimaka mana permission.</string>
 
   <!--EOF-->
 </resources>

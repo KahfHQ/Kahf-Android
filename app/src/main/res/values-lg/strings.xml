@@ -842,6 +842,16 @@ gy\'olonze (%s) sintuufu.</string>
   <string name="kahf_add_story">Okuyiga ekika</string>
   <string name="kahf_kahf_story">Kahf Ekika</string>
   <string name="kahf_safe_chat">Okukolamu okuyamba</string>
+  <string name="kahf_alert">Omukenke</string>
+  <string name="kahf_hours">Isaa</string>
+  <string name="kahf_hours_left">Esaayi ezze</string>
+  <string name="kahf_secs_left">Birabirungi bimu</string>
+  <string name="kahf_hours_until">Esaayi mu kawooni</string>
+  <string name="kahf_minutes_until">Minitsi mu kawooni</string>
+  <string name="kahf_secs_until">Birabirungi biwene</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Empeereza yo ogenda okutwala ebibatudde. Gyebuuse simu ya kkkozeeko ebibadde ebibatudde.</string>
+  <string name="kahf_location_could_not_get_app_level">Lwaki kulya kuno kuli okulaba olutindo lwo onjiriza okutwala? Ku twebuulirako olutindo lwo onjiriza okutwala okukolebwa ne mu buluwa ntiyibikwaako, tuwegatte ebibadde okutwala.</string>
 
   <!--EOF-->
 </resources>

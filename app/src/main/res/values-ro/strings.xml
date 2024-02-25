@@ -5680,6 +5680,17 @@
     <string name="kahf_add_story">Adaugă poveste</string>
     <string name="kahf_kahf_story">Poveste Kahf</string>
     <string name="kahf_safe_chat">Chat sigur</string>
+    <string name="kahf_alert">Avertizare</string>
+    <string name="kahf_hours">Ore</string>
+    <string name="kahf_hours_left">Ore Rămase</string>
+    <string name="kahf_secs_left">Secunde Rămase</string>
+    <string name="kahf_hours_until">ore până la</string>
+    <string name="kahf_minutes_until">minute până la</string>
+    <string name="kahf_secs_until">secunde până la</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Nu am putut obține informațiile despre locația dvs. Asigurați-vă că funcțiile de localizare ale telefonului dvs. sunt activate.</string>
+    <string name="kahf_location_could_not_get_app_level">Trebuie să acordați permisiunea pentru locație în setările dispozitivului pentru a vizualiza această pagină. Mergeți la permisiunea de locație pe pagina redirecționată și acordați permisiunea.</string>
+
 
 
     <!-- EOF -->

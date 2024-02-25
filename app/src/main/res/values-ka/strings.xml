@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">+ ისტორია დამატება</string>
     <string name="kahf_kahf_story">კაჰფის ისტორია</string>
     <string name="kahf_safe_chat">უსაფრთხო ჩეთი</string>
-
+    <string name="kahf_alert">გაფრთხილება</string>
+    <string name="kahf_hours">საათები</string>
+    <string name="kahf_hours_left">დარჩენილი საათები</string>
+    <string name="kahf_secs_left">დარჩენილი წამები</string>
+    <string name="kahf_hours_until">საათი მერე</string>
+    <string name="kahf_minutes_until">წუთი მერე</string>
+    <string name="kahf_secs_until">წამი მერე</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">ჩვენ ვერ შევძელებთ თქვენს ადგილის მონაცემების მიღებას. გთხოვთ, დარწმუნდეთ, რომ თქვენი ტელეფონის ადგილის ჩართვის ფუნქციები ჩართულია.</string>
+    <string name="kahf_location_could_not_get_app_level">თქვენ უნდა მიეცით ადგილის ნება თქვენს მოწყობილობის პარამეტრებში, რათა შეძლოთ გვერდის ნახვა. გადადით ადგილის ნებაზე გვერდზე და მიეცით ნება.</string>
 
     <!-- EOF -->
 

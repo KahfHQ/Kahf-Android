@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+Lisa lugu</string>
     <string name="kahf_kahf_story">Kahfi lugu</string>
     <string name="kahf_safe_chat">Turvaline vestlus</string>
+    <string name="kahf_alert">Hoiatus</string>
+    <string name="kahf_hours">Tunnid</string>
+    <string name="kahf_hours_left">Jäänud tunnid</string>
+    <string name="kahf_secs_left">Jäänud sekundid</string>
+    <string name="kahf_hours_until">tundi kuni</string>
+    <string name="kahf_minutes_until">minutit kuni</string>
+    <string name="kahf_secs_until">sekundit kuni</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Me ei suutnud teie asukohta hankida. Veenduge, et teie telefoni asukohafunktsioonid on sisse lülitatud.</string>
+    <string name="kahf_location_could_not_get_app_level">Selle lehe vaatamiseks peate oma seadme seadetes andma asukohaluba. Minge ümbersuunatud lehel asukohaluba ja andke luba.</string>
 
     <!-- EOF -->
 

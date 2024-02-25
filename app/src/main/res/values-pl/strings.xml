@@ -5802,7 +5802,16 @@
     <string name="kahf_add_story">Dodaj historię</string>
     <string name="kahf_kahf_story">Historia Kahf</string>
     <string name="kahf_safe_chat">Bezpieczny czat</string>
-
+    <string name="kahf_alert">Ostrzeżenie</string>
+    <string name="kahf_hours">Godziny</string>
+    <string name="kahf_hours_left">Pozostało godzin</string>
+    <string name="kahf_secs_left">Pozostało sekund</string>
+    <string name="kahf_hours_until">godziny do</string>
+    <string name="kahf_minutes_until">minuty do</string>
+    <string name="kahf_secs_until">sekundy do</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Nie mogliśmy pobrać Twojej lokalizacji. Upewnij się, że funkcje lokalizacji na Twoim telefonie są włączone.</string>
+    <string name="kahf_location_could_not_get_app_level">Musisz udzielić uprawnień do lokalizacji w ustawieniach urządzenia, aby wyświetlić tę stronę. Przejdź do uprawnień lokalizacji na przekierowanej stronie i udziel uprawnień.</string>
 
     <!-- EOF -->
 

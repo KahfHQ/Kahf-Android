@@ -2510,6 +2510,16 @@
   <string name="kahf_add_story">+ Gutarê Zêde Bike</string>
   <string name="kahf_kahf_story">Gutarê Kahf</string>
   <string name="kahf_safe_chat">Gotarên Eman</string>
+  <string name="kahf_alert">Agahiyê</string>
+  <string name="kahf_hours">Dem</string>
+  <string name="kahf_hours_left">Dem dike</string>
+  <string name="kahf_secs_left">Sekundên dike</string>
+  <string name="kahf_hours_until">Piştî demê</string>
+  <string name="kahf_minutes_until">Piştî demê dekik</string>
+  <string name="kahf_secs_until">Piştî demê saniyê</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Me agahîyê derbarê cîhê te negirt. Diqewime ku tîpên cîhê telefonê we xuya nekirin.</string>
+  <string name="kahf_location_could_not_get_app_level">Peyvên konumê derbas bibe ji bo ku vê rûpela bibîne, hûn divê û dibin. Lêgerîna peyva konumê ya li rûpelê hatî vedibêje û baweriyê bide.</string>
 
   <!--EOF-->
 </resources>

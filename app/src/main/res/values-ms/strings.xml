@@ -5436,7 +5436,16 @@
     <string name="kahf_add_story">Tambah Cerita</string>
     <string name="kahf_kahf_story">Cerita Kahf</string>
     <string name="kahf_safe_chat">Sembang Selamat</string>
-
+    <string name="kahf_alert">Amaran</string>
+    <string name="kahf_hours">Jam</string>
+    <string name="kahf_hours_left">Jam Tinggal</string>
+    <string name="kahf_secs_left">Sekund Tinggal</string>
+    <string name="kahf_hours_until">jam lagi</string>
+    <string name="kahf_minutes_until">minit lagi</string>
+    <string name="kahf_secs_until">saat lagi</string>
+    <string name="kahf_isha">Isyak</string>
+    <string name="kahf_location_could_not_get">Kami tidak dapat mendapatkan maklumat lokasi anda. Sila pastikan ciri-ciri lokasi telefon anda telah dihidupkan.</string>
+    <string name="kahf_location_could_not_get_app_level">Anda perlu memberi kebenaran lokasi dalam tetapan peranti anda untuk melihat halaman ini. Sila pergi ke kebenaran lokasi pada halaman yang dialihkan dan beri kebenaran.</string>
 
     <!-- EOF -->
 

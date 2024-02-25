@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">+ Lägg till berättelse</string>
     <string name="kahf_kahf_story">Kahf berättelse</string>
     <string name="kahf_safe_chat">Säker chatt</string>
-
+    <string name="kahf_alert">Varning</string>
+    <string name="kahf_hours">Timmar</string>
+    <string name="kahf_hours_left">Timmar kvar</string>
+    <string name="kahf_secs_left">Sekunder kvar</string>
+    <string name="kahf_hours_until">timmar till</string>
+    <string name="kahf_minutes_until">minuter till</string>
+    <string name="kahf_secs_until">sekunder till</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Vi kunde inte hämta din platsinformation. Se till att din telefons platstjänster är aktiverade.</string>
+    <string name="kahf_location_could_not_get_app_level">Du måste ge platstillstånd i din enhets inställningar för att visa den här sidan. Gå till platstillstånd på den omstyrda sidan och ge tillstånd.</string>
 
     <!-- EOF -->
 

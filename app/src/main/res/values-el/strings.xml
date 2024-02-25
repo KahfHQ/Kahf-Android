@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+Προσθήκη ιστορίας</string>
     <string name="kahf_kahf_story">Ιστορία της Σπηλιάς</string>
     <string name="kahf_safe_chat">Ασφαλής συνομιλία</string>
+    <string name="kahf_alert">Προειδοποίηση</string>
+    <string name="kahf_hours">Ώρες</string>
+    <string name="kahf_hours_left">Ωρες αριστερά</string>
+    <string name="kahf_secs_left">Δευτερόλεπτα αριστερά</string>
+    <string name="kahf_hours_until">ώρες μέχρι</string>
+    <string name="kahf_minutes_until">λεπτά μέχρι</string>
+    <string name="kahf_secs_until">δευτερόλεπτα μέχρι</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Δεν μπορέσαμε να ανακτήσουμε τις πληροφορίες τοποθεσίας σας. Βεβαιωθείτε ότι οι λειτουργίες τοποθεσίας του τηλεφώνου σας είναι ενεργοποιημένες.</string>
+    <string name="kahf_location_could_not_get_app_level">Πρέπει να δώσετε άδεια για την τοποθεσία στις ρυθμίσεις της συσκευής σας για να δείτε αυτήν τη σελίδα. Μεταβείτε στην άδεια τοποθεσίας στην ανακατευθυνθείσα σελίδα και δώστε άδεια.</string>
 
     <!-- EOF -->
 

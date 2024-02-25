@@ -2837,5 +2837,15 @@
   <string name="kahf_add_story">+ ଗଳ୍ପ ଯୋଗ କରନ୍ତୁ</string>
   <string name="kahf_kahf_story">କାହଫ୍ ଗଳ୍ପ</string>
   <string name="kahf_safe_chat">ସୁରକ୍ଷିତ ସଂଭାଷଣ</string>
+  <string name="kahf_alert">ସୂଚନା</string>
+  <string name="kahf_hours">ଘଣ୍ଟା</string>
+  <string name="kahf_hours_left">ଘଣ୍ଟା ଅଛି</string>
+  <string name="kahf_secs_left">ମିନିଟ ଅଛି</string>
+  <string name="kahf_hours_until">ଘଣ୍ଟା ପରେ</string>
+  <string name="kahf_minutes_until">ମିନିଟ୍‌ର ପରେ</string>
+  <string name="kahf_secs_until">ମିନିଟ ପରେ</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">ଆମେ ତୁମର ସ୍ଥାନ ତଥ୍ୟାଙ୍କ ପାଇଁ ପ୍ରାପ୍ତ କରିବା ପାରିନାହାଁ । ଦୟା କରି ନିଜର ଫୋନ୍‌ର ସ୍ଥାନ ସେଟିଂର ଓନ ହେବାକୁ ନିଶ୍ଚିତ କରନ୍ତୁ ।</string>
+  <string name="kahf_location_could_not_get_app_level">ଏହି ପୃଷ୍ଠା ଦେଖିବା ପାଇଁ ଆପଣଙ୍କ ଡିଭାଇସ୍‌ର ସେଟିଂରେ ସ୍ଥାନ ଅନୁମତି ଦିଅବା ପରେମୁଆଁ ଆପଣଙ୍କ ଫିଲ୍ଟରେଟ୍‌କୁ ଯାଉଥିବା ପରେ ସ୍ଥାନ ଅନୁମତି ଦିଅନ୍ତୁ ।</string>
   <!--EOF-->
 </resources>

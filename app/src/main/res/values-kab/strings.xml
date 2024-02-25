@@ -2837,6 +2837,16 @@ i d-tefkiḍ (%s) ur yeɣti ara.</string>
   <string name="kahf_add_story">+Sefli afus</string>
   <string name="kahf_kahf_story">Afus n Kahf</string>
   <string name="kahf_safe_chat">Tazwara aɣelwit</string>
+  <string name="kahf_alert">Ẓerɛa</string>
+  <string name="kahf_hours">Saat</string>
+  <string name="kahf_hours_left">Saat i ssefk</string>
+  <string name="kahf_secs_left">Tafṛansist i ssefk</string>
+  <string name="kahf_hours_until">saet d</string>
+  <string name="kahf_minutes_until">ddaqqa d</string>
+  <string name="kahf_secs_until">Tafṛansist d</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Ma yella d neɣ izen yettwasqedcen ɣer tefyirt nwen. Sser ur nnaɣ d aqur-a n tsekla-ines tiẓmit n telefon-nwen.</string>
+  <string name="kahf_location_could_not_get_app_level">Ṣṣut ad d-iteddun yezmer ad tettban ad tetrus tirna n teɣzi-ines deg tizdamt n yidiant-ines neɣ tuṣacucut. Araɣ-d ufrun tirna n tseklant neɣ tuṣacucut.</string>
 
   <!--EOF-->
 </resources>

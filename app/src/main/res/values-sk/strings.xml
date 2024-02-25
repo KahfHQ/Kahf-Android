@@ -5802,7 +5802,16 @@
     <string name="kahf_add_story">Pridať príbeh</string>
     <string name="kahf_kahf_story">Príbeh Kahf</string>
     <string name="kahf_safe_chat">Bezpečný chat</string>
-
+    <string name="kahf_alert">Upozornenie</string>
+    <string name="kahf_hours">Hodiny</string>
+    <string name="kahf_hours_left">Zostávajú hodiny</string>
+    <string name="kahf_secs_left">Zostávajú sekundy</string>
+    <string name="kahf_hours_until">hodín do</string>
+    <string name="kahf_minutes_until">minút do</string>
+    <string name="kahf_secs_until">sekúnd do</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Nepodarilo sa získať informácie o vašej polohe. Uistite sa, že funkcie určenia polohy vášho telefónu sú zapnuté.</string>
+    <string name="kahf_location_could_not_get_app_level">Musíte povoliť povolenie polohy v nastaveniach zariadenia, aby ste mohli zobraziť túto stránku. Prejdite na povolenie polohy na presmerovanej stránke a povolte povolenie.</string>
 
     <!-- EOF -->
 

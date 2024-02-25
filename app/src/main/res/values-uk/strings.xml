@@ -5802,6 +5802,17 @@
     <string name="kahf_add_story">+Додати історію</string>
     <string name="kahf_kahf_story">Історія Каф</string>
     <string name="kahf_safe_chat">Безпечний чат</string>
+    <string name="kahf_alert">Попередження</string>
+    <string name="kahf_hours">Години</string>
+    <string name="kahf_hours_left">Залишилося годин</string>
+    <string name="kahf_secs_left">Залишилося секунд</string>
+    <string name="kahf_hours_until">годин до</string>
+    <string name="kahf_minutes_until">хвилин до</string>
+    <string name="kahf_secs_until">секунд до</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Ми не змогли отримати інформацію про ваше місцезнаходження. Переконайтеся, що функції визначення місцезнаходження вашого телефону увімкнені.</string>
+    <string name="kahf_location_could_not_get_app_level">Вам потрібно надати дозвіл на розташування в налаштуваннях пристрою, щоб переглянути цю сторінку. Перейдіть до дозволу розташування на перенаправленій сторінці та надайте дозвіл.</string>
+
 
 
     <!-- EOF -->

@@ -5558,7 +5558,16 @@
     <string name="kahf_add_story">+ کہانی شامل کریں</string>
     <string name="kahf_kahf_story">Kahf کہانی</string>
     <string name="kahf_safe_chat">محفوظ چیٹ</string>
-
+    <string name="kahf_alert">انتباہ</string>
+    <string name="kahf_hours">گھنٹے</string>
+    <string name="kahf_hours_left">بچی ہوئی گھنٹے</string>
+    <string name="kahf_secs_left">بچی ہوئی سیکنڈز</string>
+    <string name="kahf_hours_until">گھنٹے کے بعد</string>
+    <string name="kahf_minutes_until">منٹ کے بعد</string>
+    <string name="kahf_secs_until">سیکنڈ کے بعد</string>
+    <string name="kahf_isha">عشاء</string>
+    <string name="kahf_location_could_not_get">ہم آپ کی مقامی معلومات حاصل نہیں کر سکے۔ براہ کرم یقینی بنائیں کہ آپ کے فون کی مقام کی خصوصیات چالو ہیں۔</string>
+    <string name="kahf_location_could_not_get_app_level">آپ کو اس صفحے کو دیکھنے کے لئے آپ کے آلہ کی ترتیبات میں مقام کی اجازت دینی ہوگی۔ براہ کرم مقام کی اجازت پر ریڈائریکٹ شدہ صفحہ پر جائیں اور اجازت دیں۔</string>
 
     <!-- EOF -->
 

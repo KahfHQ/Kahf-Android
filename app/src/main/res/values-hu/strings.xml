@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+Történet hozzáadása</string>
     <string name="kahf_kahf_story">A barlang története</string>
     <string name="kahf_safe_chat">Biztonságos csevegés</string>
+    <string name="kahf_alert">Figyelmeztetés</string>
+    <string name="kahf_hours">Óra</string>
+    <string name="kahf_hours_left">Hátralévő órák</string>
+    <string name="kahf_secs_left">Hátralévő másodperc</string>
+    <string name="kahf_hours_until">órával</string>
+    <string name="kahf_minutes_until">perccel</string>
+    <string name="kahf_secs_until">másodperccel</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Nem sikerült lekérnünk a tartózkodási helyét. Győződjön meg róla, hogy a telefon helyszínelő funkciói be vannak-e kapcsolva.</string>
+    <string name="kahf_location_could_not_get_app_level">Ahhoz, hogy megtekinthesse ezt az oldalt, engedélyeznie kell a helyet a készülék beállításaiban. Menjen a hely engedélyezéséhez a továbbított oldalon, és adja meg az engedélyt.</string>
 
     <!-- EOF -->
 

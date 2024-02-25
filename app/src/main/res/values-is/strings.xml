@@ -4407,6 +4407,16 @@ hegðun þína.</string>
   <string name="kahf_add_story">+Bæta við sögu</string>
   <string name="kahf_kahf_story">Kahf Saga</string>
   <string name="kahf_safe_chat">Örugg spjall</string>
+  <string name="kahf_alert">Ávarp</string>
+  <string name="kahf_hours">Tímar</string>
+  <string name="kahf_hours_left">Eftirfarandi tímar</string>
+  <string name="kahf_secs_left">Eftirfarandi sekúndur</string>
+  <string name="kahf_hours_until">tími til</string>
+  <string name="kahf_minutes_until">mínútur til</string>
+  <string name="kahf_secs_until">sekúndur til</string>
+  <string name="kahf_isha">Isha</string>
+  <string name="kahf_location_could_not_get">Ekki tókst að ná staðsetningargögnunum þínum. Gakktu úr skugga um að staðsetningaþættir síma þíns séu virkjaðir.</string>
+  <string name="kahf_location_could_not_get_app_level">Þú verður að veita leyfi um staðsetningu í stillingum tækisins til að sjá þennan síðu. Fara á leyfi um staðsetningu á endurbeintu síðunni og veita leyfi.</string>
 
   <!--EOF-->
 </resources>

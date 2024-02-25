@@ -5558,6 +5558,16 @@
     <string name="kahf_add_story">+Lisää tarina</string>
     <string name="kahf_kahf_story">Kahf-tarina</string>
     <string name="kahf_safe_chat">Turvallinen keskustelu</string>
+    <string name="kahf_alert">Hälytys</string>
+    <string name="kahf_hours">Tunnit</string>
+    <string name="kahf_hours_left">Jäljellä olevat tunnit</string>
+    <string name="kahf_secs_left">Jäljellä olevat sekunnit</string>
+    <string name="kahf_hours_until">tunnin kuluttua</string>
+    <string name="kahf_minutes_until">minuutin kuluttua</string>
+    <string name="kahf_secs_until">sekunnin kuluttua</string>
+    <string name="kahf_isha">Isha</string>
+    <string name="kahf_location_could_not_get">Emme voineet noutaa sijaintitietojasi. Varmista, että puhelimesi sijaintiominaisuudet ovat käytössä.</string>
+    <string name="kahf_location_could_not_get_app_level">Sinun on myönnettävä sijaintilupa laitteesi asetuksista nähdäksesi tämän sivun. Mene sijaintilupaan ohjatulle sivulle ja myönnä lupa.</string>
 
     <!-- EOF -->
 
